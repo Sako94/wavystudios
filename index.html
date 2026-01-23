@@ -322,15 +322,26 @@
             margin-top: 0.25rem;
         }
 
-        /* Hero Visual - Brand Logos */
+        /* Hero Visual - Service Orbit */
         .hero-visual {
             position: relative;
         }
-        .brand-orbit {
+        .orbit-wrapper {
             position: relative;
-            width: 400px;
-            height: 400px;
+            width: 420px;
+            height: 420px;
             margin: 0 auto;
+        }
+        .brand-orbit {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            animation: slowRotate 90s linear infinite;
+        }
+        @keyframes slowRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
         .brand-center {
             position: absolute;
@@ -339,14 +350,16 @@
             width: 120px; height: 120px;
             background: var(--bg-secondary);
             border: 2px solid var(--accent-lime);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            z-index: 2;
+            z-index: 10;
+            box-shadow: 0 0 40px rgba(200, 255, 0, 0.15);
         }
         .brand-center-icon {
-            font-size: 2rem;
+            font-size: 1.75rem;
             margin-bottom: 0.25rem;
         }
         .brand-center-text {
@@ -362,37 +375,66 @@
             border: 1px dashed var(--border-medium);
             border-radius: 50%;
         }
-        .orbit-ring-1 { width: 250px; height: 250px; }
+        .orbit-ring-1 { width: 260px; height: 260px; }
         .orbit-ring-2 { width: 380px; height: 380px; }
-        .brand-node {
+        .service-node {
             position: absolute;
             width: 70px; height: 70px;
             background: var(--bg-secondary);
-            border: 1px solid var(--border-medium);
+            border: 2px solid var(--border-medium);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: var(--font-display);
-            font-size: 0.6rem;
-            font-weight: 700;
-            color: var(--text-primary);
             transition: all 0.3s ease;
-            text-align: center;
-            padding: 0.5rem;
-            line-height: 1.2;
         }
-        .brand-node:hover {
+        .service-node:hover {
             border-color: var(--accent-lime);
             transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(200, 255, 0, 0.2);
         }
-        .brand-node:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
-        .brand-node:nth-child(2) { top: 15%; right: 5%; }
-        .brand-node:nth-child(3) { top: 50%; right: -5%; transform: translateY(-50%); }
-        .brand-node:nth-child(4) { bottom: 15%; right: 5%; }
-        .brand-node:nth-child(5) { bottom: 0; left: 50%; transform: translateX(-50%); }
-        .brand-node:nth-child(6) { bottom: 15%; left: 5%; }
-        .brand-node:nth-child(7) { top: 50%; left: -5%; transform: translateY(-50%); }
-        .brand-node:nth-child(8) { top: 15%; left: 5%; }
+        /* Inner content counter-rotates to stay upright */
+        .service-node-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            animation: slowRotate 90s linear infinite reverse;
+        }
+        .service-node-icon {
+            font-size: 1.25rem;
+            margin-bottom: 0.15rem;
+        }
+        .service-node-text {
+            font-family: var(--font-display);
+            font-size: 0.45rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.1;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+        /* Position 8 nodes evenly in a circle (every 45 degrees) */
+        /* Using trigonometry: x = cos(angle) * radius, y = sin(angle) * radius */
+        /* Radius = 155px from center, offset by half node width (35px) */
+        .service-node:nth-child(1) { top: 50%; left: 50%; margin-top: -190px; margin-left: -35px; } /* 0° - top */
+        .service-node:nth-child(2) { top: 50%; left: 50%; margin-top: -134px; margin-left: 75px; }  /* 45° */
+        .service-node:nth-child(3) { top: 50%; left: 50%; margin-top: -35px; margin-left: 120px; }  /* 90° - right */
+        .service-node:nth-child(4) { top: 50%; left: 50%; margin-top: 64px; margin-left: 75px; }    /* 135° */
+        .service-node:nth-child(5) { top: 50%; left: 50%; margin-top: 120px; margin-left: -35px; }  /* 180° - bottom */
+        .service-node:nth-child(6) { top: 50%; left: 50%; margin-top: 64px; margin-left: -145px; }  /* 225° */
+        .service-node:nth-child(7) { top: 50%; left: 50%; margin-top: -35px; margin-left: -190px; } /* 270° - left */
+        .service-node:nth-child(8) { top: 50%; left: 50%; margin-top: -134px; margin-left: -145px; }/* 315° */
+        /* Color accents for each service */
+        .service-node:nth-child(1) { border-color: var(--accent-lime); }
+        .service-node:nth-child(2) { border-color: var(--accent-blue); }
+        .service-node:nth-child(3) { border-color: var(--accent-purple); }
+        .service-node:nth-child(4) { border-color: var(--accent-coral); }
+        .service-node:nth-child(5) { border-color: var(--accent-teal); }
+        .service-node:nth-child(6) { border-color: var(--accent-emerald); }
+        .service-node:nth-child(7) { border-color: var(--accent-blue); }
+        .service-node:nth-child(8) { border-color: var(--accent-coral); }
 
         /* === LOGOS BAR === */
         .logos-bar {
@@ -1068,21 +1110,66 @@
                 </div>
             </div>
             <div class="hero-visual">
-                <div class="brand-orbit">
-                    <div class="orbit-ring orbit-ring-1"></div>
-                    <div class="orbit-ring orbit-ring-2"></div>
+                <div class="orbit-wrapper">
+                    <!-- Center stays fixed -->
                     <div class="brand-center">
                         <div class="brand-center-icon">⚡</div>
                         <div class="brand-center-text">Growth OS</div>
                     </div>
-                    <div class="brand-node">Alphalete</div>
-                    <div class="brand-node">STNDRD</div>
-                    <div class="brand-node">RAW Nutrition</div>
-                    <div class="brand-node">BuffBunny</div>
-                    <div class="brand-node">Helios</div>
-                    <div class="brand-node">Pink Friday</div>
-                    <div class="brand-node">MFF</div>
-                    <div class="brand-node">CallBaba</div>
+                    <!-- Rings stay fixed -->
+                    <div class="orbit-ring orbit-ring-1"></div>
+                    <div class="orbit-ring orbit-ring-2"></div>
+                    <!-- Only the nodes rotate -->
+                    <div class="brand-orbit">
+                        <div class="service-node">
+                            <div class="service-node-inner">
+                                <span class="service-node-icon">📱</span>
+                                <span class="service-node-text">Paid Social</span>
+                            </div>
+                        </div>
+                        <div class="service-node">
+                            <div class="service-node-inner">
+                                <span class="service-node-icon">🔍</span>
+                                <span class="service-node-text">Paid Search</span>
+                            </div>
+                        </div>
+                        <div class="service-node">
+                            <div class="service-node-inner">
+                                <span class="service-node-icon">📧</span>
+                                <span class="service-node-text">Email & SMS</span>
+                            </div>
+                        </div>
+                        <div class="service-node">
+                            <div class="service-node-inner">
+                                <span class="service-node-icon">🎬</span>
+                                <span class="service-node-text">Creative</span>
+                            </div>
+                        </div>
+                        <div class="service-node">
+                            <div class="service-node-inner">
+                                <span class="service-node-icon">📈</span>
+                                <span class="service-node-text">CRO</span>
+                            </div>
+                        </div>
+                        <div class="service-node">
+                            <div class="service-node-inner">
+                                <span class="service-node-icon">🎯</span>
+                                <span class="service-node-text">Attribution</span>
+                            </div>
+                        </div>
+                        <div class="service-node">
+                            <div class="service-node-inner">
+                                <span class="service-node-icon">🔄</span>
+                                <span class="service-node-text">Retention</span>
+                            </div>
+                        </div>
+                        <div class="service-node">
+                            <div class="service-node-inner">
+                                <span class="service-node-icon">📊</span>
+                                <span class="service-node-text">Analytics</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
