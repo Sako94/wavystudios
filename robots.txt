@@ -1,0 +1,15 @@
+# Wavy Studios robots.txt
+# https://wavystudios.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://wavystudios.com/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1
+
+# Disallow any admin or private areas (add as needed)
+# Disallow: /admin/
+# Disallow: /private/
