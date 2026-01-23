@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wavy Studios | Growth Systems, Not Channel Hacks</title>
-    <meta name="description" content="We build integrated growth systems that scale revenue profitably.">
+    <title>Wavy Studios | The Growth Engine Behind $50M+ Brands</title>
+    <meta name="description" content="We power growth for fitness & lifestyle brands like Alphalete, STNDRD, RAW Nutrition, and BuffBunny. Paid media, creative, lifecycle, and CRO—unified into one system.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,22 +20,17 @@
             --accent-lime-dim: #a8d900;
             --accent-coral: #ff6b4a;
             --accent-blue: #4a9eff;
-            --border-subtle: #222222;
-            --border-medium: #333333;
+            --accent-purple: #a855f7;
+            --accent-teal: #14b8a6;
+            --accent-emerald: #10b981;
+            --border-subtle: #1a1a1a;
+            --border-medium: #2a2a2a;
             --font-display: 'Syne', sans-serif;
             --font-mono: 'Space Mono', monospace;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-mono);
             background: var(--bg-primary);
@@ -44,1191 +39,24 @@
             overflow-x: hidden;
         }
 
-        /* Noise Texture Overlay */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
             opacity: 0.03;
             pointer-events: none;
             z-index: 1000;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1.5rem 3rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
-            backdrop-filter: blur(10px);
-        }
+        a { color: inherit; text-decoration: none; }
+        ul { list-style: none; }
 
-        .logo {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-wave {
-            width: 32px;
-            height: 32px;
-            background: var(--accent-lime);
-            border-radius: 50%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .logo-wave::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: repeating-linear-gradient(
-                90deg,
-                transparent,
-                transparent 8px,
-                var(--bg-primary) 8px,
-                var(--bg-primary) 16px
-            );
-            animation: wave 2s linear infinite;
-        }
-
-        @keyframes wave {
-            0% { transform: translateX(0) translateY(-50%); }
-            100% { transform: translateX(-16px) translateY(-50%); }
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-lime);
-        }
-
-        .nav-cta {
-            background: var(--text-primary);
-            color: var(--bg-primary);
-            padding: 0.75rem 1.5rem;
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            font-family: var(--font-mono);
-            transition: all 0.3s ease;
-        }
-
-        .nav-cta:hover {
-            background: var(--accent-lime);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 8rem 3rem 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-grid {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(rgba(200,255,0,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(200,255,0,0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
-            mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            padding: 0.5rem 1rem;
-            margin-bottom: 2rem;
-            font-size: 0.7rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .hero-tag::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--accent-lime);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.8); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero h1 {
-            font-family: var(--font-display);
-            font-size: clamp(3rem, 8vw, 7rem);
-            font-weight: 800;
-            line-height: 0.95;
-            letter-spacing: -0.03em;
-            margin-bottom: 2rem;
-            animation: fadeInUp 0.8s ease-out 0.1s both;
-        }
-
-        .hero h1 span {
-            display: block;
-        }
-
-        .hero h1 .highlight {
-            color: var(--accent-lime);
-            position: relative;
-        }
-
-        .hero h1 .strike {
-            color: var(--text-muted);
-            text-decoration: line-through;
-            text-decoration-color: var(--accent-coral);
-            font-size: 0.4em;
-            vertical-align: middle;
-            margin-left: 1rem;
-        }
-
-        .hero-sub {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .hero-ctas {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease-out 0.3s both;
-        }
-
-        .btn-primary {
-            background: var(--accent-lime);
-            color: var(--bg-primary);
-            padding: 1rem 2rem;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .btn-primary:hover {
-            background: var(--text-primary);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            padding: 1rem 2rem;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            border: 1px solid var(--border-medium);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent-lime);
-            color: var(--accent-lime);
-        }
-
-        /* Floating Stats */
-        .hero-stats {
-            position: absolute;
-            right: 3rem;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            animation: fadeInUp 0.8s ease-out 0.5s both;
-        }
-
-        .stat-item {
-            text-align: right;
-            padding: 1rem;
-            border-right: 2px solid var(--border-subtle);
-            transition: border-color 0.3s ease;
-        }
-
-        .stat-item:hover {
-            border-color: var(--accent-lime);
-        }
-
-        .stat-number {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-primary);
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-top: 0.25rem;
-        }
-
-        /* Marquee */
-        .marquee-section {
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-            padding: 1rem 0;
-            overflow: hidden;
-            background: var(--bg-secondary);
-        }
-
-        .marquee {
-            display: flex;
-            animation: scroll 30s linear infinite;
-        }
-
-        .marquee-content {
-            display: flex;
-            gap: 4rem;
-            padding-right: 4rem;
-        }
-
-        .marquee-item {
-            font-size: 0.7rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .marquee-item::after {
-            content: '◆';
-            color: var(--accent-lime);
-            font-size: 0.5rem;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* Section Styles */
-        section {
-            padding: 8rem 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 4rem;
-        }
-
-        .section-tag {
-            font-size: 0.65rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: var(--accent-lime);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .section-tag::before {
-            content: '';
-            width: 40px;
-            height: 1px;
-            background: var(--accent-lime);
-        }
-
-        .section-title {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-
-        /* Operating System Section */
-        .os-section {
-            background: var(--bg-secondary);
-            padding: 8rem 3rem;
-        }
-
-        .os-section .section-content {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .os-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background: var(--border-subtle);
-            margin-top: 4rem;
-        }
-
-        .os-step {
-            background: var(--bg-primary);
-            padding: 2.5rem;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .os-step:hover {
-            background: var(--bg-tertiary);
-        }
-
-        .os-step:hover .os-step-number {
-            color: var(--accent-lime);
-        }
-
-        .os-step-number {
-            font-family: var(--font-display);
-            font-size: 4rem;
-            font-weight: 800;
-            color: var(--border-medium);
-            line-height: 1;
-            margin-bottom: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .os-step-title {
-            font-family: var(--font-display);
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .os-step-desc {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .os-step-arrow {
-            position: absolute;
-            right: 1.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--border-medium);
-            font-size: 1.5rem;
-        }
-
-        .os-step:last-child .os-step-arrow {
-            display: none;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .service-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--accent-lime);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-card:hover {
-            border-color: var(--accent-lime);
-            transform: translateY(-4px);
-        }
-
-        .service-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-medium);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.25rem;
-        }
-
-        .service-title {
-            font-family: var(--font-display);
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .service-desc {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .service-tag {
-            font-size: 0.6rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            background: var(--bg-tertiary);
-            padding: 0.35rem 0.75rem;
-            border: 1px solid var(--border-subtle);
-        }
-
-        /* Profit Driven Banner */
-        .profit-banner {
-            background: linear-gradient(135deg, var(--accent-lime) 0%, var(--accent-lime-dim) 100%);
-            padding: 3rem;
-            margin-top: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .profit-banner::before {
-            content: 'PROFIT';
-            position: absolute;
-            right: -2%;
-            top: 50%;
-            transform: translateY(-50%);
-            font-family: var(--font-display);
-            font-size: 15rem;
-            font-weight: 800;
-            color: rgba(0,0,0,0.08);
-            pointer-events: none;
-        }
-
-        .profit-banner-content {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .profit-banner h3 {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--bg-primary);
-            max-width: 600px;
-        }
-
-        .profit-banner .btn-dark {
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            padding: 1rem 2rem;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .profit-banner .btn-dark:hover {
-            transform: scale(1.05);
-        }
-
-        /* Case Studies */
-        .cases-section {
-            background: var(--bg-primary);
-        }
-
-        .cases-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .case-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-
-        .case-card:hover {
-            border-color: var(--accent-lime);
-        }
-
-        .case-header {
-            padding: 2rem;
-            border-bottom: 1px solid var(--border-subtle);
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .case-type {
-            font-size: 0.6rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--accent-lime);
-            background: rgba(200,255,0,0.1);
-            padding: 0.35rem 0.75rem;
-            border: 1px solid rgba(200,255,0,0.2);
-        }
-
-        .case-logo {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-
-        .case-body {
-            padding: 2rem;
-        }
-
-        .case-title {
-            font-family: var(--font-display);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            line-height: 1.4;
-        }
-
-        .case-metrics {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .metric {
-            text-align: center;
-            padding: 1rem;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-subtle);
-        }
-
-        .metric-value {
-            font-family: var(--font-display);
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--accent-lime);
-            line-height: 1;
-        }
-
-        .metric-label {
-            font-size: 0.6rem;
-            color: var(--text-muted);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-top: 0.35rem;
-        }
-
-        .case-footer {
-            padding: 1.5rem 2rem;
-            border-top: 1px solid var(--border-subtle);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .case-link {
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--text-secondary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .case-link:hover {
-            color: var(--accent-lime);
-        }
-
-        /* AI Section */
-        .ai-section {
-            background: var(--bg-tertiary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .ai-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(200,255,0,0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(74,158,255,0.05) 0%, transparent 50%);
-        }
-
-        .ai-content {
-            position: relative;
-            z-index: 1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .ai-text h2 {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .ai-text h2 span {
-            color: var(--accent-blue);
-        }
-
-        .ai-text p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .ai-features {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .ai-feature {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid var(--border-subtle);
-            transition: all 0.3s ease;
-        }
-
-        .ai-feature:hover {
-            border-color: var(--accent-blue);
-            background: rgba(74,158,255,0.05);
-        }
-
-        .ai-feature-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-medium);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .ai-feature-text {
-            font-size: 0.85rem;
-        }
-
-        .ai-visual {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-        }
-
-        .ai-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .ai-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent-lime);
-        }
-
-        .ai-card:nth-child(1) { grid-column: span 2; }
-
-        .ai-card-label {
-            font-size: 0.6rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .ai-card-value {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .ai-card-value span {
-            color: var(--accent-lime);
-        }
-
-        /* Newsletter Section */
-        .newsletter-section {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-subtle);
-            border-bottom: 1px solid var(--border-subtle);
-        }
-
-        .newsletter-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .newsletter-text h2 {
-            font-family: var(--font-display);
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .newsletter-text p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-medium);
-            padding: 1rem 1.5rem;
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--text-primary);
-            outline: none;
-            transition: border-color 0.3s ease;
-        }
-
-        .newsletter-input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .newsletter-input:focus {
-            border-color: var(--accent-lime);
-        }
-
-        .newsletter-btn {
-            background: var(--accent-lime);
-            color: var(--bg-primary);
-            padding: 1rem 2rem;
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .newsletter-btn:hover {
-            background: var(--text-primary);
-        }
-
-        /* Labs Section */
-        .labs-section {
-            background: var(--bg-primary);
-        }
-
-        .labs-intro {
-            max-width: 700px;
-            margin-bottom: 4rem;
-        }
-
-        .labs-intro p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            font-size: 1rem;
-        }
-
-        .labs-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-        }
-
-        .lab-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
-            padding: 2rem;
-            position: relative;
-            transition: all 0.4s ease;
-        }
-
-        .lab-card::after {
-            content: '→';
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            color: var(--text-muted);
-            transition: all 0.3s ease;
-        }
-
-        .lab-card:hover::after {
-            color: var(--accent-lime);
-            transform: translateX(4px);
-        }
-
-        .lab-card:hover {
-            border-color: var(--accent-lime);
-        }
-
-        .lab-status {
-            font-size: 0.6rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            padding: 0.35rem 0.75rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        .lab-status.active {
-            color: var(--accent-lime);
-            background: rgba(200,255,0,0.1);
-            border: 1px solid rgba(200,255,0,0.2);
-        }
-
-        .lab-status.coming {
-            color: var(--accent-coral);
-            background: rgba(255,107,74,0.1);
-            border: 1px solid rgba(255,107,74,0.2);
-        }
-
-        .lab-title {
-            font-family: var(--font-display);
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .lab-desc {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border-subtle);
-            padding: 4rem 3rem;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .footer-brand {
-            max-width: 300px;
-        }
-
-        .footer-logo {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .footer-desc {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .footer-links h4 {
-            font-family: var(--font-display);
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            color: var(--text-muted);
-        }
-
-        .footer-links ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-lime);
-        }
-
-        .footer-bottom {
-            max-width: 1400px;
-            margin: 3rem auto 0;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-subtle);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-copyright {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-subtle);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: all 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            border-color: var(--accent-lime);
-            color: var(--accent-lime);
-        }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .hero-stats {
-                display: none;
-            }
-            
-            .os-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .os-step:nth-child(2) .os-step-arrow,
-            .os-step:nth-child(4) .os-step-arrow {
-                display: none;
-            }
-        }
-
-        @media (max-width: 1024px) {
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .ai-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .newsletter-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .newsletter-form {
-                justify-content: center;
-            }
-            
-            .labs-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem 1.5rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .hero {
-                padding: 6rem 1.5rem 3rem;
-            }
-            
-            section {
-                padding: 4rem 1.5rem;
-            }
-            
-            .os-section {
-                padding: 4rem 1.5rem;
-            }
-            
-            .os-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .os-step-arrow {
-                display: none;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cases-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .case-metrics {
-                grid-template-columns: 1fr;
-            }
-            
-            .profit-banner-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 2rem;
-            }
-            
-            .profit-banner::before {
-                display: none;
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
-            }
-            
-            .labs-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-        }
-    
-        /* === NEW NAVIGATION STYLES === */
+        /* === NAVIGATION === */
         .site-nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 100;
             padding: 1.5rem 3rem;
             display: flex;
@@ -1236,23 +64,18 @@
             align-items: center;
             background: linear-gradient(to bottom, rgba(10,10,10,0.95), rgba(10,10,10,0.8));
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
         }
         .nav-logo {
             font-family: var(--font-display);
             font-size: 1.25rem;
             font-weight: 800;
-            letter-spacing: -0.02em;
             color: var(--text-primary);
-            text-decoration: none;
-            white-space: nowrap;
         }
         .nav-logo:hover { color: var(--accent-lime); }
         .nav-links {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            list-style: none;
         }
         .nav-item { position: relative; }
         .nav-link {
@@ -1264,22 +87,14 @@
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--text-secondary);
-            text-decoration: none;
             transition: color 0.3s ease;
-            white-space: nowrap;
         }
-        .nav-link:hover, .nav-link.active { color: var(--accent-lime); }
-        .nav-arrow {
-            width: 8px;
-            height: 8px;
-            fill: currentColor;
-            transition: transform 0.3s ease;
-        }
+        .nav-link:hover { color: var(--accent-lime); }
+        .nav-arrow { width: 8px; height: 8px; fill: currentColor; transition: transform 0.3s ease; }
         .nav-item:hover .nav-arrow { transform: rotate(180deg); }
         .nav-dropdown {
             position: absolute;
-            top: 100%;
-            left: 0;
+            top: 100%; left: 0;
             min-width: 200px;
             background: var(--bg-secondary);
             border: 1px solid var(--border-medium);
@@ -1289,7 +104,6 @@
             transform: translateY(10px);
             transition: all 0.3s ease;
             z-index: 50;
-            list-style: none;
         }
         .nav-item:hover .nav-dropdown {
             opacity: 1;
@@ -1300,9 +114,7 @@
             display: block;
             padding: 0.6rem 1.25rem;
             font-size: 0.7rem;
-            letter-spacing: 0.05em;
             color: var(--text-secondary);
-            text-decoration: none;
             transition: all 0.3s ease;
         }
         .dropdown-link:hover {
@@ -1317,76 +129,44 @@
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            text-decoration: none;
             margin-left: 1rem;
             transition: all 0.3s ease;
         }
         .nav-cta:hover { background: var(--text-primary); }
-        
-        /* Mobile Toggle Button */
         .mobile-toggle {
             display: none;
             flex-direction: column;
-            justify-content: center;
             gap: 5px;
-            width: 32px;
-            height: 32px;
+            width: 32px; height: 32px;
             padding: 4px;
             background: none;
             border: none;
             cursor: pointer;
-            z-index: 101;
         }
         .mobile-toggle span {
-            display: block;
-            width: 24px;
-            height: 2px;
+            width: 24px; height: 2px;
             background: var(--text-primary);
             transition: all 0.3s ease;
-            transform-origin: center;
         }
-        .mobile-toggle.is-active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        .mobile-toggle.is-active span:nth-child(2) {
-            opacity: 0;
-        }
-        .mobile-toggle.is-active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-        
+        .mobile-toggle.is-active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-toggle.is-active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.is-active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
         /* Mobile Menu */
         .mobile-menu {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: var(--bg-primary);
             z-index: 99;
             padding: 100px 2rem 2rem;
             overflow-y: auto;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            transition: all 0.3s ease;
         }
-        .mobile-menu.is-open {
-            opacity: 1;
-            visibility: visible;
-        }
-        .mobile-menu-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .mobile-menu-list > li {
-            border-bottom: 1px solid var(--border-subtle);
-        }
-        .mobile-menu-cta-wrap {
-            border-bottom: none !important;
-            padding-top: 1.5rem;
-        }
+        .mobile-menu.is-open { opacity: 1; visibility: visible; }
+        .mobile-menu-list > li { border-bottom: 1px solid var(--border-subtle); }
         .mobile-menu-link {
             display: flex;
             justify-content: space-between;
@@ -1395,7 +175,6 @@
             padding: 1.25rem 0;
             font-size: 1rem;
             color: var(--text-primary);
-            text-decoration: none;
             background: none;
             border: none;
             cursor: pointer;
@@ -1403,47 +182,709 @@
             font-family: var(--font-mono);
         }
         .mobile-menu-link:hover { color: var(--accent-lime); }
-        .mobile-menu-link .nav-arrow {
-            width: 12px;
-            height: 12px;
-            transition: transform 0.3s ease;
-        }
-        .mobile-menu-link.is-open .nav-arrow {
-            transform: rotate(180deg);
-        }
-        .mobile-submenu {
-            display: none;
-            list-style: none;
-            padding: 0 0 1rem 1.5rem;
-            margin: 0;
-        }
-        .mobile-submenu.is-open {
-            display: block;
-        }
-        .mobile-submenu li {
-            padding: 0.6rem 0;
-        }
-        .mobile-submenu a {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-        .mobile-submenu a:hover { color: var(--accent-lime); }
+        .mobile-submenu { display: none; padding: 0 0 1rem 1.5rem; }
+        .mobile-submenu.is-open { display: block; }
+        .mobile-submenu a { display: block; padding: 0.6rem 0; font-size: 0.9rem; color: var(--text-secondary); }
         .mobile-menu-cta {
             display: block;
             width: 100%;
+            margin-top: 2rem;
             padding: 1rem;
             background: var(--accent-lime);
             color: var(--bg-primary);
             text-align: center;
+            font-weight: 700;
             font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* === HERO === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 3rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-grid {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(200,255,0,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200,255,0,0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            mask-image: radial-gradient(ellipse at 30% 50%, black 0%, transparent 70%);
+        }
+        .hero-glow {
+            position: absolute;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(200,255,0,0.08) 0%, transparent 60%);
+            top: 20%; right: 10%;
+            pointer-events: none;
+        }
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        .hero-tag-dot {
+            width: 8px; height: 8px;
+            background: var(--accent-lime);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+        .hero-title span { color: var(--accent-lime); }
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        .btn-primary {
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            text-decoration: none;
+            transition: all 0.3s ease;
         }
-        
-        /* === FOOTER STYLES === */
+        .btn-primary:hover { background: var(--text-primary); transform: translateY(-2px); }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid var(--border-medium);
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover { border-color: var(--accent-lime); color: var(--accent-lime); }
+        .hero-proof {
+            display: flex;
+            gap: 3rem;
+        }
+        .hero-stat {
+            text-align: left;
+        }
+        .hero-stat-value {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-lime);
+            line-height: 1;
+        }
+        .hero-stat-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+        }
+
+        /* Hero Visual - Brand Logos */
+        .hero-visual {
+            position: relative;
+        }
+        .brand-orbit {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+        }
+        .brand-center {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px; height: 120px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-lime);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 2;
+        }
+        .brand-center-icon {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+        }
+        .brand-center-text {
+            font-size: 0.5rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-lime);
+        }
+        .orbit-ring {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px dashed var(--border-medium);
+            border-radius: 50%;
+        }
+        .orbit-ring-1 { width: 250px; height: 250px; }
+        .orbit-ring-2 { width: 380px; height: 380px; }
+        .brand-node {
+            position: absolute;
+            width: 70px; height: 70px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            text-align: center;
+            padding: 0.5rem;
+            line-height: 1.2;
+        }
+        .brand-node:hover {
+            border-color: var(--accent-lime);
+            transform: scale(1.1);
+        }
+        .brand-node:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+        .brand-node:nth-child(2) { top: 15%; right: 5%; }
+        .brand-node:nth-child(3) { top: 50%; right: -5%; transform: translateY(-50%); }
+        .brand-node:nth-child(4) { bottom: 15%; right: 5%; }
+        .brand-node:nth-child(5) { bottom: 0; left: 50%; transform: translateX(-50%); }
+        .brand-node:nth-child(6) { bottom: 15%; left: 5%; }
+        .brand-node:nth-child(7) { top: 50%; left: -5%; transform: translateY(-50%); }
+        .brand-node:nth-child(8) { top: 15%; left: 5%; }
+
+        /* === LOGOS BAR === */
+        .logos-bar {
+            padding: 3rem;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            background: var(--bg-secondary);
+        }
+        .logos-bar-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logos-bar-label {
+            text-align: center;
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        .logos-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+        .logo-item {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+        .logo-item:hover {
+            opacity: 1;
+            color: var(--text-primary);
+        }
+
+        /* === RESULTS SECTION === */
+        .results-section {
+            padding: 6rem 3rem;
+            background: var(--bg-primary);
+        }
+        .results-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-tag {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-lime);
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .section-tag::before, .section-tag::after {
+            content: '';
+            width: 40px; height: 1px;
+            background: var(--accent-lime);
+            opacity: 0.5;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        .result-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .result-card:hover {
+            border-color: var(--accent-lime);
+            transform: translateY(-4px);
+        }
+        .result-value {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-lime);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .result-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .result-context {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        /* === GROWTH ENGINE SECTION === */
+        .engine-section {
+            padding: 8rem 3rem;
+            background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        .engine-section::before {
+            content: 'GROWTH OS';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-display);
+            font-size: clamp(8rem, 20vw, 20rem);
+            font-weight: 800;
+            color: var(--bg-tertiary);
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        .engine-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .engine-intro {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        .engine-headline {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .engine-headline span { color: var(--accent-lime); }
+        .engine-desc {
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border-subtle);
+            margin-top: 4rem;
+        }
+        .pillar {
+            background: var(--bg-primary);
+            padding: 2.5rem 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .pillar:hover {
+            background: var(--bg-tertiary);
+        }
+        .pillar::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .pillar:nth-child(1)::before { background: var(--accent-lime); }
+        .pillar:nth-child(2)::before { background: var(--accent-blue); }
+        .pillar:nth-child(3)::before { background: var(--accent-coral); }
+        .pillar:nth-child(4)::before { background: var(--accent-purple); }
+        .pillar:hover::before { transform: scaleX(1); }
+        .pillar-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            opacity: 0.15;
+        }
+        .pillar:nth-child(1) .pillar-number { color: var(--accent-lime); }
+        .pillar:nth-child(2) .pillar-number { color: var(--accent-blue); }
+        .pillar:nth-child(3) .pillar-number { color: var(--accent-coral); }
+        .pillar:nth-child(4) .pillar-number { color: var(--accent-purple); }
+        .pillar:hover .pillar-number { opacity: 0.4; }
+        .pillar-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .pillar-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .pillar-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .pillar-service {
+            font-size: 0.55rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            background: var(--bg-secondary);
+            padding: 0.35rem 0.6rem;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* === CASE STUDIES === */
+        .cases-section {
+            padding: 6rem 3rem;
+            background: var(--bg-primary);
+        }
+        .cases-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .case-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .case-card:hover {
+            border-color: var(--border-medium);
+            transform: translateY(-4px);
+        }
+        .case-header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .case-brand {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .case-type {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .case-badge {
+            font-size: 0.55rem;
+            padding: 0.35rem 0.75rem;
+            background: rgba(200, 255, 0, 0.1);
+            border: 1px solid rgba(200, 255, 0, 0.2);
+            color: var(--accent-lime);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .case-body {
+            padding: 2rem;
+        }
+        .case-quote {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        .case-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .case-stat {
+            text-align: center;
+            padding: 1rem;
+            background: var(--bg-tertiary);
+        }
+        .case-stat-value {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-lime);
+        }
+        .case-stat-label {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* === SERVICES SECTION === */
+        .services-section {
+            padding: 6rem 3rem;
+            background: var(--bg-secondary);
+        }
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+        .service-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .service-card:hover {
+            border-color: var(--border-medium);
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        .service-card:nth-child(1)::before { background: var(--accent-purple); }
+        .service-card:nth-child(2)::before { background: var(--accent-blue); }
+        .service-card:nth-child(3)::before { background: var(--accent-teal); }
+        .service-card:nth-child(4)::before { background: var(--accent-coral); }
+        .service-card:nth-child(5)::before { background: var(--accent-emerald); }
+        .service-card:nth-child(6)::before { background: var(--accent-lime); }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-icon {
+            width: 48px; height: 48px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            font-size: 1.25rem;
+        }
+        .service-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .service-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .service-link {
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-lime);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .service-link:hover { text-decoration: underline; }
+
+        /* === LABS SECTION === */
+        .labs-section {
+            padding: 6rem 3rem;
+            background: var(--bg-primary);
+            position: relative;
+        }
+        .labs-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .labs-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-emerald);
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .labs-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .labs-content h3 span { color: var(--accent-emerald); }
+        .labs-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .labs-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+        .labs-feature {
+            font-size: 0.65rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--accent-emerald);
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 0.5rem 1rem;
+        }
+        .labs-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .labs-stat {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .labs-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        .labs-stat-value {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-lime);
+        }
+
+        /* === CTA SECTION === */
+        .cta-section {
+            padding: 6rem 3rem;
+            background: var(--bg-tertiary);
+        }
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .cta-subtitle {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* === FOOTER === */
         .site-footer {
             background: var(--bg-secondary);
             border-top: 1px solid var(--border-subtle);
@@ -1475,7 +916,6 @@
             display: flex;
             flex-direction: column;
             gap: 0.6rem;
-            list-style: none;
         }
         .footer-col a {
             font-size: 0.8rem;
@@ -1501,40 +941,46 @@
         .footer-social a {
             font-size: 0.75rem;
             color: var(--text-secondary);
-            text-decoration: none;
         }
         .footer-social a:hover { color: var(--accent-lime); }
-        
-        /* Responsive */
-        @media (max-width: 900px) {
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-subtitle { margin: 0 auto 2rem; }
+            .hero-ctas { justify-content: center; }
+            .hero-proof { justify-content: center; }
+            .hero-visual { display: none; }
+            .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+            .results-grid { grid-template-columns: repeat(2, 1fr); }
+            .cases-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .labs-card { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
             .site-nav { padding: 1rem 1.5rem; }
-            .nav-links { display: none; }
-            .nav-cta { display: none; }
+            .nav-links, .nav-cta { display: none; }
             .mobile-toggle { display: flex; }
             .mobile-menu { display: block; }
-            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-        }
-        @media (max-width: 600px) {
+            .hero { padding: 6rem 1.5rem 3rem; }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .results-grid { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .logos-grid { gap: 2rem; }
+            .logo-item { font-size: 1rem; }
         }
-
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="site-nav">
         <a href="index.html" class="nav-logo">Wavy Studios</a>
-        
         <ul class="nav-links">
+            <li class="nav-item"><a href="growth-os.html" class="nav-link">Growth OS</a></li>
             <li class="nav-item">
-                <a href="growth-os.html" class="nav-link">Growth OS</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    Services
-                    <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg>
-                </a>
+                <a href="#" class="nav-link">Services <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
                 <ul class="nav-dropdown">
                     <li><a href="lifecycle.html" class="dropdown-link">Lifecycle Marketing</a></li>
                     <li><a href="paid-social.html" class="dropdown-link">Paid Social</a></li>
@@ -1543,29 +989,18 @@
                     <li><a href="cro.html" class="dropdown-link">CRO & Funnels</a></li>
                 </ul>
             </li>
+            <li class="nav-item"><a href="insights.html" class="nav-link">Case Studies</a></li>
             <li class="nav-item">
-                <a href="insights.html" class="nav-link">Case Studies</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    Who We Help
-                    <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg>
-                </a>
+                <a href="#" class="nav-link">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
                 <ul class="nav-dropdown">
                     <li><a href="ecommerce.html" class="dropdown-link">Ecommerce & DTC</a></li>
                     <li><a href="lead-gen.html" class="dropdown-link">Lead Generation</a></li>
                 </ul>
             </li>
-            <li class="nav-item">
-                <a href="labs.html" class="nav-link">Labs</a>
-            </li>
+            <li class="nav-item"><a href="labs.html" class="nav-link">Labs</a></li>
         </ul>
-        
         <a href="partner.html" class="nav-cta">Partner With Us</a>
-        
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
 
     <!-- Mobile Menu -->
@@ -1574,10 +1009,7 @@
             <li><a href="index.html" class="mobile-menu-link">Home</a></li>
             <li><a href="growth-os.html" class="mobile-menu-link">Growth OS</a></li>
             <li class="mobile-menu-group">
-                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">
-                    Services
-                    <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg>
-                </button>
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Services <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
                 <ul class="mobile-submenu">
                     <li><a href="lifecycle.html">Lifecycle Marketing</a></li>
                     <li><a href="paid-social.html">Paid Social</a></li>
@@ -1588,449 +1020,341 @@
             </li>
             <li><a href="insights.html" class="mobile-menu-link">Case Studies</a></li>
             <li class="mobile-menu-group">
-                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">
-                    Who We Help
-                    <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg>
-                </button>
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
                 <ul class="mobile-submenu">
                     <li><a href="ecommerce.html">Ecommerce & DTC</a></li>
                     <li><a href="lead-gen.html">Lead Generation</a></li>
                 </ul>
             </li>
             <li><a href="labs.html" class="mobile-menu-link">Labs</a></li>
-            <li class="mobile-menu-cta-wrap"><a href="partner.html" class="mobile-menu-cta">Partner With Us</a></li>
+            <li style="border:none;padding-top:1.5rem;"><a href="partner.html" class="mobile-menu-cta">Partner With Us</a></li>
         </ul>
     </div>
-
-    <!-- Navigation -->
-    
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-grid"></div>
-        <div class="hero-content">
-            <div class="hero-tag">Ecommerce • Lead Gen • Multi-Channel</div>
-            <h1>
-                <span>Growth</span>
-                <span><span class="highlight">Systems</span><span class="strike">Channel Hacks</span></span>
-            </h1>
-            <p class="hero-sub">We build repeatable operating systems that scale your revenue. AI-accelerated strategy, creative, and media—unified under one profit-driven methodology.</p>
-            <div class="hero-ctas">
-                <a href="#" class="btn-primary">
-                    See The System
-                    <span>→</span>
-                </a>
-                <a href="#results" class="btn-secondary">View Case Studies</a>
+        <div class="hero-glow"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-tag">
+                    <span class="hero-tag-dot"></span>
+                    The Growth Engine Behind $50M+ Brands
+                </div>
+                <h1 class="hero-title">
+                    We Don't Run Ads.<br>
+                    We Build <span>Growth Systems.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Paid media, creative, lifecycle, and CRO—unified into one compounding engine. Powering brands like Alphalete, STNDRD, RAW Nutrition, and BuffBunny.
+                </p>
+                <div class="hero-ctas">
+                    <a href="partner.html" class="btn-primary">Get Your Growth Audit →</a>
+                    <a href="growth-os.html" class="btn-secondary">Explore the Growth OS</a>
+                </div>
+                <div class="hero-proof">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">$50M+</div>
+                        <div class="hero-stat-label">Revenue Influenced</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">4.2x</div>
+                        <div class="hero-stat-label">Avg. ROAS</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">140%</div>
+                        <div class="hero-stat-label">Avg. Email Revenue Lift</div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="hero-stats">
-            <div class="stat-item">
-                <div class="stat-number">$47M+</div>
-                <div class="stat-label">Revenue Influenced</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">3.2x</div>
-                <div class="stat-label">Avg. ROAS Lift</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">89%</div>
-                <div class="stat-label">Client Retention</div>
+            <div class="hero-visual">
+                <div class="brand-orbit">
+                    <div class="orbit-ring orbit-ring-1"></div>
+                    <div class="orbit-ring orbit-ring-2"></div>
+                    <div class="brand-center">
+                        <div class="brand-center-icon">⚡</div>
+                        <div class="brand-center-text">Growth OS</div>
+                    </div>
+                    <div class="brand-node">Alphalete</div>
+                    <div class="brand-node">STNDRD</div>
+                    <div class="brand-node">RAW Nutrition</div>
+                    <div class="brand-node">BuffBunny</div>
+                    <div class="brand-node">Helios</div>
+                    <div class="brand-node">Pink Friday</div>
+                    <div class="brand-node">MFF</div>
+                    <div class="brand-node">CallBaba</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Marquee -->
-    <div class="marquee-section">
-        <div class="marquee">
-            <div class="marquee-content">
-                <span class="marquee-item">Meta Ads</span>
-                <span class="marquee-item">Google Ads</span>
-                <span class="marquee-item">TikTok Ads</span>
-                <span class="marquee-item">Email & SMS</span>
-                <span class="marquee-item">Creative Strategy</span>
-                <span class="marquee-item">UGC Production</span>
-                <span class="marquee-item">Landing Pages</span>
-                <span class="marquee-item">Analytics</span>
-                <span class="marquee-item">SEO</span>
-                <span class="marquee-item">Brand Marketing</span>
-            </div>
-            <div class="marquee-content">
-                <span class="marquee-item">Meta Ads</span>
-                <span class="marquee-item">Google Ads</span>
-                <span class="marquee-item">TikTok Ads</span>
-                <span class="marquee-item">Email & SMS</span>
-                <span class="marquee-item">Creative Strategy</span>
-                <span class="marquee-item">UGC Production</span>
-                <span class="marquee-item">Landing Pages</span>
-                <span class="marquee-item">Analytics</span>
-                <span class="marquee-item">SEO</span>
-                <span class="marquee-item">Brand Marketing</span>
+    <!-- Logos Bar -->
+    <section class="logos-bar">
+        <div class="logos-bar-inner">
+            <div class="logos-bar-label">Trusted by Category Leaders in Fitness & Lifestyle</div>
+            <div class="logos-grid">
+                <span class="logo-item">ALPHALETE</span>
+                <span class="logo-item">STNDRD</span>
+                <span class="logo-item">RAW NUTRITION</span>
+                <span class="logo-item">BUFFBUNNY</span>
+                <span class="logo-item">HELIOS</span>
+                <span class="logo-item">PINK FRIDAY</span>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Operating System Section -->
-    <section class="os-section" id="how-we-work">
-        <div class="section-content">
-            <div class="section-header">
-                <div class="section-tag">The Wavy OS</div>
-                <h2 class="section-title">Our Repeatable Operating System</h2>
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="results-container">
+            <header class="section-header">
+                <span class="section-tag">Proof, Not Promises</span>
+                <h2 class="section-title">The Numbers Speak</h2>
+                <p class="section-subtitle">Real results from real brands. No vanity metrics—just revenue.</p>
+            </header>
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-value">$278K</div>
+                    <div class="result-label">Monthly Email Revenue</div>
+                    <div class="result-context">RAW Nutrition • Up from $116K in 60 days</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">2x</div>
+                    <div class="result-label">Email Revenue Growth</div>
+                    <div class="result-context">Alphalete • Month-over-month</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">$1M</div>
+                    <div class="result-label">Investment Secured</div>
+                    <div class="result-context">STNDRD • Alex Hormozi partnership</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-value">1,500</div>
+                    <div class="result-label">Event RSVPs</div>
+                    <div class="result-context">Alphalete Games • Feb 2026</div>
+                </div>
             </div>
-            <div class="os-grid">
-                <div class="os-step">
-                    <div class="os-step-number">01</div>
-                    <h3 class="os-step-title">Intake & Audit</h3>
-                    <p class="os-step-desc">Deep-dive into your data, creative assets, and current performance. We map the full customer journey and identify profit levers.</p>
-                    <span class="os-step-arrow">→</span>
+        </div>
+    </section>
+
+    <!-- Growth Engine Section -->
+    <section class="engine-section">
+        <div class="engine-container">
+            <div class="engine-intro">
+                <span class="section-tag">The Operating System</span>
+                <h2 class="engine-headline">
+                    Most agencies optimize channels.<br>
+                    We build <span>systems that compound.</span>
+                </h2>
+                <p class="engine-desc">
+                    The Growth OS connects acquisition, conversion, and retention into one unified engine. Every channel reinforces every other—so your growth compounds instead of plateaus.
+                </p>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar">
+                    <div class="pillar-number">01</div>
+                    <h3 class="pillar-title">Acquire</h3>
+                    <p class="pillar-desc">Full-funnel paid media on Meta, Google, and TikTok. Structured for incremental growth, not inflated ROAS.</p>
+                    <div class="pillar-services">
+                        <span class="pillar-service">Meta Ads</span>
+                        <span class="pillar-service">Google Ads</span>
+                        <span class="pillar-service">TikTok</span>
+                    </div>
                 </div>
-                <div class="os-step">
-                    <div class="os-step-number">02</div>
-                    <h3 class="os-step-title">Hypothesis Testing</h3>
-                    <p class="os-step-desc">Structured experiments across channels. We test messaging, creative formats, audiences, and offers with statistical rigor.</p>
-                    <span class="os-step-arrow">→</span>
+                <div class="pillar">
+                    <div class="pillar-number">02</div>
+                    <h3 class="pillar-title">Convert</h3>
+                    <p class="pillar-desc">Landing pages, checkout flows, and upsells engineered to maximize revenue per visitor.</p>
+                    <div class="pillar-services">
+                        <span class="pillar-service">CRO</span>
+                        <span class="pillar-service">A/B Testing</span>
+                        <span class="pillar-service">Funnels</span>
+                    </div>
                 </div>
-                <div class="os-step">
-                    <div class="os-step-number">03</div>
-                    <h3 class="os-step-title">Reporting & Insights</h3>
-                    <p class="os-step-desc">Weekly dashboards with actionable insights. We focus on contribution margin, not vanity metrics. Full attribution clarity.</p>
-                    <span class="os-step-arrow">→</span>
+                <div class="pillar">
+                    <div class="pillar-number">03</div>
+                    <h3 class="pillar-title">Retain</h3>
+                    <p class="pillar-desc">Email & SMS flows that turn one-time buyers into repeat customers. 30%+ of revenue from owned channels.</p>
+                    <div class="pillar-services">
+                        <span class="pillar-service">Email</span>
+                        <span class="pillar-service">SMS</span>
+                        <span class="pillar-service">Loyalty</span>
+                    </div>
                 </div>
-                <div class="os-step">
-                    <div class="os-step-number">04</div>
-                    <h3 class="os-step-title">Scale & Optimize</h3>
-                    <p class="os-step-desc">Winners get amplified. Losers get killed fast. We compound what works and continuously iterate the playbook.</p>
+                <div class="pillar">
+                    <div class="pillar-number">04</div>
+                    <h3 class="pillar-title">Create</h3>
+                    <p class="pillar-desc">High-velocity creative production with systematic testing. UGC, video, and static at scale.</p>
+                    <div class="pillar-services">
+                        <span class="pillar-service">UGC</span>
+                        <span class="pillar-service">Video</span>
+                        <span class="pillar-service">Static</span>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="cases-section">
+        <div class="cases-container">
+            <header class="section-header">
+                <span class="section-tag">Case Studies</span>
+                <h2 class="section-title">How We Scale Brands</h2>
+                <p class="section-subtitle">Deep partnerships, not transactional retainers.</p>
+            </header>
+            <div class="cases-grid">
+                <article class="case-card">
+                    <div class="case-header">
+                        <div>
+                            <div class="case-brand">Alphalete Athletics</div>
+                            <div class="case-type">Fitness Apparel • Christian Guzman</div>
+                        </div>
+                        <span class="case-badge">Active Partner</span>
+                    </div>
+                    <div class="case-body">
+                        <p class="case-quote">"Email revenue doubled. SMS is generating massive sales. The creative team is producing 20+ pieces weekly. Wavy is embedded in everything we do."</p>
+                        <div class="case-stats">
+                            <div class="case-stat">
+                                <div class="case-stat-value">2x</div>
+                                <div class="case-stat-label">Email Revenue</div>
+                            </div>
+                            <div class="case-stat">
+                                <div class="case-stat-value">1,500</div>
+                                <div class="case-stat-label">Event RSVPs</div>
+                            </div>
+                            <div class="case-stat">
+                                <div class="case-stat-value">20+</div>
+                                <div class="case-stat-label">Weekly Creatives</div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="case-card">
+                    <div class="case-header">
+                        <div>
+                            <div class="case-brand">STNDRD</div>
+                            <div class="case-type">Fitness App • Chris Bumstead</div>
+                        </div>
+                        <span class="case-badge">Labs Portfolio</span>
+                    </div>
+                    <div class="case-body">
+                        <p class="case-quote">"From zero to $1M investment from Alex Hormozi. Wavy helped build the growth model, creative strategy, and positioned us for a massive exit."</p>
+                        <div class="case-stats">
+                            <div class="case-stat">
+                                <div class="case-stat-value">$1M</div>
+                                <div class="case-stat-label">Investment</div>
+                            </div>
+                            <div class="case-stat">
+                                <div class="case-stat-value">2,000</div>
+                                <div class="case-stat-label">Monthly Trials</div>
+                            </div>
+                            <div class="case-stat">
+                                <div class="case-stat-value">25%</div>
+                                <div class="case-stat-label">Equity to Hormozi</div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="insights.html" class="btn-secondary">View All Case Studies →</a>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services">
-        <div class="section-header">
-            <div class="section-tag">Services</div>
-            <h2 class="section-title">Full-Stack Growth Capabilities</h2>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">📈</div>
-                <h3 class="service-title">Paid Growth</h3>
-                <p class="service-desc">Performance media across Meta, Google, and TikTok. We manage the full funnel—prospecting, retargeting, and retention—with creative strategy baked in.</p>
-                <div class="service-tags">
-                    <span class="service-tag">Meta Ads</span>
-                    <span class="service-tag">Google Ads</span>
-                    <span class="service-tag">TikTok</span>
-                    <span class="service-tag">Programmatic</span>
+    <section class="services-section">
+        <div class="services-container">
+            <header class="section-header">
+                <span class="section-tag">Full-Stack Growth</span>
+                <h2 class="section-title">Every Lever. One Team.</h2>
+                <p class="section-subtitle">No more coordinating 5 agencies. One unified team running your entire growth engine.</p>
+            </header>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3 class="service-title">Paid Social</h3>
+                    <p class="service-desc">Meta, TikTok, Pinterest. Full-funnel campaigns structured for profitable scale.</p>
+                    <a href="paid-social.html" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3 class="service-title">Paid Search</h3>
+                    <p class="service-desc">Google Shopping, Search, PMax. Capture high-intent demand profitably.</p>
+                    <a href="paid-search.html" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📧</div>
+                    <h3 class="service-title">Lifecycle Marketing</h3>
+                    <p class="service-desc">Email & SMS flows that drive 30%+ of revenue from owned channels.</p>
+                    <a href="lifecycle.html" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎬</div>
+                    <h3 class="service-title">Creative System</h3>
+                    <p class="service-desc">UGC, video, static. High-velocity production with systematic testing.</p>
+                    <a href="creative.html" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3 class="service-title">CRO & Funnels</h3>
+                    <p class="service-desc">Landing pages, checkout optimization, and strategic upsells.</p>
+                    <a href="cro.html" class="service-link">Learn More →</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3 class="service-title">Analytics & Attribution</h3>
+                    <p class="service-desc">Tracking, dashboards, and attribution. Know what's actually working.</p>
+                    <a href="growth-os.html" class="service-link">Learn More →</a>
                 </div>
             </div>
-            <div class="service-card">
-                <div class="service-icon">🔄</div>
-                <h3 class="service-title">Lifecycle & Retention</h3>
-                <p class="service-desc">Email and SMS flows that drive repeat purchases and LTV. We build automated journeys from welcome to winback—optimized for revenue per recipient.</p>
-                <div class="service-tags">
-                    <span class="service-tag">Klaviyo</span>
-                    <span class="service-tag">Attentive</span>
-                    <span class="service-tag">Flows</span>
-                    <span class="service-tag">Campaigns</span>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🎬</div>
-                <h3 class="service-title">Creative System</h3>
-                <p class="service-desc">Briefs, iteration cycles, UGC production, and testing frameworks. We treat creative as a performance lever, not an art project.</p>
-                <div class="service-tags">
-                    <span class="service-tag">UGC</span>
-                    <span class="service-tag">Static</span>
-                    <span class="service-tag">Video</span>
-                    <span class="service-tag">Iteration</span>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📊</div>
-                <h3 class="service-title">Analytics & Measurement</h3>
-                <p class="service-desc">Attribution modeling, custom dashboards, and experimentation infrastructure. We help you understand true incrementality and make better decisions.</p>
-                <div class="service-tags">
-                    <span class="service-tag">Attribution</span>
-                    <span class="service-tag">Dashboards</span>
-                    <span class="service-tag">Testing</span>
-                    <span class="service-tag">MMM</span>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🎯</div>
-                <h3 class="service-title">Brand Marketing</h3>
-                <p class="service-desc">Strategic positioning, campaign development, and influencer partnerships. We build brands that command premium pricing and organic advocacy.</p>
-                <div class="service-tags">
-                    <span class="service-tag">Strategy</span>
-                    <span class="service-tag">Influencer</span>
-                    <span class="service-tag">Campaigns</span>
-                    <span class="service-tag">PR</span>
-                </div>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔍</div>
-                <h3 class="service-title">SEO</h3>
-                <p class="service-desc">Technical optimization, content strategy, and link building. We grow organic traffic that compounds over time and reduces CAC dependency.</p>
-                <div class="service-tags">
-                    <span class="service-tag">Technical</span>
-                    <span class="service-tag">Content</span>
-                    <span class="service-tag">Links</span>
-                    <span class="service-tag">Local</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Profit Driven Banner -->
-        <div class="profit-banner">
-            <div class="profit-banner-content">
-                <h3>Every service connects back to one thing: Profit-Driven Marketing.</h3>
-                <button class="btn-dark">Talk Strategy →</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Case Studies Section -->
-    <section class="cases-section" id="results">
-        <div class="section-header">
-            <div class="section-tag">Case Studies</div>
-            <h2 class="section-title">Results That Compound</h2>
-        </div>
-        <div class="cases-grid">
-            <div class="case-card">
-                <div class="case-header">
-                    <span class="case-type">Ecommerce</span>
-                    <span class="case-logo">Alphalete</span>
-                </div>
-                <div class="case-body">
-                    <h3 class="case-title">Scaled Q4 revenue 127% YoY while improving blended ROAS</h3>
-                    <div class="case-metrics">
-                        <div class="metric">
-                            <div class="metric-value">+127%</div>
-                            <div class="metric-label">Revenue YoY</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">3.8x</div>
-                            <div class="metric-label">Blended ROAS</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">-22%</div>
-                            <div class="metric-label">CAC Reduction</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="case-footer">
-                    <a href="#" class="case-link">Read Full Case Study <span>→</span></a>
-                </div>
-            </div>
-            <div class="case-card">
-                <div class="case-header">
-                    <span class="case-type">Lead Gen</span>
-                    <span class="case-logo">MR Mortgage</span>
-                </div>
-                <div class="case-body">
-                    <h3 class="case-title">Built HELOC funnel generating 400+ qualified leads/month</h3>
-                    <div class="case-metrics">
-                        <div class="metric">
-                            <div class="metric-value">412</div>
-                            <div class="metric-label">Leads/Month</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">$47</div>
-                            <div class="metric-label">Cost Per Lead</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">18%</div>
-                            <div class="metric-label">Close Rate</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="case-footer">
-                    <a href="#" class="case-link">Read Full Case Study <span>→</span></a>
-                </div>
-            </div>
-            <div class="case-card">
-                <div class="case-header">
-                    <span class="case-type">App Growth</span>
-                    <span class="case-logo">STNDRD</span>
-                </div>
-                <div class="case-body">
-                    <h3 class="case-title">Drove 50K+ app installs with sub-$3 CPI through UGC creative</h3>
-                    <div class="case-metrics">
-                        <div class="metric">
-                            <div class="metric-value">52K</div>
-                            <div class="metric-label">App Installs</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">$2.84</div>
-                            <div class="metric-label">Cost Per Install</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">34%</div>
-                            <div class="metric-label">D7 Retention</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="case-footer">
-                    <a href="#" class="case-link">Read Full Case Study <span>→</span></a>
-                </div>
-            </div>
-            <div class="case-card">
-                <div class="case-header">
-                    <span class="case-type">Multi-Channel</span>
-                    <span class="case-logo">My Fit Foods</span>
-                </div>
-                <div class="case-body">
-                    <h3 class="case-title">Unified paid, email, and SEO to grow MRR 89% in 6 months</h3>
-                    <div class="case-metrics">
-                        <div class="metric">
-                            <div class="metric-value">+89%</div>
-                            <div class="metric-label">MRR Growth</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">2.1x</div>
-                            <div class="metric-label">LTV Increase</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">45%</div>
-                            <div class="metric-label">Email Revenue</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="case-footer">
-                    <a href="#" class="case-link">Read Full Case Study <span>→</span></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Section -->
-    <section class="ai-section">
-        <div class="ai-content">
-            <div class="ai-text">
-                <div class="section-tag">AI-Accelerated</div>
-                <h2>We use <span>AI</span> to increase speed, quality, and consistency.</h2>
-                <p>Not as a gimmick. Not to replace thinking. AI is embedded into our operating system to eliminate bottlenecks, accelerate iteration, and maintain quality at scale.</p>
-                <div class="ai-features">
-                    <div class="ai-feature">
-                        <div class="ai-feature-icon">⚡</div>
-                        <span class="ai-feature-text">Creative briefs generated in minutes, not days</span>
-                    </div>
-                    <div class="ai-feature">
-                        <div class="ai-feature-icon">🔬</div>
-                        <span class="ai-feature-text">Automated test analysis and winner identification</span>
-                    </div>
-                    <div class="ai-feature">
-                        <div class="ai-feature-icon">📝</div>
-                        <span class="ai-feature-text">Copy iteration at 10x the speed of traditional agencies</span>
-                    </div>
-                </div>
-            </div>
-            <div class="ai-visual">
-                <div class="ai-card">
-                    <div class="ai-card-label">Avg. Creative Turnaround</div>
-                    <div class="ai-card-value"><span>48hrs</span> vs 2 weeks</div>
-                </div>
-                <div class="ai-card">
-                    <div class="ai-card-label">Tests/Month</div>
-                    <div class="ai-card-value"><span>120+</span></div>
-                </div>
-                <div class="ai-card">
-                    <div class="ai-card-label">Iteration Cycles</div>
-                    <div class="ai-card-value"><span>4x</span> faster</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="newsletter-section">
-        <div class="newsletter-content">
-            <div class="newsletter-text">
-                <h2>The Wavy Weekly</h2>
-                <p>Growth insights, playbooks, and experiments. No fluff. Straight to your inbox every Thursday.</p>
-            </div>
-            <form class="newsletter-form">
-                <input type="email" class="newsletter-input" placeholder="Enter your email">
-                <button type="submit" class="newsletter-btn">Subscribe</button>
-            </form>
         </div>
     </section>
 
     <!-- Labs Section -->
-    <section class="labs-section" id="labs">
-        <div class="section-header">
-            <div class="section-tag">Labs & Ventures</div>
-            <h2 class="section-title">We Build and Own</h2>
-        </div>
-        <div class="labs-intro">
-            <p>We don't just consult—we invest our own capital and time into building products. It keeps us sharp, gives us real operator perspective, and signals that we actually understand growth.</p>
-        </div>
-        <div class="labs-grid">
-            <div class="lab-card">
-                <span class="lab-status active">Active</span>
-                <h3 class="lab-title">Wavy Analytics</h3>
-                <p class="lab-desc">Proprietary attribution and creative analytics dashboard for DTC brands.</p>
-            </div>
-            <div class="lab-card">
-                <span class="lab-status active">Active</span>
-                <h3 class="lab-title">Creator Network</h3>
-                <p class="lab-desc">Curated UGC creator network with performance-based compensation models.</p>
-            </div>
-            <div class="lab-card">
-                <span class="lab-status coming">Coming Soon</span>
-                <h3 class="lab-title">AI Creative Engine</h3>
-                <p class="lab-desc">Automated creative generation and testing system built for performance.</p>
+    <section class="labs-section">
+        <div class="labs-container">
+            <div class="labs-card">
+                <div class="labs-content">
+                    <h3>We Don't Just Advise.<br>We <span>Build & Invest.</span></h3>
+                    <p>Wavy Labs partners with exceptional founders through equity, investment, and hands-on building. From product strategy to exit—we're in the trenches with you.</p>
+                    <div class="labs-features">
+                        <span class="labs-feature">Equity Partnerships</span>
+                        <span class="labs-feature">Direct Investment</span>
+                        <span class="labs-feature">Product Building</span>
+                    </div>
+                    <a href="labs.html" class="btn-primary">Explore Wavy Labs →</a>
+                </div>
+                <div class="labs-visual">
+                    <div class="labs-stat">
+                        <span class="labs-stat-label">Portfolio Companies</span>
+                        <span class="labs-stat-value">4</span>
+                    </div>
+                    <div class="labs-stat">
+                        <span class="labs-stat-label">Combined Valuation</span>
+                        <span class="labs-stat-value">$25M+</span>
+                    </div>
+                    <div class="labs-stat">
+                        <span class="labs-stat-label">Exit in Progress</span>
+                        <span class="labs-stat-value">STNDRD</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">Ready to Build Your Growth Engine?</h2>
+            <p class="cta-subtitle">Book a free growth audit. We'll analyze your current setup, identify the gaps, and show you exactly where the opportunities are. No pitch deck—just actionable insights.</p>
+            <div class="cta-buttons">
+                <a href="partner.html" class="btn-primary">Get Your Free Audit →</a>
+                <a href="insights.html" class="btn-secondary">View Case Studies</a>
+            </div>
+        </div>
+    </section>
 
-    <script>
-        // Smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Animate elements on scroll
-        document.querySelectorAll('.service-card, .case-card, .os-step, .lab-card, .ai-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-
-        // Newsletter form handling
-        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('.newsletter-input').value;
-            if (email) {
-                alert('Thanks for subscribing! (Demo only)');
-                this.querySelector('.newsletter-input').value = '';
-            }
-        });
-    </script>
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-inner">
@@ -2078,30 +1402,23 @@
         </div>
     </footer>
 
-    <!-- Mobile Menu Script -->
     <script>
     (function() {
-        // Mobile menu toggle
         var toggle = document.getElementById('mobileToggle');
         var menu = document.getElementById('mobileMenu');
-        
         if (toggle && menu) {
             toggle.addEventListener('click', function() {
                 var isOpen = menu.classList.contains('is-open');
                 menu.classList.toggle('is-open');
                 toggle.classList.toggle('is-active');
-                toggle.setAttribute('aria-expanded', !isOpen);
                 document.body.style.overflow = isOpen ? '' : 'hidden';
             });
         }
-        
-        // Submenu toggles
         var subToggles = document.querySelectorAll('.mobile-menu-toggle-sub');
         for (var i = 0; i < subToggles.length; i++) {
             subToggles[i].addEventListener('click', function() {
                 var submenu = this.nextElementSibling;
                 if (submenu) {
-                    var isOpen = submenu.classList.contains('is-open');
                     submenu.classList.toggle('is-open');
                     this.classList.toggle('is-open');
                 }
@@ -2109,6 +1426,5 @@
         }
     })();
     </script>
-
 </body>
 </html>
