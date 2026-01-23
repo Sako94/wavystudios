@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Growth OS | Wavy Studios</title>
-    <meta name="description" content="Our proprietary Growth OS integrates paid media, creative, CRO, and lifecycle marketing into one unified system.">
+    <meta name="description" content="Our proprietary Growth OS integrates paid media, creative, CRO, and lifecycle marketing.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1179,18 +1179,14 @@
             text-decoration: none;
             white-space: nowrap;
         }
-        .nav-logo:hover {
-            color: var(--accent-lime);
-        }
+        .nav-logo:hover { color: var(--accent-lime); }
         .nav-links {
             display: flex;
             align-items: center;
             gap: 0.5rem;
             list-style: none;
         }
-        .nav-item {
-            position: relative;
-        }
+        .nav-item { position: relative; }
         .nav-link {
             display: flex;
             align-items: center;
@@ -1204,18 +1200,14 @@
             transition: color 0.3s ease;
             white-space: nowrap;
         }
-        .nav-link:hover, .nav-link.active {
-            color: var(--accent-lime);
-        }
+        .nav-link:hover, .nav-link.active { color: var(--accent-lime); }
         .nav-arrow {
             width: 8px;
             height: 8px;
             fill: currentColor;
             transition: transform 0.3s ease;
         }
-        .nav-item:hover .nav-arrow {
-            transform: rotate(180deg);
-        }
+        .nav-item:hover .nav-arrow { transform: rotate(180deg); }
         .nav-dropdown {
             position: absolute;
             top: 100%;
@@ -1261,25 +1253,129 @@
             margin-left: 1rem;
             transition: all 0.3s ease;
         }
-        .nav-cta:hover {
-            background: var(--text-primary);
-        }
+        .nav-cta:hover { background: var(--text-primary); }
+        
+        /* Mobile Toggle Button */
         .mobile-toggle {
             display: none;
             flex-direction: column;
+            justify-content: center;
             gap: 5px;
-            padding: 5px;
+            width: 32px;
+            height: 32px;
+            padding: 4px;
             background: none;
             border: none;
             cursor: pointer;
+            z-index: 101;
         }
         .mobile-toggle span {
+            display: block;
             width: 24px;
             height: 2px;
             background: var(--text-primary);
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        .mobile-toggle.is-active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .mobile-toggle.is-active span:nth-child(2) {
+            opacity: 0;
+        }
+        .mobile-toggle.is-active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
         }
         
-        /* === NEW FOOTER STYLES === */
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-primary);
+            z-index: 99;
+            padding: 100px 2rem 2rem;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .mobile-menu.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .mobile-menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .mobile-menu-list > li {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .mobile-menu-cta-wrap {
+            border-bottom: none !important;
+            padding-top: 1.5rem;
+        }
+        .mobile-menu-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1.25rem 0;
+            font-size: 1rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: var(--font-mono);
+        }
+        .mobile-menu-link:hover { color: var(--accent-lime); }
+        .mobile-menu-link .nav-arrow {
+            width: 12px;
+            height: 12px;
+            transition: transform 0.3s ease;
+        }
+        .mobile-menu-link.is-open .nav-arrow {
+            transform: rotate(180deg);
+        }
+        .mobile-submenu {
+            display: none;
+            list-style: none;
+            padding: 0 0 1rem 1.5rem;
+            margin: 0;
+        }
+        .mobile-submenu.is-open {
+            display: block;
+        }
+        .mobile-submenu li {
+            padding: 0.6rem 0;
+        }
+        .mobile-submenu a {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .mobile-submenu a:hover { color: var(--accent-lime); }
+        .mobile-menu-cta {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        
+        /* === FOOTER STYLES === */
         .site-footer {
             background: var(--bg-secondary);
             border-top: 1px solid var(--border-subtle);
@@ -1318,9 +1414,7 @@
             color: var(--text-secondary);
             transition: color 0.3s ease;
         }
-        .footer-col a:hover {
-            color: var(--accent-lime);
-        }
+        .footer-col a:hover { color: var(--accent-lime); }
         .footer-bottom {
             display: flex;
             justify-content: space-between;
@@ -1341,13 +1435,15 @@
             color: var(--text-secondary);
             text-decoration: none;
         }
-        .footer-social a:hover {
-            color: var(--accent-lime);
-        }
+        .footer-social a:hover { color: var(--accent-lime); }
+        
+        /* Responsive */
         @media (max-width: 900px) {
             .site-nav { padding: 1rem 1.5rem; }
-            .nav-links, .nav-cta { display: none; }
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
             .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
             .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
         }
         @media (max-width: 600px) {
@@ -1399,10 +1495,44 @@
         
         <a href="partner.html" class="nav-cta">Partner With Us</a>
         
-        <button class="mobile-toggle" aria-label="Menu">
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu-list">
+            <li><a href="index.html" class="mobile-menu-link">Home</a></li>
+            <li><a href="growth-os.html" class="mobile-menu-link">Growth OS</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">
+                    Services
+                    <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg>
+                </button>
+                <ul class="mobile-submenu">
+                    <li><a href="lifecycle.html">Lifecycle Marketing</a></li>
+                    <li><a href="paid-social.html">Paid Social</a></li>
+                    <li><a href="paid-search.html">Paid Search</a></li>
+                    <li><a href="creative.html">Creative System</a></li>
+                    <li><a href="cro.html">CRO & Funnels</a></li>
+                </ul>
+            </li>
+            <li><a href="insights.html" class="mobile-menu-link">Case Studies</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">
+                    Who We Help
+                    <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg>
+                </button>
+                <ul class="mobile-submenu">
+                    <li><a href="ecommerce.html">Ecommerce & DTC</a></li>
+                    <li><a href="lead-gen.html">Lead Generation</a></li>
+                </ul>
+            </li>
+            <li><a href="labs.html" class="mobile-menu-link">Labs</a></li>
+            <li class="mobile-menu-cta-wrap"><a href="partner.html" class="mobile-menu-cta">Partner With Us</a></li>
+        </ul>
+    </div>
 
     <!-- Navigation -->
     
@@ -1814,6 +1944,38 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+    (function() {
+        // Mobile menu toggle
+        var toggle = document.getElementById('mobileToggle');
+        var menu = document.getElementById('mobileMenu');
+        
+        if (toggle && menu) {
+            toggle.addEventListener('click', function() {
+                var isOpen = menu.classList.contains('is-open');
+                menu.classList.toggle('is-open');
+                toggle.classList.toggle('is-active');
+                toggle.setAttribute('aria-expanded', !isOpen);
+                document.body.style.overflow = isOpen ? '' : 'hidden';
+            });
+        }
+        
+        // Submenu toggles
+        var subToggles = document.querySelectorAll('.mobile-menu-toggle-sub');
+        for (var i = 0; i < subToggles.length; i++) {
+            subToggles[i].addEventListener('click', function() {
+                var submenu = this.nextElementSibling;
+                if (submenu) {
+                    var isOpen = submenu.classList.contains('is-open');
+                    submenu.classList.toggle('is-open');
+                    this.classList.toggle('is-open');
+                }
+            });
+        }
+    })();
+    </script>
 
 </body>
 </html>
