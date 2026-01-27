@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How We Produce 120+ Creatives Per Month | Wavy Studios</title>
+    <meta name="description" content="The brief template, creator network, and production workflow behind high-velocity creative operations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --bg-card: #0f0f0f;
+            --text-primary: #ffffff;
+            --text-secondary: #999999;
+            --text-muted: #555555;
+            --accent-lime: #c8ff00;
+            --accent-lime-dim: #a8d900;
+            --accent-coral: #ff6b4a;
+            --accent-blue: #4a9eff;
+            --accent-purple: #a855f7;
+            --border-subtle: #1a1a1a;
+            --border-medium: #2a2a2a;
+            --font-display: 'Syne', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-mono);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98), rgba(10,10,10,0.8));
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--accent-lime); }
+
+        .nav-cta {
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            padding: 0.75rem 1.5rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover { background: var(--text-primary); }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-type {
+            background: rgba(200, 255, 0, 0.15);
+            color: var(--accent-lime);
+            padding: 0.25rem 0.75rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid rgba(200, 255, 0, 0.3);
+        }
+
+        .article-date {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        .article-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .article-excerpt {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-medium);
+        }
+
+        .article-content h2 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--accent-lime);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .article-content strong {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .callout-box {
+            background: var(--bg-tertiary);
+            border-left: 3px solid var(--accent-lime);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .callout-box p {
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        .framework-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .framework-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--accent-lime);
+            margin-bottom: 0.5rem;
+        }
+
+        .framework-card .layer-num {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-highlight {
+            display: inline-block;
+            background: rgba(200, 255, 0, 0.1);
+            color: var(--accent-lime);
+            padding: 0.1rem 0.5rem;
+            font-weight: 700;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .process-step {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .process-step .step-num {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-lime);
+            margin-bottom: 0.5rem;
+        }
+
+        .process-step h4 {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .process-step p {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover { color: var(--accent-lime); }
+
+        .article-cta {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            padding: 3rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .article-cta h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .article-cta p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover { background: var(--text-primary); }
+
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 3rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover { color: var(--accent-lime); }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .article-container { padding: 6rem 1.5rem 3rem; }
+            .footer-content { flex-direction: column; gap: 1.5rem; text-align: center; }
+            .process-grid { grid-template-columns: 1fr 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html" class="logo">Wavy Studios</a>
+        <ul class="nav-links">
+            <li><a href="../growth-os.html">Growth OS</a></li>
+            <li><a href="../insights.html">Insights</a></li>
+            <li><a href="../labs.html">Labs</a></li>
+        </ul>
+        <a href="../partner.html" class="nav-cta">Partner With Us</a>
+    </nav>
+
+    <article class="article-container">
+        <a href="../insights.html" class="back-link">← Back to Insights</a>
+        
+        <div class="article-meta">
+            <span class="article-type">System</span>
+            <span class="article-date">Jan 10, 2026</span>
+            <span class="article-date">12 min read</span>
+        </div>
+
+        <h1 class="article-title">How We Produce 120+ Creatives Per Month</h1>
+        
+        <p class="article-excerpt">The brief template, creator network, and production workflow behind high-velocity creative operations. No magic—just systems.</p>
+
+        <div class="article-content">
+            <p>Every week, brands ask us the same question: "How do you produce so much creative without sacrificing quality?"</p>
+
+            <p>The answer isn't more designers. It's not a bigger budget. It's not AI (though we use it). The answer is <strong>systems</strong>.</p>
+
+            <p>We've built a creative production machine that outputs <span class="stat-highlight">120+ ad variations per month</span> for our clients—with a team of 3 designers and a network of 50+ UGC creators. Here's exactly how it works.</p>
+
+            <h2>The Math Behind High-Velocity Creative</h2>
+
+            <p>First, let's break down what "120+ creatives" actually means:</p>
+
+            <ul>
+                <li><strong>30 net-new concepts:</strong> Completely fresh angles, hooks, and creative directions</li>
+                <li><strong>60 iterations:</strong> Variations on winning concepts (new hooks, CTAs, formats)</li>
+                <li><strong>30 format adaptations:</strong> Resizing, reformatting for different placements</li>
+            </ul>
+
+            <p>This isn't about producing garbage at scale. It's about systematic iteration on what works while continuously testing new angles.</p>
+
+            <h2>The Weekly Creative Sprint</h2>
+
+            <p>Everything runs on a weekly sprint cycle. No monthly planning marathons. No quarterly creative refreshes. Every week, the machine runs:</p>
+
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-num">Mon</div>
+                    <h4>Performance Review</h4>
+                    <p>Analyze last week's winners and losers</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">Tue</div>
+                    <h4>Brief Development</h4>
+                    <p>Write briefs for new concepts + iterations</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">Wed</div>
+                    <h4>Production</h4>
+                    <p>Designers + creators execute briefs</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">Thu</div>
+                    <h4>Review & Revise</h4>
+                    <p>QA, feedback, final edits</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">Fri</div>
+                    <h4>Launch</h4>
+                    <p>New creative goes live</p>
+                </div>
+            </div>
+
+            <p>This cadence creates forcing functions. No brief sits in limbo. No creative waits for "final approval." The rhythm keeps everything moving.</p>
+
+            <h2>The Brief Template That Makes It Possible</h2>
+
+            <p>Speed comes from clarity. Every brief we write follows the same 7-element structure:</p>
+
+            <div class="framework-card">
+                <h4>The 7-Element Creative Brief</h4>
+                <ol>
+                    <li><strong>Angle:</strong> The core message or positioning we're testing (1 sentence max)</li>
+                    <li><strong>Hook:</strong> The first 3 seconds/first line that stops the scroll</li>
+                    <li><strong>Proof Points:</strong> 2-3 specific claims, stats, or social proof to include</li>
+                    <li><strong>CTA:</strong> The exact action we want viewers to take</li>
+                    <li><strong>Format:</strong> Static, video, carousel, UGC, etc.</li>
+                    <li><strong>Reference:</strong> 1-2 examples of what we're going for</li>
+                    <li><strong>Success Metric:</strong> What "winning" looks like for this creative</li>
+                </ol>
+            </div>
+
+            <p>That's it. No 10-page creative strategy documents. No mood boards. No "creative exploration." A brief that can be written in 10 minutes and executed in 2 hours.</p>
+
+            <div class="callout-box">
+                <p><strong>The Test:</strong> If a designer or creator needs to ask clarifying questions before starting, the brief failed. Rewrite it.</p>
+            </div>
+
+            <h2>The 70/30 Split: Evergreen vs. Experimental</h2>
+
+            <p>Not all creative is created equal. We split production into two buckets:</p>
+
+            <h3>70% Evergreen (Iterations on Winners)</h3>
+            <p>These are variations on concepts that have already proven themselves. The angle works—we're just testing new executions:</p>
+            <ul>
+                <li>New hooks on the same angle</li>
+                <li>Different CTAs</li>
+                <li>Format changes (static → video, video → carousel)</li>
+                <li>New proof points or social proof</li>
+                <li>Creator/talent swaps</li>
+            </ul>
+
+            <h3>30% Experimental (Net-New Concepts)</h3>
+            <p>These are fresh angles we haven't tested before. Higher risk, higher potential reward:</p>
+            <ul>
+                <li>New positioning or messaging angles</li>
+                <li>Different target personas</li>
+                <li>Format experiments</li>
+                <li>Competitive angles</li>
+                <li>"Weird" ideas from the team</li>
+            </ul>
+
+            <p>This ratio ensures we're always improving on what works while continuously discovering new winners.</p>
+
+            <h2>The UGC Creator Network</h2>
+
+            <p>UGC is our highest-performing format across almost every account. But managing creators is a nightmare—unless you systematize it.</p>
+
+            <h3>How We Built a 50+ Creator Network</h3>
+
+            <ol>
+                <li><strong>Source continuously:</strong> We're always recruiting, not just when we need content. Billo, Insense, and direct outreach on TikTok/Instagram.</li>
+                <li><strong>Test before committing:</strong> Every new creator gets a single paid test brief. If they deliver, they join the network. If not, we move on.</li>
+                <li><strong>Categorize by strength:</strong> Some creators are great at testimonials. Others nail product demos. We tag everyone by what they're best at.</li>
+                <li><strong>Pay fast, pay fairly:</strong> Net-7 payment terms, always. $150-400 per video depending on complexity and usage rights.</li>
+            </ol>
+
+            <h3>The Creator Brief</h3>
+
+            <p>Creator briefs are different from design briefs. They need to be more prescriptive on format while leaving room for authentic delivery:</p>
+
+            <div class="framework-card">
+                <h4>UGC Creator Brief Template</h4>
+                <ul>
+                    <li><strong>Hook Script:</strong> Exact first line they need to say</li>
+                    <li><strong>Talking Points:</strong> 3-4 bullet points to hit (not a full script)</li>
+                    <li><strong>B-Roll List:</strong> Specific shots we need (product in hand, using product, etc.)</li>
+                    <li><strong>Length:</strong> Target duration (usually 15-45 seconds)</li>
+                    <li><strong>Don'ts:</strong> Common mistakes to avoid (music, filters, etc.)</li>
+                    <li><strong>References:</strong> 2-3 example videos showing the style we want</li>
+                </ul>
+            </div>
+
+            <p>We never send full scripts. The content comes out robotic. Talking points + examples = authentic delivery with on-message content.</p>
+
+            <h2>The Tech Stack</h2>
+
+            <p>Tools matter less than process, but here's what we use:</p>
+
+            <ul>
+                <li><strong>Foreplay:</strong> Ad library and swipe file—competitive research and inspiration</li>
+                <li><strong>Figma:</strong> Design production for static and motion graphics</li>
+                <li><strong>Frame.io:</strong> Video review and approval workflow</li>
+                <li><strong>Notion:</strong> Brief database and creative archive</li>
+                <li><strong>Slack:</strong> Creator communication (faster than email)</li>
+                <li><strong>Google Sheets:</strong> Performance tracking and winner/loser analysis</li>
+            </ul>
+
+            <p>The stack isn't special. The workflows built on top of it are.</p>
+
+            <h2>The Review Process That Doesn't Kill Speed</h2>
+
+            <p>Most creative operations die in the review process. Feedback loops stretch for days. Stakeholders pile on contradictory notes. By the time creative launches, the moment has passed.</p>
+
+            <p>Our review process has two rules:</p>
+
+            <ol>
+                <li><strong>One reviewer per creative type.</strong> Static gets reviewed by the design lead. Video by the creative strategist. UGC by the media buyer who'll run it. No committees.</li>
+                <li><strong>24-hour turnaround max.</strong> If feedback isn't delivered within 24 hours, the creative launches as-is. This sounds scary. It works.</li>
+            </ol>
+
+            <p>The result: creative moves from brief to live in 72 hours or less.</p>
+
+            <h2>What This Looks Like in Practice</h2>
+
+            <p>Here's an actual week from one of our fitness apparel accounts:</p>
+
+            <ul>
+                <li><strong>Monday:</strong> Reviewed last week's tests. 2 winners (scale immediately), 3 losers (kill), 5 inconclusive (need more spend)</li>
+                <li><strong>Tuesday:</strong> Wrote 8 briefs—4 iterations on winners, 4 new angle tests</li>
+                <li><strong>Wednesday:</strong> Designers produced 12 static variations. Sent 4 briefs to UGC creators.</li>
+                <li><strong>Thursday:</strong> Reviewed and approved 10 statics. Received 3 UGC videos, requested 1 revision.</li>
+                <li><strong>Friday:</strong> Launched 13 new creatives. Archived all briefs and assets.</li>
+            </ul>
+
+            <p>Multiply this by 4 weeks, add the UGC that comes in on rolling deadlines, and you hit 120+ per month without breaking a sweat.</p>
+
+            <h2>The Metrics That Matter</h2>
+
+            <p>Volume is meaningless without quality. We track three metrics religiously:</p>
+
+            <ol>
+                <li><strong>Win Rate:</strong> What percentage of new concepts become scale-worthy winners? Target: 15-20%</li>
+                <li><strong>Iteration Efficiency:</strong> How many iterations does it take to find the best version of a winner? Target: 3-4</li>
+                <li><strong>Time to Scale:</strong> How quickly do winners get scaled to full budget? Target: 48 hours</li>
+            </ol>
+
+            <p>If win rate drops, we're testing bad angles. If iteration efficiency drops, our briefs aren't specific enough. If time to scale drops, our review process is broken.</p>
+
+            <h2>Start Building Your System</h2>
+
+            <p>You don't need 120 creatives per month. You need a system that can produce whatever volume your account requires—consistently, predictably, without heroics.</p>
+
+            <p>Start here:</p>
+
+            <ol>
+                <li>Adopt the 7-element brief template. Use it for every creative, no exceptions.</li>
+                <li>Implement the weekly sprint cadence. Even if you're producing 20 creatives a month, the rhythm creates momentum.</li>
+                <li>Build your creator network—even 5 reliable creators changes the game.</li>
+                <li>Track win rate, not just volume. Output means nothing if it doesn't convert.</li>
+            </ol>
+
+            <p>The system scales. The question is whether you'll build it.</p>
+        </div>
+
+        <div class="article-cta">
+            <h3>Need a Creative System Built for You?</h3>
+            <p>We build high-velocity creative operations for growth-stage brands. Let's talk about your creative capacity.</p>
+            <a href="../partner.html" class="cta-button">Book a Creative Audit</a>
+        </div>
+    </article>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="../growth-os.html">Growth OS</a>
+                <a href="../insights.html">Insights</a>
+                <a href="../partner.html">Partner</a>
+            </div>
+            <div class="footer-copy">© 2026 Wavy Studios. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>

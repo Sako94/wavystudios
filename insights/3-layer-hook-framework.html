@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 3-Layer Hook Framework That Stops the Scroll | Wavy Studios</title>
+    <meta name="description" content="Visual hook, copy hook, pattern interrupt—how to stack all three for maximum thumb-stopping power.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --bg-card: #0f0f0f;
+            --text-primary: #ffffff;
+            --text-secondary: #999999;
+            --text-muted: #555555;
+            --accent-lime: #c8ff00;
+            --accent-lime-dim: #a8d900;
+            --accent-coral: #ff6b4a;
+            --accent-blue: #4a9eff;
+            --accent-purple: #a855f7;
+            --border-subtle: #1a1a1a;
+            --border-medium: #2a2a2a;
+            --font-display: 'Syne', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-mono);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98), rgba(10,10,10,0.8));
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--accent-lime); }
+
+        .nav-cta {
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            padding: 0.75rem 1.5rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover { background: var(--text-primary); }
+
+        /* Article Layout */
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-type {
+            background: rgba(200, 255, 0, 0.15);
+            color: var(--accent-lime);
+            padding: 0.25rem 0.75rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid rgba(200, 255, 0, 0.3);
+        }
+
+        .article-date {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+
+        .article-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .article-excerpt {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-medium);
+        }
+
+        .article-content h2 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--accent-lime);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .article-content strong {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .callout-box {
+            background: var(--bg-tertiary);
+            border-left: 3px solid var(--accent-lime);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .callout-box p {
+            margin: 0;
+            color: var(--text-primary);
+        }
+
+        .framework-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .framework-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--accent-lime);
+            margin-bottom: 0.5rem;
+        }
+
+        .framework-card .layer-num {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-highlight {
+            display: inline-block;
+            background: rgba(200, 255, 0, 0.1);
+            color: var(--accent-lime);
+            padding: 0.1rem 0.5rem;
+            font-weight: 700;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover { color: var(--accent-lime); }
+
+        /* CTA Section */
+        .article-cta {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            padding: 3rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .article-cta h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .article-cta p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover { background: var(--text-primary); }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 3rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover { color: var(--accent-lime); }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .article-container { padding: 6rem 1.5rem 3rem; }
+            .footer-content { flex-direction: column; gap: 1.5rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html" class="logo">Wavy Studios</a>
+        <ul class="nav-links">
+            <li><a href="../growth-os.html">Growth OS</a></li>
+            <li><a href="../insights.html">Insights</a></li>
+            <li><a href="../labs.html">Labs</a></li>
+        </ul>
+        <a href="../partner.html" class="nav-cta">Partner With Us</a>
+    </nav>
+
+    <article class="article-container">
+        <a href="../insights.html" class="back-link">← Back to Insights</a>
+        
+        <div class="article-meta">
+            <span class="article-type">Framework</span>
+            <span class="article-date">Jan 14, 2026</span>
+            <span class="article-date">7 min read</span>
+        </div>
+
+        <h1 class="article-title">The 3-Layer Hook Framework That Stops the Scroll</h1>
+        
+        <p class="article-excerpt">Visual hook, copy hook, pattern interrupt—how to stack all three for maximum thumb-stopping power. The framework behind our highest-performing ads.</p>
+
+        <div class="article-content">
+            <p>You have <span class="stat-highlight">0.4 seconds</span> to stop someone's thumb. That's it. In that fraction of a moment, your ad either captures attention or gets scrolled past forever.</p>
+
+            <p>Most advertisers think in terms of a single "hook." They obsess over the first line of copy or a flashy visual. But the highest-performing ads we've tested don't rely on one hook—they stack three.</p>
+
+            <p>We call it the <strong>3-Layer Hook Framework</strong>. It's the system behind every ad we test, and it's why our creative consistently outperforms industry benchmarks by 2-3x.</p>
+
+            <h2>Why Single Hooks Fail</h2>
+
+            <p>The problem with relying on one hook is simple: people process information differently.</p>
+
+            <ul>
+                <li><strong>Visual processors</strong> respond to imagery, color, and movement before they read a single word</li>
+                <li><strong>Text scanners</strong> look for headlines and copy that speaks to their specific problem</li>
+                <li><strong>Pattern-seekers</strong> notice when something breaks their expectations of what an "ad" looks like</li>
+            </ul>
+
+            <p>A single hook might catch one of these groups. Stacking all three catches everyone.</p>
+
+            <h2>The 3 Layers Explained</h2>
+
+            <div class="framework-card">
+                <div class="layer-num">Layer 1</div>
+                <h4>The Visual Hook</h4>
+                <p>This is what stops the scroll before the brain even processes what it's seeing. It operates on a pre-conscious level—pure pattern recognition and visual salience.</p>
+                <p><strong>What works:</strong> High contrast, unexpected colors, human faces with direct eye contact, movement in the first 0.5 seconds of video, visual tension (something "off" that demands resolution).</p>
+                <p><strong>What fails:</strong> Stock photography, predictable product shots, cluttered compositions, brand-first imagery that looks like every other ad.</p>
+            </div>
+
+            <div class="framework-card">
+                <div class="layer-num">Layer 2</div>
+                <h4>The Copy Hook</h4>
+                <p>Once the visual stops the scroll, the copy hook answers the immediate question: "Is this for me?" It must create relevance in under 2 seconds of reading time.</p>
+                <p><strong>What works:</strong> Specific problems stated plainly, unexpected statistics, direct challenges to beliefs, "I" statements that feel personal, questions that demand mental completion.</p>
+                <p><strong>What fails:</strong> Generic benefit statements, brand slogans, vague promises, anything that requires context to understand.</p>
+            </div>
+
+            <div class="framework-card">
+                <div class="layer-num">Layer 3</div>
+                <h4>The Pattern Interrupt</h4>
+                <p>This is the layer most advertisers miss entirely. It's the element that signals "this isn't a typical ad"—the thing that earns continued attention because it breaks expectations.</p>
+                <p><strong>What works:</strong> UGC that feels native to the platform, unexpected formats (text-only, meme structures, screenshot aesthetics), admission of limitations, content that would make sense organically.</p>
+                <p><strong>What fails:</strong> Polished production that screams "advertisement," anything with obvious branding in the first 3 seconds, content that feels imported from another platform.</p>
+            </div>
+
+            <h2>How to Stack All Three</h2>
+
+            <p>The magic happens when all three layers work together in the first 0.4 seconds. Here's the practical application:</p>
+
+            <h3>For Static Ads</h3>
+            <ol>
+                <li><strong>Visual:</strong> Lead with a high-contrast image that creates visual tension—something the eye can't ignore</li>
+                <li><strong>Copy:</strong> Overlay text that names a specific problem or makes a bold claim (no more than 7 words)</li>
+                <li><strong>Pattern Interrupt:</strong> Format it like native content—screenshot aesthetic, text message bubble, or handwritten note</li>
+            </ol>
+
+            <h3>For Video Ads</h3>
+            <ol>
+                <li><strong>Visual:</strong> First frame must work as a static thumbnail—assume autoplay is off</li>
+                <li><strong>Copy:</strong> Text on screen in the first 0.5 seconds, not waiting for audio</li>
+                <li><strong>Pattern Interrupt:</strong> Start mid-action or mid-sentence—skip the logo, skip the intro, start where the content starts</li>
+            </ol>
+
+            <div class="callout-box">
+                <p><strong>The Test:</strong> Show your ad to someone for 0.5 seconds, then hide it. Ask them: (1) What did you see? (2) Who is it for? (3) Did it feel like an ad? If they can't answer all three correctly, your hooks aren't stacked properly.</p>
+            </div>
+
+            <h2>Real Numbers from Our Testing</h2>
+
+            <p>We've tested this framework across 500+ ad variations for fitness, beauty, and DTC brands. The results are consistent:</p>
+
+            <ul>
+                <li><strong>Single-layer hooks:</strong> 1.2% average CTR</li>
+                <li><strong>Two-layer hooks:</strong> 2.1% average CTR</li>
+                <li><strong>Three-layer hooks:</strong> 3.4% average CTR</li>
+            </ul>
+
+            <p>That's not a marginal improvement—it's a <span class="stat-highlight">183% lift</span> from single to triple-stacked hooks. At scale, that's the difference between a profitable ad account and a money pit.</p>
+
+            <h2>Common Mistakes</h2>
+
+            <p><strong>Mistake #1: Sequencing instead of stacking.</strong> All three hooks need to hit simultaneously, not unfold over time. You don't have time to "build" to the hook.</p>
+
+            <p><strong>Mistake #2: Prioritizing brand over hook.</strong> Your logo, brand colors, and tagline are not hooks. They're what comes after you've earned attention. Lead with the hook, brand later.</p>
+
+            <p><strong>Mistake #3: Testing hooks in isolation.</strong> Don't A/B test visual hooks while keeping copy constant. Test complete hook stacks against each other—the interaction effects matter more than individual elements.</p>
+
+            <h2>Start Using This Tomorrow</h2>
+
+            <p>Pull your top 5 performing ads and your bottom 5. Analyze each through the 3-layer framework:</p>
+
+            <ol>
+                <li>Does the visual stop the scroll independent of copy?</li>
+                <li>Does the copy create immediate relevance in under 2 seconds?</li>
+                <li>Does the format break the pattern of what an "ad" looks like?</li>
+            </ol>
+
+            <p>We guarantee your top performers stack all three. Your underperformers are missing at least one.</p>
+
+            <p>Now you know what to fix.</p>
+        </div>
+
+        <div class="article-cta">
+            <h3>Want This Applied to Your Ads?</h3>
+            <p>We build creative systems that produce scroll-stopping ads at velocity. Let's talk about your creative strategy.</p>
+            <a href="../partner.html" class="cta-button">Book a Creative Audit</a>
+        </div>
+    </article>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="../growth-os.html">Growth OS</a>
+                <a href="../insights.html">Insights</a>
+                <a href="../partner.html">Partner</a>
+            </div>
+            <div class="footer-copy">© 2026 Wavy Studios. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>
