@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Creative Brief Template We Use for Every Asset | Wavy Studios</title>
+    <meta name="description" content="The 7 elements every brief needs—with examples and our actual template you can steal.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --bg-card: #0f0f0f;
+            --text-primary: #ffffff;
+            --text-secondary: #999999;
+            --text-muted: #555555;
+            --accent-lime: #c8ff00;
+            --accent-coral: #ff6b4a;
+            --accent-blue: #4a9eff;
+            --accent-purple: #a855f7;
+            --border-subtle: #1a1a1a;
+            --border-medium: #2a2a2a;
+            --font-display: 'Syne', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-mono);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98), rgba(10,10,10,0.8));
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--accent-lime); }
+
+        .nav-cta {
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            padding: 0.75rem 1.5rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover { background: var(--text-primary); }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-type {
+            background: rgba(200, 255, 0, 0.15);
+            color: var(--accent-lime);
+            padding: 0.25rem 0.75rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid rgba(200, 255, 0, 0.3);
+        }
+
+        .article-date { color: var(--text-muted); font-size: 0.75rem; }
+
+        .article-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .article-excerpt {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-medium);
+        }
+
+        .article-content h2 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--accent-lime);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .article-content li { margin-bottom: 0.75rem; font-size: 0.95rem; }
+        .article-content strong { color: var(--text-primary); font-weight: 700; }
+
+        .callout-box {
+            background: var(--bg-tertiary);
+            border-left: 3px solid var(--accent-lime);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .callout-box p { margin: 0; color: var(--text-primary); }
+
+        .template-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .template-header {
+            background: var(--bg-tertiary);
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-medium);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .template-title {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-lime);
+        }
+
+        .template-tag {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            background: var(--bg-primary);
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+        }
+
+        .template-body {
+            padding: 1.5rem;
+        }
+
+        .template-field {
+            margin-bottom: 1.25rem;
+        }
+
+        .template-field:last-child {
+            margin-bottom: 0;
+        }
+
+        .field-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-lime);
+            margin-bottom: 0.35rem;
+        }
+
+        .field-value {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            background: var(--bg-primary);
+            padding: 0.75rem;
+            border-radius: 4px;
+            border-left: 2px solid var(--border-medium);
+        }
+
+        .field-placeholder {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .example-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--accent-lime);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .example-header {
+            background: rgba(200, 255, 0, 0.1);
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--accent-lime);
+        }
+
+        .example-title {
+            font-family: var(--font-display);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-lime);
+        }
+
+        .example-body {
+            padding: 1.5rem;
+        }
+
+        .stat-highlight {
+            display: inline-block;
+            background: rgba(200, 255, 0, 0.1);
+            color: var(--accent-lime);
+            padding: 0.1rem 0.5rem;
+            font-weight: 700;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover { color: var(--accent-lime); }
+
+        .article-cta {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            padding: 3rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .article-cta h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover { background: var(--text-primary); }
+
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 3rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links { display: flex; gap: 2rem; }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover { color: var(--accent-lime); }
+        .footer-copy { color: var(--text-muted); font-size: 0.7rem; }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .article-container { padding: 6rem 1.5rem 3rem; }
+            .footer-content { flex-direction: column; gap: 1.5rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html" class="logo">Wavy Studios</a>
+        <ul class="nav-links">
+            <li><a href="../growth-os.html">Growth OS</a></li>
+            <li><a href="../insights.html">Insights</a></li>
+            <li><a href="../labs.html">Labs</a></li>
+        </ul>
+        <a href="../partner.html" class="nav-cta">Partner With Us</a>
+    </nav>
+
+    <article class="article-container">
+        <a href="../insights.html" class="back-link">← Back to Insights</a>
+        
+        <div class="article-meta">
+            <span class="article-type">Template</span>
+            <span class="article-date">Dec 15, 2025</span>
+            <span class="article-date">6 min read</span>
+        </div>
+
+        <h1 class="article-title">The Creative Brief Template We Use for Every Asset</h1>
+        
+        <p class="article-excerpt">The 7 elements every brief needs—with examples and our actual template you can steal.</p>
+
+        <div class="article-content">
+            <p>A good creative brief takes 10 minutes to write and saves 10 hours of revision cycles. A bad brief—or no brief at all—leads to creative that misses the mark, endless feedback loops, and frustrated teams on both sides.</p>
+
+            <p>We've refined our brief template over hundreds of projects. It's simple enough to fill out quickly, structured enough to prevent miscommunication, and flexible enough to work for any creative type.</p>
+
+            <p>Here's the exact template we use, with examples and guidance on each field.</p>
+
+            <h2>The 7-Element Brief</h2>
+
+            <p>Every brief we write contains exactly seven elements. No more, no less. Each element serves a specific purpose in guiding the creative output.</p>
+
+            <div class="template-box">
+                <div class="template-header">
+                    <span class="template-title">Creative Brief Template</span>
+                    <span class="template-tag">Copy & Use</span>
+                </div>
+                <div class="template-body">
+                    <div class="template-field">
+                        <div class="field-label">1. Angle</div>
+                        <div class="field-value field-placeholder">The core message or positioning we're testing (1 sentence max)</div>
+                    </div>
+                    <div class="template-field">
+                        <div class="field-label">2. Hook</div>
+                        <div class="field-value field-placeholder">The first 3 seconds / first line that stops the scroll</div>
+                    </div>
+                    <div class="template-field">
+                        <div class="field-label">3. Proof Points</div>
+                        <div class="field-value field-placeholder">2-3 specific claims, stats, or social proof to include</div>
+                    </div>
+                    <div class="template-field">
+                        <div class="field-label">4. CTA</div>
+                        <div class="field-value field-placeholder">The exact action we want viewers to take</div>
+                    </div>
+                    <div class="template-field">
+                        <div class="field-label">5. Format</div>
+                        <div class="field-value field-placeholder">Video / Static / Carousel / UGC style / etc.</div>
+                    </div>
+                    <div class="template-field">
+                        <div class="field-label">6. Reference</div>
+                        <div class="field-value field-placeholder">1-2 examples of what we're going for (links or descriptions)</div>
+                    </div>
+                    <div class="template-field">
+                        <div class="field-label">7. Success Metric</div>
+                        <div class="field-value field-placeholder">What "winning" looks like for this creative</div>
+                    </div>
+                </div>
+            </div>
+
+            <p>That's it. Seven fields. If a designer or creator needs to ask clarifying questions after reading a brief, the brief failed. Everything they need should be on this page.</p>
+
+            <h2>Element-by-Element Breakdown</h2>
+
+            <h3>1. Angle</h3>
+            <p>The angle is the strategic core of the creative. It answers: "What is the one thing we want viewers to believe or feel after seeing this?"</p>
+
+            <p><strong>Good angles are specific and testable:</strong></p>
+            <ul>
+                <li>✅ "These leggings don't slide down during workouts"</li>
+                <li>✅ "This skincare routine takes under 2 minutes"</li>
+                <li>✅ "Real customers are obsessed with our coffee"</li>
+            </ul>
+
+            <p><strong>Bad angles are vague or multi-focused:</strong></p>
+            <ul>
+                <li>❌ "Our product is high quality"</li>
+                <li>❌ "Show the benefits of the product"</li>
+                <li>❌ "Make people want to buy"</li>
+            </ul>
+
+            <p>One angle per brief. If you're testing multiple angles, write multiple briefs.</p>
+
+            <h3>2. Hook</h3>
+            <p>The hook is the first thing viewers see or hear. For video, it's the first 3 seconds. For static, it's the headline or dominant visual element.</p>
+
+            <p><strong>Be specific:</strong></p>
+            <ul>
+                <li>✅ "I need to tell you about these leggings before they sell out again"</li>
+                <li>✅ Opening shot: close-up of product with text overlay "The $23 dupe that broke TikTok"</li>
+            </ul>
+
+            <p><strong>Not vague:</strong></p>
+            <ul>
+                <li>❌ "Something attention-grabbing"</li>
+                <li>❌ "Start with a hook that makes people stop scrolling"</li>
+            </ul>
+
+            <p>If you can't write the exact hook, you haven't thought through the creative enough yet.</p>
+
+            <h3>3. Proof Points</h3>
+            <p>Proof points are the evidence that supports your angle. These are specific claims, statistics, testimonials, or demonstrations that make the angle believable.</p>
+
+            <p><strong>Include 2-3 specific proof points:</strong></p>
+            <ul>
+                <li>✅ "2,400+ 5-star reviews"</li>
+                <li>✅ "Designed by a physical therapist"</li>
+                <li>✅ "Show squat demonstration where waistband doesn't move"</li>
+            </ul>
+
+            <p>Proof points should be verifiable. Don't ask creators to make claims you can't back up.</p>
+
+            <h3>4. CTA (Call-to-Action)</h3>
+            <p>What do you want viewers to do after seeing this creative? Be specific about the action and any urgency/incentive.</p>
+
+            <p><strong>Specific CTAs:</strong></p>
+            <ul>
+                <li>✅ "Shop now — link in bio"</li>
+                <li>✅ "Get 20% off with code SAVE20"</li>
+                <li>✅ "Click to see all 12 colors"</li>
+            </ul>
+
+            <p><strong>Vague CTAs:</strong></p>
+            <ul>
+                <li>❌ "Drive to website"</li>
+                <li>❌ "Encourage purchase"</li>
+            </ul>
+
+            <h3>5. Format</h3>
+            <p>Specify exactly what format you need. This affects everything from aspect ratio to production approach.</p>
+
+            <p><strong>Format options to specify:</strong></p>
+            <ul>
+                <li>Video length: 15s, 30s, 60s</li>
+                <li>Aspect ratio: 9:16, 1:1, 4:5</li>
+                <li>Style: UGC, polished, motion graphics, static</li>
+                <li>Platform: Instagram Reels, TikTok, Facebook Feed, Stories</li>
+            </ul>
+
+            <p>Example: "UGC-style video, 25-35 seconds, 9:16 for Reels/TikTok"</p>
+
+            <h3>6. Reference</h3>
+            <p>Show, don't just tell. Include 1-2 examples of creative that captures the style, tone, or approach you're going for.</p>
+
+            <p>References can be:</p>
+            <ul>
+                <li>Competitor ads that worked</li>
+                <li>Previous winning creative from your account</li>
+                <li>Organic content with the right vibe</li>
+                <li>Mood boards or style frames</li>
+            </ul>
+
+            <p>Always include a note on what specifically you like about the reference: "Like this video's casual tone and direct-to-camera approach, but with our product and proof points."</p>
+
+            <h3>7. Success Metric</h3>
+            <p>How will we know if this creative won? Define the primary KPI and target threshold.</p>
+
+            <p><strong>Specific metrics:</strong></p>
+            <ul>
+                <li>✅ "Target: 2.5%+ CTR, under $30 CPA"</li>
+                <li>✅ "Beat control ad's CVR by 15%+"</li>
+                <li>✅ "Hook rate above 35%"</li>
+            </ul>
+
+            <p>This keeps everyone aligned on what "good" looks like and prevents subjective debates about whether creative is working.</p>
+
+            <h2>Real Example: Filled-Out Brief</h2>
+
+            <p>Here's an actual brief from a recent project (details changed for confidentiality):</p>
+
+            <div class="example-box">
+                <div class="example-header">
+                    <span class="example-title">Example: Fitness Apparel UGC Brief</span>
+                </div>
+                <div class="example-body">
+                    <div class="template-field">
+                        <div class="field-label">1. Angle</div>
+                        <div class="field-value">These leggings solve the #1 complaint women have about workout leggings: they slide down during squats.</div>
+                    </div>
+                    <div class="template-field">
+                        <div class="field-label">2. Hook</div>
+                        <div class="field-value">"I need to tell you about these leggings before they sell out again."</div>
+                    </div>
+                    <div class="template-field">
+                        <div class="field-label">3. Proof Points</div>
+                        <div class="field-value">• Demonstrate squat where waistband stays in place<br>• "Over 2,400 5-star reviews"<br>• "Recommended by my trainer friend"</div>
+                    </div>
+                    <div class="template-field">
+                        <div class="field-label">4. CTA</div>
+                        <div class="field-value">"Link in bio—but hurry, they sell out fast"</div>
+                    </div>
+                    <div class="template-field">
+                        <div class="field-label">5. Format</div>
+                        <div class="field-value">UGC-style video, 25-35 seconds, 9:16, casual bedroom/home setting, natural lighting</div>
+                    </div>
+                    <div class="template-field">
+                        <div class="field-label">6. Reference</div>
+                        <div class="field-value">[Link to reference video] — like the conversational tone and casual setting, but more emphasis on the product demonstration</div>
+                    </div>
+                    <div class="template-field">
+                        <div class="field-label">7. Success Metric</div>
+                        <div class="field-value">Target: 3%+ CTR, 4x+ ROAS at $200 test spend</div>
+                    </div>
+                </div>
+            </div>
+
+            <p>This brief took 8 minutes to write. The creator delivered exactly what we needed on the first try. The ad went on to generate $2M+ in revenue.</p>
+
+            <h2>Brief Variations by Creative Type</h2>
+
+            <h3>For Static Ads</h3>
+            <p>Same 7 elements, but Hook becomes "Headline/Primary Visual" and you may add:</p>
+            <ul>
+                <li>Body copy guidance</li>
+                <li>Image composition notes</li>
+                <li>Text hierarchy (what's most prominent)</li>
+            </ul>
+
+            <h3>For UGC Creators</h3>
+            <p>Add a section for "Talking Points" (not a full script) and "B-Roll Needs":</p>
+            <ul>
+                <li>Talking points: Key messages to hit in their own words</li>
+                <li>B-Roll: Specific shots needed (product in hand, using product, etc.)</li>
+                <li>Do's and Don'ts: Common mistakes to avoid</li>
+            </ul>
+
+            <h3>For Iteration Briefs</h3>
+            <p>When iterating on a winner, the brief is simpler:</p>
+            <ul>
+                <li>Link to original winning creative</li>
+                <li>What's changing (new hook, new CTA, new format)</li>
+                <li>What's staying the same (everything else)</li>
+            </ul>
+
+            <h2>Common Brief Mistakes</h2>
+
+            <h3>Mistake #1: Too Much Information</h3>
+            <p>A 3-page brief doesn't get read. Keep it to one page maximum. If you can't fit it on one page, you're not being decisive enough about what matters.</p>
+
+            <h3>Mistake #2: Vague Direction</h3>
+            <p>"Make it pop" and "something scroll-stopping" aren't directions. Be specific or don't include it.</p>
+
+            <h3>Mistake #3: No References</h3>
+            <p>Words are interpreted differently by everyone. A reference image or video eliminates ambiguity instantly.</p>
+
+            <h3>Mistake #4: Multiple Angles</h3>
+            <p>"Show benefit A and benefit B and benefit C" creates unfocused creative. One angle per brief, always.</p>
+
+            <h3>Mistake #5: Missing Success Metric</h3>
+            <p>Without a defined win condition, you'll end up debating whether creative is "good" based on subjective opinions. Define the number upfront.</p>
+
+            <h2>The Brief Workflow</h2>
+
+            <p>Here's how briefs fit into our weekly creative production:</p>
+
+            <ol>
+                <li><strong>Monday:</strong> Review last week's performance, identify what to test next</li>
+                <li><strong>Tuesday AM:</strong> Write briefs for all creative needed this week (30-60 min)</li>
+                <li><strong>Tuesday PM:</strong> Brief review with team, quick clarifications</li>
+                <li><strong>Wednesday-Thursday:</strong> Production</li>
+                <li><strong>Friday:</strong> QA, launch</li>
+            </ol>
+
+            <p>Writing all briefs in one focused session is faster than writing them ad-hoc throughout the week. Batch the strategic thinking.</p>
+
+            <h2>Steal This Template</h2>
+
+            <p>Copy the template below into your own doc and start using it today:</p>
+
+            <div class="callout-box">
+                <p><strong>CREATIVE BRIEF</strong><br><br>
+                <strong>Angle:</strong> [One sentence — the core message]<br><br>
+                <strong>Hook:</strong> [First 3 seconds / headline — be specific]<br><br>
+                <strong>Proof Points:</strong><br>
+                • [Proof point 1]<br>
+                • [Proof point 2]<br>
+                • [Proof point 3]<br><br>
+                <strong>CTA:</strong> [Exact call-to-action]<br><br>
+                <strong>Format:</strong> [Video/Static, length, aspect ratio, style]<br><br>
+                <strong>Reference:</strong> [Link + what you like about it]<br><br>
+                <strong>Success Metric:</strong> [Target KPI and threshold]</p>
+            </div>
+
+            <p>Seven elements. One page. Everything a creative team needs to deliver exactly what you're looking for—on the first try.</p>
+        </div>
+
+        <div class="article-cta">
+            <h3>Want Briefs Written for You?</h3>
+            <p>We handle creative strategy end-to-end—from brief to production to testing. Let's talk about your creative needs.</p>
+            <a href="../partner.html" class="cta-button">Book a Creative Audit</a>
+        </div>
+    </article>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="../growth-os.html">Growth OS</a>
+                <a href="../insights.html">Insights</a>
+                <a href="../partner.html">Partner</a>
+            </div>
+            <div class="footer-copy">© 2026 Wavy Studios. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatomy of a $2M Ad: Breaking Down Our Best Performer | Wavy Studios</title>
+    <meta name="description" content="Frame-by-frame analysis of the ad that drove $2M+ in revenue—why it worked and how to replicate the formula.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --bg-card: #0f0f0f;
+            --text-primary: #ffffff;
+            --text-secondary: #999999;
+            --text-muted: #555555;
+            --accent-lime: #c8ff00;
+            --accent-coral: #ff6b4a;
+            --accent-blue: #4a9eff;
+            --accent-purple: #a855f7;
+            --border-subtle: #1a1a1a;
+            --border-medium: #2a2a2a;
+            --font-display: 'Syne', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-mono);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98), rgba(10,10,10,0.8));
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--accent-lime); }
+
+        .nav-cta {
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            padding: 0.75rem 1.5rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover { background: var(--text-primary); }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-type {
+            background: rgba(200, 255, 0, 0.15);
+            color: var(--accent-lime);
+            padding: 0.25rem 0.75rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid rgba(200, 255, 0, 0.3);
+        }
+
+        .article-date { color: var(--text-muted); font-size: 0.75rem; }
+
+        .article-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .article-excerpt {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-medium);
+        }
+
+        .article-content h2 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .article-content h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--accent-lime);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .article-content li { margin-bottom: 0.75rem; font-size: 0.95rem; }
+        .article-content strong { color: var(--text-primary); font-weight: 700; }
+
+        .callout-box {
+            background: var(--bg-tertiary);
+            border-left: 3px solid var(--accent-lime);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .callout-box p { margin: 0; color: var(--text-primary); }
+
+        .stat-highlight {
+            display: inline-block;
+            background: rgba(200, 255, 0, 0.1);
+            color: var(--accent-lime);
+            padding: 0.1rem 0.5rem;
+            font-weight: 700;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .metric-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .metric-value {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--accent-lime);
+        }
+
+        .metric-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-medium);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.3rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-lime);
+            border-radius: 50%;
+            transform: translateX(-5px);
+        }
+
+        .timeline-time {
+            font-size: 0.7rem;
+            color: var(--accent-lime);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h4 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .framework-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .framework-card h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--accent-lime);
+            margin-bottom: 1rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover { color: var(--accent-lime); }
+
+        .article-cta {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            padding: 3rem;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .article-cta h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .article-cta p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover { background: var(--text-primary); }
+
+        footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 3rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links { display: flex; gap: 2rem; }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.75rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover { color: var(--accent-lime); }
+        .footer-copy { color: var(--text-muted); font-size: 0.7rem; }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .article-container { padding: 6rem 1.5rem 3rem; }
+            .footer-content { flex-direction: column; gap: 1.5rem; text-align: center; }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../index.html" class="logo">Wavy Studios</a>
+        <ul class="nav-links">
+            <li><a href="../growth-os.html">Growth OS</a></li>
+            <li><a href="../insights.html">Insights</a></li>
+            <li><a href="../labs.html">Labs</a></li>
+        </ul>
+        <a href="../partner.html" class="nav-cta">Partner With Us</a>
+    </nav>
+
+    <article class="article-container">
+        <a href="../insights.html" class="back-link">← Back to Insights</a>
+        
+        <div class="article-meta">
+            <span class="article-type">Deep Dive</span>
+            <span class="article-date">Dec 20, 2025</span>
+            <span class="article-date">14 min read</span>
+        </div>
+
+        <h1 class="article-title">Anatomy of a $2M Ad: Breaking Down Our Best Performer</h1>
+        
+        <p class="article-excerpt">Frame-by-frame analysis of the ad that drove $2M+ in revenue—why it worked and how to replicate the formula.</p>
+
+        <div class="article-content">
+            <p>In Q3 2025, we launched an ad for a fitness apparel brand that became the highest-performing creative in our history. Over its lifetime, this single piece of creative generated <span class="stat-highlight">$2.1M in attributed revenue</span> at a 4.8x ROAS.</p>
+
+            <p>This isn't a case study about the brand or the campaign. This is a frame-by-frame breakdown of why this specific ad worked—and how you can reverse-engineer the formula for your own creative.</p>
+
+            <div class="metrics-grid">
+                <div class="metric-box">
+                    <div class="metric-value">$2.1M</div>
+                    <div class="metric-label">Revenue</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value">4.8x</div>
+                    <div class="metric-label">ROAS</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value">4.2%</div>
+                    <div class="metric-label">CTR</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-value">127 days</div>
+                    <div class="metric-label">Active Run</div>
+                </div>
+            </div>
+
+            <h2>The Context</h2>
+
+            <p>Before we dive into the creative, context matters:</p>
+
+            <ul>
+                <li><strong>Brand:</strong> Premium fitness apparel ($65-120 price point)</li>
+                <li><strong>Audience:</strong> Women 18-34 who work out regularly</li>
+                <li><strong>Platform:</strong> Meta (Instagram Reels, Facebook Feeds)</li>
+                <li><strong>Objective:</strong> Purchase conversion</li>
+                <li><strong>Format:</strong> UGC-style video, 28 seconds</li>
+            </ul>
+
+            <p>The brand had been running traditional product showcase ads with decent (2.5x ROAS) but not exceptional performance. They came to us asking for "something different." This ad was the result.</p>
+
+            <h2>The Frame-by-Frame Breakdown</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-time">0:00 - 0:03 | The Hook</div>
+                    <div class="timeline-content">
+                        <h4>"I need to tell you about these leggings before they sell out again."</h4>
+                        <p>Creator speaking directly to camera, casual setting (bedroom, natural lighting). No logo, no product visible yet. The hook does three things: creates urgency ("sell out"), positions as insider knowledge ("need to tell you"), and establishes authenticity (casual setting, not a studio).</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">0:03 - 0:08 | The Problem</div>
+                    <div class="timeline-content">
+                        <h4>"I've tried literally every brand and they all have the same problem—they slide down during squats."</h4>
+                        <p>Creator gestures frustratedly. Cut to B-roll of her adjusting leggings mid-workout (relatable moment). This names the specific pain point that the target audience experiences constantly. Specificity ("during squats") makes it feel real.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">0:08 - 0:12 | The Discovery</div>
+                    <div class="timeline-content">
+                        <h4>"Then my friend who's a trainer told me about [Brand] and I was skeptical but..."</h4>
+                        <p>First mention of brand, but framed as recommendation from trusted source. The "skeptical but" creates tension—viewer wants to know if the skepticism was warranted.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">0:12 - 0:18 | The Proof</div>
+                    <div class="timeline-content">
+                        <h4>"Look at this—" [Demonstrates squat] "They literally don't move."</h4>
+                        <p>Full-body shot of creator doing deep squat in the leggings. Camera zooms slightly to waistband. She tugs at the waistband to show it stays in place. This is the moment of proof—visual demonstration beats any claim.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">0:18 - 0:23 | The Stack</div>
+                    <div class="timeline-content">
+                        <h4>"Plus they're buttery soft, they have pockets that actually fit your phone, and they don't show sweat."</h4>
+                        <p>Rapid-fire additional benefits while showing each (touching fabric, putting phone in pocket, pointing to non-sweat-showing areas). Three benefits in 5 seconds—high information density without feeling rushed.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-time">0:23 - 0:28 | The Close</div>
+                    <div class="timeline-content">
+                        <h4>"Seriously, if you work out at all, you need these. Link in bio—but hurry, they sell out fast."</h4>
+                        <p>Direct CTA with urgency reinforcement. Creator points down (toward link). Final frame holds on product with subtle brand logo visible for the first time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Why It Worked: The 7 Elements</h2>
+
+            <p>Breaking down the anatomy reveals seven specific elements that made this ad exceptional:</p>
+
+            <h3>1. The "Insider Secret" Frame</h3>
+            <p>The ad is framed as sharing a discovery, not selling a product. "I need to tell you" positions the creator as someone doing the viewer a favor—not a brand trying to take their money. This frame bypasses ad skepticism entirely.</p>
+
+            <h3>2. Hyper-Specific Pain Point</h3>
+            <p>"They slide down during squats" is not a generic problem statement. It's a specific, visceral frustration that the target audience has experienced personally. When viewers hear this, they think "that's exactly my problem." Generic pain points ("uncomfortable leggings") don't create this recognition.</p>
+
+            <h3>3. Third-Party Credibility</h3>
+            <p>"My friend who's a trainer" adds a layer of credibility without requiring a formal testimonial. The trainer friend serves as an authority figure endorsement, filtered through a personal relationship that feels authentic.</p>
+
+            <h3>4. Visual Proof Over Claims</h3>
+            <p>The squat demonstration is the centerpiece of the ad. Instead of saying "these leggings stay in place," the ad shows it. This 6-second sequence does more persuasion work than any amount of copy could.</p>
+
+            <h3>5. Benefit Stacking</h3>
+            <p>After the main benefit (stays in place), the ad rapidly stacks three more benefits. This creates a feeling of "wow, it does all this?" without belaboring any single point. Each benefit is shown, not just stated.</p>
+
+            <h3>6. Authentic Production Value</h3>
+            <p>The ad looks like something a real person would post—not a commercial. Natural lighting, casual setting, imperfect framing. This aesthetic signals "real review" rather than "advertisement," which increases trust.</p>
+
+            <h3>7. Urgency Without Desperation</h3>
+            <p>The scarcity element ("sell out fast") is mentioned twice but feels organic to the narrative rather than salesy. It's framed as helpful information, not a pressure tactic.</p>
+
+            <h2>The Formula</h2>
+
+            <p>Extracting the pattern, here's the formula this ad follows:</p>
+
+            <div class="framework-card">
+                <h4>The $2M Ad Formula</h4>
+                <ol>
+                    <li><strong>Hook (0-3s):</strong> Insider/secret frame + urgency hint</li>
+                    <li><strong>Problem (3-8s):</strong> Hyper-specific pain point with relatable visual</li>
+                    <li><strong>Discovery (8-12s):</strong> Third-party introduction of solution</li>
+                    <li><strong>Proof (12-18s):</strong> Visual demonstration of main benefit</li>
+                    <li><strong>Stack (18-23s):</strong> 2-4 additional benefits, rapid-fire</li>
+                    <li><strong>Close (23-28s):</strong> Direct CTA with urgency reinforcement</li>
+                </ol>
+            </div>
+
+            <p>This formula isn't prescriptive—28 seconds isn't magic, and the exact timing can flex. But the sequence matters: hook → problem → discovery → proof → stack → close. Each element builds on the previous one.</p>
+
+            <h2>What We Tested After</h2>
+
+            <p>Once this ad proved itself, we entered iteration mode. Over the next 60 days, we tested 23 variations:</p>
+
+            <h3>Hook Variations (8 tests)</h3>
+            <ul>
+                <li>"These leggings broke the internet for a reason" — +12% CTR</li>
+                <li>"POV: You finally found workout leggings that don't suck" — -8% CTR</li>
+                <li>"The leggings that made me throw out every other pair I own" — +6% CTR</li>
+                <li>"Gym girlies, this one's for you" — -22% CTR</li>
+            </ul>
+
+            <p>Learning: Hooks that imply a story ("need to tell you," "broke the internet for a reason") outperform hooks that directly address the viewer.</p>
+
+            <h3>Creator Variations (6 tests)</h3>
+            <p>Same script, different creators. Results varied dramatically:</p>
+            <ul>
+                <li>Original creator: 4.8x ROAS (baseline)</li>
+                <li>Creator B (fitness influencer, 50K followers): 3.2x ROAS</li>
+                <li>Creator C (micro-influencer, 5K followers): 4.4x ROAS</li>
+                <li>Creator D (brand model, studio setting): 2.1x ROAS</li>
+            </ul>
+
+            <p>Learning: Authenticity beats reach. The micro-influencer nearly matched the original because she felt real. The studio setting killed performance despite higher production value.</p>
+
+            <h3>Length Variations (5 tests)</h3>
+            <ul>
+                <li>15-second cut (hook + proof + close only): -34% conversion rate</li>
+                <li>45-second version (expanded benefits): -18% conversion rate</li>
+                <li>Original 28 seconds: baseline</li>
+            </ul>
+
+            <p>Learning: The full narrative arc matters. Cutting the problem/discovery phases hurt conversions significantly. Longer didn't help either—28 seconds was the sweet spot for this message.</p>
+
+            <h2>The Scaling Journey</h2>
+
+            <p>This ad's performance over time tells its own story:</p>
+
+            <div class="framework-card">
+                <h4>Performance Over Time</h4>
+                <ul>
+                    <li><strong>Week 1:</strong> $5K spend, 5.2x ROAS — testing phase</li>
+                    <li><strong>Week 2-4:</strong> Scaled to $15K/week, maintained 4.9x ROAS</li>
+                    <li><strong>Week 5-8:</strong> $25K/week, ROAS dipped to 4.4x (expected at scale)</li>
+                    <li><strong>Week 9-12:</strong> $30K/week, stabilized at 4.6x with audience expansion</li>
+                    <li><strong>Week 13-18:</strong> $35K/week, gradual decline to 4.0x (creative fatigue beginning)</li>
+                    <li><strong>Week 19+:</strong> Reduced to $20K/week, maintained 4.2x with new audience segments</li>
+                </ul>
+            </div>
+
+            <p>Total lifetime spend: ~$440K. Total attributed revenue: $2.1M. The ad ran for 127 days before being retired—an exceptional lifespan for performance creative.</p>
+
+            <h2>How to Apply This</h2>
+
+            <p>You can't copy this ad, but you can apply its principles:</p>
+
+            <ol>
+                <li><strong>Find your hyper-specific pain point.</strong> What's the "leggings sliding down during squats" equivalent for your product? Survey customers, read reviews, talk to your support team.</li>
+                
+                <li><strong>Frame as discovery, not advertisement.</strong> "I need to tell you about this" beats "Check out our new product" every time.</li>
+                
+                <li><strong>Show, don't tell.</strong> Whatever your main benefit is, demonstrate it visually. Proof beats claims.</li>
+                
+                <li><strong>Stack benefits after the main proof.</strong> Once you've proven the main thing, rapid-fire additional benefits create the "wow, it does all this?" feeling.</li>
+                
+                <li><strong>Match production value to authenticity expectations.</strong> For most DTC brands, UGC-style content outperforms polished commercials. Your audience expects ads to look like content.</li>
+                
+                <li><strong>Test creators, not just creative.</strong> The same script can perform 2x differently with different talent. Build a network and test continuously.</li>
+            </ol>
+
+            <h2>The Uncomfortable Truth</h2>
+
+            <p>Here's what most case studies won't tell you: we produced 47 other ads that quarter. This one was the outlier. Our hit rate for "exceptional performers" is about 5%.</p>
+
+            <p>The difference between teams that find $2M ads and teams that don't isn't that one group is better at predicting winners. It's that one group produces and tests enough creative that outliers emerge.</p>
+
+            <p>This ad didn't succeed because we're geniuses. It succeeded because we followed a proven framework, produced at volume, and got lucky that this particular combination of creator + script + timing connected with the audience.</p>
+
+            <p>Your job isn't to create the perfect ad. It's to create enough good ads that perfection finds you.</p>
+        </div>
+
+        <div class="article-cta">
+            <h3>Want Us to Find Your $2M Ad?</h3>
+            <p>We build creative systems that produce at the volume required for outliers to emerge. Let's talk about your creative strategy.</p>
+            <a href="../partner.html" class="cta-button">Book a Creative Audit</a>
+        </div>
+    </article>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="../growth-os.html">Growth OS</a>
+                <a href="../insights.html">Insights</a>
+                <a href="../partner.html">Partner</a>
+            </div>
+            <div class="footer-copy">© 2026 Wavy Studios. All rights reserved.</div>
+        </div>
+    </footer>
+</body>
+</html>
