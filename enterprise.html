@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Partnerships | Wavy Studios</title>
+    <meta name="description" content="Growth systems for category leading brands. Enterprise infrastructure, dedicated senior teams, and methodology built for scale. For brands doing $5M+ annually in digital advertising.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --text-muted: #555555;
+            --accent-lime: #c8ff00;
+            --accent-lime-dim: #a8d900;
+            --accent-coral: #ff6b4a;
+            --accent-blue: #4a9eff;
+            --accent-purple: #a855f7;
+            --accent-teal: #14b8a6;
+            --accent-emerald: #10b981;
+            --border-subtle: #1a1a1a;
+            --border-medium: #2a2a2a;
+            --font-display: 'Syne', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-mono);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        ul { list-style: none; }
+
+        /* === NAVIGATION === */
+        .site-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.95), rgba(10,10,10,0.8));
+            backdrop-filter: blur(10px);
+        }
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+        .nav-logo:hover { color: var(--accent-lime); }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nav-item { position: relative; }
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: var(--accent-lime); }
+        .nav-link.active { color: var(--accent-lime); }
+        .nav-arrow { width: 8px; height: 8px; fill: currentColor; transition: transform 0.3s ease; }
+        .nav-item:hover .nav-arrow { transform: rotate(180deg); }
+        .nav-dropdown {
+            position: absolute;
+            top: 100%; left: 0;
+            min-width: 200px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 50;
+        }
+        .nav-item:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-link {
+            display: block;
+            padding: 0.6rem 1.25rem;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        .dropdown-link:hover {
+            background: var(--bg-tertiary);
+            color: var(--accent-lime);
+        }
+        .nav-cta {
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            padding: 0.6rem 1.25rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+        }
+        .nav-cta:hover { background: var(--text-primary); }
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            width: 32px; height: 32px;
+            padding: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .mobile-toggle span {
+            width: 24px; height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* === HERO === */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 10rem 3rem 6rem;
+            position: relative;
+            overflow: hidden;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(74, 158, 255, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(168, 85, 247, 0.08) 0%, transparent 40%),
+                var(--bg-secondary);
+        }
+        .hero-grid {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(74,158,255,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(74,158,255,0.04) 1px, transparent 1px);
+            background-size: 80px 80px;
+            mask-image: radial-gradient(ellipse at 50% 50%, black 0%, transparent 70%);
+        }
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+            background: rgba(74, 158, 255, 0.1);
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            padding: 0.5rem 1.5rem;
+        }
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .btn-primary {
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            padding: 1rem 2.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-primary:hover { background: var(--text-primary); transform: translateY(-2px); }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid var(--border-medium);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        .btn-secondary:hover { border-color: var(--accent-lime); color: var(--accent-lime); }
+
+        /* === SECTION STYLES === */
+        .section {
+            padding: 6rem 3rem;
+        }
+        .section-alt {
+            background: var(--bg-secondary);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-tag {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(74, 158, 255, 0.08);
+            padding: 0.4rem 1rem;
+            border: 1px solid rgba(74, 158, 255, 0.2);
+        }
+        .section-tag::before, .section-tag::after {
+            content: '';
+            width: 30px; height: 1px;
+            background: var(--accent-blue);
+            opacity: 0.5;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* === WHY ENTERPRISE === */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .why-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .why-card:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-4px);
+        }
+        .why-card:hover::before {
+            opacity: 1;
+        }
+        .why-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--accent-blue);
+        }
+        .why-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* === CAPABILITIES GRID === */
+        .cap-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+        .cap-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            padding: 2.5rem 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .cap-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        .cap-card:nth-child(1)::before { background: var(--accent-emerald); }
+        .cap-card:nth-child(2)::before { background: var(--accent-purple); }
+        .cap-card:nth-child(3)::before { background: var(--accent-coral); }
+        .cap-card:nth-child(4)::before { background: var(--accent-teal); }
+        .cap-card:nth-child(5)::before { background: var(--accent-blue); }
+        .cap-card:nth-child(6)::before { background: var(--accent-lime); }
+        .cap-card:hover {
+            transform: translateY(-4px);
+        }
+        .cap-card:hover::before {
+            opacity: 1;
+        }
+        .cap-card:nth-child(1):hover { border-color: var(--accent-emerald); }
+        .cap-card:nth-child(2):hover { border-color: var(--accent-purple); }
+        .cap-card:nth-child(3):hover { border-color: var(--accent-coral); }
+        .cap-card:nth-child(4):hover { border-color: var(--accent-teal); }
+        .cap-card:nth-child(5):hover { border-color: var(--accent-blue); }
+        .cap-card:nth-child(6):hover { border-color: var(--accent-lime); }
+        .cap-card h3 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        .cap-card:nth-child(1) h3 { color: var(--accent-emerald); }
+        .cap-card:nth-child(2) h3 { color: var(--accent-purple); }
+        .cap-card:nth-child(3) h3 { color: var(--accent-coral); }
+        .cap-card:nth-child(4) h3 { color: var(--accent-teal); }
+        .cap-card:nth-child(5) h3 { color: var(--accent-blue); }
+        .cap-card:nth-child(6) h3 { color: var(--accent-lime); }
+        .cap-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .cap-card li {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .cap-card li:last-child {
+            border-bottom: none;
+        }
+        .cap-card li::before {
+            content: '✓';
+            font-size: 0.7rem;
+        }
+        .cap-card:nth-child(1) li::before { color: var(--accent-emerald); }
+        .cap-card:nth-child(2) li::before { color: var(--accent-purple); }
+        .cap-card:nth-child(3) li::before { color: var(--accent-coral); }
+        .cap-card:nth-child(4) li::before { color: var(--accent-teal); }
+        .cap-card:nth-child(5) li::before { color: var(--accent-blue); }
+        .cap-card:nth-child(6) li::before { color: var(--accent-lime); }
+
+        /* === ENGAGEMENT OPTIONS === */
+        .engage-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .engage-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .engage-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .engage-card:nth-child(1)::before { background: var(--accent-purple); }
+        .engage-card:nth-child(2)::before { background: var(--accent-lime); }
+        .engage-card:nth-child(3)::before { background: var(--accent-coral); }
+        .engage-card:hover {
+            transform: translateY(-4px);
+        }
+        .engage-card:hover::before {
+            opacity: 1;
+        }
+        .engage-card:nth-child(1):hover { border-color: var(--accent-purple); }
+        .engage-card:nth-child(2):hover { border-color: var(--accent-lime); }
+        .engage-card:nth-child(3):hover { border-color: var(--accent-coral); }
+        .engage-card.featured {
+            border-color: var(--accent-lime);
+            border-width: 2px;
+        }
+        .engage-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 0.35rem 1rem;
+            opacity: 1;
+        }
+        .engage-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .engage-card:nth-child(1) h3 { color: var(--accent-purple); }
+        .engage-card:nth-child(2) h3 { color: var(--accent-lime); }
+        .engage-card:nth-child(3) h3 { color: var(--accent-coral); }
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .engage-card .engage-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .engage-card .engage-price {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .engage-card:nth-child(1) .engage-price { color: var(--accent-purple); }
+        .engage-card:nth-child(2) .engage-price { color: var(--accent-lime); }
+        .engage-card:nth-child(3) .engage-price { color: var(--accent-coral); }
+        .engage-card .engage-price-sub {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        .engage-card ul {
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        .engage-card li {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .engage-card li:last-child {
+            border-bottom: none;
+        }
+
+        /* === PROCESS === */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border-subtle);
+            margin-top: 4rem;
+        }
+        .process-step {
+            background: var(--bg-primary);
+            padding: 2.5rem 2rem;
+            position: relative;
+        }
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .process-step:nth-child(1)::before { background: var(--accent-blue); }
+        .process-step:nth-child(2)::before { background: var(--accent-purple); }
+        .process-step:nth-child(3)::before { background: var(--accent-coral); }
+        .process-step:nth-child(4)::before { background: var(--accent-emerald); }
+        .process-step:hover::before { transform: scaleX(1); }
+        .process-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 800;
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .process-step:nth-child(1) .process-number { color: var(--accent-blue); }
+        .process-step:nth-child(2) .process-number { color: var(--accent-purple); }
+        .process-step:nth-child(3) .process-number { color: var(--accent-coral); }
+        .process-step:nth-child(4) .process-number { color: var(--accent-emerald); }
+        .process-step h3 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .process-step p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .process-step .process-time {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 1rem;
+        }
+
+        /* === CTA === */
+        .cta-section {
+            padding: 6rem 3rem;
+            background: var(--bg-tertiary);
+            text-align: center;
+        }
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .cta-subtitle {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        /* === FOOTER === */
+        .site-footer {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-subtle);
+            padding: 4rem 3rem 2rem;
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .footer-brand p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-top: 1rem;
+        }
+        .footer-col h4 {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+        }
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .footer-col a {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+        .footer-col a:hover { color: var(--accent-lime); }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .footer-bottom p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .footer-social a {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        .footer-social a:hover { color: var(--accent-lime); }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 1024px) {
+            .why-grid { grid-template-columns: 1fr; }
+            .cap-grid { grid-template-columns: repeat(2, 1fr); }
+            .engage-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .site-nav { padding: 1rem 1.5rem; }
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: flex; }
+            .hero { padding: 8rem 1.5rem 4rem; }
+            .section { padding: 4rem 1.5rem; }
+            .cap-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav">
+        <a href="index.html" class="nav-logo">Wavy Studios</a>
+        <ul class="nav-links">
+            <li class="nav-item"><a href="growth-os.html" class="nav-link">Growth OS</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Services <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="lifecycle.html" class="dropdown-link">Lifecycle Marketing</a></li>
+                    <li><a href="paid-social.html" class="dropdown-link">Paid Social</a></li>
+                    <li><a href="paid-search.html" class="dropdown-link">Paid Search</a></li>
+                    <li><a href="creative.html" class="dropdown-link">Creative System</a></li>
+                    <li><a href="cro.html" class="dropdown-link">CRO & Funnels</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="insights.html" class="nav-link">Case Studies</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="ecommerce.html" class="dropdown-link">Ecommerce & DTC</a></li>
+                    <li><a href="lead-gen.html" class="dropdown-link">Lead Generation</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="labs.html" class="nav-link">Labs</a></li>
+            <li class="nav-item"><a href="enterprise.html" class="nav-link active">Enterprise</a></li>
+        </ul>
+        <a href="partner.html" class="nav-cta">Partner With Us</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-container">
+            <span class="hero-tag">Enterprise Partnerships</span>
+            <h1 class="hero-title">Growth Systems for Category-Leading Brands</h1>
+            <p class="hero-subtitle">
+                Enterprise infrastructure, dedicated senior teams, and methodology built for scale. For brands doing $5M+ annually in digital advertising.
+            </p>
+            <a href="partner.html" class="btn-primary">Schedule an Enterprise Consultation →</a>
+        </div>
+    </section>
+
+    <!-- Why Enterprise Brands Choose Wavy -->
+    <section class="section">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-tag">Why Wavy</span>
+                <h2 class="section-title">Why Enterprise Brands Choose Us</h2>
+                <p class="section-subtitle">You're not looking for another vendor. You're looking for a strategic partner who understands enterprise complexity.</p>
+            </header>
+            <div class="why-grid">
+                <div class="why-card">
+                    <h3>Multi-Stakeholder Alignment</h3>
+                    <p>We work with CMOs, CFOs, and boards. Our reporting and communication is designed for executive level visibility and cross functional alignment.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Integration with Existing Teams</h3>
+                    <p>Already have inhouse specialists or other agency relationships? We integrate seamlessly, filling gaps without creating conflicts.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Procurement Ready</h3>
+                    <p>SOC 2 compliant processes, NDA first engagement, comprehensive MSAs. We speak procurement's language and meet enterprise requirements.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Scalable Team Structure</h3>
+                    <p>Your dedicated team grows with you. From initial engagement to full scale partnership, we match resources to your growth trajectory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="section section-alt">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-tag">Capabilities</span>
+                <h2 class="section-title">Enterprise Grade Infrastructure</h2>
+                <p class="section-subtitle">From data security to executive reporting—built for brands that can't afford compromises.</p>
+            </header>
+            <div class="cap-grid">
+                <div class="cap-card">
+                    <h3>Data Security & Compliance</h3>
+                    <ul>
+                        <li>SOC 2 Type II compliant processes</li>
+                        <li>NDA execution before any data access</li>
+                        <li>GDPR/CCPA compliance built into workflows</li>
+                        <li>Secure data handling protocols</li>
+                    </ul>
+                </div>
+                <div class="cap-card">
+                    <h3>Platform Integration</h3>
+                    <ul>
+                        <li>Shopify Plus / Salesforce Commerce</li>
+                        <li>HubSpot / Salesforce CRM</li>
+                        <li>Klaviyo / Attentive / Braze</li>
+                        <li>Triple Whale / Northbeam / Rockerbox</li>
+                        <li>Looker / Tableau / Custom BI</li>
+                    </ul>
+                </div>
+                <div class="cap-card">
+                    <h3>Reporting & Governance</h3>
+                    <ul>
+                        <li>Executive dashboards (board-ready)</li>
+                        <li>Weekly written reports + calls</li>
+                        <li>Monthly QBRs with strategic planning</li>
+                        <li>Custom KPI frameworks</li>
+                    </ul>
+                </div>
+                <div class="cap-card">
+                    <h3>Team Structure</h3>
+                    <ul>
+                        <li>Dedicated Account Director (Sr. level)</li>
+                        <li>Channel-specific specialists</li>
+                        <li>Creative team with defined capacity</li>
+                        <li>Direct access to founders for escalations</li>
+                    </ul>
+                </div>
+                <div class="cap-card">
+                    <h3>SLA Framework</h3>
+                    <ul>
+                        <li>Response time: 24hr max</li>
+                        <li>Reporting delivery schedules</li>
+                        <li>Performance review cadence</li>
+                        <li>Escalation paths defined</li>
+                    </ul>
+                </div>
+                <div class="cap-card">
+                    <h3>Methodology</h3>
+                    <ul>
+                        <li>MER as north star metric</li>
+                        <li>Incrementality testing via geo-holdouts</li>
+                        <li>Cohort-based LTV analysis</li>
+                        <li>Contribution margin tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engagement Options -->
+    <section class="section">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-tag">Engagement Models</span>
+                <h2 class="section-title">Flexible Partnership Options</h2>
+                <p class="section-subtitle">From strategic guidance to full Growth OS implementation—we meet you where you are.</p>
+            </header>
+            <div class="engage-grid">
+                <div class="engage-card">
+                    <h3>Advisory & Enablement</h3>
+                    <p class="engage-desc">Strategic guidance for inhouse teams. Training, process development, and ongoing advisory.</p>
+                    <div class="engage-price">$15K–$25K</div>
+                    <div class="engage-price-sub">Monthly</div>
+                    <ul>
+                        <li>Weekly strategic calls</li>
+                        <li>Process & playbook development</li>
+                        <li>Team training sessions</li>
+                        <li>Audit & optimization reviews</li>
+                    </ul>
+                    <a href="partner.html" class="btn-secondary">Learn More</a>
+                </div>
+                <div class="engage-card featured">
+                    <h3>Strategic Partnership</h3>
+                    <p class="engage-desc">Full Growth OS implementation with dedicated team. The most common enterprise engagement.</p>
+                    <div class="engage-price">$50K–$150K</div>
+                    <div class="engage-price-sub">Monthly</div>
+                    <ul>
+                        <li>Dedicated team (4-8 specialists)</li>
+                        <li>Full-funnel execution</li>
+                        <li>Creative production at scale</li>
+                        <li>Executive reporting & QBRs</li>
+                    </ul>
+                    <a href="partner.html" class="btn-primary">Get Started</a>
+                </div>
+                <div class="engage-card">
+                    <h3>Channel-Specific</h3>
+                    <p class="engage-desc">Focus on 1-2 channels. Integrate with existing teams and agency relationships.</p>
+                    <div class="engage-price">$25K–$50K</div>
+                    <div class="engage-price-sub">Monthly</div>
+                    <ul>
+                        <li>Specialized channel team</li>
+                        <li>Integration with existing partners</li>
+                        <li>Channel-specific reporting</li>
+                        <li>Expansion pathways available</li>
+                    </ul>
+                    <a href="partner.html" class="btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section section-alt">
+        <div class="container">
+            <header class="section-header">
+                <span class="section-tag">Our Process</span>
+                <h2 class="section-title">How We Start</h2>
+                <p class="section-subtitle">A structured consultation process designed for enterprise decision-making.</p>
+            </header>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <h3>Executive Alignment</h3>
+                    <p>Understand your objectives, challenges, stakeholders, and decision-making process.</p>
+                    <div class="process-time">30 minutes</div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <h3>Technical Discovery</h3>
+                    <p>Deep dive into your tech stack, data infrastructure, current agency relationships, and integration requirements.</p>
+                    <div class="process-time">60 minutes</div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <h3>Strategic Proposal</h3>
+                    <p>Custom team structure, timeline, investment, and projected outcomes based on your specific situation.</p>
+                    <div class="process-time">45 minutes</div>
+                </div>
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <h3>Pilot or Full Engagement</h3>
+                    <p>Start focused with a pilot program or move directly to full strategic partnership.</p>
+                    <div class="process-time">Your timeline</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">Ready for Enterprise Grade Growth?</h2>
+            <p class="cta-subtitle">
+                Schedule an enterprise consultation. We'll review your current setup, understand your requirements, and determine if there's a fit—no pressure, just clarity.
+            </p>
+            <a href="partner.html" class="btn-primary">Schedule Enterprise Consultation →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <strong style="font-family: var(--font-display); font-size: 1.25rem;">Wavy Studios</strong>
+                    <p>Growth systems, not channel hacks. We build repeatable operating systems that scale your revenue profitably.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="growth-os.html">Growth OS</a></li>
+                        <li><a href="paid-social.html">Paid Social</a></li>
+                        <li><a href="paid-search.html">Paid Search</a></li>
+                        <li><a href="lifecycle.html">Lifecycle</a></li>
+                        <li><a href="creative.html">Creative</a></li>
+                        <li><a href="cro.html">CRO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Who We Help</h4>
+                    <ul>
+                        <li><a href="ecommerce.html">Ecommerce</a></li>
+                        <li><a href="lead-gen.html">Lead Gen</a></li>
+                        <li><a href="enterprise.html">Enterprise</a></li>
+                        <li><a href="insights.html">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="labs.html">Labs</a></li>
+                        <li><a href="insights.html">Insights</a></li>
+                        <li><a href="partner.html">Partner</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wavy Studios. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#">Li</a>
+                    <a href="#">X</a>
+                    <a href="#">IG</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    (function() {
+        var toggle = document.getElementById('mobileToggle');
+        if (toggle) {
+            toggle.addEventListener('click', function() {
+                // Mobile menu would go here
+            });
+        }
+    })();
+    </script>
+</body>
+</html>

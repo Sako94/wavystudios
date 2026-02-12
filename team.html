@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | Wavy Studios</title>
+    <meta name="description" content="Meet the senior leadership and team behind Wavy Studios. 50+ years combined experience, $200M+ managed spend, 100+ brands scaled.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #888888;
+            --text-muted: #555555;
+            --accent-lime: #c8ff00;
+            --accent-lime-dim: #a8d900;
+            --accent-coral: #ff6b4a;
+            --accent-blue: #4a9eff;
+            --accent-purple: #a855f7;
+            --accent-teal: #14b8a6;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --border-subtle: #1a1a1a;
+            --border-medium: #2a2a2a;
+            --font-display: 'Syne', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-mono);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        a { color: inherit; text-decoration: none; }
+        ul { list-style: none; }
+
+        /* === NAVIGATION === */
+        .site-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.95), rgba(10,10,10,0.8));
+            backdrop-filter: blur(10px);
+        }
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--text-primary);
+        }
+        .nav-logo:hover { color: var(--accent-lime); }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nav-item { position: relative; }
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: var(--accent-lime); }
+        .nav-link.active { color: var(--accent-lime); }
+        .nav-arrow { width: 8px; height: 8px; fill: currentColor; transition: transform 0.3s ease; }
+        .nav-item:hover .nav-arrow { transform: rotate(180deg); }
+        .nav-dropdown {
+            position: absolute;
+            top: 100%; left: 0;
+            min-width: 200px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-medium);
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        .nav-item:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-link {
+            display: block;
+            padding: 0.6rem 1.25rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+        .dropdown-link:hover {
+            background: var(--bg-tertiary);
+            color: var(--accent-lime);
+        }
+        .nav-cta {
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            padding: 0.6rem 1.25rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+        }
+        .nav-cta:hover { background: var(--text-primary); }
+
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--bg-primary);
+            z-index: 99;
+            padding: 100px 2rem 2rem;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .mobile-menu.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .mobile-menu-list { padding: 0; }
+        .mobile-menu-list > li {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .mobile-menu-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+        }
+        .mobile-menu-toggle-sub {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .mobile-submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .mobile-submenu.is-open {
+            max-height: 500px;
+        }
+        .mobile-submenu li {
+            border-bottom: none;
+        }
+        .mobile-submenu a {
+            display: block;
+            padding: 0.75rem 0 0.75rem 1rem;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .mobile-menu-cta {
+            display: inline-block;
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 900px) {
+            .site-nav { padding: 1rem 1.5rem; }
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
+        }
+
+        /* === HERO === */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10rem 3rem 6rem;
+            position: relative;
+            overflow: hidden;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(200, 255, 0, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(74, 158, 255, 0.06) 0%, transparent 40%),
+                var(--bg-secondary);
+        }
+        .hero-grid {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(200,255,0,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200,255,0,0.02) 1px, transparent 1px);
+            background-size: 80px 80px;
+            mask-image: radial-gradient(ellipse at 50% 50%, black 0%, transparent 70%);
+        }
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent-lime);
+            margin-bottom: 1.5rem;
+            background: rgba(200, 255, 0, 0.1);
+            border: 1px solid rgba(200, 255, 0, 0.3);
+            padding: 0.5rem 1.5rem;
+        }
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        .hero-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* === STATS BAR === */
+        .stats-bar {
+            padding: 3rem 3rem;
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent-lime);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* === LEADERSHIP SECTION === */
+        .leadership-section {
+            padding: 8rem 3rem;
+            background: var(--bg-secondary);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        .section-tag {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-lime);
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        .leadership-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+        .leader-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-subtle);
+            padding: 3rem 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .leader-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .leader-card:nth-child(1)::before { background: var(--accent-lime); }
+        .leader-card:nth-child(2)::before { background: var(--accent-blue); }
+        .leader-card:nth-child(3)::before { background: var(--accent-purple); }
+        .leader-card:hover {
+            transform: translateY(-8px);
+        }
+        .leader-card:hover::before {
+            opacity: 1;
+        }
+        .leader-card:nth-child(1):hover { border-color: var(--accent-lime); }
+        .leader-card:nth-child(2):hover { border-color: var(--accent-blue); }
+        .leader-card:nth-child(3):hover { border-color: var(--accent-purple); }
+        .leader-avatar {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            border: 2px solid var(--border-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            transition: all 0.3s ease;
+        }
+        .leader-card:nth-child(1) .leader-avatar {
+            color: var(--accent-lime);
+            border-color: var(--accent-lime);
+            background: rgba(200, 255, 0, 0.05);
+        }
+        .leader-card:nth-child(2) .leader-avatar {
+            color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            background: rgba(74, 158, 255, 0.05);
+        }
+        .leader-card:nth-child(3) .leader-avatar {
+            color: var(--accent-purple);
+            border-color: var(--accent-purple);
+            background: rgba(168, 85, 247, 0.05);
+        }
+        .leader-card:hover .leader-avatar {
+            transform: scale(1.05);
+        }
+        .leader-name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .leader-role {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .leader-card:nth-child(1) .leader-role { color: var(--accent-lime); }
+        .leader-card:nth-child(2) .leader-role { color: var(--accent-blue); }
+        .leader-card:nth-child(3) .leader-role { color: var(--accent-purple); }
+        .leader-bio {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* === TEAM SECTION === */
+        .team-section {
+            padding: 8rem 3rem;
+            background: var(--bg-primary);
+        }
+        .team-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .team-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--accent-teal);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .team-card:hover {
+            border-color: var(--accent-teal);
+            transform: translateY(-4px);
+        }
+        .team-card:hover::before {
+            opacity: 1;
+        }
+        .team-avatar {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1rem;
+            border-radius: 50%;
+            border: 2px solid var(--border-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-teal);
+            background: rgba(20, 184, 166, 0.05);
+        }
+        .team-name {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+        }
+        .team-role {
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* === CTA SECTION === */
+        .cta-section {
+            padding: 6rem 3rem;
+            background: var(--bg-tertiary);
+            text-align: center;
+        }
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .cta-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            padding: 1rem 2.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        /* === FOOTER === */
+        .site-footer {
+            background: var(--bg-secondary);
+            padding: 4rem 3rem 2rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .footer-brand strong {
+            display: block;
+            margin-bottom: 1rem;
+        }
+        .footer-brand p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .footer-col h4 {
+            font-family: var(--font-display);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .footer-col ul {
+            padding: 0;
+        }
+        .footer-col li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-col a {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+        .footer-col a:hover { color: var(--accent-lime); }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .footer-bottom p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .footer-social a {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+        .footer-social a:hover { color: var(--accent-lime); }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 900px) {
+            .stats-container { grid-template-columns: 1fr; gap: 2rem; }
+            .leadership-grid { grid-template-columns: 1fr; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+        @media (max-width: 600px) {
+            .team-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav">
+        <a href="index.html" class="nav-logo">Wavy Studios</a>
+        
+        <ul class="nav-links">
+            <li class="nav-item">
+                <a href="growth-os.html" class="nav-link">Growth OS</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Services <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="lifecycle.html" class="dropdown-link">Lifecycle Marketing</a></li>
+                    <li><a href="paid-social.html" class="dropdown-link">Paid Social</a></li>
+                    <li><a href="paid-search.html" class="dropdown-link">Paid Search</a></li>
+                    <li><a href="creative.html" class="dropdown-link">Creative System</a></li>
+                    <li><a href="cro.html" class="dropdown-link">CRO & Funnels</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="insights.html" class="nav-link">Case Studies</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="ecommerce.html" class="dropdown-link">Ecommerce & DTC</a></li>
+                    <li><a href="lead-gen.html" class="dropdown-link">Lead Generation</a></li>
+                    <li><a href="enterprise.html" class="dropdown-link">Enterprise</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="labs.html" class="nav-link">Labs</a>
+            </li>
+        </ul>
+        
+        <a href="partner.html" class="nav-cta">Partner With Us</a>
+        
+        <button class="mobile-toggle" id="mobileToggle">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu-list">
+            <li><a href="index.html" class="mobile-menu-link">Home</a></li>
+            <li><a href="growth-os.html" class="mobile-menu-link">Growth OS</a></li>
+            <li>
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Services <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="lifecycle.html">Lifecycle Marketing</a></li>
+                    <li><a href="paid-social.html">Paid Social</a></li>
+                    <li><a href="paid-search.html">Paid Search</a></li>
+                    <li><a href="creative.html">Creative System</a></li>
+                    <li><a href="cro.html">CRO & Funnels</a></li>
+                </ul>
+            </li>
+            <li><a href="insights.html" class="mobile-menu-link">Case Studies</a></li>
+            <li>
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="ecommerce.html">Ecommerce & DTC</a></li>
+                    <li><a href="lead-gen.html">Lead Generation</a></li>
+                    <li><a href="enterprise.html">Enterprise</a></li>
+                </ul>
+            </li>
+            <li><a href="labs.html" class="mobile-menu-link">Labs</a></li>
+            <li><a href="team.html" class="mobile-menu-link">Team</a></li>
+            <li class="mobile-menu-cta-wrap"><a href="partner.html" class="mobile-menu-cta">Partner With Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-content">
+            <div class="hero-tag">Our Leadership</div>
+            <h1 class="hero-title">Senior Leadership on Every Account</h1>
+            <p class="hero-subtitle">Unlike agencies that rotate junior staff through your account, every Wavy partnership includes dedicated senior leadership with 10+ years experience.</p>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Years Combined Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">$200M+</div>
+                <div class="stat-label">Managed Spend</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">Brands Scaled</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="leadership-section">
+        <div class="section-header">
+            <div class="section-tag">Leadership</div>
+            <h2 class="section-title">Meet the Leadership Team</h2>
+            <p class="section-subtitle">15+ years in performance marketing. Previously scaled multiple 8 figure DTC brands.</p>
+        </div>
+        <div class="leadership-grid">
+            <div class="leader-card">
+                <div class="leader-avatar">ST</div>
+                <h3 class="leader-name">Sako T.</h3>
+                <p class="leader-role">Founder & CEO</p>
+                <p class="leader-bio">15+ years in performance marketing. Previously scaled multiple 8 figure DTC brands.</p>
+            </div>
+            <div class="leader-card">
+                <div class="leader-avatar">JM</div>
+                <h3 class="leader-name">Jacob M.</h3>
+                <p class="leader-role">COO & Head of Paid Media</p>
+                <p class="leader-bio">$50M+ in managed spend. Google & Meta certified. Former agency VP.</p>
+            </div>
+            <div class="leader-card">
+                <div class="leader-avatar">CV</div>
+                <h3 class="leader-name">Caid V.</h3>
+                <p class="leader-role">Head of Lifecycle</p>
+                <p class="leader-bio">Klaviyo Elite Partner. Built lifecycle programs generating $30M+ annually.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="section-header">
+            <div class="section-tag">The Team</div>
+            <h2 class="section-title">Built to Scale</h2>
+            <p class="section-subtitle">Specialists across creative, lifecycle, and performance channels.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">AS</div>
+                <h4 class="team-name">Andre S.</h4>
+                <p class="team-role">Senior Designer</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">JM</div>
+                <h4 class="team-name">Jean-Claude M.</h4>
+                <p class="team-role">Lifecycle Marketing Manager</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">JS</div>
+                <h4 class="team-name">Jordan S.</h4>
+                <p class="team-role">Lifecycle Marketer</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">ZV</div>
+                <h4 class="team-name">Zack V.</h4>
+                <p class="team-role">Performance Marketing Creative Strategist</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2 class="cta-title">Ready to Work With Our Team?</h2>
+            <p class="cta-subtitle">Book a call to discuss how we can help scale your brand. We'll audit your current setup and show you the path to profitable growth.</p>
+            <a href="partner.html" class="btn-primary">Partner With Us →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <strong style="font-family: var(--font-display); font-size: 1.25rem;">Wavy Studios</strong>
+                    <p>Growth systems, not channel hacks. We build repeatable operating systems that scale your revenue profitably.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="growth-os.html">Growth OS</a></li>
+                        <li><a href="paid-social.html">Paid Social</a></li>
+                        <li><a href="paid-search.html">Paid Search</a></li>
+                        <li><a href="lifecycle.html">Lifecycle</a></li>
+                        <li><a href="creative.html">Creative</a></li>
+                        <li><a href="cro.html">CRO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Who We Help</h4>
+                    <ul>
+                        <li><a href="ecommerce.html">Ecommerce</a></li>
+                        <li><a href="lead-gen.html">Lead Gen</a></li>
+                        <li><a href="enterprise.html">Enterprise</a></li>
+                        <li><a href="insights.html">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="labs.html">Labs</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="insights.html">Insights</a></li>
+                        <li><a href="partner.html">Partner</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wavy Studios. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#">Li</a>
+                    <a href="#">X</a>
+                    <a href="#">IG</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+    (function() {
+        var toggle = document.getElementById('mobileToggle');
+        var menu = document.getElementById('mobileMenu');
+        
+        if (toggle && menu) {
+            toggle.addEventListener('click', function() {
+                var isOpen = menu.classList.contains('is-open');
+                menu.classList.toggle('is-open');
+                toggle.classList.toggle('is-active');
+                document.body.style.overflow = isOpen ? '' : 'hidden';
+            });
+        }
+        
+        var subToggles = document.querySelectorAll('.mobile-menu-toggle-sub');
+        for (var i = 0; i < subToggles.length; i++) {
+            subToggles[i].addEventListener('click', function() {
+                var submenu = this.nextElementSibling;
+                if (submenu) {
+                    submenu.classList.toggle('is-open');
+                    this.classList.toggle('is-open');
+                }
+            });
+        }
+    })();
+    </script>
+</body>
+</html>
