@@ -139,6 +139,106 @@
         }
         .nav-cta:hover { background: var(--text-primary); }
 
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 32px;
+            height: 32px;
+            padding: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        .mobile-toggle.is-active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-toggle.is-active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.is-active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-primary);
+            z-index: 99;
+            padding: 100px 2rem 2rem;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .mobile-menu-list {
+            list-style: none;
+        }
+        .mobile-menu-list > li {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .mobile-menu-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1.25rem 0;
+            font-size: 1rem;
+            color: var(--text-primary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: var(--font-mono);
+            text-decoration: none;
+        }
+        .mobile-menu-link:hover {
+            color: var(--accent-lime);
+        }
+        .mobile-submenu {
+            display: none;
+            padding: 0 0 1rem 1.5rem;
+            list-style: none;
+        }
+        .mobile-submenu.is-open {
+            display: block;
+        }
+        .mobile-submenu a {
+            display: block;
+            padding: 0.6rem 0;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+        .mobile-submenu a:hover {
+            color: var(--accent-lime);
+        }
+        .mobile-menu-cta {
+            display: block;
+            width: 100%;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: var(--accent-lime);
+            color: var(--bg-primary);
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
         /* Hero */
         .hero {
             min-height: 100vh;
@@ -944,24 +1044,239 @@
         @media (max-width: 1024px) {
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .testimonials-grid { grid-template-columns: 1fr; }
+            .audience-grid { grid-template-columns: repeat(2, 1fr); }
         }
-        @media (max-width: 900px) {
-            .nav-logo-img { height: 26px; }
 
+        @media (max-width: 768px) {
+            .nav-logo-img { height: 26px; }
             .site-nav { padding: 1rem 1.5rem; }
             .nav-links, .nav-cta { display: none; }
-            .hero { padding: 8rem 1.5rem 4rem; }
-            .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .problem-grid { grid-template-columns: 1fr; }
-            .solution-grid { grid-template-columns: 1fr; }
-            .funnel-visual { grid-template-columns: 1fr; }
-            .audience-grid { grid-template-columns: repeat(2, 1fr); }
-            .quality-grid { grid-template-columns: 1fr; }
-            .services-grid { grid-template-columns: 1fr; }
-            .why-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 2.5rem; }
+            .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
+
+            .hero { 
+                padding: 7rem 1.5rem 4rem; 
+                min-height: auto;
+            }
+            .hero-title { font-size: 2rem; }
+            .hero-subtitle { font-size: 0.95rem; }
+            .hero-ctas { 
+                flex-direction: column; 
+                width: 100%;
+            }
+            .hero-ctas a { 
+                width: 100%; 
+                text-align: center; 
+                justify-content: center;
+            }
+
+            /* Stats Grid Mobile */
+            .stats-bar {
+                padding: 2.5rem 1.5rem;
+            }
+            .stats-bar-label {
+                font-size: 0.85rem;
+                margin-bottom: 1.5rem;
+            }
+            .stats-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 1.5rem;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .stat-item {
+                padding: 1rem 0.5rem;
+                background: var(--bg-tertiary);
+                border-radius: 8px;
+            }
+            .stat-value {
+                font-size: 1.75rem;
+                margin-bottom: 0.35rem;
+            }
+            .stat-label {
+                font-size: 0.7rem;
+                line-height: 1.3;
+            }
+
+            /* Section headers */
+            .section-header { margin-bottom: 2rem; }
+            .section-tag { font-size: 0.8rem; }
+            .section-tag::before, .section-tag::after { width: 25px; }
+            .section-title { font-size: 1.5rem; }
+            .section-subtitle { font-size: 0.9rem; }
+
+            /* Problem/Solution sections */
+            .problem-section,
+            .solution-section,
+            .funnel-section,
+            .audience-section,
+            .quality-section,
+            .services-section,
+            .why-section,
+            .engine-section,
+            .cta-section {
+                padding: 4rem 1.5rem;
+            }
+            .problem-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .solution-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+            /* Funnel Visual */
+            .funnel-visual { 
+                grid-template-columns: 1fr; 
+                gap: 2rem;
+            }
+            .funnel-column {
+                padding: 1.5rem;
+            }
+            .funnel-column h4 {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+            .funnel-stages {
+                gap: 0.75rem;
+            }
+            .funnel-stage {
+                padding: 0.75rem 1rem;
+            }
+            .funnel-stage-name {
+                font-size: 0.85rem;
+            }
+            .funnel-stage-value {
+                font-size: 0.85rem;
+            }
+            .funnel-callout {
+                padding: 1.25rem;
+                margin-top: 1.5rem;
+            }
+            .funnel-callout p {
+                font-size: 0.9rem;
+            }
+
+            /* Audience Grid */
+            .audience-grid { 
+                grid-template-columns: 1fr; 
+                gap: 1rem;
+            }
+            .audience-card {
+                padding: 1.5rem;
+            }
+            .audience-icon {
+                font-size: 1.75rem;
+                margin-bottom: 0.75rem;
+            }
+            .audience-title {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+            .audience-desc {
+                font-size: 0.9rem;
+            }
+
+            /* Quality Grid */
+            .quality-grid { 
+                grid-template-columns: 1fr; 
+                gap: 1rem;
+            }
+            .quality-card {
+                padding: 1.5rem;
+            }
+            .quality-label {
+                font-size: 0.75rem;
+            }
+            .quality-question {
+                font-size: 1rem;
+            }
+
+            /* Services Grid */
+            .services-grid { 
+                grid-template-columns: 1fr; 
+                gap: 1rem;
+            }
+
+            /* Why Grid */
+            .why-grid { 
+                grid-template-columns: 1fr; 
+                gap: 1rem;
+            }
+
+            .cta-bullets {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: center;
+            }
+            .cta-bullet {
+                font-size: 0.85rem;
+            }
+
+            /* Engine Card */
+            .engine-card {
+                padding: 2rem 1.5rem;
+            }
+
+            /* Footer */
+            .footer-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 2rem 2.5rem; 
+            }
             .footer-logo-img { height: 28px; }
-            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .footer-bottom { 
+                flex-direction: column; 
+                gap: 1rem; 
+                text-align: center; 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 6rem 1rem 3rem; }
+            .hero-badge { font-size: 0.7rem; padding: 0.4rem 1rem; }
+            .hero-title { font-size: 1.65rem; }
+            .hero-subtitle { font-size: 0.9rem; }
+            .btn-primary, .btn-secondary { 
+                padding: 0.875rem 1.5rem; 
+                font-size: 0.8rem; 
+            }
+
+            .stats-bar { padding: 2rem 1rem; }
+            .stats-grid { 
+                gap: 1rem; 
+                max-width: 100%;
+            }
+            .stat-item { padding: 0.85rem 0.35rem; }
+            .stat-value { font-size: 1.5rem; }
+            .stat-label { font-size: 0.6rem; }
+
+            .problem-section,
+            .solution-section,
+            .funnel-section,
+            .audience-section,
+            .quality-section,
+            .services-section,
+            .why-section,
+            .engine-section,
+            .cta-section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title { font-size: 1.35rem; }
+            .section-subtitle { font-size: 0.85rem; }
+
+            .funnel-column { padding: 1.25rem; }
+            .funnel-stage { padding: 0.6rem 0.85rem; }
+            .funnel-stage-name { font-size: 0.8rem; }
+            .funnel-stage-value { font-size: 0.8rem; }
+
+            .audience-card { padding: 1.25rem; }
+            .quality-card { padding: 1.25rem; }
+
+            .engine-card { padding: 1.5rem 1rem; }
+
+            .cta-title { font-size: 1.5rem; }
+            .cta-subtitle { font-size: 0.85rem; }
+            .cta-bullet { font-size: 0.8rem; }
+
+            .footer-grid { gap: 1.5rem 2rem; }
+            .footer-col h4 { font-size: 0.85rem; }
+            .footer-col a { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -996,7 +1311,37 @@
             <li class="nav-item"><a href="/labs" class="nav-link">Labs</a></li>
         </ul>
         <a href="/partner" class="nav-cta">Book Your Strategy Call</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu-list">
+            <li><a href="/" class="mobile-menu-link">Home</a></li>
+            <li><a href="/growth-os" class="mobile-menu-link">Growth OS</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Services <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/lifecycle">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social">Paid Social</a></li>
+                    <li><a href="/paid-search">Paid Search</a></li>
+                    <li><a href="/creative">Creative System</a></li>
+                    <li><a href="/cro">CRO & Funnels</a></li>
+                </ul>
+            </li>
+            <li><a href="/insights" class="mobile-menu-link">Case Studies</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/ecommerce">Ecommerce & DTC</a></li>
+                    <li><a href="/lead-gen">Lead Generation</a></li>
+                    <li><a href="/enterprise">Enterprise</a></li>
+                </ul>
+            </li>
+            <li><a href="/labs" class="mobile-menu-link">Labs</a></li>
+            <li style="border:none;padding-top:1.5rem;"><a href="/partner" class="mobile-menu-cta">Book Your Strategy Call</a></li>
+        </ul>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1609,5 +1954,39 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('is-active');
+                mobileMenu.classList.toggle('is-open');
+                document.body.style.overflow = mobileMenu.classList.contains('is-open') ? 'hidden' : '';
+            });
+        }
+
+        // Mobile Submenu Toggles
+        document.querySelectorAll('.mobile-menu-toggle-sub').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const submenu = btn.nextElementSibling;
+                if (submenu) {
+                    submenu.classList.toggle('is-open');
+                    btn.querySelector('.nav-arrow')?.classList.toggle('is-open');
+                }
+            });
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('is-active');
+                mobileMenu.classList.remove('is-open');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
 </body>
 </html>

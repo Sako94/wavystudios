@@ -936,21 +936,23 @@
             height: 32px;
             background: var(--bg-secondary);
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .budget-bar {
             height: 100%;
             display: flex;
             align-items: center;
-            padding-left: 1rem;
-            font-size: 0.95rem;
+            padding-left: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
-            color: var(--bg-primary);
+            color: #ffffff;
+            white-space: nowrap;
+            letter-spacing: -0.02em;
         }
 
         .budget-row:nth-child(1) .budget-bar { background: var(--accent-google-blue); width: 60%; }
-        .budget-row:nth-child(2) .budget-bar { background: var(--accent-lime); width: 25%; }
+        .budget-row:nth-child(2) .budget-bar { background: var(--accent-purple); width: 25%; }
         .budget-row:nth-child(3) .budget-bar { background: var(--accent-coral); width: 15%; }
 
         .budget-percent {
@@ -961,7 +963,7 @@
         }
 
         .budget-row:nth-child(1) .budget-percent { color: var(--accent-google-blue); }
-        .budget-row:nth-child(2) .budget-percent { color: var(--accent-lime); }
+        .budget-row:nth-child(2) .budget-percent { color: var(--accent-purple); }
         .budget-row:nth-child(3) .budget-percent { color: var(--accent-coral); }
 
         .budget-callout {
@@ -1287,16 +1289,24 @@
             padding: 3rem;
             background: var(--bg-secondary);
             border-top: 1px solid var(--border-subtle);
+            overflow: hidden;
         }
 
         .partners-container {
-            max-width: 800px;
-            margin: 0 auto;
             display: flex;
-            justify-content: center;
             align-items: center;
             gap: 4rem;
-            flex-wrap: wrap;
+            animation: slidePartners 20s linear infinite;
+            width: max-content;
+        }
+
+        .partners-container:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes slidePartners {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .partner-badge {
@@ -1304,8 +1314,9 @@
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
-            opacity: 0.6;
+            opacity: 0.7;
             transition: opacity 0.3s ease;
+            flex-shrink: 0;
         }
 
         .partner-badge:hover {
@@ -1317,10 +1328,11 @@
         }
 
         .partner-badge-text {
-            font-size: 1.05rem;
+            font-size: 0.85rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--text-muted);
+            white-space: nowrap;
         }
 
         /* Footer */
@@ -1448,10 +1460,6 @@
                 padding: 2rem;
             }
 
-            .partners-container {
-                gap: 2rem;
-            }
-
             .footer-content {
                 flex-direction: column;
                 gap: 1.5rem;
@@ -1461,6 +1469,46 @@
             .footer-links {
                 flex-wrap: wrap;
                 justify-content: center;
+            }
+
+            /* Budget Split Mobile Styles */
+            .budget-row {
+                grid-template-columns: 85px 1fr 45px;
+                gap: 0.75rem;
+            }
+
+            .budget-label {
+                font-size: 0.85rem;
+            }
+
+            .budget-bar-container {
+                height: 28px;
+            }
+
+            .budget-bar {
+                font-size: 0.6rem;
+                padding-left: 0.5rem;
+            }
+
+            .budget-percent {
+                font-size: 0.85rem;
+            }
+
+            .budget-callout {
+                font-size: 0.9rem;
+            }
+
+            /* Partners slider mobile */
+            .partners-container {
+                gap: 3rem;
+            }
+
+            .partner-badge-icon {
+                font-size: 1.5rem;
+            }
+
+            .partner-badge-text {
+                font-size: 0.7rem;
             }
         }
     
@@ -2304,6 +2352,28 @@
     <!-- Partners Bar -->
     <section class="partners-bar">
         <div class="partners-container">
+            <!-- First set -->
+            <div class="partner-badge">
+                <div class="partner-badge-icon">🏆</div>
+                <span class="partner-badge-text">Google Partner</span>
+            </div>
+            <div class="partner-badge">
+                <div class="partner-badge-icon">🔍</div>
+                <span class="partner-badge-text">Search Certified</span>
+            </div>
+            <div class="partner-badge">
+                <div class="partner-badge-icon">🛒</div>
+                <span class="partner-badge-text">Shopping Certified</span>
+            </div>
+            <div class="partner-badge">
+                <div class="partner-badge-icon">📺</div>
+                <span class="partner-badge-text">Video Certified</span>
+            </div>
+            <div class="partner-badge">
+                <div class="partner-badge-icon">📊</div>
+                <span class="partner-badge-text">Analytics Certified</span>
+            </div>
+            <!-- Duplicate set for seamless loop -->
             <div class="partner-badge">
                 <div class="partner-badge-icon">🏆</div>
                 <span class="partner-badge-text">Google Partner</span>
