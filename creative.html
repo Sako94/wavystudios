@@ -15,8 +15,8 @@
             --bg-tertiary: #1a1a1a;
             --bg-card: #0f0f0f;
             --text-primary: #ffffff;
-            --text-secondary: #999999;
-            --text-muted: #555555;
+            --text-secondary: #c0c0c0;
+            --text-muted: #8a8a8a;
             --accent-lime: #c8ff00;
             --accent-lime-dim: #a8d900;
             --accent-coral: #ff6b4a;
@@ -45,7 +45,7 @@
             font-family: var(--font-mono);
             background: var(--bg-primary);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.75;
             overflow-x: hidden;
         }
 
@@ -125,7 +125,7 @@
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.75rem;
+            font-size: 1.05rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             transition: color 0.3s ease;
@@ -139,7 +139,7 @@
             background: var(--text-primary);
             color: var(--bg-primary);
             padding: 0.75rem 1.5rem;
-            font-size: 0.7rem;
+            font-size: 1rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             border: none;
@@ -213,7 +213,7 @@
             border: 1px solid rgba(255, 107, 74, 0.2);
             padding: 0.5rem 1.25rem;
             margin-bottom: 2rem;
-            font-size: 0.7rem;
+            font-size: 1rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--accent-coral);
@@ -262,7 +262,7 @@
             color: var(--bg-primary);
             padding: 1rem 2rem;
             font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 1.05rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             border: none;
@@ -285,7 +285,7 @@
             color: var(--text-primary);
             padding: 1rem 2rem;
             font-family: var(--font-mono);
-            font-size: 0.75rem;
+            font-size: 1.05rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             border: 1px solid var(--border-medium);
@@ -302,13 +302,16 @@
         /* Hero Visual - Creative Cycle */
         .hero-visual {
             animation: fadeInUp 0.8s ease-out 0.4s both;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 380px;
         }
 
         .creative-cycle {
             position: relative;
-            width: 100%;
-            aspect-ratio: 1;
-            max-width: 400px;
+            width: 340px;
+            height: 340px;
             margin: 0 auto;
         }
 
@@ -317,8 +320,8 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             background: var(--bg-secondary);
             border: 2px solid var(--accent-lime);
             border-radius: 50%;
@@ -327,60 +330,107 @@
             align-items: center;
             justify-content: center;
             z-index: 10;
+            box-shadow: 0 0 40px rgba(200, 255, 0, 0.15);
         }
 
         .cycle-center-icon {
             font-size: 1.5rem;
             margin-bottom: 0.25rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .cycle-center-text {
             font-family: var(--font-display);
-            font-size: 0.7rem;
+            font-size: 0.95rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
+            color: var(--accent-lime);
+        }
+
+        /* Rotating orbit container */
+        .cycle-orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 280px;
+            height: 280px;
+            margin-top: -140px;
+            margin-left: -140px;
+            animation: orbitRotate 20s linear infinite;
+        }
+
+        @keyframes orbitRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .cycle-node {
             position: absolute;
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             background: var(--bg-secondary);
-            border: 1px solid var(--border-subtle);
+            border: 2px solid var(--border-medium);
+            border-radius: 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
             transition: all 0.3s ease;
+            /* Counter-rotate to keep icons upright */
+            animation: counterRotate 20s linear infinite;
+        }
+
+        @keyframes counterRotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(-360deg); }
         }
 
         .cycle-node:hover {
             border-color: var(--accent-coral);
-            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 107, 74, 0.3);
+            z-index: 20;
         }
 
-        .cycle-node:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
-        .cycle-node:nth-child(2) { top: 50%; right: 0; transform: translateY(-50%); }
-        .cycle-node:nth-child(3) { bottom: 0; left: 50%; transform: translateX(-50%); }
-        .cycle-node:nth-child(4) { top: 50%; left: 0; transform: translateY(-50%); }
-
-        .cycle-node:nth-child(1):hover { transform: translateX(-50%) scale(1.05); }
-        .cycle-node:nth-child(2):hover { transform: translateY(-50%) scale(1.05); }
-        .cycle-node:nth-child(3):hover { transform: translateX(-50%) scale(1.05); }
-        .cycle-node:nth-child(4):hover { transform: translateY(-50%) scale(1.05); }
+        /* Position nodes at 4 points of the orbit circle */
+        .cycle-node:nth-child(1) { 
+            top: 0; 
+            left: 50%; 
+            border-color: var(--accent-coral);
+        }
+        .cycle-node:nth-child(2) { 
+            top: 50%; 
+            left: 100%; 
+            border-color: var(--accent-blue);
+        }
+        .cycle-node:nth-child(3) { 
+            top: 100%; 
+            left: 50%; 
+            border-color: var(--accent-purple);
+        }
+        .cycle-node:nth-child(4) { 
+            top: 50%; 
+            left: 0; 
+            border-color: var(--accent-lime);
+        }
 
         .cycle-node-icon {
-            font-size: 1.25rem;
-            margin-bottom: 0.35rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
         }
 
         .cycle-node-text {
-            font-size: 0.6rem;
+            font-size: 1rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            color: var(--text-secondary);
         }
 
         .cycle-connector {
@@ -392,13 +442,32 @@
             transform: translate(-50%, -50%);
             border: 2px dashed var(--border-medium);
             border-radius: 50%;
-            animation: rotate 20s linear infinite;
+            pointer-events: none;
         }
 
-        @keyframes rotate {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
+        /* Animated arrows between nodes */
+        .cycle-arrows {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 230px;
+            height: 230px;
+            transform: translate(-50%, -50%);
+            animation: orbitRotate 20s linear infinite;
+            pointer-events: none;
         }
+
+        .cycle-arrow {
+            position: absolute;
+            font-size: 1.05rem;
+            color: var(--accent-lime);
+            opacity: 0.6;
+        }
+
+        .cycle-arrow:nth-child(1) { top: -8px; left: 50%; transform: translateX(-50%) rotate(45deg); }
+        .cycle-arrow:nth-child(2) { top: 50%; right: -8px; transform: translateY(-50%) rotate(135deg); }
+        .cycle-arrow:nth-child(3) { bottom: -8px; left: 50%; transform: translateX(-50%) rotate(225deg); }
+        .cycle-arrow:nth-child(4) { top: 50%; left: -8px; transform: translateY(-50%) rotate(315deg); }
 
         /* Stats Bar */
         .stats-bar {
@@ -442,7 +511,7 @@
         }
 
         .stat-label {
-            font-size: 0.7rem;
+            font-size: 1rem;
             color: var(--text-muted);
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -523,13 +592,13 @@
 
         .philosophy-card-title {
             font-family: var(--font-display);
-            font-size: 0.9rem;
+            font-size: 1.05rem;
             font-weight: 600;
             margin-bottom: 0.35rem;
         }
 
         .philosophy-card-desc {
-            font-size: 0.75rem;
+            font-size: 1.05rem;
             color: var(--text-muted);
         }
 
@@ -550,7 +619,7 @@
         }
 
         .section-tag {
-            font-size: 0.65rem;
+            font-size: 0.95rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--accent-coral);
@@ -645,14 +714,14 @@
         }
 
         .system-desc {
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
             line-height: 1.7;
             margin-bottom: 1rem;
         }
 
         .system-output {
-            font-size: 0.65rem;
+            font-size: 0.95rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--text-muted);
@@ -664,7 +733,7 @@
             color: var(--accent-lime);
             display: block;
             margin-top: 0.25rem;
-            font-size: 0.75rem;
+            font-size: 1.05rem;
         }
 
         /* Brief Framework Section */
@@ -727,13 +796,13 @@
             align-items: center;
             justify-content: center;
             font-family: var(--font-display);
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             font-weight: 700;
             flex-shrink: 0;
         }
 
         .brief-element-text {
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--text-secondary);
         }
 
@@ -759,7 +828,7 @@
         }
 
         .brief-visual-badge {
-            font-size: 0.6rem;
+            font-size: 1.05rem;
             padding: 0.25rem 0.5rem;
             background: rgba(255, 107, 74, 0.1);
             border: 1px solid rgba(255, 107, 74, 0.2);
@@ -778,14 +847,14 @@
             display: grid;
             grid-template-columns: 100px 1fr;
             gap: 1rem;
-            font-size: 0.8rem;
+            font-size: 0.95rem;
         }
 
         .brief-row-label {
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            font-size: 0.65rem;
+            font-size: 0.95rem;
         }
 
         .brief-row-value {
@@ -852,7 +921,7 @@
         }
 
         .ugc-card-subtitle {
-            font-size: 0.75rem;
+            font-size: 1.05rem;
             color: var(--text-muted);
         }
 
@@ -861,7 +930,7 @@
         }
 
         .ugc-card-desc {
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--text-secondary);
             line-height: 1.7;
             margin-bottom: 1.5rem;
@@ -872,7 +941,7 @@
         }
 
         .ugc-features li {
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
             padding: 0.5rem 0;
             border-top: 1px solid var(--border-subtle);
@@ -917,7 +986,7 @@
         }
 
         .testing-column h3 .badge {
-            font-size: 0.6rem;
+            font-size: 1.05rem;
             padding: 0.25rem 0.5rem;
             border: 1px solid;
             font-weight: 400;
@@ -975,7 +1044,7 @@
 
         .testing-item-metric {
             font-family: var(--font-display);
-            font-size: 0.9rem;
+            font-size: 1.05rem;
             font-weight: 700;
         }
 
@@ -983,7 +1052,7 @@
         .testing-column:nth-child(2) .testing-item-metric { color: var(--accent-purple); }
 
         .testing-item-desc {
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
         }
 
@@ -1054,7 +1123,7 @@
         }
 
         .channel-desc {
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--text-secondary);
             line-height: 1.7;
             margin-bottom: 1.5rem;
@@ -1068,7 +1137,7 @@
         }
 
         .channel-format {
-            font-size: 0.6rem;
+            font-size: 1.05rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--text-muted);
@@ -1113,7 +1182,7 @@
             background: rgba(255, 107, 74, 0.1);
             border: 1px solid rgba(255, 107, 74, 0.2);
             padding: 0.5rem 1rem;
-            font-size: 0.65rem;
+            font-size: 0.95rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--accent-coral);
@@ -1150,7 +1219,7 @@
             border: 1px solid var(--border-subtle);
             font-family: var(--font-display);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 1.05rem;
         }
 
         .engine-flow-item.creative { border-top: 2px solid var(--accent-coral); }
@@ -1168,7 +1237,7 @@
             gap: 0.75rem;
             color: var(--accent-lime);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 1rem;
             font-weight: 700;
             transition: all 0.3s ease;
         }
@@ -1260,7 +1329,7 @@
         .footer-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
         }
 
@@ -1269,7 +1338,7 @@
         }
 
         .footer-copyright {
-            font-size: 0.75rem;
+            font-size: 1.05rem;
             color: var(--text-muted);
         }
 
@@ -1278,6 +1347,7 @@
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 3rem;
             }
 
             .hero-text {
@@ -1286,6 +1356,32 @@
 
             .hero-ctas {
                 justify-content: center;
+            }
+
+            .hero-visual {
+                min-height: 340px;
+            }
+
+            .creative-cycle {
+                width: 320px;
+                height: 320px;
+            }
+
+            .cycle-orbit {
+                width: 260px;
+                height: 260px;
+                margin-top: -130px;
+                margin-left: -130px;
+            }
+
+            .cycle-connector {
+                width: 180px;
+                height: 180px;
+            }
+
+            .cycle-arrows {
+                width: 210px;
+                height: 210px;
             }
 
             .philosophy-grid,
@@ -1308,12 +1404,107 @@
         @media (max-width: 768px) {
             .nav-logo-img { height: 26px; }
 
-            nav {
+            nav, .site-nav {
                 padding: 1rem 1.5rem;
             }
 
-            .nav-links {
+            .nav-links, .nav-cta {
                 display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero {
+                padding: 7rem 1.25rem 4rem;
+                min-height: auto;
+            }
+
+            .hero-content {
+                gap: 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-sub {
+                font-size: 1.05rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-ctas a {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .hero-visual {
+                min-height: 300px;
+                margin-top: 1rem;
+            }
+
+            .creative-cycle {
+                width: 280px;
+                height: 280px;
+            }
+
+            .cycle-orbit {
+                width: 230px;
+                height: 230px;
+                margin-top: -115px;
+                margin-left: -115px;
+            }
+
+            .cycle-node {
+                width: 65px;
+                height: 65px;
+            }
+
+            .cycle-node-icon {
+                font-size: 1.2rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .cycle-node-text {
+                font-size: 0.6rem;
+            }
+
+            .cycle-center {
+                width: 80px;
+                height: 80px;
+            }
+
+            .cycle-center-icon {
+                font-size: 1.2rem;
+            }
+
+            .cycle-center-text {
+                font-size: 0.65rem;
+            }
+
+            .cycle-connector {
+                width: 150px;
+                height: 150px;
+            }
+
+            .cycle-arrows {
+                width: 180px;
+                height: 180px;
+            }
+
+            .cycle-arrow {
+                font-size: 1.05rem;
             }
 
             .hero,
@@ -1325,7 +1516,11 @@
             .channels-section,
             .engine-section,
             .cta-section {
-                padding: 4rem 1.5rem;
+                padding: 4rem 1.25rem;
+            }
+
+            .stats-bar {
+                padding: 2rem 1.25rem;
             }
 
             .stats-container {
@@ -1337,30 +1532,37 @@
                 display: none;
             }
 
+            .stat-number {
+                font-size: 1.75rem;
+            }
+
+            .stat-label {
+                font-size: 1.05rem;
+            }
+
+            .section-header {
+                margin-bottom: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
             .system-grid {
                 grid-template-columns: 1fr;
+                gap: 1rem;
             }
 
             .philosophy-visual {
                 grid-template-columns: 1fr;
             }
 
-            .creative-cycle {
-                max-width: 300px;
-            }
-
-            .cycle-node {
-                width: 80px;
-                height: 80px;
-            }
-
-            .cycle-center {
-                width: 100px;
-                height: 100px;
-            }
-
             .engine-card {
-                padding: 2rem;
+                padding: 1.5rem;
             }
 
             .engine-flow {
@@ -1369,6 +1571,34 @@
 
             .engine-flow-arrow {
                 transform: rotate(90deg);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem 2.5rem;
+            }
+
+            .footer-logo-img {
+                height: 28px;
+            }
+
+            .footer-col h4 {
+                font-size: 1.05rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .footer-col a {
+                font-size: 1rem;
+            }
+
+            .footer-col ul {
+                gap: 0.4rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
             }
 
             .footer-content {
@@ -1380,6 +1610,158 @@
             .footer-links {
                 flex-wrap: wrap;
                 justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-tag {
+                font-size: 1.05rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .hero-sub {
+                font-size: 1rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 0.875rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .hero-visual {
+                min-height: 260px;
+            }
+
+            .creative-cycle {
+                width: 240px;
+                height: 240px;
+            }
+
+            .cycle-orbit {
+                width: 200px;
+                height: 200px;
+                margin-top: -100px;
+                margin-left: -100px;
+            }
+
+            .cycle-node {
+                width: 55px;
+                height: 55px;
+            }
+
+            .cycle-node-icon {
+                font-size: 1rem;
+                margin-bottom: 0.15rem;
+            }
+
+            .cycle-node-text {
+                font-size: 0.4rem;
+            }
+
+            .cycle-center {
+                width: 65px;
+                height: 65px;
+            }
+
+            .cycle-center-icon {
+                font-size: 1rem;
+            }
+
+            .cycle-center-text {
+                font-size: 0.6rem;
+            }
+
+            .cycle-connector {
+                width: 130px;
+                height: 130px;
+            }
+
+            .cycle-arrows {
+                width: 155px;
+                height: 155px;
+            }
+
+            .cycle-arrow {
+                font-size: 0.95rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.35rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero {
+                padding: 5.5rem 0.75rem 2.5rem;
+            }
+
+            .hero-visual {
+                min-height: 220px;
+            }
+
+            .creative-cycle {
+                width: 200px;
+                height: 200px;
+            }
+
+            .cycle-orbit {
+                width: 170px;
+                height: 170px;
+                margin-top: -85px;
+                margin-left: -85px;
+            }
+
+            .cycle-node {
+                width: 48px;
+                height: 48px;
+            }
+
+            .cycle-node-icon {
+                font-size: 1.05rem;
+            }
+
+            .cycle-node-text {
+                font-size: 0.35rem;
+            }
+
+            .cycle-center {
+                width: 55px;
+                height: 55px;
+            }
+
+            .cycle-center-icon {
+                font-size: 1.05rem;
+            }
+
+            .cycle-center-text {
+                font-size: 0.4rem;
+            }
+
+            .cycle-connector {
+                width: 110px;
+                height: 110px;
+            }
+
+            .cycle-arrows {
+                width: 130px;
+                height: 130px;
             }
         }
     
@@ -1431,7 +1813,7 @@
             align-items: center;
             gap: 0.3rem;
             padding: 0.75rem 1rem;
-            font-size: 0.7rem;
+            font-size: 1rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--text-secondary);
@@ -1470,7 +1852,7 @@
         .dropdown-link {
             display: block;
             padding: 0.6rem 1.25rem;
-            font-size: 0.7rem;
+            font-size: 1rem;
             letter-spacing: 0.05em;
             color: var(--text-secondary);
             text-decoration: none;
@@ -1484,7 +1866,7 @@
             background: var(--accent-lime);
             color: var(--bg-primary);
             padding: 0.6rem 1.25rem;
-            font-size: 0.65rem;
+            font-size: 0.95rem;
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -1595,7 +1977,7 @@
             padding: 0.6rem 0;
         }
         .mobile-submenu a {
-            font-size: 0.9rem;
+            font-size: 1.05rem;
             color: var(--text-secondary);
             text-decoration: none;
         }
@@ -1607,7 +1989,7 @@
             background: var(--accent-lime);
             color: var(--bg-primary);
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 1rem;
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -1630,15 +2012,28 @@
             gap: 3rem;
             margin-bottom: 3rem;
         }
+        .footer-logo {
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        .footer-logo-img {
+            height: 32px;
+            width: auto;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+        .footer-logo:hover .footer-logo-img {
+            opacity: 1;
+        }
         .footer-brand p {
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--text-muted);
             line-height: 1.7;
             margin-top: 1rem;
         }
         .footer-col h4 {
             font-family: var(--font-display);
-            font-size: 0.85rem;
+            font-size: 1rem;
             font-weight: 600;
             margin-bottom: 1.25rem;
         }
@@ -1649,7 +2044,7 @@
             list-style: none;
         }
         .footer-col a {
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
             transition: color 0.3s ease;
         }
@@ -1662,7 +2057,7 @@
             border-top: 1px solid var(--border-subtle);
         }
         .footer-bottom p {
-            font-size: 0.75rem;
+            font-size: 1.05rem;
             color: var(--text-muted);
         }
         .footer-social {
@@ -1670,7 +2065,7 @@
             gap: 1.5rem;
         }
         .footer-social a {
-            font-size: 0.75rem;
+            font-size: 1.05rem;
             color: var(--text-secondary);
             text-decoration: none;
         }
@@ -1683,10 +2078,14 @@
             .nav-cta { display: none; }
             .mobile-toggle { display: flex; }
             .mobile-menu { display: block; }
-            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem 2.5rem; }
+            .footer-logo-img { height: 26px; }
         }
         @media (max-width: 600px) {
-            .footer-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem 2rem; }
+            .footer-col h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+            .footer-col a { font-size: 0.95rem; }
+            .footer-logo-img { height: 24px; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
         }
 
@@ -1695,14 +2094,14 @@
 <body>
     <!-- Navigation -->
     <nav class="site-nav">
-        <a href="index.html" class="nav-logo">
+        <a href="/" class="nav-logo">
             <img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="nav-logo-img">
             <span class="nav-logo-text">Wavy Studios</span>
         </a>
         
         <ul class="nav-links">
             <li class="nav-item">
-                <a href="growth-os.html" class="nav-link">Growth OS</a>
+                <a href="/growth-os" class="nav-link">Growth OS</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">
@@ -1710,15 +2109,15 @@
                     <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg>
                 </a>
                 <ul class="nav-dropdown">
-                    <li><a href="lifecycle.html" class="dropdown-link">Lifecycle Marketing</a></li>
-                    <li><a href="paid-social.html" class="dropdown-link">Paid Social</a></li>
-                    <li><a href="paid-search.html" class="dropdown-link">Paid Search</a></li>
-                    <li><a href="creative.html" class="dropdown-link">Creative System</a></li>
-                    <li><a href="cro.html" class="dropdown-link">CRO & Funnels</a></li>
+                    <li><a href="/lifecycle" class="dropdown-link">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social" class="dropdown-link">Paid Social</a></li>
+                    <li><a href="/paid-search" class="dropdown-link">Paid Search</a></li>
+                    <li><a href="/creative" class="dropdown-link">Creative System</a></li>
+                    <li><a href="/cro" class="dropdown-link">CRO & Funnels</a></li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="insights.html" class="nav-link">Case Studies</a>
+                <a href="/insights" class="nav-link">Case Studies</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">
@@ -1726,17 +2125,17 @@
                     <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg>
                 </a>
                 <ul class="nav-dropdown">
-                    <li><a href="ecommerce.html" class="dropdown-link">Ecommerce & DTC</a></li>
-                    <li><a href="lead-gen.html" class="dropdown-link">Lead Generation</a></li>
-                    <li><a href="enterprise.html" class="dropdown-link">Enterprise</a></li>
+                    <li><a href="/ecommerce" class="dropdown-link">Ecommerce & DTC</a></li>
+                    <li><a href="/lead-gen" class="dropdown-link">Lead Generation</a></li>
+                    <li><a href="/enterprise" class="dropdown-link">Enterprise</a></li>
                 </ul>
             </li>
             <li class="nav-item">
-                <a href="labs.html" class="nav-link">Labs</a>
+                <a href="/labs" class="nav-link">Labs</a>
             </li>
         </ul>
         
-        <a href="partner.html" class="nav-cta">Partner With Us</a>
+        <a href="/partner" class="nav-cta">Partner With Us</a>
         
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
@@ -1746,35 +2145,35 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul class="mobile-menu-list">
-            <li><a href="index.html" class="mobile-menu-link">Home</a></li>
-            <li><a href="growth-os.html" class="mobile-menu-link">Growth OS</a></li>
+            <li><a href="/" class="mobile-menu-link">Home</a></li>
+            <li><a href="/growth-os" class="mobile-menu-link">Growth OS</a></li>
             <li class="mobile-menu-group">
                 <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">
                     Services
                     <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg>
                 </button>
                 <ul class="mobile-submenu">
-                    <li><a href="lifecycle.html">Lifecycle Marketing</a></li>
-                    <li><a href="paid-social.html">Paid Social</a></li>
-                    <li><a href="paid-search.html">Paid Search</a></li>
-                    <li><a href="creative.html">Creative System</a></li>
-                    <li><a href="cro.html">CRO & Funnels</a></li>
+                    <li><a href="/lifecycle">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social">Paid Social</a></li>
+                    <li><a href="/paid-search">Paid Search</a></li>
+                    <li><a href="/creative">Creative System</a></li>
+                    <li><a href="/cro">CRO & Funnels</a></li>
                 </ul>
             </li>
-            <li><a href="insights.html" class="mobile-menu-link">Case Studies</a></li>
+            <li><a href="/insights" class="mobile-menu-link">Case Studies</a></li>
             <li class="mobile-menu-group">
                 <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">
                     Who We Help
                     <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg>
                 </button>
                 <ul class="mobile-submenu">
-                    <li><a href="ecommerce.html">Ecommerce & DTC</a></li>
-                    <li><a href="lead-gen.html">Lead Generation</a></li>
-                    <li><a href="enterprise.html">Enterprise</a></li>
+                    <li><a href="/ecommerce">Ecommerce & DTC</a></li>
+                    <li><a href="/lead-gen">Lead Generation</a></li>
+                    <li><a href="/enterprise">Enterprise</a></li>
                 </ul>
             </li>
-            <li><a href="labs.html" class="mobile-menu-link">Labs</a></li>
-            <li class="mobile-menu-cta-wrap"><a href="partner.html" class="mobile-menu-cta">Partner With Us</a></li>
+            <li><a href="/labs" class="mobile-menu-link">Labs</a></li>
+            <li class="mobile-menu-cta-wrap"><a href="/partner" class="mobile-menu-cta">Partner With Us</a></li>
         </ul>
     </div>
 
@@ -1798,21 +2197,29 @@
             <div class="hero-visual">
                 <div class="creative-cycle">
                     <div class="cycle-connector"></div>
-                    <div class="cycle-node">
-                        <div class="cycle-node-icon">📋</div>
-                        <div class="cycle-node-text">Brief</div>
+                    <div class="cycle-arrows">
+                        <span class="cycle-arrow">→</span>
+                        <span class="cycle-arrow">→</span>
+                        <span class="cycle-arrow">→</span>
+                        <span class="cycle-arrow">→</span>
                     </div>
-                    <div class="cycle-node">
-                        <div class="cycle-node-icon">🎬</div>
-                        <div class="cycle-node-text">Produce</div>
-                    </div>
-                    <div class="cycle-node">
-                        <div class="cycle-node-icon">🧪</div>
-                        <div class="cycle-node-text">Test</div>
-                    </div>
-                    <div class="cycle-node">
-                        <div class="cycle-node-icon">📈</div>
-                        <div class="cycle-node-text">Iterate</div>
+                    <div class="cycle-orbit">
+                        <div class="cycle-node">
+                            <div class="cycle-node-icon">📋</div>
+                            <div class="cycle-node-text">Brief</div>
+                        </div>
+                        <div class="cycle-node">
+                            <div class="cycle-node-icon">🎬</div>
+                            <div class="cycle-node-text">Produce</div>
+                        </div>
+                        <div class="cycle-node">
+                            <div class="cycle-node-icon">🧪</div>
+                            <div class="cycle-node-text">Test</div>
+                        </div>
+                        <div class="cycle-node">
+                            <div class="cycle-node-icon">📈</div>
+                            <div class="cycle-node-text">Iterate</div>
+                        </div>
                     </div>
                     <div class="cycle-center">
                         <div class="cycle-center-icon">🔄</div>
@@ -2204,7 +2611,7 @@
                     <span class="engine-flow-arrow">→</span>
                     <div class="engine-flow-item">Compounding Growth</div>
                 </div>
-                <a href="growth-os.html" class="engine-cta">Explore the Full Growth OS →</a>
+                <a href="/growth-os" class="engine-cta">Explore the Full Growth OS →</a>
             </div>
         </div>
     </section>
@@ -2218,7 +2625,7 @@
             <p class="cta-subtitle">Book a call to see how we'd build your creative system. We'll audit your current creative, identify gaps, and show you the path to compounding wins.</p>
             <div class="cta-buttons">
                 <a href="#" class="btn-primary">Build Your Creative System →</a>
-                <a href="paid-social.html" class="btn-secondary">See Paid Social</a>
+                <a href="/paid-social" class="btn-secondary">See Paid Social</a>
             </div>
         </div>
     </section>
@@ -2273,35 +2680,37 @@
         <div class="footer-inner">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <strong style="font-family: var(--font-display); font-size: 1.25rem;">Wavy Studios</strong>
+                    <a href="/" class="footer-logo">
+                        <img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="footer-logo-img">
+                    </a>
                     <p>Growth systems, not channel hacks. We build repeatable operating systems that scale your revenue profitably.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="growth-os.html">Growth OS</a></li>
-                        <li><a href="paid-social.html">Paid Social</a></li>
-                        <li><a href="paid-search.html">Paid Search</a></li>
-                        <li><a href="lifecycle.html">Lifecycle</a></li>
-                        <li><a href="creative.html">Creative</a></li>
-                        <li><a href="cro.html">CRO</a></li>
+                        <li><a href="/growth-os">Growth OS</a></li>
+                        <li><a href="/paid-social">Paid Social</a></li>
+                        <li><a href="/paid-search">Paid Search</a></li>
+                        <li><a href="/lifecycle">Lifecycle</a></li>
+                        <li><a href="/creative">Creative</a></li>
+                        <li><a href="/cro">CRO</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Who We Help</h4>
                     <ul>
-                        <li><a href="ecommerce.html">Ecommerce</a></li>
-                        <li><a href="lead-gen.html">Lead Gen</a></li>
-                        <li><a href="enterprise.html">Enterprise</a></li>
-                        <li><a href="insights.html">Case Studies</a></li>
+                        <li><a href="/ecommerce">Ecommerce</a></li>
+                        <li><a href="/lead-gen">Lead Gen</a></li>
+                        <li><a href="/enterprise">Enterprise</a></li>
+                        <li><a href="/insights">Case Studies</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="labs.html">Labs</a></li>
-                        <li><a href="insights.html">Insights</a></li>
-                        <li><a href="partner.html">Partner</a></li>
+                        <li><a href="/labs">Labs</a></li>
+                        <li><a href="/insights">Insights</a></li>
+                        <li><a href="/partner">Partner</a></li>
                     </ul>
                 </div>
             </div>

@@ -14,8 +14,8 @@
             --bg-secondary: #111111;
             --bg-tertiary: #1a1a1a;
             --text-primary: #ffffff;
-            --text-secondary: #888888;
-            --text-muted: #555555;
+            --text-secondary: #c0c0c0;
+            --text-muted: #8a8a8a;
             --accent-lime: #c8ff00;
             --accent-lime-dim: #a8d900;
             --accent-coral: #ff6b4a;
@@ -35,7 +35,7 @@
             font-family: var(--font-mono);
             background: var(--bg-primary);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.75;
             overflow-x: hidden;
         }
 
@@ -97,7 +97,7 @@
             align-items: center;
             gap: 0.3rem;
             padding: 0.75rem 1rem;
-            font-size: 0.7rem;
+            font-size: 1rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: var(--text-secondary);
@@ -128,7 +128,7 @@
         .dropdown-link {
             display: block;
             padding: 0.6rem 1.25rem;
-            font-size: 0.7rem;
+            font-size: 1rem;
             color: var(--text-secondary);
             transition: all 0.3s ease;
         }
@@ -140,7 +140,7 @@
             background: var(--accent-lime);
             color: var(--bg-primary);
             padding: 0.6rem 1.25rem;
-            font-size: 0.65rem;
+            font-size: 0.95rem;
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -197,7 +197,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-            font-size: 0.65rem;
+            font-size: 0.95rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
             color: var(--accent-blue);
@@ -227,7 +227,7 @@
             background: var(--accent-lime);
             color: var(--bg-primary);
             padding: 1rem 2.5rem;
-            font-size: 0.75rem;
+            font-size: 1.05rem;
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -239,7 +239,7 @@
             background: transparent;
             color: var(--text-primary);
             padding: 1rem 2rem;
-            font-size: 0.75rem;
+            font-size: 1.05rem;
             font-weight: 700;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -265,7 +265,7 @@
             margin-bottom: 4rem;
         }
         .section-tag {
-            font-size: 0.65rem;
+            font-size: 0.95rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--accent-blue);
@@ -337,7 +337,7 @@
             color: var(--accent-blue);
         }
         .why-card p {
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--text-secondary);
             line-height: 1.7;
         }
@@ -401,7 +401,7 @@
             padding: 0;
         }
         .cap-card li {
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
             padding: 0.6rem 0;
             border-bottom: 1px solid var(--border-subtle);
@@ -414,7 +414,7 @@
         }
         .cap-card li::before {
             content: '✓';
-            font-size: 0.7rem;
+            font-size: 1rem;
         }
         .cap-card:nth-child(1) li::before { color: var(--accent-emerald); }
         .cap-card:nth-child(2) li::before { color: var(--accent-purple); }
@@ -472,7 +472,7 @@
             transform: translateX(-50%);
             background: var(--accent-lime);
             color: var(--bg-primary);
-            font-size: 0.55rem;
+            font-size: 1rem;
             font-weight: 700;
             letter-spacing: 0.1em;
             padding: 0.35rem 1rem;
@@ -491,10 +491,10 @@
             margin-bottom: 0.5rem;
         }
         .engage-card .engage-desc {
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
-            line-height: 1.6;
+            line-height: 1.75;
         }
         .engage-card .engage-price {
             font-family: var(--font-display);
@@ -506,7 +506,7 @@
         .engage-card:nth-child(2) .engage-price { color: var(--accent-lime); }
         .engage-card:nth-child(3) .engage-price { color: var(--accent-coral); }
         .engage-card .engage-price-sub {
-            font-size: 0.7rem;
+            font-size: 1rem;
             color: var(--text-muted);
             margin-bottom: 1.5rem;
         }
@@ -515,7 +515,7 @@
             margin-bottom: 2rem;
         }
         .engage-card li {
-            font-size: 0.75rem;
+            font-size: 1.05rem;
             color: var(--text-secondary);
             padding: 0.5rem 0;
             border-bottom: 1px solid var(--border-subtle);
@@ -570,12 +570,12 @@
             margin-bottom: 0.5rem;
         }
         .process-step p {
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.75;
         }
         .process-step .process-time {
-            font-size: 0.65rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -620,15 +620,28 @@
             gap: 3rem;
             margin-bottom: 3rem;
         }
+        .footer-logo {
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        .footer-logo-img {
+            height: 32px;
+            width: auto;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+        .footer-logo:hover .footer-logo-img {
+            opacity: 1;
+        }
         .footer-brand p {
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--text-muted);
             line-height: 1.7;
             margin-top: 1rem;
         }
         .footer-col h4 {
             font-family: var(--font-display);
-            font-size: 0.85rem;
+            font-size: 1rem;
             font-weight: 600;
             margin-bottom: 1.25rem;
         }
@@ -638,7 +651,7 @@
             gap: 0.6rem;
         }
         .footer-col a {
-            font-size: 0.8rem;
+            font-size: 0.95rem;
             color: var(--text-secondary);
             transition: color 0.3s ease;
         }
@@ -651,7 +664,7 @@
             border-top: 1px solid var(--border-subtle);
         }
         .footer-bottom p {
-            font-size: 0.75rem;
+            font-size: 1.05rem;
             color: var(--text-muted);
         }
         .footer-social {
@@ -659,7 +672,7 @@
             gap: 1.5rem;
         }
         .footer-social a {
-            font-size: 0.75rem;
+            font-size: 1.05rem;
             color: var(--text-secondary);
         }
         .footer-social a:hover { color: var(--accent-lime); }
@@ -681,7 +694,8 @@
             .section { padding: 4rem 1.5rem; }
             .cap-grid { grid-template-columns: 1fr; }
             .process-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 2.5rem; }
+            .footer-logo-img { height: 28px; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
         }
     </style>
@@ -689,35 +703,35 @@
 <body>
     <!-- Navigation -->
     <nav class="site-nav">
-        <a href="index.html" class="nav-logo">
+        <a href="/" class="nav-logo">
             <img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="nav-logo-img">
             <span class="nav-logo-text">Wavy Studios</span>
         </a>
         <ul class="nav-links">
-            <li class="nav-item"><a href="growth-os.html" class="nav-link">Growth OS</a></li>
+            <li class="nav-item"><a href="/growth-os" class="nav-link">Growth OS</a></li>
             <li class="nav-item">
                 <a href="#" class="nav-link">Services <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
                 <ul class="nav-dropdown">
-                    <li><a href="lifecycle.html" class="dropdown-link">Lifecycle Marketing</a></li>
-                    <li><a href="paid-social.html" class="dropdown-link">Paid Social</a></li>
-                    <li><a href="paid-search.html" class="dropdown-link">Paid Search</a></li>
-                    <li><a href="creative.html" class="dropdown-link">Creative System</a></li>
-                    <li><a href="cro.html" class="dropdown-link">CRO & Funnels</a></li>
+                    <li><a href="/lifecycle" class="dropdown-link">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social" class="dropdown-link">Paid Social</a></li>
+                    <li><a href="/paid-search" class="dropdown-link">Paid Search</a></li>
+                    <li><a href="/creative" class="dropdown-link">Creative System</a></li>
+                    <li><a href="/cro" class="dropdown-link">CRO & Funnels</a></li>
                 </ul>
             </li>
-            <li class="nav-item"><a href="insights.html" class="nav-link">Case Studies</a></li>
+            <li class="nav-item"><a href="/insights" class="nav-link">Case Studies</a></li>
             <li class="nav-item">
                 <a href="#" class="nav-link">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
                 <ul class="nav-dropdown">
-                    <li><a href="ecommerce.html" class="dropdown-link">Ecommerce & DTC</a></li>
-                    <li><a href="lead-gen.html" class="dropdown-link">Lead Generation</a></li>
-                    <li><a href="enterprise.html" class="dropdown-link">Enterprise</a></li>
+                    <li><a href="/ecommerce" class="dropdown-link">Ecommerce & DTC</a></li>
+                    <li><a href="/lead-gen" class="dropdown-link">Lead Generation</a></li>
+                    <li><a href="/enterprise" class="dropdown-link">Enterprise</a></li>
                 </ul>
             </li>
-            <li class="nav-item"><a href="labs.html" class="nav-link">Labs</a></li>
-            <li class="nav-item"><a href="enterprise.html" class="nav-link active">Enterprise</a></li>
+            <li class="nav-item"><a href="/labs" class="nav-link">Labs</a></li>
+            <li class="nav-item"><a href="/enterprise" class="nav-link active">Enterprise</a></li>
         </ul>
-        <a href="partner.html" class="nav-cta">Partner With Us</a>
+        <a href="/partner" class="nav-cta">Partner With Us</a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </nav>
 
@@ -730,7 +744,7 @@
             <p class="hero-subtitle">
                 Enterprise infrastructure, dedicated senior teams, and methodology built for scale. For brands doing $5M+ annually in digital advertising.
             </p>
-            <a href="partner.html" class="btn-primary">Schedule an Enterprise Consultation →</a>
+            <a href="/partner" class="btn-primary">Schedule an Enterprise Consultation →</a>
         </div>
     </section>
 
@@ -851,7 +865,7 @@
                         <li>Team training sessions</li>
                         <li>Audit & optimization reviews</li>
                     </ul>
-                    <a href="partner.html" class="btn-secondary">Learn More</a>
+                    <a href="/partner" class="btn-secondary">Learn More</a>
                 </div>
                 <div class="engage-card featured">
                     <h3>Strategic Partnership</h3>
@@ -864,7 +878,7 @@
                         <li>Creative production at scale</li>
                         <li>Executive reporting & QBRs</li>
                     </ul>
-                    <a href="partner.html" class="btn-primary">Get Started</a>
+                    <a href="/partner" class="btn-primary">Get Started</a>
                 </div>
                 <div class="engage-card">
                     <h3>Channel-Specific</h3>
@@ -877,7 +891,7 @@
                         <li>Channel-specific reporting</li>
                         <li>Expansion pathways available</li>
                     </ul>
-                    <a href="partner.html" class="btn-secondary">Learn More</a>
+                    <a href="/partner" class="btn-secondary">Learn More</a>
                 </div>
             </div>
         </div>
@@ -927,7 +941,7 @@
             <p class="cta-subtitle">
                 Schedule an enterprise consultation. We'll review your current setup, understand your requirements, and determine if there's a fit—no pressure, just clarity.
             </p>
-            <a href="partner.html" class="btn-primary">Schedule Enterprise Consultation →</a>
+            <a href="/partner" class="btn-primary">Schedule Enterprise Consultation →</a>
         </div>
     </section>
 
@@ -936,35 +950,37 @@
         <div class="footer-inner">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <strong style="font-family: var(--font-display); font-size: 1.25rem;">Wavy Studios</strong>
+                    <a href="/" class="footer-logo">
+                        <img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="footer-logo-img">
+                    </a>
                     <p>Growth systems, not channel hacks. We build repeatable operating systems that scale your revenue profitably.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="growth-os.html">Growth OS</a></li>
-                        <li><a href="paid-social.html">Paid Social</a></li>
-                        <li><a href="paid-search.html">Paid Search</a></li>
-                        <li><a href="lifecycle.html">Lifecycle</a></li>
-                        <li><a href="creative.html">Creative</a></li>
-                        <li><a href="cro.html">CRO</a></li>
+                        <li><a href="/growth-os">Growth OS</a></li>
+                        <li><a href="/paid-social">Paid Social</a></li>
+                        <li><a href="/paid-search">Paid Search</a></li>
+                        <li><a href="/lifecycle">Lifecycle</a></li>
+                        <li><a href="/creative">Creative</a></li>
+                        <li><a href="/cro">CRO</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Who We Help</h4>
                     <ul>
-                        <li><a href="ecommerce.html">Ecommerce</a></li>
-                        <li><a href="lead-gen.html">Lead Gen</a></li>
-                        <li><a href="enterprise.html">Enterprise</a></li>
-                        <li><a href="insights.html">Case Studies</a></li>
+                        <li><a href="/ecommerce">Ecommerce</a></li>
+                        <li><a href="/lead-gen">Lead Gen</a></li>
+                        <li><a href="/enterprise">Enterprise</a></li>
+                        <li><a href="/insights">Case Studies</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="labs.html">Labs</a></li>
-                        <li><a href="insights.html">Insights</a></li>
-                        <li><a href="partner.html">Partner</a></li>
+                        <li><a href="/labs">Labs</a></li>
+                        <li><a href="/insights">Insights</a></li>
+                        <li><a href="/partner">Partner</a></li>
                     </ul>
                 </div>
             </div>
