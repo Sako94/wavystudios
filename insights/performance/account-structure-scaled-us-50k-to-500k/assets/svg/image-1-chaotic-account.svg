@@ -1,0 +1,116 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 28px; fill: #ffffff; }
+      .subtitle { font-family: 'Space Mono', monospace; font-size: 11px; fill: #666666; text-transform: uppercase; letter-spacing: 0.1em; }
+      .label { font-family: 'Space Mono', monospace; font-size: 10px; fill: #888888; }
+      .label-dark { font-family: 'Space Mono', monospace; font-size: 10px; fill: #444444; }
+      .warning { font-family: 'Space Mono', monospace; font-size: 9px; fill: #ff4444; text-transform: uppercase; font-weight: 700; }
+      .campaign { font-family: 'Syne', sans-serif; font-size: 11px; fill: #ffffff; font-weight: 600; }
+      .annotation { font-family: 'Space Mono', monospace; font-size: 10px; fill: #c8ff00; }
+      .stat { font-family: 'Space Mono', monospace; font-size: 24px; fill: #ff4444; font-weight: 700; }
+      .stat-label { font-family: 'Space Mono', monospace; font-size: 9px; fill: #666666; text-transform: uppercase; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="675" fill="#0a0a0a"/>
+  
+  <!-- Title -->
+  <text x="600" y="45" text-anchor="middle" class="title">The Chaotic Ad Account</text>
+  <text x="600" y="70" text-anchor="middle" class="subtitle">Why most accounts hit a scaling ceiling</text>
+  
+  <!-- Main visualization area -->
+  
+  <!-- Overlapping audience circles -->
+  <g transform="translate(400, 350)">
+    <!-- Circle 1: Broad Prospecting -->
+    <circle cx="0" cy="0" r="140" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.6"/>
+    <circle cx="0" cy="0" r="140" fill="#3b82f6" opacity="0.1"/>
+    <text x="0" y="-110" text-anchor="middle" class="label" fill="#3b82f6">BROAD PROSPECTING</text>
+    
+    <!-- Circle 2: Lookalike 1% -->
+    <circle cx="100" cy="30" r="120" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.6"/>
+    <circle cx="100" cy="30" r="120" fill="#8b5cf6" opacity="0.1"/>
+    <text x="180" y="-60" text-anchor="middle" class="label" fill="#8b5cf6">LOOKALIKE 1%</text>
+    
+    <!-- Circle 3: Interest Stack -->
+    <circle cx="50" cy="100" r="100" fill="none" stroke="#ec4899" stroke-width="2" opacity="0.6"/>
+    <circle cx="50" cy="100" r="100" fill="#ec4899" opacity="0.1"/>
+    <text x="50" y="180" text-anchor="middle" class="label" fill="#ec4899">INTEREST STACK</text>
+    
+    <!-- Circle 4: Engaged Visitors -->
+    <circle cx="-60" cy="60" r="90" fill="none" stroke="#f59e0b" stroke-width="2" opacity="0.6"/>
+    <circle cx="-60" cy="60" r="90" fill="#f59e0b" opacity="0.1"/>
+    <text x="-130" y="130" text-anchor="middle" class="label" fill="#f59e0b">ENGAGED VISITORS</text>
+    
+    <!-- Overlap zone highlight -->
+    <circle cx="30" cy="50" r="45" fill="#ff4444" opacity="0.3"/>
+    
+    <!-- Warning markers -->
+    <g transform="translate(30, 50)">
+      <circle cx="0" cy="0" r="20" fill="#ff4444" opacity="0.8"/>
+      <text x="0" y="5" text-anchor="middle" class="warning" fill="#ffffff">!</text>
+    </g>
+  </g>
+  
+  <!-- Campaign arrows pointing at overlap -->
+  <g>
+    <!-- Campaign 1 arrow -->
+    <line x1="150" y1="200" x2="350" y2="340" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,3"/>
+    <polygon points="350,340 340,330 345,345" fill="#3b82f6"/>
+    <rect x="60" y="180" width="100" height="35" rx="4" fill="#111" stroke="#3b82f6" stroke-width="1"/>
+    <text x="110" y="202" text-anchor="middle" class="campaign">Campaign 1</text>
+    <text x="110" y="200" text-anchor="middle" class="label" fill="#3b82f6" dy="12">$2,500/day</text>
+    
+    <!-- Campaign 2 arrow -->
+    <line x1="180" y1="450" x2="360" y2="400" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="5,3"/>
+    <polygon points="360,400 348,395 355,408" fill="#8b5cf6"/>
+    <rect x="80" y="440" width="100" height="35" rx="4" fill="#111" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="130" y="462" text-anchor="middle" class="campaign">Campaign 2</text>
+    <text x="130" y="460" text-anchor="middle" class="label" fill="#8b5cf6" dy="12">$1,800/day</text>
+    
+    <!-- Campaign 3 arrow -->
+    <line x1="650" y1="200" x2="520" y2="340" stroke="#ec4899" stroke-width="2" stroke-dasharray="5,3"/>
+    <polygon points="520,340 525,325 535,338" fill="#ec4899"/>
+    <rect x="620" y="170" width="100" height="35" rx="4" fill="#111" stroke="#ec4899" stroke-width="1"/>
+    <text x="670" y="192" text-anchor="middle" class="campaign">Campaign 3</text>
+    <text x="670" y="190" text-anchor="middle" class="label" fill="#ec4899" dy="12">$3,200/day</text>
+    
+    <!-- Campaign 4 arrow -->
+    <line x1="680" y1="480" x2="500" y2="420" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,3"/>
+    <polygon points="500,420 512,418 505,430" fill="#f59e0b"/>
+    <rect x="650" y="470" width="100" height="35" rx="4" fill="#111" stroke="#f59e0b" stroke-width="1"/>
+    <text x="700" y="492" text-anchor="middle" class="campaign">Campaign 4</text>
+    <text x="700" y="490" text-anchor="middle" class="label" fill="#f59e0b" dy="12">$2,100/day</text>
+  </g>
+  
+  <!-- Annotation callout -->
+  <g transform="translate(850, 280)">
+    <rect x="0" y="0" width="280" height="130" rx="8" fill="#1a0a0a" stroke="#ff4444" stroke-width="1"/>
+    <text x="140" y="28" text-anchor="middle" class="warning">⚠ CANNIBALIZATION ZONE</text>
+    <line x1="20" y1="40" x2="260" y2="40" stroke="#331111" stroke-width="1"/>
+    <text x="20" y="65" class="label" fill="#888">Same user targeted by</text>
+    <text x="20" y="82" class="label" fill="#ffffff">4 different campaigns</text>
+    <text x="20" y="99" class="label" fill="#888">with 4 different bids</text>
+    <text x="20" y="120" class="annotation">Paying 4x to reach 1 person</text>
+  </g>
+  
+  <!-- Stats panel -->
+  <g transform="translate(850, 440)">
+    <rect x="0" y="0" width="280" height="140" rx="8" fill="#111" stroke="#333" stroke-width="1"/>
+    <text x="140" y="25" text-anchor="middle" class="stat-label">Result of poor structure</text>
+    <line x1="20" y1="35" x2="260" y2="35" stroke="#222" stroke-width="1"/>
+    
+    <text x="70" y="75" text-anchor="middle" class="stat">$65</text>
+    <text x="70" y="95" text-anchor="middle" class="stat-label">Actual CAC</text>
+    
+    <text x="210" y="75" text-anchor="middle" class="stat">2.1x</text>
+    <text x="210" y="95" text-anchor="middle" class="stat-label">ROAS</text>
+    
+    <text x="140" y="130" text-anchor="middle" class="label" fill="#ff4444">32% of budget wasted on overlap</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="600" y="655" text-anchor="middle" class="subtitle" fill="#333">Wavy Studios • Account Structure Framework</text>
+</svg>

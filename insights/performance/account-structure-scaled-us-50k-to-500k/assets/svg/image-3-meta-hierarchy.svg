@@ -1,0 +1,158 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 28px; fill: #ffffff; }
+      .subtitle { font-family: 'Space Mono', monospace; font-size: 11px; fill: #666666; text-transform: uppercase; letter-spacing: 0.1em; }
+      .node-sub { font-family: 'Space Mono', monospace; font-size: 9px; fill: #888888; }
+      .label { font-family: 'Space Mono', monospace; font-size: 9px; fill: #888888; }
+      .code { font-family: 'Space Mono', monospace; font-size: 10px; fill: #c8ff00; }
+    </style>
+    <marker id="arrow-budget" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#c8ff00"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="675" fill="#0a0a0a"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" class="title">Meta Ads Campaign Hierarchy</text>
+  <text x="600" y="62" text-anchor="middle" class="subtitle">Three-layer structure with exclusion logic</text>
+  
+  <!-- Campaign Level Header -->
+  <text x="100" y="100" class="label" fill="#666">CAMPAIGN LEVEL</text>
+  
+  <!-- Campaign 1: ACQ-TEST (Blue) -->
+  <g transform="translate(80, 115)">
+    <rect x="0" y="0" width="200" height="50" rx="6" fill="#111" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="0" y="0" width="200" height="20" rx="6" fill="#3b82f6"/>
+    <rect x="0" y="14" width="200" height="6" fill="#3b82f6"/>
+    <text x="100" y="14" text-anchor="middle" font-family="Syne, sans-serif" font-size="10" font-weight="700" fill="#ffffff">ACQ-TEST</text>
+    <text x="100" y="38" text-anchor="middle" class="node-sub">Creative Testing • CBO</text>
+    
+    <!-- Ad Sets -->
+    <line x1="100" y1="50" x2="100" y2="70" stroke="#444" stroke-width="1"/>
+    <line x1="40" y1="70" x2="160" y2="70" stroke="#444" stroke-width="1"/>
+    <line x1="40" y1="70" x2="40" y2="85" stroke="#444" stroke-width="1"/>
+    <line x1="100" y1="70" x2="100" y2="85" stroke="#444" stroke-width="1"/>
+    <line x1="160" y1="70" x2="160" y2="85" stroke="#444" stroke-width="1"/>
+    
+    <rect x="10" y="85" width="60" height="35" rx="4" fill="#1a1a1a" stroke="#3b82f6" stroke-width="1"/>
+    <text x="40" y="100" text-anchor="middle" class="label" fill="#3b82f6">Concept A</text>
+    <text x="40" y="112" text-anchor="middle" class="label">$100/d</text>
+    
+    <rect x="70" y="85" width="60" height="35" rx="4" fill="#1a1a1a" stroke="#3b82f6" stroke-width="1"/>
+    <text x="100" y="100" text-anchor="middle" class="label" fill="#3b82f6">Concept B</text>
+    <text x="100" y="112" text-anchor="middle" class="label">$100/d</text>
+    
+    <rect x="130" y="85" width="60" height="35" rx="4" fill="#1a1a1a" stroke="#3b82f6" stroke-width="1"/>
+    <text x="160" y="100" text-anchor="middle" class="label" fill="#3b82f6">Concept C</text>
+    <text x="160" y="112" text-anchor="middle" class="label">$100/d</text>
+  </g>
+  
+  <!-- Campaign 2: ACQ-SCALE (Lime Green - DARK TEXT) -->
+  <g transform="translate(380, 115)">
+    <rect x="0" y="0" width="200" height="50" rx="6" fill="#111" stroke="#c8ff00" stroke-width="2"/>
+    <rect x="0" y="0" width="200" height="20" rx="6" fill="#c8ff00"/>
+    <rect x="0" y="14" width="200" height="6" fill="#c8ff00"/>
+    <text x="100" y="14" text-anchor="middle" font-family="Syne, sans-serif" font-size="10" font-weight="700" fill="#0a0a0a">ACQ-SCALE</text>
+    <text x="100" y="38" text-anchor="middle" class="node-sub">Proven Winners • ASC</text>
+    
+    <!-- Ad Sets -->
+    <line x1="100" y1="50" x2="100" y2="70" stroke="#444" stroke-width="1"/>
+    <line x1="50" y1="70" x2="150" y2="70" stroke="#444" stroke-width="1"/>
+    <line x1="50" y1="70" x2="50" y2="85" stroke="#444" stroke-width="1"/>
+    <line x1="150" y1="70" x2="150" y2="85" stroke="#444" stroke-width="1"/>
+    
+    <rect x="10" y="85" width="80" height="35" rx="4" fill="#1a1a0a" stroke="#c8ff00" stroke-width="1"/>
+    <text x="50" y="100" text-anchor="middle" class="label" fill="#c8ff00">Broad US</text>
+    <text x="50" y="112" text-anchor="middle" class="label">Elastic</text>
+    
+    <rect x="110" y="85" width="80" height="35" rx="4" fill="#1a1a0a" stroke="#c8ff00" stroke-width="1"/>
+    <text x="150" y="100" text-anchor="middle" class="label" fill="#c8ff00">Broad EU</text>
+    <text x="150" y="112" text-anchor="middle" class="label">Elastic</text>
+  </g>
+  
+  <!-- Campaign 3: RET-PURCHASERS (Purple) -->
+  <g transform="translate(680, 115)">
+    <rect x="0" y="0" width="200" height="50" rx="6" fill="#111" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="0" y="0" width="200" height="20" rx="6" fill="#8b5cf6"/>
+    <rect x="0" y="14" width="200" height="6" fill="#8b5cf6"/>
+    <text x="100" y="14" text-anchor="middle" font-family="Syne, sans-serif" font-size="10" font-weight="700" fill="#ffffff">RET-PURCHASERS</text>
+    <text x="100" y="38" text-anchor="middle" class="node-sub">Time-Segmented • CBO</text>
+    
+    <!-- Ad Sets -->
+    <line x1="100" y1="50" x2="100" y2="70" stroke="#444" stroke-width="1"/>
+    <line x1="30" y1="70" x2="170" y2="70" stroke="#444" stroke-width="1"/>
+    <line x1="30" y1="70" x2="30" y2="85" stroke="#444" stroke-width="1"/>
+    <line x1="100" y1="70" x2="100" y2="85" stroke="#444" stroke-width="1"/>
+    <line x1="170" y1="70" x2="170" y2="85" stroke="#444" stroke-width="1"/>
+    
+    <rect x="5" y="85" width="50" height="35" rx="4" fill="#1a1a2a" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="30" y="100" text-anchor="middle" class="label" fill="#8b5cf6">0-30d</text>
+    <text x="30" y="112" text-anchor="middle" class="label">$200/d</text>
+    
+    <rect x="75" y="85" width="50" height="35" rx="4" fill="#1a1a2a" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="100" y="100" text-anchor="middle" class="label" fill="#8b5cf6">31-90d</text>
+    <text x="100" y="112" text-anchor="middle" class="label">$150/d</text>
+    
+    <rect x="145" y="85" width="50" height="35" rx="4" fill="#1a1a2a" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="170" y="100" text-anchor="middle" class="label" fill="#8b5cf6">91-180d</text>
+    <text x="170" y="112" text-anchor="middle" class="label">$100/d</text>
+  </g>
+  
+  <!-- Budget Flow Arrow -->
+  <g transform="translate(290, 140)">
+    <line x1="0" y1="0" x2="80" y2="0" stroke="#c8ff00" stroke-width="2" marker-end="url(#arrow-budget)"/>
+    <text x="40" y="-8" text-anchor="middle" font-family="Space Mono, monospace" font-size="8" fill="#c8ff00">GRADUATE</text>
+  </g>
+  
+  <!-- Exclusion Logic Section -->
+  <g transform="translate(80, 290)">
+    <rect x="0" y="0" width="900" height="160" rx="8" fill="#111" stroke="#333" stroke-width="1"/>
+    <text x="450" y="25" text-anchor="middle" class="subtitle" fill="#666">EXCLUSION HIERARCHY</text>
+    <line x1="50" y1="35" x2="850" y2="35" stroke="#222" stroke-width="1"/>
+    
+    <!-- Exclusion rules -->
+    <g transform="translate(30, 55)">
+      <rect x="0" y="0" width="260" height="90" rx="6" fill="#0a0a0a" stroke="#3b82f6" stroke-width="1"/>
+      <text x="130" y="20" text-anchor="middle" font-family="Syne, sans-serif" font-size="12" font-weight="700" fill="#3b82f6">ACQ-TEST Excludes:</text>
+      <text x="20" y="45" class="label">• All purchasers (180 days)</text>
+      <text x="20" y="62" class="label">• All retention audiences</text>
+      <text x="20" y="79" class="label">• Email list subscribers</text>
+    </g>
+    
+    <g transform="translate(320, 55)">
+      <rect x="0" y="0" width="260" height="90" rx="6" fill="#0a0a0a" stroke="#c8ff00" stroke-width="1"/>
+      <text x="130" y="20" text-anchor="middle" font-family="Syne, sans-serif" font-size="12" font-weight="700" fill="#c8ff00">ACQ-SCALE Excludes:</text>
+      <text x="20" y="45" class="label">• All purchasers (180 days)</text>
+      <text x="20" y="62" class="label">• All retention audiences</text>
+      <text x="20" y="79" class="label">• Email list subscribers</text>
+    </g>
+    
+    <g transform="translate(610, 55)">
+      <rect x="0" y="0" width="260" height="90" rx="6" fill="#0a0a0a" stroke="#8b5cf6" stroke-width="1"/>
+      <text x="130" y="20" text-anchor="middle" font-family="Syne, sans-serif" font-size="12" font-weight="700" fill="#8b5cf6">RET-PURCHASERS Excludes:</text>
+      <text x="20" y="45" class="label">• Recent purchasers (7 days)</text>
+      <text x="20" y="62" class="label">• Based on repurchase cycle</text>
+      <text x="20" y="79" class="label" fill="#c8ff00">• Clean signal per segment</text>
+    </g>
+  </g>
+  
+  <!-- Naming Convention Section -->
+  <g transform="translate(80, 470)">
+    <rect x="0" y="0" width="900" height="130" rx="8" fill="#111" stroke="#c8ff00" stroke-width="1"/>
+    <text x="450" y="25" text-anchor="middle" class="subtitle" fill="#c8ff00">NAMING CONVENTION</text>
+    <line x1="50" y1="35" x2="850" y2="35" stroke="#222" stroke-width="1"/>
+    
+    <text x="50" y="60" class="label" fill="#666">[PLATFORM]-[FUNNEL]-[TYPE]-[TARGETING]-[GEO]-[DATE]</text>
+    
+    <text x="50" y="90" class="code">META-ACQ-TEST-BROAD-US-2024Q4</text>
+    <text x="50" y="110" class="code">META-ACQ-SCALE-BROAD-US-2024Q4</text>
+    <text x="500" y="90" class="code">META-RET-PURCHASERS-30D-US-2024Q4</text>
+    <text x="500" y="110" class="code">META-RET-ENGAGERS-VC-US-2024Q4</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="600" y="655" text-anchor="middle" class="subtitle" fill="#333">Wavy Studios • Account Structure Framework</text>
+</svg>

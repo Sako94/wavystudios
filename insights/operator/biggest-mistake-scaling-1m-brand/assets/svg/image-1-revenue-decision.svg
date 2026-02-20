@@ -1,0 +1,110 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 26px; fill: #ffffff; }
+      .subtitle { font-family: 'Space Mono', monospace; font-size: 10px; fill: #666666; text-transform: uppercase; letter-spacing: 0.1em; }
+      .axis-label { font-family: 'Space Mono', monospace; font-size: 10px; fill: #555555; }
+      .annotation { font-family: 'Space Mono', monospace; font-size: 10px; fill: #ff4444; text-transform: uppercase; letter-spacing: 0.05em; }
+      .callout { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; fill: #ffffff; }
+      .value-label { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; fill: #c8ff00; }
+      .phase-label { font-family: 'Space Mono', monospace; font-size: 9px; fill: #888888; text-transform: uppercase; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="675" fill="#0a0a0a"/>
+  
+  <!-- Title -->
+  <text x="600" y="38" text-anchor="middle" class="title">Revenue Growth with Diversification Decision</text>
+  <text x="600" y="58" text-anchor="middle" class="subtitle">The moment strategy shifted — and growth stalled</text>
+  
+  <!-- Chart container -->
+  <g transform="translate(140, 95)">
+    <!-- Chart background -->
+    <rect x="0" y="0" width="920" height="360" rx="0" fill="#0a0a0a"/>
+    
+    <!-- Grid lines -->
+    <g stroke="#1a1a1a" stroke-width="1">
+      <line x1="0" y1="0" x2="920" y2="0"/>
+      <line x1="0" y1="90" x2="920" y2="90"/>
+      <line x1="0" y1="180" x2="920" y2="180"/>
+      <line x1="0" y1="270" x2="920" y2="270"/>
+      <line x1="0" y1="360" x2="920" y2="360"/>
+    </g>
+    
+    <!-- Y axis labels (left side) -->
+    <text x="-12" y="5" text-anchor="end" class="axis-label">$600K</text>
+    <text x="-12" y="95" text-anchor="end" class="axis-label">$500K</text>
+    <text x="-12" y="185" text-anchor="end" class="axis-label">$400K</text>
+    <text x="-12" y="275" text-anchor="end" class="axis-label">$300K</text>
+    <text x="-12" y="365" text-anchor="end" class="axis-label">$200K</text>
+    
+    <!-- X axis labels -->
+    <g transform="translate(0, 380)">
+      <text x="0" y="0" text-anchor="middle" class="axis-label">M1</text>
+      <text x="77" y="0" text-anchor="middle" class="axis-label">M2</text>
+      <text x="154" y="0" text-anchor="middle" class="axis-label">M3</text>
+      <text x="230" y="0" text-anchor="middle" class="axis-label">M4</text>
+      <text x="307" y="0" text-anchor="middle" class="axis-label">M5</text>
+      <text x="384" y="0" text-anchor="middle" class="axis-label">M6</text>
+      <text x="460" y="0" text-anchor="middle" class="axis-label">M7</text>
+      <text x="537" y="0" text-anchor="middle" class="axis-label">M8</text>
+      <text x="614" y="0" text-anchor="middle" class="axis-label">M9</text>
+      <text x="690" y="0" text-anchor="middle" class="axis-label">M10</text>
+      <text x="767" y="0" text-anchor="middle" class="axis-label">M11</text>
+      <text x="844" y="0" text-anchor="middle" class="axis-label">M12</text>
+    </g>
+    
+    <!-- Growth phase area fill -->
+    <polygon points="0,360 77,324 154,288 230,252 307,216 384,180 384,360" fill="#c8ff00" fill-opacity="0.12"/>
+    
+    <!-- Plateau phase area fill -->
+    <polygon points="384,180 460,189 537,175 614,193 690,184 767,198 844,189 844,360 384,360" fill="#ff4444" fill-opacity="0.12"/>
+    
+    <!-- Revenue line - Growth phase (green) -->
+    <polyline points="0,360 77,324 154,288 230,252 307,216 384,180" fill="none" stroke="#c8ff00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Revenue line - Plateau phase (red) -->
+    <polyline points="384,180 460,189 537,175 614,193 690,184 767,198 844,189" fill="none" stroke="#ff4444" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Data points -->
+    <circle cx="0" cy="360" r="5" fill="#c8ff00"/>
+    <circle cx="384" cy="180" r="8" fill="#ff4444" stroke="#0a0a0a" stroke-width="2"/>
+    <circle cx="844" cy="189" r="5" fill="#ff4444"/>
+    
+    <!-- Decision point vertical line -->
+    <line x1="384" y1="0" x2="384" y2="360" stroke="#ff4444" stroke-width="2" stroke-dasharray="6,4"/>
+    
+    <!-- Value labels on chart -->
+    <text x="10" y="350" class="value-label">$200K</text>
+    <text x="394" y="168" class="value-label">$400K</text>
+    <text x="854" y="178" class="value-label" fill="#ff4444">~$400K</text>
+  </g>
+  
+  <!-- Decision point annotation (positioned above chart) -->
+  <g transform="translate(524, 75)">
+    <rect x="-85" y="0" width="170" height="24" rx="4" fill="#ff4444" fill-opacity="0.2" stroke="#ff4444" stroke-width="1"/>
+    <text x="0" y="16" text-anchor="middle" class="annotation">Diversification Decision</text>
+  </g>
+  
+  <!-- Phase labels below x-axis -->
+  <g transform="translate(140, 505)">
+    <!-- Focused Growth phase -->
+    <rect x="0" y="0" width="350" height="32" rx="6" fill="#c8ff00" fill-opacity="0.1" stroke="#c8ff00" stroke-width="1"/>
+    <text x="175" y="21" text-anchor="middle" class="phase-label" fill="#c8ff00">Focused Growth (M1-M6)</text>
+    
+    <!-- Diversification phase -->
+    <rect x="384" y="0" width="460" height="32" rx="6" fill="#ff4444" fill-opacity="0.1" stroke="#ff4444" stroke-width="1"/>
+    <text x="614" y="21" text-anchor="middle" class="phase-label" fill="#ff4444">Channel Diversification (M7-M12)</text>
+  </g>
+  
+  <!-- Bottom insight box -->
+  <g transform="translate(140, 560)">
+    <rect x="0" y="0" width="920" height="55" rx="8" fill="#111111" stroke="#ff4444" stroke-width="1"/>
+    <text x="460" y="23" text-anchor="middle" class="callout" fill="#ff4444">GROWTH STALLED AFTER CHANNEL EXPANSION</text>
+    <text x="460" y="42" text-anchor="middle" class="axis-label">4 months of plateau while working harder and spending more</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="600" y="650" text-anchor="middle" class="subtitle" fill="#333333">Wavy Studios • Operator Lessons</text>
+</svg>

@@ -1,0 +1,112 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 26px; fill: #ffffff; }
+      .subtitle { font-family: 'Space Mono', monospace; font-size: 11px; fill: #666666; text-transform: uppercase; letter-spacing: 0.1em; }
+      .axis-label { font-family: 'Space Mono', monospace; font-size: 11px; fill: #555555; }
+      .axis-value { font-family: 'Space Mono', monospace; font-size: 10px; fill: #444444; }
+      .legend-text { font-family: 'Space Mono', monospace; font-size: 11px; }
+      .annotation { font-family: 'Space Mono', monospace; font-size: 10px; }
+      .callout { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600; }
+    </style>
+    <linearGradient id="areaGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#c8ff00;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#c8ff00;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="675" fill="#0a0a0a"/>
+  
+  <!-- Title -->
+  <text x="600" y="45" text-anchor="middle" class="title">Customer Value Over Time: LTV Changes Your Target</text>
+  <text x="600" y="68" text-anchor="middle" class="subtitle">Cumulative revenue per customer by cohort type</text>
+  
+  <!-- Chart Area -->
+  <g transform="translate(120, 110)">
+    <!-- Grid -->
+    <line x1="60" y1="0" x2="60" y2="380" stroke="#1a1a1a" stroke-width="1"/>
+    <line x1="60" y1="380" x2="950" y2="380" stroke="#222" stroke-width="2"/>
+    
+    <!-- Horizontal grid lines -->
+    <line x1="60" y1="76" x2="950" y2="76" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="60" y1="152" x2="950" y2="152" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="60" y1="228" x2="950" y2="228" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/>
+    <line x1="60" y1="304" x2="950" y2="304" stroke="#1a1a1a" stroke-width="1" stroke-dasharray="4,4"/>
+    
+    <!-- Y-axis labels -->
+    <text x="50" y="5" text-anchor="end" class="axis-value">$200</text>
+    <text x="50" y="81" text-anchor="end" class="axis-value">$150</text>
+    <text x="50" y="157" text-anchor="end" class="axis-value">$100</text>
+    <text x="50" y="233" text-anchor="end" class="axis-value">$50</text>
+    <text x="50" y="309" text-anchor="end" class="axis-value">$0</text>
+    
+    <!-- Y-axis title -->
+    <text x="15" y="190" text-anchor="middle" transform="rotate(-90, 15, 190)" class="axis-label">Cumulative Revenue per Customer</text>
+    
+    <!-- X-axis labels (months) -->
+    <text x="60" y="405" text-anchor="middle" class="axis-value">0</text>
+    <text x="134" y="405" text-anchor="middle" class="axis-value">1</text>
+    <text x="208" y="405" text-anchor="middle" class="axis-value">2</text>
+    <text x="282" y="405" text-anchor="middle" class="axis-value">3</text>
+    <text x="356" y="405" text-anchor="middle" class="axis-value">4</text>
+    <text x="430" y="405" text-anchor="middle" class="axis-value">5</text>
+    <text x="504" y="405" text-anchor="middle" class="axis-value">6</text>
+    <text x="578" y="405" text-anchor="middle" class="axis-value">7</text>
+    <text x="652" y="405" text-anchor="middle" class="axis-value">8</text>
+    <text x="726" y="405" text-anchor="middle" class="axis-value">9</text>
+    <text x="800" y="405" text-anchor="middle" class="axis-value">10</text>
+    <text x="874" y="405" text-anchor="middle" class="axis-value">11</text>
+    <text x="948" y="405" text-anchor="middle" class="axis-value">12</text>
+    
+    <!-- X-axis title -->
+    <text x="505" y="435" text-anchor="middle" class="axis-label">Months Since First Purchase</text>
+    
+    <!-- Single-purchase brand line (flat) -->
+    <line x1="60" y1="152" x2="948" y2="152" stroke="#666666" stroke-width="3" stroke-dasharray="8,4"/>
+    
+    <!-- Repeat-purchase brand area -->
+    <path d="M60,152 L134,140 L208,128 L282,116 L356,104 L430,95 L504,86 L578,78 L652,72 L726,66 L800,61 L874,57 L948,53 L948,380 L60,380 Z" fill="url(#areaGreen)"/>
+    
+    <!-- Repeat-purchase brand line -->
+    <path d="M60,152 L134,140 L208,128 L282,116 L356,104 L430,95 L504,86 L578,78 L652,72 L726,66 L800,61 L874,57 L948,53" fill="none" stroke="#c8ff00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- First purchase marker -->
+    <circle cx="60" cy="152" r="8" fill="#c8ff00" stroke="#0a0a0a" stroke-width="3"/>
+    <text x="60" y="175" text-anchor="middle" class="annotation" fill="#888">First Purchase</text>
+    <text x="60" y="188" text-anchor="middle" class="annotation" fill="#666">$100 AOV</text>
+    
+    <!-- 12-month marker for repeat brand -->
+    <circle cx="948" cy="53" r="8" fill="#c8ff00" stroke="#0a0a0a" stroke-width="3"/>
+    
+    <!-- LTV annotation -->
+    <line x1="958" y1="53" x2="1000" y2="53" stroke="#c8ff00" stroke-width="1"/>
+    <line x1="958" y1="152" x2="1000" y2="152" stroke="#666" stroke-width="1"/>
+    <line x1="1000" y1="53" x2="1000" y2="152" stroke="#c8ff00" stroke-width="2"/>
+    <text x="1010" y="105" class="annotation" fill="#c8ff00">+50%</text>
+    <text x="1010" y="118" class="annotation" fill="#c8ff00">LTV</text>
+    
+    <!-- Retention value shading label -->
+    <text x="600" y="260" text-anchor="middle" class="callout" fill="#c8ff00" opacity="0.6">Retention Value</text>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(200, 560)">
+    <line x1="0" y1="0" x2="40" y2="0" stroke="#c8ff00" stroke-width="3"/>
+    <circle cx="20" cy="0" r="5" fill="#c8ff00"/>
+    <text x="55" y="4" class="legend-text" fill="#c8ff00">Repeat-Purchase Brand (LTV: $150)</text>
+    
+    <line x1="350" y1="0" x2="390" y2="0" stroke="#666" stroke-width="3" stroke-dasharray="8,4"/>
+    <text x="405" y="4" class="legend-text" fill="#666">Single-Purchase Brand (LTV: $100)</text>
+  </g>
+  
+  <!-- Insight box -->
+  <g transform="translate(700, 540)">
+    <rect x="0" y="0" width="380" height="55" rx="6" fill="#111" stroke="#333" stroke-width="1"/>
+    <text x="190" y="22" text-anchor="middle" class="annotation" fill="#888">With 1.5x LTV multiplier, break-even ROAS drops:</text>
+    <text x="190" y="42" text-anchor="middle" class="callout" fill="#c8ff00">2.5x → 1.67x (accept lower first-purchase ROAS)</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="600" y="640" text-anchor="middle" class="subtitle" fill="#333">Wavy Studios • Why Your ROAS Targets Are Probably Wrong</text>
+</svg>

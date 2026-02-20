@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The First-to-Second Order Playbook | Wavy Studios</title>
+    <meta name="description" content="Master the 45-day post-purchase window that determines customer lifetime value. Exact email flows, SMS timing, and contribution margin math for ecommerce retention.">
+    <meta name="keywords" content="ecommerce retention, second purchase rate, customer lifetime value, email flows, SMS marketing, post-purchase sequence, LTV optimization">
+    <meta name="author" content="Wavy Studios">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="The First-to-Second Order Playbook | Wavy Studios">
+    <meta property="og:description" content="Master the 45-day post-purchase window that determines customer lifetime value. Exact email flows, SMS timing, and contribution margin math.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wavystudios.com/insights/first-second-order-playbook">
+    <meta property="og:image" content="https://wavystudios.com/assets/images/insights/first-second-order-og.png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The First-to-Second Order Playbook">
+    <meta name="twitter:description" content="Master the 45-day post-purchase window that determines customer lifetime value.">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://wavystudios.com/insights/first-second-order-playbook">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The First-to-Second Order Playbook",
+        "description": "Master the 45-day post-purchase window that determines customer lifetime value.",
+        "author": {"@type": "Organization", "name": "Wavy Studios"},
+        "publisher": {"@type": "Organization", "name": "Wavy Studios", "logo": {"@type": "ImageObject", "url": "https://wavystudios.com/assets/wavystudios-logo.png"}},
+        "datePublished": "2026-01-13",
+        "dateModified": "2026-01-13"
+    }
+    </script>
+    
+    <style>
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-card: #111111;
+            --bg-subtle: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #c8ff00;
+            --accent-dim: rgba(200, 255, 0, 0.15);
+            --border: #222222;
+            --blue: #3b82f6;
+            --purple: #8b5cf6;
+            --red: #ff4444;
+            --green: #22c55e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            background: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px 24px 120px;
+        }
+
+        /* Header */
+        .article-header {
+            margin-bottom: 64px;
+            text-align: center;
+        }
+
+        .brand {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        /* Typography */
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 80px;
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            margin-bottom: 24px;
+        }
+
+        strong {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        /* Lead paragraph */
+        .lead {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+            margin-bottom: 32px;
+        }
+
+        /* Pull quote */
+        .pull-quote {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            border-left: 4px solid var(--accent);
+            padding-left: 28px;
+            margin: 48px 0;
+            line-height: 1.4;
+        }
+
+        /* Images */
+        .article-image {
+            margin: 48px -40px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .article-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 16px 24px;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 32px 0;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+
+        th {
+            text-align: left;
+            font-weight: 700;
+            padding: 16px 20px;
+            background: var(--bg-subtle);
+            color: var(--text-primary);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+        }
+
+        td {
+            padding: 16px 20px;
+            border-top: 1px solid var(--border);
+            background: var(--bg-card);
+        }
+
+        .highlight-row td {
+            background: var(--accent-dim);
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Phase blocks */
+        .phase-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 32px 0;
+        }
+
+        .phase-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+        }
+
+        .phase-label.phase-1 { color: var(--blue); }
+        .phase-label.phase-2 { color: var(--purple); }
+        .phase-label.phase-3 { color: var(--accent); }
+
+        .phase-block h3 {
+            margin-top: 0;
+            margin-bottom: 24px;
+        }
+
+        .phase-meta {
+            display: grid;
+            gap: 16px;
+        }
+
+        .phase-meta-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 16px;
+        }
+
+        .phase-meta-label {
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .phase-meta-value {
+            font-size: 0.9375rem;
+        }
+
+        /* Flow blocks */
+        .flow-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            margin: 28px 0;
+        }
+
+        .flow-block h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .flow-emails {
+            margin-bottom: 20px;
+        }
+
+        .flow-email {
+            display: flex;
+            gap: 16px;
+            padding: 12px 0;
+            font-size: 0.9375rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .flow-email:last-child {
+            border-bottom: none;
+        }
+
+        .flow-email-day {
+            font-weight: 700;
+            color: var(--accent);
+            min-width: 80px;
+        }
+
+        .flow-meta {
+            background: var(--bg-subtle);
+            border-radius: 8px;
+            padding: 16px;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .flow-meta strong {
+            color: var(--text-secondary);
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 24px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 32px 0;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .checklist li:last-child {
+            border-bottom: none;
+        }
+
+        .check-box {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--accent);
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checklist-text strong {
+            display: block;
+            font-family: 'Syne', sans-serif;
+            margin-bottom: 4px;
+        }
+
+        /* Mistakes */
+        .mistake-item {
+            margin-bottom: 32px;
+            padding-left: 20px;
+            border-left: 3px solid var(--red);
+        }
+
+        .mistake-item h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .mistake-item p {
+            margin-bottom: 0;
+        }
+
+        /* Closing */
+        .closing {
+            margin-top: 80px;
+            padding-top: 48px;
+            border-top: 2px solid var(--accent);
+            text-align: center;
+        }
+
+        .closing-statement {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.3;
+            margin-bottom: 24px;
+        }
+
+        .closing-statement span {
+            color: var(--accent);
+        }
+
+        /* Related links */
+        .related-links {
+            margin-top: 64px;
+            padding: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .related-links h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .related-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .related-links li {
+            margin-bottom: 12px;
+        }
+
+        .related-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            transition: opacity 0.2s;
+        }
+
+        .related-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .article-footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 48px 20px 80px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.375rem;
+            }
+
+            .pull-quote {
+                font-size: 1.25rem;
+            }
+
+            .meta {
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+
+            .phase-meta-item {
+                grid-template-columns: 1fr;
+                gap: 4px;
+            }
+
+            .article-image {
+                margin: 32px -20px;
+                border-radius: 0;
+            }
+        }
+    
+
+        /* ========== NAVIGATION STYLES ========== */
+        html { scroll-behavior: smooth; }
+        
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98), rgba(10,10,10,0.8));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        .nav-logo-img { height: 32px; width: auto; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            list-style: none;
+        }
+        .nav-item { position: relative; }
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: #c8ff00; }
+        .nav-arrow { width: 8px; height: 8px; fill: currentColor; transition: transform 0.3s ease; }
+        .nav-item:hover .nav-arrow { transform: rotate(180deg); }
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            background: #111111;
+            border: 1px solid #2a2a2a;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            list-style: none;
+        }
+        .nav-item:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-link {
+            display: block;
+            padding: 0.6rem 1.25rem;
+            font-size: 0.8rem;
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .dropdown-link:hover { background: #1a1a1a; color: #c8ff00; }
+        .nav-cta {
+            background: #c8ff00;
+            color: #0a0a0a;
+            padding: 0.6rem 1.25rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Space Mono', monospace;
+        }
+        .nav-cta:hover { background: #ffffff; }
+        
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 32px;
+            height: 32px;
+            padding: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .mobile-toggle span { width: 24px; height: 2px; background: #fff; transition: all 0.3s ease; }
+        .mobile-toggle.is-active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-toggle.is-active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.is-active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #0a0a0a;
+            z-index: 99;
+            padding: 100px 2rem 2rem;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu.is-open { opacity: 1; visibility: visible; }
+        .mobile-menu-list { list-style: none; }
+        .mobile-menu-list > li { border-bottom: 1px solid #1a1a1a; }
+        .mobile-menu-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1.25rem 0;
+            font-size: 1rem;
+            color: #fff;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'Space Mono', monospace;
+        }
+        .mobile-menu-link:hover { color: #c8ff00; }
+        .mobile-submenu { display: none; list-style: none; padding: 0 0 1rem 1.5rem; }
+        .mobile-submenu.is-open { display: block; }
+        .mobile-submenu a { display: block; padding: 0.6rem 0; font-size: 0.95rem; color: #a0a0a0; text-decoration: none; }
+        .mobile-submenu a:hover { color: #c8ff00; }
+        .mobile-menu-cta {
+            display: block;
+            width: 100%;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #c8ff00;
+            color: #0a0a0a;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        /* ========== TABLE OF CONTENTS ========== */
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 48px;
+        }
+        .toc-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-top: 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .toc-title::before { content: '§'; }
+        .toc-list { list-style: none; counter-reset: toc-counter; padding: 0; margin: 0; }
+        .toc-list li { counter-increment: toc-counter; margin-bottom: 12px; }
+        .toc-list li:last-child { margin-bottom: 0; }
+        .toc-list a {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.2s ease;
+        }
+        .toc-list a::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+        .toc-list a:hover { color: var(--accent); }
+
+        /* Section scroll offset */
+        section[id] { scroll-margin-top: calc(var(--nav-height, 90px) + 20px); }
+        h2[id] { scroll-margin-top: calc(var(--nav-height, 90px) + 20px); }
+
+        /* ========== ARTICLE CTA ========== */
+        .article-cta {
+            margin-top: 64px;
+            padding: 48px;
+            background: linear-gradient(135deg, rgba(200, 255, 0, 0.08) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border: 1px solid rgba(200, 255, 0, 0.2);
+            border-radius: 12px;
+            text-align: center;
+        }
+        .article-cta h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+        }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 24px; }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 16px 32px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { background: var(--text-primary); transform: translateY(-2px); }
+
+        /* ========== FOOTER ========== */
+        .site-footer {
+            background: #111111;
+            border-top: 1px solid #1a1a1a;
+            padding: 4rem 3rem 2rem;
+            margin-top: 0;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .footer-logo { display: inline-block; text-decoration: none; }
+        .footer-logo-img { height: 32px; width: auto; }
+        .footer-brand p { color: #666; font-size: 0.9rem; margin-top: 1rem; line-height: 1.6; }
+        .footer-col h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.25rem;
+            color: #fff;
+        }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col li { margin-bottom: 0.75rem; }
+        .footer-col a { color: #666; text-decoration: none; font-size: 0.85rem; transition: color 0.3s ease; }
+        .footer-col a:hover { color: #c8ff00; }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid #1a1a1a;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .footer-social { display: flex; gap: 1.5rem; }
+        .footer-social a { color: #666; text-decoration: none; transition: color 0.3s ease; }
+        .footer-social a:hover { color: #c8ff00; }
+
+        /* ========== NAV SPACER ========== */
+        .nav-spacer {
+            height: var(--nav-height, 90px);
+        }
+
+        /* ========== BREADCRUMB ========== */
+        .breadcrumb {
+            position: relative;
+            z-index: 1;
+            background: var(--bg-subtle);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+        .breadcrumb-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .breadcrumb-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            transition: color 0.2s ease;
+        }
+        .breadcrumb-link:hover {
+            color: var(--accent);
+        }
+        .breadcrumb-sep {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+        .breadcrumb-current {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive nav */
+        @media (max-width: 900px) {
+            .site-nav { padding: 1rem 1.5rem; }
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .toc { padding: 20px; }
+        }
+        @media (max-width: 480px) {
+            .breadcrumb-container { gap: 0.5rem; }
+            .breadcrumb-current { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="nav-logo">
+            <img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="nav-logo-img">
+        </a>
+        <ul class="nav-links">
+            <li class="nav-item"><a href="/growth-os" class="nav-link">Growth OS</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Services <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="/lifecycle" class="dropdown-link">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social" class="dropdown-link">Paid Social</a></li>
+                    <li><a href="/paid-search" class="dropdown-link">Paid Search</a></li>
+                    <li><a href="/creative" class="dropdown-link">Creative System</a></li>
+                    <li><a href="/cro" class="dropdown-link">CRO & Funnels</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/insights" class="nav-link">Case Studies</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="/ecommerce" class="dropdown-link">Ecommerce & DTC</a></li>
+                    <li><a href="/lead-gen" class="dropdown-link">Lead Generation</a></li>
+                    <li><a href="/enterprise" class="dropdown-link">Enterprise</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/labs" class="nav-link">Labs</a></li>
+        </ul>
+        <a href="/partner" class="nav-cta">Partner With Us</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <ul class="mobile-menu-list">
+            <li><a href="/" class="mobile-menu-link">Home</a></li>
+            <li><a href="/growth-os" class="mobile-menu-link">Growth OS</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Services <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/lifecycle">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social">Paid Social</a></li>
+                    <li><a href="/paid-search">Paid Search</a></li>
+                    <li><a href="/creative">Creative System</a></li>
+                    <li><a href="/cro">CRO & Funnels</a></li>
+                </ul>
+            </li>
+            <li><a href="/insights" class="mobile-menu-link">Case Studies</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/ecommerce">Ecommerce & DTC</a></li>
+                    <li><a href="/lead-gen">Lead Generation</a></li>
+                    <li><a href="/enterprise">Enterprise</a></li>
+                </ul>
+            </li>
+            <li><a href="/labs" class="mobile-menu-link">Labs</a></li>
+            <li style="border:none;padding-top:1.5rem;"><a href="/partner" class="mobile-menu-cta">Partner With Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Spacer for fixed nav -->
+    <div class="nav-spacer"></div>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-sep">→</span>
+            <a href="/insights" class="breadcrumb-link">Insights</a>
+            <span class="breadcrumb-sep">→</span>
+            <span class="breadcrumb-current">First-to-Second Order Playbook</span>
+        </div>
+    </nav>
+
+    <main>
+
+    <article class="container">
+        <header class="article-header">
+            <div class="brand">Wavy Studios</div>
+            <h1>The First-to-Second Order Playbook</h1>
+            <p class="subtitle">The 45-day retention framework that determines lifetime value—and the exact sequences we use to maximize conversion.</p>
+            <div class="meta">
+                <span>10 Minute Read</span>
+                <span>Lifecycle & Retention</span>
+                <span>Framework</span>
+            </div>
+        </header>
+
+            <!-- Table of Contents -->
+            <nav class="toc" aria-label="Table of contents">
+                <h2 class="toc-title">In This Article</h2>
+                <ol class="toc-list">
+                    <li><a href="#profit-inflection">Why the Second Order Is the Real Profit Inflection Point</a></li>
+                    <li><a href="#retention-framework">The 45-Day Retention Window Framework</a></li>
+                    <li><a href="#email-flow">The Exact Email Flow Architecture We Use</a></li>
+                    <li><a href="#sms-strategy">SMS Strategy: Where It Accelerates the Second Order</a></li>
+                    <li><a href="#segmentation">Behavioral Segmentation and Dynamic Branching</a></li>
+                    <li><a href="#metrics">Metrics That Actually Matter in the First 45 Days</a></li>
+                    <li><a href="#mistakes">Common Retention Mistakes That Kill Second Purchase Rates</a></li>
+                    <li><a href="#checklist">Operator Implementation Checklist</a></li>
+                </ol>
+            </nav>
+            
+            <section>
+
+
+        <p class="lead">Most brands obsess over acquisition. Few engineer the second purchase.</p>
+
+        <p>Here's the uncomfortable truth: the majority of your customers will never buy again. Industry data shows 60-70% of first-time buyers become one-and-done. They cost you money to acquire, bought once, and vanished.</p>
+
+        <p class="pull-quote">The first 45 days after purchase determine whether a buyer becomes a liability or an asset.</p>
+
+        <p>This isn't about "customer loyalty" platitudes. It's capital efficiency. The difference between a brand that scales profitably and one that bleeds cash on endless acquisition sits in this single metric: <strong>second purchase conversion rate.</strong></p>
+
+        <p>This is the exact framework we deploy to turn that window into a revenue system.</p>
+
+        </section><section id="profit-inflection"><h2>Why the Second Order Is the Real Profit Inflection Point</h2>
+
+        <p>Let's run the math that acquisition-obsessed brands ignore.</p>
+
+        <p><strong>Scenario: $80 AOV brand, 65% gross margin, $35 CAC</strong></p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>First Order</th>
+                        <th>Second Order</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Revenue</td>
+                        <td>$80</td>
+                        <td>$80</td>
+                    </tr>
+                    <tr>
+                        <td>COGS (35%)</td>
+                        <td>-$28</td>
+                        <td>-$28</td>
+                    </tr>
+                    <tr>
+                        <td>Gross Profit</td>
+                        <td>$52</td>
+                        <td>$52</td>
+                    </tr>
+                    <tr>
+                        <td>CAC</td>
+                        <td>-$35</td>
+                        <td>$0</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Contribution</strong></td>
+                        <td><strong>$17</strong></td>
+                        <td><strong>$52</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>The first order generates $17 contribution. The second generates $52—a <strong>206% increase in profit per order</strong> with zero incremental acquisition cost.</p>
+
+        <p>This is why retention isn't a "nice to have." It's the mechanism that determines whether your unit economics work.</p>
+
+        <p><strong>The payback math:</strong></p>
+        <ul>
+            <li>At $17 contribution per first order, CAC payback takes multiple purchases</li>
+            <li>A customer who buys twice has now contributed $69 to the business</li>
+            <li>A customer who buys three times contributes $121</li>
+        </ul>
+
+        <p>The gap between a 25% second-purchase rate and a 35% second-purchase rate compounds into millions at scale.</p>
+
+        <p>Every 10-point improvement in second order conversion increases effective LTV by 40%+ and expands your tolerable CAC ceiling proportionally. This is how brands unlock aggressive acquisition while competitors stay defensive.</p>
+
+        <div class="article-image">
+            <img src="assets/image-1-cac-waterfall.png" alt="CAC Recovery Waterfall Chart">
+            <div class="image-caption">Cumulative profit contribution across purchase sequence</div>
+        </div>
+
+        </section><section id="retention-framework"><h2>The 45-Day Retention Window Framework</h2>
+
+        <p>Forty-five days isn't arbitrary. It's the window where:</p>
+        <ul>
+            <li>Product experience is still fresh</li>
+            <li>Brand memory hasn't decayed</li>
+            <li>Replenishment timing hits for most consumables</li>
+            <li>The psychological commitment to "being a customer" can be cemented</li>
+        </ul>
+
+        <p>After 45 days without a second purchase, win-back costs spike and conversion rates crater. You're no longer nurturing—you're resurrecting.</p>
+
+        <div class="phase-block">
+            <div class="phase-label phase-1">Phase 1</div>
+            <h3>Immediate Post-Purchase (Days 0-7)</h3>
+            <div class="phase-meta">
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">Objective</span>
+                    <span class="phase-meta-value">Eliminate buyer's remorse. Build anticipation. Establish brand relationship.</span>
+                </div>
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">Psychology</span>
+                    <span class="phase-meta-value">They just spent money. Cognitive dissonance is active. They're looking for validation that they made the right choice.</span>
+                </div>
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">Messaging</span>
+                    <span class="phase-meta-value">Confirmation + excitement, shipping anticipation, "what to expect" education, brand mission reinforcement.</span>
+                </div>
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">Channel Priority</span>
+                    <span class="phase-meta-value">Email primary. SMS for shipping updates only.</span>
+                </div>
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">KPI Targets</span>
+                    <span class="phase-meta-value">65%+ open rate on confirmation. Zero support tickets from unclear expectations. Delivery anticipation engagement >40%.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="phase-block">
+            <div class="phase-label phase-2">Phase 2</div>
+            <h3>Product Experience & Reinforcement (Days 7-21)</h3>
+            <div class="phase-meta">
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">Objective</span>
+                    <span class="phase-meta-value">Maximize product satisfaction. Create usage habits. Introduce social proof.</span>
+                </div>
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">Psychology</span>
+                    <span class="phase-meta-value">Product is in hand. They're forming opinions. This is when satisfaction—or regret—crystallizes.</span>
+                </div>
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">Messaging</span>
+                    <span class="phase-meta-value">Usage optimization tips, UGC and customer results, FAQ/objection handling, review request at peak satisfaction.</span>
+                </div>
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">Channel Priority</span>
+                    <span class="phase-meta-value">Email heavy. SMS for high-value tips only.</span>
+                </div>
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">KPI Targets</span>
+                    <span class="phase-meta-value">Review submission rate >8%. Support ticket deflection. Click engagement on education >15%.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="phase-block">
+            <div class="phase-label phase-3">Phase 3</div>
+            <h3>Replenishment & Cross-Sell Window (Days 21-45)</h3>
+            <div class="phase-meta">
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">Objective</span>
+                    <span class="phase-meta-value">Convert to second purchase. Introduce complementary products. Create urgency.</span>
+                </div>
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">Psychology</span>
+                    <span class="phase-meta-value">Initial excitement has normalized. They're either satisfied and open to more, or they've mentally moved on.</span>
+                </div>
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">Messaging</span>
+                    <span class="phase-meta-value">Replenishment reminders, cross-sell education, limited urgency, loyalty program intro, "complete the routine" bundling.</span>
+                </div>
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">Channel Priority</span>
+                    <span class="phase-meta-value">Email for education, SMS for urgency/conversion triggers.</span>
+                </div>
+                <div class="phase-meta-item">
+                    <span class="phase-meta-label">KPI Targets</span>
+                    <span class="phase-meta-value">Second purchase conversion >30%. Cross-sell attach rate >15%. Time to second purchase <35 days.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-image">
+            <img src="assets/image-2-retention-timeline.png" alt="45-Day Retention Timeline">
+            <div class="image-caption">Strategic touchpoints across the 45-day retention window</div>
+        </div>
+
+        </section><section id="email-flow"><h2>The Exact Email Flow Architecture We Use</h2>
+
+        <p>Generic flows underperform. Here's the tactical structure:</p>
+
+        <div class="flow-block">
+            <h4>Flow 1: Post-Purchase Education (Days 0-7)</h4>
+            <div class="flow-emails">
+                <div class="flow-email">
+                    <span class="flow-email-day">Day 0</span>
+                    <span>Order confirmation with brand story snippet</span>
+                </div>
+                <div class="flow-email">
+                    <span class="flow-email-day">Day 1</span>
+                    <span>"What happens next" + shipping expectation</span>
+                </div>
+                <div class="flow-email">
+                    <span class="flow-email-day">Day 3-4</span>
+                    <span>Delivery celebration + quick start guide</span>
+                </div>
+                <div class="flow-email">
+                    <span class="flow-email-day">Day 6</span>
+                    <span>Deep-dive usage content</span>
+                </div>
+            </div>
+            <div class="flow-meta">
+                <strong>Trigger:</strong> Purchase completed &nbsp;|&nbsp; <strong>Exit:</strong> Opens Email 4 or places second order
+            </div>
+        </div>
+
+        <div class="flow-block">
+            <h4>Flow 2: Social Proof & Objection Handling (Days 8-18)</h4>
+            <div class="flow-emails">
+                <div class="flow-email">
+                    <span class="flow-email-day">Day 8</span>
+                    <span>Customer results/transformation UGC</span>
+                </div>
+                <div class="flow-email">
+                    <span class="flow-email-day">Day 11</span>
+                    <span>FAQ handling—preempt the doubts</span>
+                </div>
+                <div class="flow-email">
+                    <span class="flow-email-day">Day 14</span>
+                    <span>Review request (peak satisfaction window)</span>
+                </div>
+                <div class="flow-email">
+                    <span class="flow-email-day">Day 18</span>
+                    <span>"People like you also loved..." cross-sell intro</span>
+                </div>
+            </div>
+            <div class="flow-meta">
+                <strong>Trigger:</strong> Completed Flow 1, no second purchase &nbsp;|&nbsp; <strong>Exit:</strong> Review submitted or second purchase
+            </div>
+        </div>
+
+        <div class="flow-block">
+            <h4>Flow 3: Replenishment & Conversion Push (Days 21-45)</h4>
+            <div class="flow-emails">
+                <div class="flow-email">
+                    <span class="flow-email-day">Day 21</span>
+                    <span>Soft replenishment reminder</span>
+                </div>
+                <div class="flow-email">
+                    <span class="flow-email-day">Day 28</span>
+                    <span>Cross-sell with product education</span>
+                </div>
+                <div class="flow-email">
+                    <span class="flow-email-day">Day 35</span>
+                    <span>Urgency—inventory or time-limited offer</span>
+                </div>
+                <div class="flow-email">
+                    <span class="flow-email-day">Day 42</span>
+                    <span>Final push—direct CTA</span>
+                </div>
+            </div>
+            <div class="flow-meta">
+                <strong>Trigger:</strong> No second purchase by Day 21 &nbsp;|&nbsp; <strong>Split:</strong> High engagers → cross-sell focus; Low engagers → discount safety net
+            </div>
+        </div>
+
+        <p><strong>Subject Line Philosophy:</strong></p>
+        <ul>
+            <li>Specific > clever</li>
+            <li>Benefit-forward</li>
+            <li>Creates curiosity without clickbait</li>
+            <li>Examples: "Day 3 with [Product]—here's what to do" / "Running low? Most customers reorder now"</li>
+        </ul>
+
+        <div class="article-image">
+            <img src="assets/image-3-email-flow.png" alt="Email Flow Architecture">
+            <div class="image-caption">Conditional branching for maximum conversion</div>
+        </div>
+
+        </section><section id="sms-strategy"><h2>SMS Strategy: Where It Accelerates the Second Order</h2>
+
+        <p>SMS is a scalpel, not a hammer. Misuse it and you burn the list.</p>
+
+        <h3>When SMS Works</h3>
+        <ul>
+            <li>Shipping and delivery updates (expected, high open)</li>
+            <li>Time-sensitive offers (24-48 hour windows)</li>
+            <li>Replenishment at exact consumption timing</li>
+            <li>Back-in-stock for previously browsed items</li>
+            <li>High-intent behavioral triggers (cart activity, browse abandonment)</li>
+        </ul>
+
+        <h3>When SMS Fails</h3>
+        <ul>
+            <li>Educational content (wrong format)</li>
+            <li>Brand storytelling (they don't want it there)</li>
+            <li>Frequent promotional blasts (instant unsubscribe)</li>
+            <li>Anything that feels interruptive without urgency</li>
+        </ul>
+
+        <p><strong>Compliance Reality:</strong> SMS opt-in is harder to get and easier to lose. A 2% unsubscribe rate per campaign is a death spiral. Segment aggressively. Send less. Convert more per send.</p>
+
+        <p><strong>Our SMS Timing:</strong></p>
+        <ul>
+            <li>Day 2-4: Delivery notification</li>
+            <li>Day 28: Replenishment nudge (consumables only)</li>
+            <li>Day 38: Urgency offer (engaged segment only)</li>
+        </ul>
+
+        <p>Three to four SMS touches in 45 days maximum for non-VIP customers.</p>
+
+        <div class="article-image">
+            <img src="assets/image-4-sms-email-timing.png" alt="SMS + Email Channel Alignment">
+            <div class="image-caption">SMS reinforces, doesn't replace</div>
+        </div>
+
+        </section><section id="segmentation"><h2>Behavioral Segmentation and Dynamic Branching</h2>
+
+        <p>Static flows treat all customers identically. That's leaving money on the table.</p>
+
+        <div class="article-image">
+            <img src="assets/image-5-segmentation-matrix.png" alt="Behavioral Segmentation Matrix">
+            <div class="image-caption">Dynamic flows outperform static sequences by 20-40%</div>
+        </div>
+
+        <p><strong>Dynamic Flow Logic:</strong></p>
+
+        <p>The second purchase push for a customer who bought a $120 skincare set at full price looks nothing like the push for someone who bought a $35 item on 20% off.</p>
+
+        <p>Segment 1 gets premium cross-sell education, loyalty program early access, and no discounting.</p>
+
+        <p>Segment 2 gets urgency-driven replenishment with a conditional offer if they haven't converted by Day 35.</p>
+
+        <p class="pull-quote">Conversion lift from dynamic branching vs. static flows: 20-40% in our deployments.</p>
+
+        </section><section id="metrics"><h2>Metrics That Actually Matter in the First 45 Days</h2>
+
+        <p>Vanity metrics hide problems. These expose them:</p>
+
+        <p><strong>Second Purchase Rate (45-day cohort)</strong><br>
+        The north star. What percentage of first-time buyers convert within 45 days? Benchmark: 25-35% for strong operators.</p>
+
+        <p><strong>Time to Second Purchase</strong><br>
+        Average days between first and second order. Compression here = faster payback. Target: <30 days for consumables.</p>
+
+        <p><strong>45-Day LTV</strong><br>
+        Revenue per customer within the window. Track by acquisition source to identify quality variance.</p>
+
+        <p><strong>Flow Revenue Per Recipient</strong><br>
+        Revenue generated per person entering each flow. Identifies which sequences carry weight.</p>
+
+        <p><strong>Contribution Margin Recovery Rate</strong><br>
+        What percentage of CAC is recovered within 45 days? This connects retention directly to acquisition tolerance.</p>
+
+        <p><strong>SMS Incremental Lift</strong><br>
+        A/B test holdouts to measure true SMS contribution. If it's not incrementally profitable, reduce frequency.</p>
+
+        <div class="article-image">
+            <img src="assets/image-6-dashboard.png" alt="45-Day Retention Dashboard">
+            <div class="image-caption">Cohort performance tracking dashboard</div>
+        </div>
+
+        </section><section id="mistakes"><h2>Common Retention Mistakes That Kill Second Purchase Rates</h2>
+
+        <div class="mistake-item">
+            <h4>Over-Discounting</h4>
+            <p>Training customers to wait for offers. Every discount on the second purchase reduces margin and sets expectations. Use urgency and value-adds before defaulting to percentage off.</p>
+        </div>
+
+        <div class="mistake-item">
+            <h4>Too Much Education, Not Enough Conversion</h4>
+            <p>Some flows read like a course syllabus. Customers don't need 12 emails about product philosophy. They need a reason to buy again.</p>
+        </div>
+
+        <div class="mistake-item">
+            <h4>Ignoring Consumption Timing</h4>
+            <p>Sending replenishment emails when the product isn't used up yet. Or worse, after they've already repurchased elsewhere.</p>
+        </div>
+
+        <div class="mistake-item">
+            <h4>Treating All SKUs Identically</h4>
+            <p>A customer who bought protein powder has different needs than one who bought a gym bag. Product-specific flows outperform generic ones.</p>
+        </div>
+
+        <div class="mistake-item">
+            <h4>No Urgency Mechanisms</h4>
+            <p>Every email politely suggesting they "come back when ready." Without scarcity, deadlines, or consequence, there's no reason to act now.</p>
+        </div>
+
+        <div class="mistake-item">
+            <h4>Poor Segmentation</h4>
+            <p>Blasting the same sequence to a $40 buyer and a $400 buyer. One needs nurturing. One needs white-glove treatment.</p>
+        </div>
+
+        </section><section id="checklist"><h2>Operator Implementation Checklist</h2>
+
+        <ul class="checklist">
+            <li>
+                <div class="check-box"></div>
+                <div class="checklist-text">
+                    <strong>Audit current time to second purchase</strong>
+                    Know your baseline before optimizing
+                </div>
+            </li>
+            <li>
+                <div class="check-box"></div>
+                <div class="checklist-text">
+                    <strong>Map product consumption windows</strong>
+                    When does each SKU run out?
+                </div>
+            </li>
+            <li>
+                <div class="check-box"></div>
+                <div class="checklist-text">
+                    <strong>Build the 45-day timeline</strong>
+                    Plot every touchpoint across channels
+                </div>
+            </li>
+            <li>
+                <div class="check-box"></div>
+                <div class="checklist-text">
+                    <strong>Create segment definitions</strong>
+                    AOV tiers, product types, behavior signals
+                </div>
+            </li>
+            <li>
+                <div class="check-box"></div>
+                <div class="checklist-text">
+                    <strong>Build flow logic with conditional branching</strong>
+                    No static sequences
+                </div>
+            </li>
+            <li>
+                <div class="check-box"></div>
+                <div class="checklist-text">
+                    <strong>Align SMS to high-intent moments only</strong>
+                    Fewer sends, higher impact
+                </div>
+            </li>
+            <li>
+                <div class="check-box"></div>
+                <div class="checklist-text">
+                    <strong>Define success thresholds</strong>
+                    What's good enough? What triggers optimization?
+                </div>
+            </li>
+            <li>
+                <div class="check-box"></div>
+                <div class="checklist-text">
+                    <strong>Schedule monthly cohort reviews</strong>
+                    Track by acquisition month, compare trends
+                </div>
+            </li>
+        </ul>
+
+        <p>This isn't a campaign. It's infrastructure. Build it once, optimize continuously.</p>
+
+        <div class="closing">
+            <p class="closing-statement">The first purchase buys attention.<br><span>The second purchase builds a business.</span></p>
+            <p>Brands that engineer the 45-day window don't compete on CAC. They compete on how much they can <em>afford</em> to spend on CAC—because every customer is worth more.</p>
+            <p>That's the game. And most brands aren't playing it.</p>
+        </div>
+
+        <div class="related-links">
+            <h4>Related Reading</h4>
+            <ul>
+                <li><a href="/insights/contribution-margin-framework">Contribution Margin Framework for Ecommerce →</a></li>
+                <li><a href="/insights/retention-audit-structure">How We Structure Retention Audits →</a></li>
+                <li><a href="/insights/second-purchase-case-study">Case Study: Increasing Second Purchase Rate by 40% →</a></li>
+            </ul>
+        </div>
+
+            <div class="article-cta">
+                <h3>Ready to engineer your retention system?</h3>
+                <p>Book a strategy call and we'll audit your post-purchase flows together.</p>
+                <a href="/partner" class="btn-primary">Book Your Strategy Call →</a>
+            </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo"><img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="footer-logo-img"></a>
+                    <p>Growth systems, not channel hacks. We build repeatable operating systems that scale your revenue profitably.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/growth-os">Growth OS</a></li>
+                        <li><a href="/paid-social">Paid Social</a></li>
+                        <li><a href="/paid-search">Paid Search</a></li>
+                        <li><a href="/lifecycle">Lifecycle</a></li>
+                        <li><a href="/creative">Creative</a></li>
+                        <li><a href="/cro">CRO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Who We Help</h4>
+                    <ul>
+                        <li><a href="/ecommerce">Ecommerce</a></li>
+                        <li><a href="/lead-gen">Lead Gen</a></li>
+                        <li><a href="/enterprise">Enterprise</a></li>
+                        <li><a href="/insights">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/labs">Labs</a></li>
+                        <li><a href="/insights">Insights</a></li>
+                        <li><a href="/partner">Partner</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wavy Studios. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">Li</a>
+                    <a href="#" aria-label="X (Twitter)">X</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('is-open');
+                mobileToggle.classList.toggle('is-active');
+                mobileMenu.classList.toggle('is-open');
+                mobileToggle.setAttribute('aria-expanded', !isOpen);
+                document.body.style.overflow = isOpen ? '' : 'hidden';
+            });
+        }
+        // Mobile Submenu Toggles
+        document.querySelectorAll('.mobile-menu-toggle-sub').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const submenu = btn.nextElementSibling;
+                if (submenu) { submenu.classList.toggle('is-open'); btn.classList.toggle('is-open'); }
+            });
+        });
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileToggle && mobileMenu) {
+                    mobileToggle.classList.remove('is-active');
+                    mobileMenu.classList.remove('is-open');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        // Smooth scroll for TOC
+        document.querySelectorAll('.toc-list a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Dynamically sync nav-spacer to actual nav height
+        function setNavHeight() {
+            const nav = document.querySelector('.site-nav');
+            if (nav) {
+                document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
+            }
+        }
+        setNavHeight();
+        window.addEventListener('resize', setNavHeight);
+    </script>
+</body>
+</html>

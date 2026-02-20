@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scaling Google Shopping Without Tanking Efficiency | Wavy Studios</title>
+    <meta name="description" content="The tiered structure, feed optimizations, and bid strategies we use to scale Google Shopping profitably from $20K to $100K/mo without losing ROAS.">
+    <meta name="keywords" content="Google Shopping scaling, Shopping ads ROAS, feed optimization, tiered Shopping structure, bid strategy, PMax, margin-aware scaling, ecommerce paid search">
+    <meta name="author" content="Wavy Studios">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Scaling Google Shopping Without Tanking Efficiency | Wavy Studios">
+    <meta property="og:description" content="The tiered structure, feed optimizations, and bid strategies we use to scale Google Shopping profitably from $20K to $100K/mo.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wavystudios.com/insights/scaling-google-shopping">
+    <meta property="og:image" content="https://wavystudios.com/assets/images/insights/scaling-google-shopping-og.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Scaling Google Shopping Without Tanking Efficiency">
+    <meta name="twitter:description" content="The tiered structure, feed optimizations, and bid strategies for profitable Shopping scale.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://wavystudios.com/insights/scaling-google-shopping">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Scaling Google Shopping Without Tanking Efficiency",
+        "description": "The tiered structure, feed optimizations, and bid strategies we use to scale Google Shopping profitably from $20K to $100K/mo without losing ROAS.",
+        "author": {"@type": "Organization", "name": "Wavy Studios"},
+        "publisher": {"@type": "Organization", "name": "Wavy Studios", "logo": {"@type": "ImageObject", "url": "https://wavystudios.com/assets/wavystudios-logo.png"}},
+        "datePublished": "2026-02-19",
+        "dateModified": "2026-02-19"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-card: #111111;
+            --bg-subtle: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #c8ff00;
+            --accent-dim: rgba(200, 255, 0, 0.15);
+            --border: #222222;
+            --border-medium: #2a2a2a;
+            --accent-coral: #ff6b4a;
+            --accent-blue: #4a9eff;
+            --accent-purple: #a855f7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px 24px 120px;
+        }
+
+        /* Article Header */
+        .article-header { margin-bottom: 56px; text-align: center; }
+        .brand {
+            font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 24px;
+        }
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800; line-height: 1.15;
+            color: var(--text-primary);
+            margin-bottom: 20px; letter-spacing: -0.02em;
+        }
+        h1 .highlight { color: var(--accent); }
+        .subtitle {
+            font-size: 1.1rem; color: var(--text-secondary);
+            max-width: 650px; margin: 0 auto 32px; line-height: 1.8;
+        }
+        .meta {
+            font-size: 0.75rem; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 0.1em;
+            display: flex; justify-content: center; gap: 32px;
+        }
+
+        /* Typography */
+        h2 {
+            font-family: 'Syne', sans-serif; font-size: 1.6rem; font-weight: 700;
+            color: var(--text-primary); margin-top: 80px; margin-bottom: 24px;
+        }
+        h3 {
+            font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 600;
+            color: var(--accent); margin-top: 40px; margin-bottom: 16px;
+        }
+        h4 {
+            font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 600;
+            color: var(--text-primary); margin-top: 24px; margin-bottom: 12px;
+        }
+        p { margin-bottom: 24px; }
+        strong { color: var(--text-primary); font-weight: 700; }
+
+        .pull-quote {
+            font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 600;
+            color: var(--text-primary); border-left: 4px solid var(--accent);
+            padding-left: 1.5rem; margin: 2.5rem 0; line-height: 1.4;
+        }
+
+        .formula-block {
+            background: var(--bg-card); border: 1px solid var(--border-medium);
+            border-left: 4px solid var(--accent);
+            padding: 1.25rem 1.5rem; margin: 1.5rem 0;
+            font-size: 0.95rem; color: var(--accent);
+        }
+
+        ul, ol { margin: 1.5rem 0; padding-left: 1.5rem; }
+        li { margin-bottom: 0.75rem; }
+
+        .article-image {
+            margin: 2.5rem 0; border-radius: 8px;
+            overflow: hidden; border: 1px solid var(--border-medium);
+        }
+        .article-image img { width: 100%; height: auto; display: block; }
+
+        /* Related links */
+        .related-links {
+            margin-top: 64px; padding: 32px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+        .related-links h4 {
+            font-family: 'Syne', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--text-muted); margin-bottom: 20px; margin-top: 0;
+        }
+        .related-links ul { list-style: none; padding: 0; margin: 0; }
+        .related-links li { margin-bottom: 12px; }
+        .related-links a { color: var(--accent); text-decoration: none; font-weight: 700; transition: opacity 0.2s; }
+        .related-links a:hover { opacity: 0.8; }
+
+        /* Article CTA */
+        .article-cta {
+            margin-top: 64px; padding: 48px;
+            background: linear-gradient(135deg, rgba(200, 255, 0, 0.08) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border: 1px solid rgba(200, 255, 0, 0.2);
+            border-radius: 12px; text-align: center;
+        }
+        .article-cta h3 {
+            font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 700;
+            color: var(--text-primary); margin: 0 0 12px 0;
+        }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 24px; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--accent); color: var(--bg-primary);
+            padding: 16px 32px; font-family: 'Space Mono', monospace;
+            font-size: 0.875rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            text-decoration: none; border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { background: var(--text-primary); transform: translateY(-2px); }
+
+        /* Responsive article */
+        @media (max-width: 768px) {
+            .container { padding: 48px 20px 80px; }
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.375rem; }
+            .pull-quote { font-size: 1.15rem; }
+            .meta { flex-wrap: wrap; gap: 16px; }
+            .article-cta { padding: 2rem 1.5rem; }
+        }
+
+        /* ========== NAVIGATION ========== */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1.5rem 3rem; display: flex;
+            justify-content: space-between; align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98), rgba(10,10,10,0.8));
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+        .nav-logo-img { height: 32px; width: auto; }
+        .nav-links { display: flex; align-items: center; gap: 0.5rem; list-style: none; }
+        .nav-item { position: relative; }
+        .nav-link {
+            display: flex; align-items: center; gap: 0.3rem;
+            padding: 0.75rem 1rem; font-size: 0.75rem;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: #c8ff00; }
+        .nav-arrow { width: 8px; height: 8px; fill: currentColor; transition: transform 0.3s ease; }
+        .nav-item:hover .nav-arrow { transform: rotate(180deg); }
+        .nav-dropdown {
+            position: absolute; top: 100%; left: 0; min-width: 200px;
+            background: #111111; border: 1px solid #2a2a2a; padding: 0.5rem 0;
+            opacity: 0; visibility: hidden; transform: translateY(10px);
+            transition: all 0.3s ease; list-style: none;
+        }
+        .nav-item:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-link {
+            display: block; padding: 0.6rem 1.25rem; font-size: 0.8rem;
+            color: #a0a0a0; text-decoration: none; transition: all 0.3s ease;
+        }
+        .dropdown-link:hover { background: #1a1a1a; color: #c8ff00; }
+        .nav-cta {
+            background: #c8ff00; color: #0a0a0a;
+            padding: 0.6rem 1.25rem; font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+            margin-left: 1rem; transition: all 0.3s ease; font-family: 'Space Mono', monospace;
+        }
+        .nav-cta:hover { background: #ffffff; }
+
+        .mobile-toggle {
+            display: none; flex-direction: column; justify-content: center;
+            gap: 5px; width: 32px; height: 32px; padding: 4px;
+            background: none; border: none; cursor: pointer;
+        }
+        .mobile-toggle span { width: 24px; height: 2px; background: #fff; transition: all 0.3s ease; }
+        .mobile-toggle.is-active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-toggle.is-active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.is-active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .mobile-menu {
+            display: none; position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #0a0a0a; z-index: 99;
+            padding: 100px 2rem 2rem; overflow-y: auto;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        }
+        .mobile-menu.is-open { opacity: 1; visibility: visible; }
+        .mobile-menu-list { list-style: none; }
+        .mobile-menu-list > li { border-bottom: 1px solid #1a1a1a; }
+        .mobile-menu-link {
+            display: flex; justify-content: space-between; align-items: center;
+            width: 100%; padding: 1.25rem 0; font-size: 1rem; color: #fff;
+            text-decoration: none; background: none; border: none; cursor: pointer;
+            text-align: left; font-family: 'Space Mono', monospace;
+        }
+        .mobile-menu-link:hover { color: #c8ff00; }
+        .mobile-submenu { display: none; list-style: none; padding: 0 0 1rem 1.5rem; }
+        .mobile-submenu.is-open { display: block; }
+        .mobile-submenu a { display: block; padding: 0.6rem 0; font-size: 0.95rem; color: #a0a0a0; text-decoration: none; }
+        .mobile-submenu a:hover { color: #c8ff00; }
+        .mobile-menu-cta {
+            display: block; width: 100%; margin-top: 2rem; padding: 1rem;
+            background: #c8ff00; color: #0a0a0a; text-align: center;
+            font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em;
+            text-transform: uppercase; text-decoration: none;
+        }
+
+        /* ========== TOC ========== */
+        .toc {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 28px; margin-bottom: 48px;
+        }
+        .toc-title {
+            font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent);
+            margin-top: 0; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .toc-title::before { content: '\00A7'; }
+        .toc-list { list-style: none; counter-reset: toc-counter; padding: 0; margin: 0; }
+        .toc-list li { counter-increment: toc-counter; margin-bottom: 12px; }
+        .toc-list li:last-child { margin-bottom: 0; }
+        .toc-list a {
+            display: flex; align-items: baseline; gap: 12px;
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9375rem; transition: color 0.2s ease;
+        }
+        .toc-list a::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            font-size: 0.75rem; color: var(--text-muted); font-weight: 700;
+        }
+        .toc-list a:hover { color: var(--accent); }
+
+        section[id] { scroll-margin-top: calc(var(--nav-height, 90px) + 20px); }
+
+        /* ========== FOOTER ========== */
+        .site-footer {
+            background: #111111; border-top: 1px solid #1a1a1a;
+            padding: 4rem 3rem 2rem; margin-top: 0;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem; margin-bottom: 3rem;
+        }
+        .footer-logo { display: inline-block; text-decoration: none; }
+        .footer-logo-img { height: 32px; width: auto; }
+        .footer-brand p { color: #666; font-size: 0.9rem; margin-top: 1rem; line-height: 1.6; }
+        .footer-col h4 {
+            font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            margin-bottom: 1.25rem; color: #fff;
+        }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col li { margin-bottom: 0.75rem; }
+        .footer-col a { color: #666; text-decoration: none; font-size: 0.85rem; transition: color 0.3s ease; }
+        .footer-col a:hover { color: #c8ff00; }
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-top: 2rem; border-top: 1px solid #1a1a1a;
+            font-size: 0.8rem; color: #666;
+        }
+        .footer-social { display: flex; gap: 1.5rem; }
+        .footer-social a { color: #666; text-decoration: none; transition: color 0.3s ease; }
+        .footer-social a:hover { color: #c8ff00; }
+
+        .nav-spacer { height: var(--nav-height, 90px); }
+
+        .breadcrumb {
+            position: relative; z-index: 1;
+            background: var(--bg-subtle);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+        .breadcrumb-container {
+            max-width: 800px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+        }
+        .breadcrumb-link {
+            color: var(--text-muted); text-decoration: none;
+            font-size: 0.8rem; letter-spacing: 0.05em; transition: color 0.2s ease;
+        }
+        .breadcrumb-link:hover { color: var(--accent); }
+        .breadcrumb-sep { color: var(--text-muted); font-size: 0.75rem; }
+        .breadcrumb-current { color: var(--text-secondary); font-size: 0.8rem; letter-spacing: 0.05em; }
+
+        @media (max-width: 900px) {
+            .site-nav { padding: 1rem 1.5rem; }
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .toc { padding: 20px; }
+        }
+        @media (max-width: 480px) {
+            .breadcrumb-container { gap: 0.5rem; }
+            .breadcrumb-current { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="nav-logo">
+            <img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="nav-logo-img">
+        </a>
+        <ul class="nav-links">
+            <li class="nav-item"><a href="/growth-os" class="nav-link">Growth OS</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Services <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="/lifecycle" class="dropdown-link">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social" class="dropdown-link">Paid Social</a></li>
+                    <li><a href="/paid-search" class="dropdown-link">Paid Search</a></li>
+                    <li><a href="/creative" class="dropdown-link">Creative System</a></li>
+                    <li><a href="/cro" class="dropdown-link">CRO &amp; Funnels</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/insights" class="nav-link">Case Studies</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="/ecommerce" class="dropdown-link">Ecommerce &amp; DTC</a></li>
+                    <li><a href="/lead-gen" class="dropdown-link">Lead Generation</a></li>
+                    <li><a href="/enterprise" class="dropdown-link">Enterprise</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/labs" class="nav-link">Labs</a></li>
+        </ul>
+        <a href="/partner" class="nav-cta">Partner With Us</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <ul class="mobile-menu-list">
+            <li><a href="/" class="mobile-menu-link">Home</a></li>
+            <li><a href="/growth-os" class="mobile-menu-link">Growth OS</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Services <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/lifecycle">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social">Paid Social</a></li>
+                    <li><a href="/paid-search">Paid Search</a></li>
+                    <li><a href="/creative">Creative System</a></li>
+                    <li><a href="/cro">CRO &amp; Funnels</a></li>
+                </ul>
+            </li>
+            <li><a href="/insights" class="mobile-menu-link">Case Studies</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/ecommerce">Ecommerce &amp; DTC</a></li>
+                    <li><a href="/lead-gen">Lead Generation</a></li>
+                    <li><a href="/enterprise">Enterprise</a></li>
+                </ul>
+            </li>
+            <li><a href="/labs" class="mobile-menu-link">Labs</a></li>
+            <li style="border:none;padding-top:1.5rem;"><a href="/partner" class="mobile-menu-cta">Partner With Us</a></li>
+        </ul>
+    </div>
+
+    <div class="nav-spacer"></div>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-sep">&rarr;</span>
+            <a href="/insights" class="breadcrumb-link">Insights</a>
+            <span class="breadcrumb-sep">&rarr;</span>
+            <span class="breadcrumb-current">Scaling Google Shopping</span>
+        </div>
+    </nav>
+
+    <main>
+        <article class="container">
+            <header class="article-header">
+                <div class="brand">Wavy Studios</div>
+                <h1>Scaling <span class="highlight">Google Shopping</span> Without Tanking Efficiency</h1>
+                <p class="subtitle">The tiered structure, feed optimizations, and bid strategies we use to scale Shopping profitably from $20K to $100K/mo. Internal playbook documentation turned into a guide.</p>
+                <div class="meta">
+                    <span>15 Minute Read</span>
+                    <span>Playbook</span>
+                    <span>Paid Search</span>
+                </div>
+            </header>
+
+            <nav class="toc" aria-label="Table of contents">
+                <h2 class="toc-title">In This Article</h2>
+                <ol class="toc-list">
+                    <li><a href="#scale-efficiently">Most Brands Can Scale Shopping. They Just Can't Scale It Efficiently.</a></li>
+                    <li><a href="#why-breaks">Why Google Shopping Efficiency Breaks at Scale</a></li>
+                    <li><a href="#tiered-structure">The Tiered Google Shopping Structure We Use</a></li>
+                    <li><a href="#feed-optimization">Feed Optimization at Scale</a></li>
+                    <li><a href="#bid-strategy">Bid Strategy Logic: When to Use What</a></li>
+                    <li><a href="#margin-aware">Margin-Aware Scaling</a></li>
+                    <li><a href="#budget-framework">Controlled Budget Scaling Framework</a></li>
+                    <li><a href="#common-mistakes">Common Scaling Mistakes</a></li>
+                    <li><a href="#checklist">Operator Checklist: Scale Readiness</a></li>
+                    <li><a href="#bottom-line">The Bottom Line</a></li>
+                </ol>
+            </nav>
+
+            <section id="scale-efficiently">
+                <h2>Most Brands Can Scale Google Shopping. They Just Can't Scale It Efficiently.</h2>
+
+                <p>Here's a pattern we see constantly:</p>
+
+                <p>A brand runs Google Shopping at $20K/month. ROAS is strong, 4.5x, maybe 5x. The math works. Everyone's happy.</p>
+
+                <p>Then the CEO says "let's scale." Budget goes to $40K. ROAS dips to 3.8x. Still acceptable.</p>
+
+                <p>Budget hits $60K. ROAS craters to 2.4x. Panic sets in. Budget gets cut. The brand concludes that "Shopping doesn't scale."</p>
+
+                <p class="pull-quote">They're wrong. Shopping scales. Their structure didn't.</p>
+
+                <p>The problem isn't the channel. The problem is that most Google Shopping accounts are built for a specific spend level. Push beyond that level without restructuring, and the system breaks.</p>
+
+                <p>This playbook documents exactly how we scale Google Shopping from $20K to $100K+ per month without efficiency collapse.</p>
+            </section>
+
+            <section id="why-breaks">
+                <h2>Why Google Shopping Efficiency Breaks at Scale</h2>
+
+                <p><strong>There are six structural reasons Shopping accounts lose efficiency when scaling:</strong></p>
+
+                <h3>1. Query Dilution</h3>
+                <p>At low spend, Google shows your ads for high-intent, specific queries. As budget increases, the algorithm expands into broader, less qualified search terms.</p>
+
+                <h3>2. Budget Fragmentation</h3>
+                <p>Most accounts have too many campaigns splitting insufficient budget. Each campaign starves for data. The algorithm can't learn.</p>
+
+                <h3>3. Bid Strategy Instability</h3>
+                <p>Automated bidding needs consistent conversion volume to function. Scale the budget faster than conversions grow, and the algorithm destabilizes.</p>
+
+                <h3>4. Feed Entropy</h3>
+                <p>At low spend, feed quality is forgiving. At high spend, weak titles, missing attributes, and poor product data compound into significant performance drag.</p>
+
+                <h3>5. Product Margin Blindness</h3>
+                <p>Most Shopping accounts optimize for revenue, not profit. At scale, this means aggressively bidding on high-revenue, low-margin products.</p>
+
+                <h3>6. Over-Reliance on Automation</h3>
+                <p>Accounts that hand everything to automation have no levers to pull when performance degrades. They're passengers, not operators.</p>
+
+                <div class="article-image">
+                    <img src="assets/google-shopping-image-1.png" alt="Why Shopping Efficiency Breaks at Scale" loading="lazy">
+                </div>
+            </section>
+
+            <section id="tiered-structure">
+                <h2>The Tiered Google Shopping Structure We Use</h2>
+
+                <p>The solution to scaling collapse is controlled segmentation. We use a three-tier campaign structure that separates products by performance confidence.</p>
+
+                <h3>Tier 1: Core Proven Products (60-70% of budget)</h3>
+                <p><strong>Objective:</strong> Maximize profit from validated winners.</p>
+                <ul>
+                    <li>Separate campaign or asset group</li>
+                    <li>Highest budget allocation</li>
+                    <li>tROAS bidding with conservative target</li>
+                    <li>Strict margin requirements</li>
+                </ul>
+                <p><strong>Graduation criteria:</strong> 30+ days of data, 50+ conversions, ROAS consistently above target.</p>
+
+                <h3>Tier 2: Scaling Products (20-30% of budget)</h3>
+                <p><strong>Objective:</strong> Validate emerging winners at increasing spend.</p>
+                <ul>
+                    <li>Separate campaign with moderate budget</li>
+                    <li>tROAS bidding with slightly lower target</li>
+                    <li>Weekly query review to mine negatives</li>
+                </ul>
+
+                <h3>Tier 3: Exploratory / Testing (10-15% of budget)</h3>
+                <p><strong>Objective:</strong> Find new winners and test hypotheses.</p>
+                <ul>
+                    <li>Separate campaign with capped budget</li>
+                    <li>Maximize conversion value bidding</li>
+                    <li>No margin floor (accepting unprofitability for learning)</li>
+                </ul>
+
+                <div class="article-image">
+                    <img src="assets/google-shopping-image-2.png" alt="Tiered Google Shopping Structure" loading="lazy">
+                </div>
+            </section>
+
+            <section id="feed-optimization">
+                <h2>Feed Optimization at Scale</h2>
+
+                <p>At $20K/month, you can have a mediocre feed and still perform. At $100K/month, feed quality is a multiplier, or a tax.</p>
+
+                <h3>Title Structuring Formula</h3>
+                <div class="formula-block">
+                    [Brand] + [Product Type] + [Key Attribute 1] + [Key Attribute 2] + [Size/Variant]
+                </div>
+
+                <h3>Custom Labels for Segmentation</h3>
+                <ul>
+                    <li><strong>Custom Label 0:</strong> Margin tier (High / Medium / Low / Negative)</li>
+                    <li><strong>Custom Label 1:</strong> Price band ($0-25 / $25-50 / $50-100 / $100+)</li>
+                    <li><strong>Custom Label 2:</strong> Performance tier (Tier 1 / Tier 2 / Tier 3)</li>
+                    <li><strong>Custom Label 3:</strong> Inventory status</li>
+                    <li><strong>Custom Label 4:</strong> Strategic flag (Hero / Testing / Clearance)</li>
+                </ul>
+
+                <div class="article-image">
+                    <img src="assets/google-shopping-image-3.png" alt="Feed Optimization Before and After" loading="lazy">
+                </div>
+            </section>
+
+            <section id="bid-strategy">
+                <h2>Bid Strategy Logic: When to Use What</h2>
+
+                <h3>Target ROAS (tROAS)</h3>
+                <p><strong>When to use:</strong> You have 30+ conversions per month, stable margins, and a clear profitability target.</p>
+
+                <h3>Maximize Conversion Value</h3>
+                <p><strong>When to use:</strong> New campaigns, testing phases, or when you need to build conversion volume.</p>
+
+                <h3>Manual CPC</h3>
+                <p><strong>When to use:</strong> Rarely, reserved for branded queries or surgical interventions.</p>
+
+                <div class="article-image">
+                    <img src="assets/google-shopping-image-4.png" alt="Bid Strategy Decision Framework" loading="lazy">
+                </div>
+            </section>
+
+            <section id="margin-aware">
+                <h2>Margin-Aware Scaling</h2>
+
+                <p class="pull-quote">Revenue-based scaling is profit-blind.</p>
+
+                <p>If you're scaling based on ROAS alone, you're likely growing your worst-margin products faster than your best-margin products.</p>
+
+                <h3>Implementing Margin Controls</h3>
+                <ol>
+                    <li>Calculate contribution margin for every SKU</li>
+                    <li>Tag products in your feed by margin tier</li>
+                    <li>Build campaigns around margin segments</li>
+                    <li>Set different ROAS targets by margin tier</li>
+                    <li>Review weekly as costs change</li>
+                </ol>
+
+                <div class="article-image">
+                    <img src="assets/google-shopping-image-5.png" alt="SKU-Level Profitability Analysis" loading="lazy">
+                </div>
+            </section>
+
+            <section id="budget-framework">
+                <h2>Controlled Budget Scaling Framework</h2>
+
+                <h3>The 15/7 Scaling Rule</h3>
+                <p><strong>Increase budget by no more than 15% per week.</strong> This gives the algorithm time to adjust without destabilizing.</p>
+
+                <h3>Signal Thresholds Before Scaling</h3>
+                <ul>
+                    <li>ROAS is stable (within 10% of target for 7+ days)</li>
+                    <li>Conversion volume is consistent</li>
+                    <li>Query quality hasn't degraded</li>
+                    <li>No major auction shifts</li>
+                </ul>
+
+                <div class="article-image">
+                    <img src="assets/google-shopping-image-6.png" alt="Controlled Budget Scaling Timeline" loading="lazy">
+                </div>
+            </section>
+
+            <section id="common-mistakes">
+                <h2>Common Scaling Mistakes</h2>
+
+                <ol>
+                    <li><strong>Increasing budget too quickly</strong> -- Respect the 15% rule</li>
+                    <li><strong>Lowering tROAS aggressively</strong> -- Lower targets gradually</li>
+                    <li><strong>Expanding feed without segmentation</strong> -- New products enter Tier 3</li>
+                    <li><strong>Ignoring search term mining</strong> -- Review weekly at scale</li>
+                    <li><strong>Not separating branded vs non-branded</strong> -- Track distinctly</li>
+                    <li><strong>Treating PMax as "set and forget"</strong> -- Understand its Shopping component</li>
+                </ol>
+            </section>
+
+            <section id="checklist">
+                <h2>Operator Checklist: Scale Readiness</h2>
+
+                <div class="article-image">
+                    <img src="assets/google-shopping-image-7.png" alt="Google Shopping Scale Readiness Checklist" loading="lazy">
+                </div>
+            </section>
+
+            <section id="bottom-line">
+                <h2>The Bottom Line</h2>
+
+                <p class="pull-quote">Scaling Google Shopping is not about spending more. It's about building a structure that can handle more.</p>
+
+                <p>Most accounts don't fail because Shopping doesn't scale. They fail because they scaled spending without scaling structure, controls, or discipline.</p>
+
+                <p><strong>The brands that win at scale:</strong></p>
+                <ul>
+                    <li>Segment products by performance confidence</li>
+                    <li>Control queries through deliberate feed optimization</li>
+                    <li>Match bid strategies to data maturity</li>
+                    <li>Enforce margin visibility at the SKU level</li>
+                    <li>Scale systematically with stability checkpoints</li>
+                </ul>
+
+                <p>This isn't magic. It's operational discipline applied to paid media.</p>
+
+                <p><strong>Build the structure first. Then scale.</strong></p>
+            </section>
+
+            <div class="related-links">
+                <h4>Related Reading</h4>
+                <ul>
+                    <li><a href="/insights/account-structure-50k-500k">The Account Structure That Scaled Us From $50K to $500K/mo &rarr;</a></li>
+                    <li><a href="/insights/70-20-10-budget-split">The 70/20/10 Budget Split That Actually Works &rarr;</a></li>
+                    <li><a href="/insights/first-second-order-playbook">The First-to-Second Order Playbook &rarr;</a></li>
+                </ul>
+            </div>
+
+            <div class="article-cta">
+                <h3>Ready to Scale Google Shopping Profitably?</h3>
+                <p>Book a growth audit. We'll assess your structure, feed quality, and scaling readiness.</p>
+                <a href="/partner" class="btn-primary">Book Your Growth Audit &rarr;</a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo"><img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="footer-logo-img"></a>
+                    <p>Growth systems, not channel hacks. We build repeatable operating systems that scale your revenue profitably.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/growth-os">Growth OS</a></li>
+                        <li><a href="/paid-social">Paid Social</a></li>
+                        <li><a href="/paid-search">Paid Search</a></li>
+                        <li><a href="/lifecycle">Lifecycle</a></li>
+                        <li><a href="/creative">Creative</a></li>
+                        <li><a href="/cro">CRO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Who We Help</h4>
+                    <ul>
+                        <li><a href="/ecommerce">Ecommerce</a></li>
+                        <li><a href="/lead-gen">Lead Gen</a></li>
+                        <li><a href="/enterprise">Enterprise</a></li>
+                        <li><a href="/insights">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/labs">Labs</a></li>
+                        <li><a href="/insights">Insights</a></li>
+                        <li><a href="/partner">Partner</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wavy Studios. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">Li</a>
+                    <a href="#" aria-label="X (Twitter)">X</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('is-open');
+                mobileToggle.classList.toggle('is-active');
+                mobileMenu.classList.toggle('is-open');
+                mobileToggle.setAttribute('aria-expanded', !isOpen);
+                document.body.style.overflow = isOpen ? '' : 'hidden';
+            });
+        }
+        document.querySelectorAll('.mobile-menu-toggle-sub').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const submenu = btn.nextElementSibling;
+                if (submenu) { submenu.classList.toggle('is-open'); btn.classList.toggle('is-open'); }
+            });
+        });
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileToggle && mobileMenu) {
+                    mobileToggle.classList.remove('is-active');
+                    mobileMenu.classList.remove('is-open');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        document.querySelectorAll('.toc-list a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        function setNavHeight() {
+            const nav = document.querySelector('.site-nav');
+            if (nav) document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
+        }
+        setNavHeight();
+        window.addEventListener('resize', setNavHeight);
+    </script>
+</body>
+</html>

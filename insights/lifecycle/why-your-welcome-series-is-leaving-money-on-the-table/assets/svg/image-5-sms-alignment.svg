@@ -1,0 +1,189 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 28px; fill: #ffffff; }
+      .subtitle { font-family: 'Space Mono', monospace; font-size: 11px; fill: #666666; text-transform: uppercase; letter-spacing: 0.12em; }
+      .track-label { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; fill: #ffffff; }
+      .marker-label { font-family: 'Space Mono', monospace; font-size: 9px; fill: #ffffff; text-transform: uppercase; }
+      .day-label { font-family: 'Space Mono', monospace; font-size: 10px; fill: #555555; }
+      .callout { font-family: 'Space Mono', monospace; font-size: 10px; fill: #888888; }
+      .spike-label { font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700; fill: #c8ff00; }
+    </style>
+    <!-- Email icon -->
+    <symbol id="icon-mail" viewBox="0 0 24 24">
+      <rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M2 6l10 7 10-7" fill="none" stroke="currentColor" stroke-width="2"/>
+    </symbol>
+    <!-- SMS icon -->
+    <symbol id="icon-phone" viewBox="0 0 24 24">
+      <rect x="5" y="2" width="14" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
+      <line x1="9" y1="18" x2="15" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="675" fill="#0a0a0a"/>
+  
+  <!-- Title -->
+  <text x="600" y="45" text-anchor="middle" class="title">Email vs SMS Welcome Window Alignment</text>
+  <text x="600" y="72" text-anchor="middle" class="subtitle">Channel coordination for maximum conversion</text>
+  
+  <!-- Day axis -->
+  <line x1="100" y1="450" x2="1100" y2="450" stroke="#333333" stroke-width="2"/>
+  <g class="day-label">
+    <text x="100" y="475" text-anchor="middle">Day 0</text>
+    <text x="243" y="475" text-anchor="middle">2</text>
+    <text x="386" y="475" text-anchor="middle">4</text>
+    <text x="529" y="475" text-anchor="middle">6</text>
+    <text x="672" y="475" text-anchor="middle">8</text>
+    <text x="815" y="475" text-anchor="middle">10</text>
+    <text x="958" y="475" text-anchor="middle">12</text>
+    <text x="1100" y="475" text-anchor="middle">14</text>
+  </g>
+  
+  <!-- EMAIL TRACK -->
+  <g transform="translate(0, 140)">
+    <!-- Track background -->
+    <rect x="100" y="0" width="1000" height="120" rx="8" fill="#3b82f6" fill-opacity="0.08"/>
+    
+    <!-- Track label -->
+    <text x="60" y="65" text-anchor="middle" class="track-label" transform="rotate(-90, 60, 65)">EMAIL</text>
+    <circle cx="60" cy="110" r="14" fill="#3b82f6"/>
+    <use href="#icon-mail" x="48" y="98" width="24" height="24" color="#ffffff"/>
+    
+    <!-- Track line -->
+    <line x1="100" y1="60" x2="1100" y2="60" stroke="#3b82f6" stroke-width="3" opacity="0.3"/>
+    
+    <!-- Email markers -->
+    <g transform="translate(100, 60)">
+      <circle cx="0" cy="0" r="16" fill="#3b82f6"/>
+      <text x="0" y="5" text-anchor="middle" class="marker-label">1</text>
+      <text x="0" y="-25" text-anchor="middle" class="marker-label" fill="#3b82f6">Value</text>
+    </g>
+    
+    <g transform="translate(171, 60)">
+      <circle cx="0" cy="0" r="16" fill="#3b82f6"/>
+      <text x="0" y="5" text-anchor="middle" class="marker-label">2</text>
+      <text x="0" y="-25" text-anchor="middle" class="marker-label" fill="#3b82f6">Problem</text>
+    </g>
+    
+    <g transform="translate(314, 60)">
+      <circle cx="0" cy="0" r="16" fill="#3b82f6"/>
+      <text x="0" y="5" text-anchor="middle" class="marker-label">3</text>
+      <text x="0" y="-25" text-anchor="middle" class="marker-label" fill="#3b82f6">Mechanism</text>
+    </g>
+    
+    <g transform="translate(457, 60)">
+      <circle cx="0" cy="0" r="16" fill="#8b5cf6"/>
+      <text x="0" y="5" text-anchor="middle" class="marker-label">4</text>
+      <text x="0" y="-25" text-anchor="middle" class="marker-label" fill="#8b5cf6">Proof</text>
+    </g>
+    
+    <g transform="translate(600, 60)">
+      <circle cx="0" cy="0" r="16" fill="#8b5cf6"/>
+      <text x="0" y="5" text-anchor="middle" class="marker-label">5</text>
+      <text x="0" y="-25" text-anchor="middle" class="marker-label" fill="#8b5cf6">Objections</text>
+    </g>
+    
+    <g transform="translate(743, 60)">
+      <circle cx="0" cy="0" r="16" fill="#c8ff00"/>
+      <text x="0" y="5" text-anchor="middle" class="marker-label" fill="#0a0a0a">6</text>
+      <text x="0" y="-25" text-anchor="middle" class="marker-label" fill="#c8ff00">Offer</text>
+    </g>
+    
+    <g transform="translate(886, 60)">
+      <circle cx="0" cy="0" r="16" fill="#c8ff00"/>
+      <text x="0" y="5" text-anchor="middle" class="marker-label" fill="#0a0a0a">7</text>
+      <text x="0" y="-25" text-anchor="middle" class="marker-label" fill="#c8ff00">Urgency</text>
+    </g>
+    
+    <g transform="translate(1029, 60)">
+      <circle cx="0" cy="0" r="16" fill="#c8ff00"/>
+      <text x="0" y="5" text-anchor="middle" class="marker-label" fill="#0a0a0a">8</text>
+      <text x="0" y="-25" text-anchor="middle" class="marker-label" fill="#c8ff00">Last Call</text>
+    </g>
+  </g>
+  
+  <!-- SMS TRACK -->
+  <g transform="translate(0, 300)">
+    <!-- Track background -->
+    <rect x="100" y="0" width="1000" height="120" rx="8" fill="#22c55e" fill-opacity="0.08"/>
+    
+    <!-- Track label -->
+    <text x="60" y="65" text-anchor="middle" class="track-label" transform="rotate(-90, 60, 65)">SMS</text>
+    <circle cx="60" cy="110" r="14" fill="#22c55e"/>
+    <use href="#icon-phone" x="48" y="98" width="24" height="24" color="#ffffff"/>
+    
+    <!-- Track line -->
+    <line x1="100" y1="60" x2="1100" y2="60" stroke="#22c55e" stroke-width="3" opacity="0.3"/>
+    
+    <!-- SMS markers (only 3) -->
+    <g transform="translate(100, 60)">
+      <circle cx="0" cy="0" r="18" fill="#22c55e"/>
+      <text x="0" y="5" text-anchor="middle" class="marker-label">1</text>
+      <text x="0" y="40" text-anchor="middle" class="marker-label" fill="#22c55e">Confirm</text>
+      <text x="0" y="55" text-anchor="middle" class="callout">"Check email"</text>
+    </g>
+    
+    <g transform="translate(743, 60)">
+      <circle cx="0" cy="0" r="18" fill="#22c55e"/>
+      <text x="0" y="5" text-anchor="middle" class="marker-label">2</text>
+      <text x="0" y="40" text-anchor="middle" class="marker-label" fill="#22c55e">High-Intent</text>
+      <text x="0" y="55" text-anchor="middle" class="callout">Engaged only</text>
+    </g>
+    
+    <g transform="translate(1029, 60)">
+      <circle cx="0" cy="0" r="18" fill="#22c55e"/>
+      <text x="0" y="5" text-anchor="middle" class="marker-label">3</text>
+      <text x="0" y="40" text-anchor="middle" class="marker-label" fill="#22c55e">Last Call</text>
+      <text x="0" y="55" text-anchor="middle" class="callout">Engaged only</text>
+    </g>
+    
+    <!-- No SMS zone -->
+    <rect x="200" y="45" width="450" height="30" rx="4" fill="none" stroke="#333333" stroke-width="1" stroke-dasharray="6,4"/>
+    <text x="425" y="65" text-anchor="middle" class="callout">No SMS during education phase</text>
+  </g>
+  
+  <!-- Connection lines showing alignment -->
+  <g stroke="#c8ff00" stroke-width="2" stroke-dasharray="4,4" opacity="0.5">
+    <line x1="743" y1="260" x2="743" y2="300"/>
+    <line x1="1029" y1="260" x2="1029" y2="300"/>
+  </g>
+  
+  <!-- Conversion spike markers -->
+  <g transform="translate(743, 105)">
+    <polygon points="0,0 -8,20 8,20" fill="#c8ff00"/>
+    <text x="0" y="40" text-anchor="middle" class="spike-label">CONVERSION SPIKE</text>
+  </g>
+  
+  <g transform="translate(1029, 105)">
+    <polygon points="0,0 -8,20 8,20" fill="#c8ff00"/>
+    <text x="0" y="40" text-anchor="middle" class="spike-label">CONVERSION SPIKE</text>
+  </g>
+  
+  <!-- Legend / Insights -->
+  <g transform="translate(100, 510)">
+    <rect x="0" y="0" width="1000" height="90" rx="8" fill="#111111"/>
+    
+    <g transform="translate(40, 25)">
+      <rect x="0" y="0" width="280" height="50" rx="6" fill="#1a1a1a"/>
+      <text x="140" y="22" text-anchor="middle" class="callout" fill="#888888">SMS TOUCHPOINTS</text>
+      <text x="140" y="40" text-anchor="middle" class="track-label" fill="#22c55e">3 Maximum</text>
+    </g>
+    
+    <g transform="translate(360, 25)">
+      <rect x="0" y="0" width="280" height="50" rx="6" fill="#1a1a1a"/>
+      <text x="140" y="22" text-anchor="middle" class="callout" fill="#888888">INCREMENTAL LIFT</text>
+      <text x="140" y="40" text-anchor="middle" class="track-label" fill="#c8ff00">+8-15%</text>
+    </g>
+    
+    <g transform="translate(680, 25)">
+      <rect x="0" y="0" width="280" height="50" rx="6" fill="#1a1a1a"/>
+      <text x="140" y="22" text-anchor="middle" class="callout" fill="#888888">KEY PRINCIPLE</text>
+      <text x="140" y="40" text-anchor="middle" class="track-label">SMS reinforces, doesn't replace</text>
+    </g>
+  </g>
+  
+  <!-- Footer -->
+  <text x="600" y="640" text-anchor="middle" class="subtitle" fill="#333333">Wavy Studios • Welcome Series Framework</text>
+</svg>

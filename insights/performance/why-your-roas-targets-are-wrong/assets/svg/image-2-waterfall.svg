@@ -1,0 +1,95 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 26px; fill: #ffffff; }
+      .subtitle { font-family: 'Space Mono', monospace; font-size: 11px; fill: #666666; text-transform: uppercase; letter-spacing: 0.1em; }
+      .bar-label { font-family: 'Space Mono', monospace; font-size: 11px; fill: #888888; }
+      .bar-value { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 600; fill: #ffffff; }
+      .annotation { font-family: 'Space Mono', monospace; font-size: 10px; fill: #c8ff00; }
+      .formula { font-family: 'Space Mono', monospace; font-size: 12px; fill: #888888; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="675" fill="#0a0a0a"/>
+  
+  <!-- Title -->
+  <text x="600" y="45" text-anchor="middle" class="title">Revenue to Contribution Profit Waterfall</text>
+  <text x="600" y="68" text-anchor="middle" class="subtitle">Breaking down the path to your real ROAS target</text>
+  
+  <!-- Waterfall Chart -->
+  <g transform="translate(150, 100)">
+    <!-- Revenue Bar (Starting point) -->
+    <rect x="0" y="0" width="100" height="350" rx="4" fill="#c8ff00"/>
+    <text x="50" y="-15" text-anchor="middle" class="bar-label">REVENUE</text>
+    <text x="50" y="175" text-anchor="middle" class="bar-value" fill="#0a0a0a">$100</text>
+    
+    <!-- Connector line -->
+    <line x1="100" y1="0" x2="140" y2="0" stroke="#333" stroke-width="1" stroke-dasharray="4,2"/>
+    
+    <!-- COGS (subtract) -->
+    <rect x="140" y="0" width="100" height="140" rx="4" fill="#ff4444" opacity="0.8"/>
+    <text x="190" y="-15" text-anchor="middle" class="bar-label">COGS</text>
+    <text x="190" y="70" text-anchor="middle" class="bar-value">−$40</text>
+    
+    <!-- Gross Profit marker -->
+    <line x1="240" y1="140" x2="280" y2="140" stroke="#333" stroke-width="1" stroke-dasharray="4,2"/>
+    <rect x="240" y="140" width="8" height="210" fill="#666"/>
+    
+    <!-- Shipping -->
+    <rect x="280" y="140" width="100" height="28" rx="4" fill="#ff6b4a" opacity="0.7"/>
+    <text x="330" y="125" text-anchor="middle" class="bar-label">SHIPPING</text>
+    <text x="330" y="160" text-anchor="middle" class="bar-value" style="font-size: 14px;">−$8</text>
+    
+    <!-- Connector -->
+    <line x1="380" y1="168" x2="420" y2="168" stroke="#333" stroke-width="1" stroke-dasharray="4,2"/>
+    
+    <!-- Payment Fees -->
+    <rect x="420" y="168" width="100" height="10" rx="4" fill="#ff6b4a" opacity="0.6"/>
+    <text x="470" y="153" text-anchor="middle" class="bar-label">FEES</text>
+    <text x="470" y="185" text-anchor="middle" class="bar-value" style="font-size: 14px;">−$3</text>
+    
+    <!-- Connector -->
+    <line x1="520" y1="178" x2="560" y2="178" stroke="#333" stroke-width="1" stroke-dasharray="4,2"/>
+    
+    <!-- Returns -->
+    <rect x="560" y="178" width="100" height="18" rx="4" fill="#ff6b4a" opacity="0.5"/>
+    <text x="610" y="163" text-anchor="middle" class="bar-label">RETURNS</text>
+    <text x="610" y="195" text-anchor="middle" class="bar-value" style="font-size: 14px;">−$5</text>
+    
+    <!-- Connector -->
+    <line x1="660" y1="196" x2="700" y2="196" stroke="#333" stroke-width="1" stroke-dasharray="4,2"/>
+    
+    <!-- Variable Fulfillment -->
+    <rect x="700" y="196" width="100" height="14" rx="4" fill="#ff6b4a" opacity="0.4"/>
+    <text x="750" y="181" text-anchor="middle" class="bar-label">FULFILL</text>
+    <text x="750" y="218" text-anchor="middle" class="bar-value" style="font-size: 14px;">−$4</text>
+    
+    <!-- Connector to result -->
+    <line x1="800" y1="210" x2="840" y2="210" stroke="#c8ff00" stroke-width="2"/>
+    
+    <!-- Contribution Profit (Result) -->
+    <rect x="840" y="210" width="100" height="140" rx="4" fill="#c8ff00"/>
+    <text x="890" y="195" text-anchor="middle" class="bar-label" fill="#c8ff00">CONTRIBUTION</text>
+    <text x="890" y="280" text-anchor="middle" class="bar-value" fill="#0a0a0a">$40</text>
+    <text x="890" y="310" text-anchor="middle" style="font-family: 'Space Mono', monospace; font-size: 12px; fill: #0a0a0a; font-weight: 700;">40%</text>
+  </g>
+  
+  <!-- Break-even ROAS callout -->
+  <g transform="translate(750, 480)">
+    <rect x="0" y="0" width="350" height="90" rx="8" fill="#111" stroke="#c8ff00" stroke-width="2"/>
+    <text x="175" y="30" text-anchor="middle" class="annotation">BREAK-EVEN ROAS FORMULA</text>
+    <text x="175" y="55" text-anchor="middle" class="formula">1 ÷ Contribution Margin = 1 ÷ 0.40</text>
+    <text x="175" y="78" text-anchor="middle" class="bar-value" fill="#c8ff00">= 2.5x ROAS</text>
+  </g>
+  
+  <!-- CAC annotation -->
+  <g transform="translate(100, 480)">
+    <rect x="0" y="0" width="280" height="70" rx="8" fill="#111" stroke="#333" stroke-width="1"/>
+    <text x="140" y="28" text-anchor="middle" class="bar-label">At 2.5x ROAS, CAC = $40</text>
+    <text x="140" y="50" text-anchor="middle" class="formula">($100 revenue ÷ 2.5 = $40 ad spend)</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="600" y="640" text-anchor="middle" class="subtitle" fill="#333">Wavy Studios • Financial Framework</text>
+</svg>

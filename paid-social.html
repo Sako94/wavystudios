@@ -1362,10 +1362,29 @@
             .stats-container {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
+                max-width: 450px;
+                margin: 0 auto;
+                padding: 0 1rem;
+            }
+
+            .stat-item {
+                padding: 1rem 0.5rem;
+                background: var(--bg-tertiary);
+                border-radius: 8px;
             }
 
             .stat-item:not(:last-child)::after {
                 display: none;
+            }
+
+            .stat-number {
+                font-size: 1.75rem;
+                margin-bottom: 0.35rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+                line-height: 1.3;
             }
 
             .visual-metrics {
@@ -1385,6 +1404,38 @@
             .footer-links {
                 flex-wrap: wrap;
                 justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-bar {
+                padding: 2rem 1rem;
+            }
+
+            .stats-container {
+                gap: 1rem;
+                max-width: 100%;
+                padding: 0;
+            }
+
+            .stat-item {
+                padding: 0.85rem 0.35rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.6rem;
+            }
+
+            .footer-col h4 {
+                font-size: 0.85rem;
+            }
+
+            .footer-col a {
+                font-size: 0.8rem;
             }
         }
     

@@ -1,0 +1,199 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 28px; fill: #ffffff; }
+      .subtitle { font-family: 'Space Mono', monospace; font-size: 11px; fill: #666666; text-transform: uppercase; letter-spacing: 0.1em; }
+      .section-title { font-family: 'Syne', sans-serif; font-size: 14px; fill: #ffffff; font-weight: 700; }
+      .node-title { font-family: 'Syne', sans-serif; font-size: 11px; fill: #ffffff; font-weight: 600; }
+      .node-sub { font-family: 'Space Mono', monospace; font-size: 9px; fill: #888888; }
+      .label { font-family: 'Space Mono', monospace; font-size: 9px; fill: #888888; }
+      .code { font-family: 'Space Mono', monospace; font-size: 10px; fill: #c8ff00; }
+      .tier { font-family: 'Space Mono', monospace; font-size: 8px; fill: #ffffff; text-transform: uppercase; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="675" fill="#0a0a0a"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" class="title">Google Ads Account Structure</text>
+  <text x="600" y="62" text-anchor="middle" class="subtitle">Query control and product tiering for signal clarity</text>
+  
+  <!-- Account root -->
+  <g transform="translate(540, 90)">
+    <rect x="0" y="0" width="120" height="40" rx="6" fill="#4285f4"/>
+    <text x="60" y="25" text-anchor="middle" class="node-title">ACCOUNT</text>
+  </g>
+  
+  <!-- Lines to sections -->
+  <line x1="600" y1="130" x2="600" y2="150" stroke="#444" stroke-width="2"/>
+  <line x1="250" y1="150" x2="950" y2="150" stroke="#444" stroke-width="2"/>
+  <line x1="250" y1="150" x2="250" y2="170" stroke="#444" stroke-width="2"/>
+  <line x1="600" y1="150" x2="600" y2="170" stroke="#444" stroke-width="2"/>
+  <line x1="950" y1="150" x2="950" y2="170" stroke="#444" stroke-width="2"/>
+  
+  <!-- SHOPPING Section -->
+  <g transform="translate(100, 175)">
+    <rect x="0" y="0" width="300" height="420" rx="8" fill="#111" stroke="#34a853" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="35" rx="8" fill="#34a853"/>
+    <rect x="0" y="27" width="300" height="8" fill="#34a853"/>
+    <text x="150" y="24" text-anchor="middle" class="section-title">SHOPPING</text>
+    
+    <!-- Branded -->
+    <g transform="translate(20, 50)">
+      <rect x="0" y="0" width="120" height="55" rx="4" fill="#1a1a1a" stroke="#34a853" stroke-width="1"/>
+      <text x="60" y="18" text-anchor="middle" class="node-title" fill="#34a853">Branded</text>
+      <text x="60" y="35" text-anchor="middle" class="label">Brand queries</text>
+      <text x="60" y="48" text-anchor="middle" class="label">Defensive</text>
+    </g>
+    
+    <!-- Non-Branded -->
+    <g transform="translate(160, 50)">
+      <rect x="0" y="0" width="120" height="55" rx="4" fill="#1a1a1a" stroke="#34a853" stroke-width="1"/>
+      <text x="60" y="18" text-anchor="middle" class="node-title" fill="#34a853">Non-Branded</text>
+      <text x="60" y="35" text-anchor="middle" class="label">Pure prospecting</text>
+      <text x="60" y="48" text-anchor="middle" class="label">Tiered</text>
+    </g>
+    
+    <!-- Tier breakdown -->
+    <text x="150" y="130" text-anchor="middle" class="label" fill="#666">PRODUCT TIERS</text>
+    <line x1="30" y1="140" x2="270" y2="140" stroke="#222" stroke-width="1"/>
+    
+    <g transform="translate(20, 150)">
+      <rect x="0" y="0" width="80" height="70" rx="4" fill="#0a1a0a" stroke="#c8ff00" stroke-width="1"/>
+      <text x="40" y="18" text-anchor="middle" class="tier" fill="#c8ff00">TIER 1</text>
+      <text x="40" y="35" text-anchor="middle" class="label">Hero SKUs</text>
+      <text x="40" y="50" text-anchor="middle" class="label">Top 20%</text>
+      <text x="40" y="63" text-anchor="middle" class="label" fill="#c8ff00">Priority</text>
+    </g>
+    
+    <g transform="translate(110, 150)">
+      <rect x="0" y="0" width="80" height="70" rx="4" fill="#111" stroke="#666" stroke-width="1"/>
+      <text x="40" y="18" text-anchor="middle" class="tier">TIER 2</text>
+      <text x="40" y="35" text-anchor="middle" class="label">Core catalog</text>
+      <text x="40" y="50" text-anchor="middle" class="label">Solid ROI</text>
+      <text x="40" y="63" text-anchor="middle" class="label">Standard</text>
+    </g>
+    
+    <g transform="translate(200, 150)">
+      <rect x="0" y="0" width="80" height="70" rx="4" fill="#111" stroke="#444" stroke-width="1"/>
+      <text x="40" y="18" text-anchor="middle" class="tier" fill="#666">TIER 3</text>
+      <text x="40" y="35" text-anchor="middle" class="label">Long tail</text>
+      <text x="40" y="50" text-anchor="middle" class="label">Low volume</text>
+      <text x="40" y="63" text-anchor="middle" class="label" fill="#666">Conservative</text>
+    </g>
+    
+    <!-- Labels -->
+    <text x="150" y="250" text-anchor="middle" class="label" fill="#666">CUSTOM LABELS</text>
+    <line x1="30" y1="260" x2="270" y2="260" stroke="#222" stroke-width="1"/>
+    
+    <text x="30" y="280" class="label">• margin_high / margin_low</text>
+    <text x="30" y="298" class="label">• bestseller / new_arrival</text>
+    <text x="30" y="316" class="label">• category_[name]</text>
+    <text x="30" y="334" class="label">• promo_eligible</text>
+    
+    <!-- Naming example -->
+    <rect x="20" y="355" width="260" height="50" rx="4" fill="#0a0a0a" stroke="#34a853" stroke-width="1"/>
+    <text x="150" y="375" text-anchor="middle" class="code">GOOGLE-SHOP-NB-TIER1-US</text>
+    <text x="150" y="395" text-anchor="middle" class="code">GOOGLE-SHOP-BRANDED-US</text>
+  </g>
+  
+  <!-- SEARCH Section -->
+  <g transform="translate(450, 175)">
+    <rect x="0" y="0" width="300" height="420" rx="8" fill="#111" stroke="#4285f4" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="35" rx="8" fill="#4285f4"/>
+    <rect x="0" y="27" width="300" height="8" fill="#4285f4"/>
+    <text x="150" y="24" text-anchor="middle" class="section-title">SEARCH</text>
+    
+    <!-- Campaign types -->
+    <g transform="translate(20, 50)">
+      <rect x="0" y="0" width="120" height="45" rx="4" fill="#1a1a1a" stroke="#4285f4" stroke-width="1"/>
+      <text x="60" y="18" text-anchor="middle" class="node-title" fill="#4285f4">Branded</text>
+      <text x="60" y="35" text-anchor="middle" class="label">Exact + Phrase</text>
+    </g>
+    
+    <g transform="translate(160, 50)">
+      <rect x="0" y="0" width="120" height="45" rx="4" fill="#1a1a1a" stroke="#4285f4" stroke-width="1"/>
+      <text x="60" y="18" text-anchor="middle" class="node-title" fill="#4285f4">Competitor</text>
+      <text x="60" y="35" text-anchor="middle" class="label">Separate budget</text>
+    </g>
+    
+    <!-- Intent tiers -->
+    <text x="150" y="120" text-anchor="middle" class="label" fill="#666">NON-BRANDED INTENT TIERS</text>
+    <line x1="30" y1="130" x2="270" y2="130" stroke="#222" stroke-width="1"/>
+    
+    <g transform="translate(20, 140)">
+      <rect x="0" y="0" width="260" height="55" rx="4" fill="#0a1a1a" stroke="#c8ff00" stroke-width="1"/>
+      <text x="130" y="18" text-anchor="middle" class="node-title" fill="#c8ff00">High Intent</text>
+      <text x="130" y="35" text-anchor="middle" class="label">"buy [product]" • "[product] discount"</text>
+      <text x="130" y="48" text-anchor="middle" class="label">"[product] free shipping"</text>
+    </g>
+    
+    <g transform="translate(20, 205)">
+      <rect x="0" y="0" width="260" height="55" rx="4" fill="#111" stroke="#666" stroke-width="1"/>
+      <text x="130" y="18" text-anchor="middle" class="node-title">Medium Intent</text>
+      <text x="130" y="35" text-anchor="middle" class="label">"[product] reviews" • "best [product]"</text>
+      <text x="130" y="48" text-anchor="middle" class="label">"[product] vs [competitor]"</text>
+    </g>
+    
+    <g transform="translate(20, 270)">
+      <rect x="0" y="0" width="260" height="45" rx="4" fill="#111" stroke="#333" stroke-width="1"/>
+      <text x="130" y="18" text-anchor="middle" class="node-title" fill="#666">Low Intent</text>
+      <text x="130" y="35" text-anchor="middle" class="label" fill="#666">Informational • Minimal budget</text>
+    </g>
+    
+    <!-- Match type logic -->
+    <text x="150" y="340" text-anchor="middle" class="label" fill="#666">MATCH TYPE LOGIC</text>
+    <line x1="30" y1="350" x2="270" y2="350" stroke="#222" stroke-width="1"/>
+    
+    <text x="30" y="370" class="label">• Exact: Proven converters</text>
+    <text x="30" y="388" class="label">• Phrase: Controlled expansion</text>
+    <text x="30" y="406" class="label">• Broad: Testing only + tight negs</text>
+  </g>
+  
+  <!-- PMAX Section -->
+  <g transform="translate(800, 175)">
+    <rect x="0" y="0" width="300" height="420" rx="8" fill="#111" stroke="#ea4335" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="35" rx="8" fill="#ea4335"/>
+    <rect x="0" y="27" width="300" height="8" fill="#ea4335"/>
+    <text x="150" y="24" text-anchor="middle" class="section-title">PMAX</text>
+    
+    <!-- Controls -->
+    <g transform="translate(20, 50)">
+      <text x="130" y="0" text-anchor="middle" class="label" fill="#666">CONSTRAINT LAYERS</text>
+      <line x1="0" y1="10" x2="260" y2="10" stroke="#222" stroke-width="1"/>
+      
+      <rect x="0" y="25" width="260" height="40" rx="4" fill="#1a1a1a" stroke="#ea4335" stroke-width="1"/>
+      <text x="130" y="45" text-anchor="middle" class="node-title" fill="#ea4335">Asset Group Segmentation</text>
+      <text x="130" y="58" text-anchor="middle" class="label">By product category or margin</text>
+      
+      <rect x="0" y="75" width="260" height="40" rx="4" fill="#1a1a1a" stroke="#ea4335" stroke-width="1"/>
+      <text x="130" y="95" text-anchor="middle" class="node-title" fill="#ea4335">Feed Filtering</text>
+      <text x="130" y="108" text-anchor="middle" class="label">Custom labels control inventory</text>
+      
+      <rect x="0" y="125" width="260" height="40" rx="4" fill="#1a1a1a" stroke="#ea4335" stroke-width="1"/>
+      <text x="130" y="145" text-anchor="middle" class="node-title" fill="#ea4335">Audience Signals</text>
+      <text x="130" y="158" text-anchor="middle" class="label">Layered, not restrictive</text>
+      
+      <rect x="0" y="175" width="260" height="40" rx="4" fill="#1a1a1a" stroke="#ff4444" stroke-width="1"/>
+      <text x="130" y="195" text-anchor="middle" class="node-title" fill="#ff4444">Search Theme Exclusions</text>
+      <text x="130" y="208" text-anchor="middle" class="label">Prevent query cannibalization</text>
+    </g>
+    
+    <!-- Warning -->
+    <g transform="translate(20, 295)">
+      <rect x="0" y="0" width="260" height="60" rx="4" fill="#1a0a0a" stroke="#ff4444" stroke-width="1"/>
+      <text x="130" y="22" text-anchor="middle" class="label" fill="#ff4444">⚠ KEY PRINCIPLE</text>
+      <text x="130" y="42" text-anchor="middle" class="label">PMax is not a catch-all.</text>
+      <text x="130" y="55" text-anchor="middle" class="label" fill="#ffffff">Specific tool, specific signals.</text>
+    </g>
+    
+    <!-- Naming example -->
+    <rect x="20" y="365" width="260" height="40" rx="4" fill="#0a0a0a" stroke="#ea4335" stroke-width="1"/>
+    <text x="150" y="385" text-anchor="middle" class="code">GOOGLE-PMAX-HERO-US</text>
+    <text x="150" y="400" text-anchor="middle" class="code">GOOGLE-PMAX-CORE-US</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="600" y="655" text-anchor="middle" class="subtitle" fill="#333">Wavy Studios • Account Structure Framework</text>
+</svg>

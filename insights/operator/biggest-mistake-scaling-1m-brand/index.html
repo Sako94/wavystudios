@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Biggest Mistake I Made Scaling to $1M/mo | Wavy Studios</title>
+    <meta name="description" content="I thought diversifying channels would unlock scale. I was wrong. Here's the mental model that actually got us to $1M/month in ecommerce revenue.">
+    <meta name="keywords" content="ecommerce scaling, channel diversification, Meta ads, paid social scaling, growth strategy, ecommerce revenue, depth vs breadth, CAC optimization">
+    <meta name="author" content="Wavy Studios">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="The Biggest Mistake I Made Scaling to $1M/mo | Wavy Studios">
+    <meta property="og:description" content="I thought diversifying channels would unlock scale. I was wrong. Here's the mental model that actually got us to $1M/month in ecommerce revenue.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wavystudios.com/insights/scaling-1m-month-mistake">
+    <meta property="og:image" content="https://wavystudios.com/assets/images/insights/scaling-1m-month-og.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Biggest Mistake I Made Scaling to $1M/mo">
+    <meta name="twitter:description" content="I thought diversifying channels would unlock scale. I was wrong. Here's what actually unlocked scale.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://wavystudios.com/insights/scaling-1m-month-mistake">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Biggest Mistake I Made Scaling to $1M/mo",
+        "description": "I thought diversifying channels would unlock scale. I was wrong. Here's the mental model that actually got us to $1M/month in ecommerce revenue.",
+        "author": {"@type": "Organization", "name": "Wavy Studios"},
+        "publisher": {"@type": "Organization", "name": "Wavy Studios", "logo": {"@type": "ImageObject", "url": "https://wavystudios.com/assets/wavystudios-logo.png"}},
+        "datePublished": "2026-01-20",
+        "dateModified": "2026-01-20"
+    }
+    </script>
+
+    <style>
+
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-card: #111111;
+            --bg-subtle: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #c8ff00;
+            --accent-dim: rgba(200, 255, 0, 0.15);
+            --border: #222222;
+            --blue: #3b82f6;
+            --purple: #8b5cf6;
+            --red: #ff4444;
+            --green: #22c55e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            background: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px 24px 120px;
+        }
+
+        /* Header */
+        .article-header {
+            margin-bottom: 56px;
+            text-align: center;
+        }
+
+        .brand {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        /* Typography */
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 80px;
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        p { margin-bottom: 24px; }
+        strong { color: var(--text-primary); font-weight: 700; }
+
+        /* Lead paragraph */
+        .lead {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+            margin-bottom: 32px;
+        }
+
+        /* Pull quote */
+        .pull-quote {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            border-left: 4px solid var(--accent);
+            padding-left: 28px;
+            margin: 48px 0;
+            line-height: 1.4;
+        }
+
+        /* Images */
+        .article-image {
+            margin: 48px -40px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .article-image img { width: 100%; height: auto; display: block; }
+
+        .image-caption {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 16px 24px;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Lists */
+        ul, ol { margin: 24px 0; padding-left: 24px; }
+        li { margin-bottom: 12px; }
+
+        /* Diagnostic list */
+        .diagnostic-list {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px 28px;
+            margin: 28px 0;
+        }
+
+        .diagnostic-list p { margin-bottom: 16px; font-weight: 700; color: var(--text-primary); }
+        .diagnostic-list ol { margin: 0; }
+        .diagnostic-list li { margin-bottom: 8px; }
+
+        /* Takeaway list */
+        .takeaway-list {
+            list-style: none;
+            padding: 0;
+            margin: 28px 0;
+        }
+
+        .takeaway-list li {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .takeaway-list li:last-child { border-bottom: none; }
+
+        .takeaway-list strong {
+            color: var(--accent);
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Closing */
+        .closing {
+            margin-top: 80px;
+            padding-top: 48px;
+            border-top: 2px solid var(--accent);
+            text-align: center;
+        }
+
+        .closing-statement {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1.3;
+            margin-bottom: 24px;
+        }
+
+        .closing-statement span { color: var(--accent); }
+
+        /* Related links */
+        .related-links {
+            margin-top: 64px;
+            padding: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .related-links h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        .related-links ul { list-style: none; padding: 0; margin: 0; }
+        .related-links li { margin-bottom: 12px; }
+        .related-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            transition: opacity 0.2s;
+        }
+        .related-links a:hover { opacity: 0.8; }
+
+        /* Responsive article */
+        @media (max-width: 768px) {
+            .container { padding: 48px 20px 80px; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.375rem; }
+            .pull-quote { font-size: 1.25rem; }
+            .article-image { margin: 32px -20px; border-radius: 0; }
+            .meta { flex-direction: column; gap: 8px; }
+        }
+
+        /* ========== NAVIGATION STYLES ========== */
+        html { scroll-behavior: smooth; }
+
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98), rgba(10,10,10,0.8));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        .nav-logo-img { height: 32px; width: auto; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            list-style: none;
+        }
+        .nav-item { position: relative; }
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: #c8ff00; }
+        .nav-arrow { width: 8px; height: 8px; fill: currentColor; transition: transform 0.3s ease; }
+        .nav-item:hover .nav-arrow { transform: rotate(180deg); }
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            background: #111111;
+            border: 1px solid #2a2a2a;
+            padding: 0.5rem 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            list-style: none;
+        }
+        .nav-item:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-link {
+            display: block;
+            padding: 0.6rem 1.25rem;
+            font-size: 0.8rem;
+            color: #a0a0a0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .dropdown-link:hover { background: #1a1a1a; color: #c8ff00; }
+        .nav-cta {
+            background: #c8ff00;
+            color: #0a0a0a;
+            padding: 0.6rem 1.25rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-left: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Space Mono', monospace;
+        }
+        .nav-cta:hover { background: #ffffff; }
+
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 32px;
+            height: 32px;
+            padding: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        .mobile-toggle span { width: 24px; height: 2px; background: #fff; transition: all 0.3s ease; }
+        .mobile-toggle.is-active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-toggle.is-active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.is-active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #0a0a0a;
+            z-index: 99;
+            padding: 100px 2rem 2rem;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu.is-open { opacity: 1; visibility: visible; }
+        .mobile-menu-list { list-style: none; }
+        .mobile-menu-list > li { border-bottom: 1px solid #1a1a1a; }
+        .mobile-menu-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1.25rem 0;
+            font-size: 1rem;
+            color: #fff;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'Space Mono', monospace;
+        }
+        .mobile-menu-link:hover { color: #c8ff00; }
+        .mobile-submenu { display: none; list-style: none; padding: 0 0 1rem 1.5rem; }
+        .mobile-submenu.is-open { display: block; }
+        .mobile-submenu a { display: block; padding: 0.6rem 0; font-size: 0.95rem; color: #a0a0a0; text-decoration: none; }
+        .mobile-submenu a:hover { color: #c8ff00; }
+        .mobile-menu-cta {
+            display: block;
+            width: 100%;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #c8ff00;
+            color: #0a0a0a;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        /* ========== TABLE OF CONTENTS ========== */
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 48px;
+        }
+        .toc-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .toc-title::before { content: '\00A7'; }
+        .toc-list { list-style: none; counter-reset: toc-counter; padding: 0; margin: 0; }
+        .toc-list li { counter-increment: toc-counter; margin-bottom: 12px; }
+        .toc-list li:last-child { margin-bottom: 0; }
+        .toc-list a {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.2s ease;
+        }
+        .toc-list a::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+        .toc-list a:hover { color: var(--accent); }
+
+        /* Section scroll offset */
+        section[id] { scroll-margin-top: calc(var(--nav-height, 90px) + 20px); }
+        h2[id] { scroll-margin-top: calc(var(--nav-height, 90px) + 20px); }
+
+        /* ========== ARTICLE CTA ========== */
+        .article-cta {
+            margin-top: 64px;
+            padding: 48px;
+            background: linear-gradient(135deg, rgba(200, 255, 0, 0.08) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border: 1px solid rgba(200, 255, 0, 0.2);
+            border-radius: 12px;
+            text-align: center;
+        }
+        .article-cta h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+        }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 24px; }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 16px 32px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { background: var(--text-primary); transform: translateY(-2px); }
+
+        /* ========== FOOTER ========== */
+        .site-footer {
+            background: #111111;
+            border-top: 1px solid #1a1a1a;
+            padding: 4rem 3rem 2rem;
+            margin-top: 0;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .footer-logo { display: inline-block; text-decoration: none; }
+        .footer-logo-img { height: 32px; width: auto; }
+        .footer-brand p { color: #666; font-size: 0.9rem; margin-top: 1rem; line-height: 1.6; }
+        .footer-col h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.25rem;
+            color: #fff;
+        }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col li { margin-bottom: 0.75rem; }
+        .footer-col a { color: #666; text-decoration: none; font-size: 0.85rem; transition: color 0.3s ease; }
+        .footer-col a:hover { color: #c8ff00; }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid #1a1a1a;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .footer-social { display: flex; gap: 1.5rem; }
+        .footer-social a { color: #666; text-decoration: none; transition: color 0.3s ease; }
+        .footer-social a:hover { color: #c8ff00; }
+
+        /* ========== NAV SPACER ========== */
+        .nav-spacer {
+            height: var(--nav-height, 90px);
+        }
+
+        /* ========== BREADCRUMB ========== */
+        .breadcrumb {
+            position: relative;
+            z-index: 1;
+            background: var(--bg-subtle);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+        .breadcrumb-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+        .breadcrumb-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            transition: color 0.2s ease;
+        }
+        .breadcrumb-link:hover {
+            color: var(--accent);
+        }
+        .breadcrumb-sep {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
+        .breadcrumb-current {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Responsive nav */
+        @media (max-width: 900px) {
+            .site-nav { padding: 1rem 1.5rem; }
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .toc { padding: 20px; }
+        }
+        @media (max-width: 480px) {
+            .breadcrumb-container { gap: 0.5rem; }
+            .breadcrumb-current { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="nav-logo">
+            <img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="nav-logo-img">
+        </a>
+        <ul class="nav-links">
+            <li class="nav-item"><a href="/growth-os" class="nav-link">Growth OS</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Services <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="/lifecycle" class="dropdown-link">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social" class="dropdown-link">Paid Social</a></li>
+                    <li><a href="/paid-search" class="dropdown-link">Paid Search</a></li>
+                    <li><a href="/creative" class="dropdown-link">Creative System</a></li>
+                    <li><a href="/cro" class="dropdown-link">CRO &amp; Funnels</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/insights" class="nav-link">Case Studies</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="/ecommerce" class="dropdown-link">Ecommerce &amp; DTC</a></li>
+                    <li><a href="/lead-gen" class="dropdown-link">Lead Generation</a></li>
+                    <li><a href="/enterprise" class="dropdown-link">Enterprise</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/labs" class="nav-link">Labs</a></li>
+        </ul>
+        <a href="/partner" class="nav-cta">Partner With Us</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <ul class="mobile-menu-list">
+            <li><a href="/" class="mobile-menu-link">Home</a></li>
+            <li><a href="/growth-os" class="mobile-menu-link">Growth OS</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Services <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/lifecycle">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social">Paid Social</a></li>
+                    <li><a href="/paid-search">Paid Search</a></li>
+                    <li><a href="/creative">Creative System</a></li>
+                    <li><a href="/cro">CRO &amp; Funnels</a></li>
+                </ul>
+            </li>
+            <li><a href="/insights" class="mobile-menu-link">Case Studies</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/ecommerce">Ecommerce &amp; DTC</a></li>
+                    <li><a href="/lead-gen">Lead Generation</a></li>
+                    <li><a href="/enterprise">Enterprise</a></li>
+                </ul>
+            </li>
+            <li><a href="/labs" class="mobile-menu-link">Labs</a></li>
+            <li style="border:none;padding-top:1.5rem;"><a href="/partner" class="mobile-menu-cta">Partner With Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Spacer for fixed nav -->
+    <div class="nav-spacer"></div>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-sep">&rarr;</span>
+            <a href="/insights" class="breadcrumb-link">Insights</a>
+            <span class="breadcrumb-sep">&rarr;</span>
+            <span class="breadcrumb-current">Scaling to $1M/mo</span>
+        </div>
+    </nav>
+
+    <main>
+        <article class="container">
+            <header class="article-header">
+                <div class="brand">Wavy Studios</div>
+                <h1>The Biggest Mistake I Made Scaling to $1M/mo</h1>
+                <p class="subtitle">I thought I needed to diversify channels. I was wrong. Here's what actually unlocked scale.</p>
+                <div class="meta">
+                    <span>6 Minute Read</span>
+                    <span>Operator Lessons</span>
+                </div>
+            </header>
+
+            <!-- Table of Contents -->
+            <nav class="toc" aria-label="Table of contents">
+                <h2 class="toc-title">In This Article</h2>
+                <ol class="toc-list">
+                    <li><a href="#figured-out">The Moment I Thought I Had It Figured Out</a></li>
+                    <li><a href="#diversifying">Why Diversifying Felt Like the Smart Move</a></li>
+                    <li><a href="#what-happened">What Actually Happened</a></li>
+                    <li><a href="#real-constraint">The Real Constraint I Was Ignoring</a></li>
+                    <li><a href="#unlocked-scale">The Shift That Actually Unlocked Scale</a></li>
+                    <li><a href="#mental-model">The Mental Model That Changed Everything</a></li>
+                    <li><a href="#when-diversify">When Diversification Actually Makes Sense</a></li>
+                    <li><a href="#takeaways">Operator Takeaways</a></li>
+                </ol>
+            </nav>
+
+            <section id="figured-out">
+                <h2>The Moment I Thought I Had It Figured Out</h2>
+
+                <p class="lead">We hit $400K/month and I was certain we'd cracked it.</p>
+
+                <p>Meta was printing. Creative was clicking. The team was executing. Every week felt like progress.</p>
+
+                <p>The question wasn't "how do we survive" anymore. It was "how do we scale faster."</p>
+
+                <p>And that's when I made the mistake that cost us six months and nearly $200K in wasted spend.</p>
+
+                <p><strong>I decided we needed more channels.</strong></p>
+            </section>
+
+            <section id="diversifying">
+                <h2>Why Diversifying Felt Like the Smart Move</h2>
+
+                <p>The logic seemed airtight.</p>
+
+                <p><strong>Platform risk.</strong> What happens if Meta changes the algorithm? What if CPMs spike? We couldn't be dependent on one channel.</p>
+
+                <p><strong>Revenue concentration.</strong> 85% of revenue from a single source felt dangerous. Every advisor I talked to said the same thing: diversify.</p>
+
+                <p><strong>Peer pressure.</strong> Other founders were talking about TikTok, Google, influencer programs, affiliates. It felt like we were behind.</p>
+
+                <p><strong>The narrative.</strong> "Don't put all your eggs in one basket" is business gospel. It sounds responsible. It sounds strategic.</p>
+
+                <p>So we did what felt smart. We split budget across Meta, Google, TikTok, and an influencer program. We hired specialists for each. We built creative pipelines for multiple platforms.</p>
+
+                <p>It felt like progress. It wasn't.</p>
+
+                <div class="article-image">
+                    <img src="assets/image-1-revenue-decision.png" alt="Revenue Growth with Diversification Decision">
+                    <div class="image-caption">Growth stalled after channel expansion</div>
+                </div>
+            </section>
+
+            <section id="what-happened">
+                <h2>What Actually Happened</h2>
+
+                <p>Within 90 days, everything got harder.</p>
+
+                <p><strong>Focus diluted.</strong> Instead of one channel we understood deeply, we had four we understood superficially.</p>
+
+                <p><strong>Team bandwidth strained.</strong> The same people who were crushing Meta now had to split attention. Quality dropped everywhere.</p>
+
+                <p><strong>Creative fatigue.</strong> Building for one platform is hard. Building for four simultaneously is chaos.</p>
+
+                <p><strong>CAC increased.</strong> We weren't bad at the new channels. We were mediocre. Mediocre performance at scale is expensive.</p>
+
+                <p><strong>Decisions slowed.</strong> With data coming from everywhere, signal clarity disappeared.</p>
+
+                <p class="pull-quote">We were working harder, spending more, and making less.</p>
+
+                <div class="article-image">
+                    <img src="assets/image-2-before-after.png" alt="Before vs After Diversification Metrics">
+                    <div class="image-caption">The operational and financial cost of spreading too thin</div>
+                </div>
+            </section>
+
+            <section id="real-constraint">
+                <h2>The Real Constraint I Was Ignoring</h2>
+
+                <p>Here's what I finally understood: <strong>I wasn't constrained by channel. I was constrained by depth.</strong></p>
+
+                <p>The problem wasn't that Meta couldn't scale further. The problem was that I hadn't maximized what Meta could actually do.</p>
+
+                <ul>
+                    <li><strong>Creative iteration was shallow.</strong> We were testing 10 concepts when we should have been testing 50.</li>
+                    <li><strong>Offer testing was incomplete.</strong> We had one funnel, one landing page, one angle.</li>
+                    <li><strong>Retention systems were underdeveloped.</strong> First-order economics were carrying everything.</li>
+                    <li><strong>Audience expansion was lazy.</strong> We'd found one winning audience and stopped looking.</li>
+                </ul>
+
+                <p>I thought we'd hit the ceiling. We'd barely touched it.</p>
+
+                <p class="pull-quote">The mental model I was missing: Depth before breadth.</p>
+
+                <p>Going wide feels like progress because it's visible. New channels, new hires, new dashboards. But it's often just complexity masquerading as growth.</p>
+
+                <p>Going deep is invisible. More creative tests. Better landing pages. Stronger retention. It doesn't look impressive, but it compounds.</p>
+
+                <div class="article-image">
+                    <img src="assets/image-3-depth-vs-breadth.png" alt="Depth vs Breadth Mental Model">
+                    <div class="image-caption">Max out depth before adding surface area</div>
+                </div>
+            </section>
+
+            <section id="unlocked-scale">
+                <h2>The Shift That Actually Unlocked Scale</h2>
+
+                <p>We killed the new channels. All of them.</p>
+
+                <p>Reallocated 100% of budget back to Meta. Moved the specialists to creative and CRO. Simplified the entire operation.</p>
+
+                <p>Then we went deep:</p>
+
+                <ul>
+                    <li><strong>Creative velocity tripled.</strong> From 40 assets/month to 120.</li>
+                    <li><strong>Landing page conversion improved 35%.</strong> Same traffic, more revenue.</li>
+                    <li><strong>Post-purchase flows rebuilt.</strong> Second order rate increased from 18% to 29%.</li>
+                    <li><strong>Offer testing systematized.</strong> We found three new winning angles.</li>
+                </ul>
+
+                <p>Within four months, we broke $600K. Two months later, $850K. By month ten, we crossed $1M.</p>
+
+                <p><strong>Same channel. Same team. Different depth.</strong></p>
+
+                <div class="article-image">
+                    <img src="assets/image-4-refocus-growth.png" alt="Revenue and Efficiency Post-Refocus">
+                    <div class="image-caption">Efficiency improved as scale increased</div>
+                </div>
+            </section>
+
+            <section id="mental-model">
+                <h2>The Mental Model That Changed Everything</h2>
+
+                <p class="pull-quote">Optimization ceiling > Channel expansion.</p>
+
+                <div class="diagnostic-list">
+                    <p>Before you add a new channel, ask:</p>
+                    <ol>
+                        <li>Have we exhausted our creative angles? (If testing fewer than 50 concepts/month, probably not.)</li>
+                        <li>Is CAC rising because of saturation, or poor execution?</li>
+                        <li>Have we maximized conversion rate? (Most brands leave 20-40% on the table.)</li>
+                        <li>Is retention fully built? (If email/SMS is under 30% of revenue, there's headroom.)</li>
+                        <li>Are we actually out of audience, or just out of good creative?</li>
+                    </ol>
+                </div>
+
+                <p>If you can't answer "yes, we've maxed this out" to all five, you're not saturated. You're undertested.</p>
+            </section>
+
+            <section id="when-diversify">
+                <h2>When Diversification Actually Makes Sense</h2>
+
+                <p>This isn't an anti-diversification argument. It's a timing argument.</p>
+
+                <p>Diversification makes sense when:</p>
+
+                <ul>
+                    <li><strong>You've genuinely saturated</strong> your primary channel</li>
+                    <li><strong>Platform risk is real</strong> and imminent</li>
+                    <li><strong>Your systems are mature</strong> enough to replicate</li>
+                    <li><strong>Cash flow requires hedging</strong></li>
+                </ul>
+
+                <p>But if you're scaling and things are working, going wide is usually a distraction dressed up as strategy.</p>
+            </section>
+
+            <section id="takeaways">
+                <h2>Operator Takeaways</h2>
+
+                <ul class="takeaway-list">
+                    <li><strong>Focus compounds.</strong> The boring work of going deeper creates exponential returns.</li>
+                    <li><strong>Complexity taxes performance.</strong> Every new channel costs attention, your scarcest resource.</li>
+                    <li><strong>More channels does not equal more scale.</strong> Scale comes from efficiency, not surface area.</li>
+                    <li><strong>Depth creates margin.</strong> Better conversion, retention, creative. All improve unit economics.</li>
+                    <li><strong>Protect your attention.</strong> The best operators aren't doing more. They're doing less, better.</li>
+                </ul>
+            </section>
+
+            <div class="closing">
+                <p class="closing-statement">Scaling to $1M/month didn't require more channels.<br><span>It required going deeper where we were already winning.</span></p>
+                <p>The mistake wasn't trying to diversify. It was diversifying before we'd earned the right to. We mistook complexity for progress, and it cost us.</p>
+                <p>If you're at $300K, $500K, $800K and wondering whether to expand channels, ask yourself honestly: have you actually maxed out where you are?</p>
+                <p>For most operators, the answer is no.</p>
+                <p><strong>Go deeper first.</strong></p>
+            </div>
+
+            <div class="related-links">
+                <h4>Related Reading</h4>
+                <ul>
+                    <li><a href="/insights/first-second-order-playbook">The First-to-Second Order Playbook &rarr;</a></li>
+                    <li><a href="/insights/welcome-series-playbook">Why Your Welcome Series Is Leaving Money on the Table &rarr;</a></li>
+                </ul>
+            </div>
+
+            <div class="article-cta">
+                <h3>Ready to go deeper on your primary channel?</h3>
+                <p>Book a strategy call and we'll find the untapped scale in your current setup.</p>
+                <a href="/partner" class="btn-primary">Book Your Strategy Call &rarr;</a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo"><img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="footer-logo-img"></a>
+                    <p>Growth systems, not channel hacks. We build repeatable operating systems that scale your revenue profitably.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/growth-os">Growth OS</a></li>
+                        <li><a href="/paid-social">Paid Social</a></li>
+                        <li><a href="/paid-search">Paid Search</a></li>
+                        <li><a href="/lifecycle">Lifecycle</a></li>
+                        <li><a href="/creative">Creative</a></li>
+                        <li><a href="/cro">CRO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Who We Help</h4>
+                    <ul>
+                        <li><a href="/ecommerce">Ecommerce</a></li>
+                        <li><a href="/lead-gen">Lead Gen</a></li>
+                        <li><a href="/enterprise">Enterprise</a></li>
+                        <li><a href="/insights">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/labs">Labs</a></li>
+                        <li><a href="/insights">Insights</a></li>
+                        <li><a href="/partner">Partner</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wavy Studios. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">Li</a>
+                    <a href="#" aria-label="X (Twitter)">X</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('is-open');
+                mobileToggle.classList.toggle('is-active');
+                mobileMenu.classList.toggle('is-open');
+                mobileToggle.setAttribute('aria-expanded', !isOpen);
+                document.body.style.overflow = isOpen ? '' : 'hidden';
+            });
+        }
+        // Mobile Submenu Toggles
+        document.querySelectorAll('.mobile-menu-toggle-sub').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const submenu = btn.nextElementSibling;
+                if (submenu) { submenu.classList.toggle('is-open'); btn.classList.toggle('is-open'); }
+            });
+        });
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileToggle && mobileMenu) {
+                    mobileToggle.classList.remove('is-active');
+                    mobileMenu.classList.remove('is-open');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        // Smooth scroll for TOC
+        document.querySelectorAll('.toc-list a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Dynamically sync nav-spacer to actual nav height
+        function setNavHeight() {
+            const nav = document.querySelector('.site-nav');
+            if (nav) {
+                document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
+            }
+        }
+        setNavHeight();
+        window.addEventListener('resize', setNavHeight);
+    </script>
+</body>
+</html>

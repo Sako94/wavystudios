@@ -1,0 +1,168 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 28px; fill: #ffffff; }
+      .subtitle { font-family: 'Space Mono', monospace; font-size: 11px; fill: #666666; text-transform: uppercase; letter-spacing: 0.1em; }
+      .track-label { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; fill: #ffffff; }
+      .day-label { font-family: 'Space Mono', monospace; font-size: 10px; fill: #666666; }
+      .node-text { font-family: 'Space Mono', monospace; font-size: 9px; fill: #ffffff; }
+      .annotation { font-family: 'Space Mono', monospace; font-size: 10px; fill: #c8ff00; }
+      .callout-text { font-family: 'Space Mono', monospace; font-size: 11px; fill: #888888; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="675" fill="#0a0a0a"/>
+  
+  <!-- Title -->
+  <text x="600" y="45" text-anchor="middle" class="title">SMS + Email Channel Alignment</text>
+  <text x="600" y="70" text-anchor="middle" class="subtitle">SMS reinforces, doesn't replace</text>
+  
+  <!-- Day axis -->
+  <line x1="150" y1="480" x2="1100" y2="480" stroke="#333" stroke-width="2"/>
+  <g class="day-label">
+    <text x="150" y="500" text-anchor="middle">Day 0</text>
+    <text x="275" y="500" text-anchor="middle">7</text>
+    <text x="425" y="500" text-anchor="middle">14</text>
+    <text x="550" y="500" text-anchor="middle">21</text>
+    <text x="700" y="500" text-anchor="middle">28</text>
+    <text x="850" y="500" text-anchor="middle">35</text>
+    <text x="975" y="500" text-anchor="middle">42</text>
+    <text x="1100" y="500" text-anchor="middle">45</text>
+  </g>
+  
+  <!-- Phase backgrounds -->
+  <rect x="150" y="120" width="125" height="340" fill="#3b82f6" opacity="0.05"/>
+  <rect x="275" y="120" width="275" height="340" fill="#8b5cf6" opacity="0.05"/>
+  <rect x="550" y="120" width="550" height="340" fill="#c8ff00" opacity="0.03"/>
+  
+  <!-- Phase labels -->
+  <text x="212" y="105" text-anchor="middle" class="subtitle" fill="#3b82f6">PHASE 1</text>
+  <text x="412" y="105" text-anchor="middle" class="subtitle" fill="#8b5cf6">PHASE 2</text>
+  <text x="825" y="105" text-anchor="middle" class="subtitle" fill="#c8ff00">PHASE 3</text>
+  
+  <!-- EMAIL TRACK -->
+  <g transform="translate(0, 160)">
+    <text x="70" y="50" text-anchor="middle" class="track-label">EMAIL</text>
+    <circle cx="70" cy="75" r="16" fill="#3b82f6"/>
+    <text x="70" y="80" text-anchor="middle" style="font-size: 14px; fill: white;">✉️</text>
+    <text x="70" y="110" text-anchor="middle" class="day-label">12 sends</text>
+    
+    <!-- Email track line -->
+    <line x1="150" y1="75" x2="1100" y2="75" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- Email markers - Phase 1 -->
+    <g>
+      <circle cx="150" cy="75" r="10" fill="#3b82f6"/>
+      <text x="150" y="55" text-anchor="middle" class="node-text">Confirm</text>
+      
+      <circle cx="175" cy="75" r="10" fill="#3b82f6"/>
+      <text x="175" y="95" text-anchor="middle" class="node-text">Ship</text>
+      
+      <circle cx="220" cy="75" r="10" fill="#3b82f6"/>
+      <text x="220" y="55" text-anchor="middle" class="node-text">Deliver</text>
+      
+      <circle cx="260" cy="75" r="10" fill="#3b82f6"/>
+      <text x="260" y="95" text-anchor="middle" class="node-text">Usage</text>
+    </g>
+    
+    <!-- Email markers - Phase 2 -->
+    <g>
+      <circle cx="310" cy="75" r="10" fill="#8b5cf6"/>
+      <text x="310" y="55" text-anchor="middle" class="node-text">UGC</text>
+      
+      <circle cx="375" cy="75" r="10" fill="#8b5cf6"/>
+      <text x="375" y="95" text-anchor="middle" class="node-text">FAQ</text>
+      
+      <circle cx="425" cy="75" r="10" fill="#8b5cf6"/>
+      <text x="425" y="55" text-anchor="middle" class="node-text">Review</text>
+      
+      <circle cx="510" cy="75" r="10" fill="#8b5cf6"/>
+      <text x="510" y="95" text-anchor="middle" class="node-text">X-sell</text>
+    </g>
+    
+    <!-- Email markers - Phase 3 -->
+    <g>
+      <circle cx="570" cy="75" r="10" fill="#c8ff00"/>
+      <text x="570" y="55" text-anchor="middle" class="node-text">Replenish</text>
+      
+      <circle cx="700" cy="75" r="10" fill="#c8ff00"/>
+      <text x="700" y="95" text-anchor="middle" class="node-text">Educate</text>
+      
+      <circle cx="850" cy="75" r="10" fill="#c8ff00"/>
+      <text x="850" y="55" text-anchor="middle" class="node-text">Urgency</text>
+      
+      <circle cx="975" cy="75" r="10" fill="#c8ff00"/>
+      <text x="975" y="95" text-anchor="middle" class="node-text">Final</text>
+    </g>
+  </g>
+  
+  <!-- SMS TRACK -->
+  <g transform="translate(0, 320)">
+    <text x="70" y="50" text-anchor="middle" class="track-label">SMS</text>
+    <circle cx="70" cy="75" r="16" fill="#22c55e"/>
+    <text x="70" y="80" text-anchor="middle" style="font-size: 14px; fill: white;">💬</text>
+    <text x="70" y="110" text-anchor="middle" class="day-label">3-4 sends</text>
+    
+    <!-- SMS track line -->
+    <line x1="150" y1="75" x2="1100" y2="75" stroke="#222" stroke-width="4" stroke-linecap="round"/>
+    
+    <!-- SMS markers - sparse, strategic -->
+    <g>
+      <!-- Delivery notification -->
+      <circle cx="220" cy="75" r="14" fill="#22c55e"/>
+      <text x="220" y="80" text-anchor="middle" style="font-size: 10px; fill: white;">📦</text>
+      <text x="220" y="55" text-anchor="middle" class="node-text" fill="#22c55e">Delivery</text>
+      <text x="220" y="100" text-anchor="middle" class="day-label">Day 3</text>
+      
+      <!-- Replenishment SMS -->
+      <circle cx="700" cy="75" r="14" fill="#22c55e"/>
+      <text x="700" y="80" text-anchor="middle" style="font-size: 10px; fill: white;">🔄</text>
+      <text x="700" y="55" text-anchor="middle" class="node-text" fill="#22c55e">Replenish</text>
+      <text x="700" y="100" text-anchor="middle" class="day-label">Day 28</text>
+      
+      <!-- Urgency SMS -->
+      <circle cx="890" cy="75" r="14" fill="#22c55e"/>
+      <text x="890" y="80" text-anchor="middle" style="font-size: 10px; fill: white;">⚡</text>
+      <text x="890" y="55" text-anchor="middle" class="node-text" fill="#22c55e">Urgency</text>
+      <text x="890" y="100" text-anchor="middle" class="day-label">Day 38</text>
+    </g>
+    
+    <!-- No SMS zones -->
+    <g opacity="0.4">
+      <line x1="275" y1="75" x2="650" y2="75" stroke="#444" stroke-width="2" stroke-dasharray="8,4"/>
+      <text x="460" y="70" text-anchor="middle" class="day-label">No SMS in education phase</text>
+    </g>
+  </g>
+  
+  <!-- Connection lines showing reinforcement -->
+  <g stroke="#22c55e" stroke-width="1" stroke-dasharray="4,4" opacity="0.5">
+    <line x1="700" y1="235" x2="700" y2="380"/>
+    <line x1="850" y1="235" x2="890" y2="380"/>
+  </g>
+  
+  <!-- Callout boxes -->
+  <g transform="translate(150, 530)">
+    <rect x="0" y="0" width="280" height="70" rx="8" fill="#111" stroke="#22c55e" stroke-width="1"/>
+    <text x="140" y="25" text-anchor="middle" class="callout-text" fill="#22c55e">SMS TIMING RULES</text>
+    <text x="140" y="45" text-anchor="middle" class="callout-text">• Delivery expected, high open</text>
+    <text x="140" y="60" text-anchor="middle" class="callout-text">• Late-phase urgency triggers only</text>
+  </g>
+  
+  <g transform="translate(460, 530)">
+    <rect x="0" y="0" width="280" height="70" rx="8" fill="#111" stroke="#3b82f6" stroke-width="1"/>
+    <text x="140" y="25" text-anchor="middle" class="callout-text" fill="#3b82f6">EMAIL DENSITY</text>
+    <text x="140" y="45" text-anchor="middle" class="callout-text">• Heavy in early education phase</text>
+    <text x="140" y="60" text-anchor="middle" class="callout-text">• Strategic in conversion phase</text>
+  </g>
+  
+  <g transform="translate(770, 530)">
+    <rect x="0" y="0" width="280" height="70" rx="8" fill="#111" stroke="#c8ff00" stroke-width="1"/>
+    <text x="140" y="25" text-anchor="middle" class="callout-text" fill="#c8ff00">CONVERSION ZONE</text>
+    <text x="140" y="45" text-anchor="middle" class="callout-text">• Channels align for max impact</text>
+    <text x="140" y="60" text-anchor="middle" class="callout-text">• SMS reinforces email urgency</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="600" y="645" text-anchor="middle" class="subtitle" fill="#333">Wavy Studios • First-to-Second Order Framework</text>
+</svg>

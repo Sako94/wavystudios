@@ -407,6 +407,81 @@
             color: var(--text-muted);
         }
 
+        /* Coming Soon Card */
+        .insight-card.coming-soon {
+            position: relative;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .insight-card.coming-soon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.85) 0%, rgba(10, 10, 10, 0.75) 100%);
+            z-index: 1;
+        }
+
+        .coming-soon-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .coming-soon-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(200, 255, 0, 0.15) 0%, rgba(74, 158, 255, 0.1) 100%);
+            border: 1px solid rgba(200, 255, 0, 0.4);
+            padding: 0.6rem 1.25rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--accent-lime);
+            animation: comingSoonPulse 2s ease-in-out infinite;
+        }
+
+        .coming-soon-badge::before {
+            content: '✦';
+            animation: rotateStar 4s linear infinite;
+        }
+
+        .coming-soon-badge::after {
+            content: '✦';
+            animation: rotateStar 4s linear infinite reverse;
+        }
+
+        @keyframes comingSoonPulse {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(200, 255, 0, 0.2), 0 0 40px rgba(200, 255, 0, 0.1);
+            }
+            50% { 
+                box-shadow: 0 0 30px rgba(200, 255, 0, 0.3), 0 0 60px rgba(200, 255, 0, 0.15);
+            }
+        }
+
+        @keyframes rotateStar {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .coming-soon-text {
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
         /* Featured Insight */
         .featured-insight {
             display: grid;
@@ -557,11 +632,44 @@
             cursor: pointer;
             text-decoration: none;
             color: inherit;
+            position: relative;
         }
 
         .case-study-card:hover {
             border-color: var(--accent-lime);
             transform: translateY(-4px);
+        }
+
+        /* Coming Soon Case Study */
+        .case-study-card.coming-soon {
+            pointer-events: none;
+        }
+
+        .case-study-card.coming-soon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.88) 0%, rgba(10, 10, 10, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .case-study-card.coming-soon:hover {
+            transform: none;
+            border-color: var(--border-subtle);
+        }
+
+        .case-study-card .coming-soon-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+            padding: 1rem;
         }
 
         .case-study-header {
@@ -1557,7 +1665,7 @@
                     </div>
                 </div>
                 <div class="featured-insight-visual">
-                    <div class="featured-visual-placeholder">Account Structure Diagram</div>
+                    <img src="assets/images/insights/featured-image.png" alt="Account Structure Diagram" style="width: 100%; height: auto; object-fit: cover;">
                 </div>
             </a>
 
@@ -1587,10 +1695,14 @@
                         <span class="insight-card-time">10 min</span>
                     </div>
                 </a>
-                <a href="#" class="insight-card">
+                <a href="#" class="insight-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">We're crafting this one carefully</p>
+                    </div>
                     <div class="insight-card-meta">
                         <span class="insight-card-type">Playbook</span>
-                        <span class="insight-card-date">Jan 3, 2026</span>
+                        <span class="insight-card-date">Coming Soon</span>
                     </div>
                     <h3 class="insight-card-title">Scaling Google Shopping Without Tanking Efficiency</h3>
                     <p class="insight-card-excerpt">The tiered structure, feed optimizations, and bid strategies we use to scale Shopping profitably.</p>
@@ -1601,99 +1713,6 @@
                 </a>
             </div>
 
-            <div class="load-more-container">
-                <button class="load-more-btn">Load More Performance Insights</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Creative Playbooks Section -->
-    <section class="pillar-section" id="creative">
-        <div class="pillar-container">
-            <div class="pillar-header">
-                <span class="pillar-tag creative">🎬 Creative Iteration Playbooks</span>
-                <h2 class="pillar-title">Creative Is the Biggest Lever</h2>
-                <p class="pillar-desc">Frameworks for rapid testing, UGC production, and building creative systems that win consistently.</p>
-            </div>
-
-            <div class="insights-grid">
-                <a href="#" class="insight-card">
-                    <div class="insight-card-meta">
-                        <span class="insight-card-type">Framework</span>
-                        <span class="insight-card-date">Jan 14, 2026</span>
-                    </div>
-                    <h3 class="insight-card-title">The 3-Layer Hook Framework That Stops the Scroll</h3>
-                    <p class="insight-card-excerpt">Visual hook, copy hook, pattern interrupt—how to stack all three for maximum thumb-stopping power.</p>
-                    <div class="insight-card-footer">
-                        <span class="insight-card-read">Read More →</span>
-                        <span class="insight-card-time">7 min</span>
-                    </div>
-                </a>
-                <a href="#" class="insight-card">
-                    <div class="insight-card-meta">
-                        <span class="insight-card-type">System</span>
-                        <span class="insight-card-date">Jan 10, 2026</span>
-                    </div>
-                    <h3 class="insight-card-title">How We Produce 120+ Creatives Per Month</h3>
-                    <p class="insight-card-excerpt">The brief template, creator network, and production workflow behind high-velocity creative operations.</p>
-                    <div class="insight-card-footer">
-                        <span class="insight-card-read">Read More →</span>
-                        <span class="insight-card-time">12 min</span>
-                    </div>
-                </a>
-                <a href="#" class="insight-card">
-                    <div class="insight-card-meta">
-                        <span class="insight-card-type">Playbook</span>
-                        <span class="insight-card-date">Jan 5, 2026</span>
-                    </div>
-                    <h3 class="insight-card-title">UGC vs. Polished: When to Use What</h3>
-                    <p class="insight-card-excerpt">The data on which creative formats win at different funnel stages—and why authenticity beats production value 80% of the time.</p>
-                    <div class="insight-card-footer">
-                        <span class="insight-card-read">Read More →</span>
-                        <span class="insight-card-time">9 min</span>
-                    </div>
-                </a>
-                <a href="#" class="insight-card">
-                    <div class="insight-card-meta">
-                        <span class="insight-card-type">Testing</span>
-                        <span class="insight-card-date">Dec 28, 2025</span>
-                    </div>
-                    <h3 class="insight-card-title">The Creative Testing Framework We Run Every Week</h3>
-                    <p class="insight-card-excerpt">How we structure tests, set kill thresholds, and iterate winners into new variations systematically.</p>
-                    <div class="insight-card-footer">
-                        <span class="insight-card-read">Read More →</span>
-                        <span class="insight-card-time">11 min</span>
-                    </div>
-                </a>
-                <a href="#" class="insight-card">
-                    <div class="insight-card-meta">
-                        <span class="insight-card-type">Deep Dive</span>
-                        <span class="insight-card-date">Dec 20, 2025</span>
-                    </div>
-                    <h3 class="insight-card-title">Anatomy of a $2M Ad: Breaking Down Our Best Performer</h3>
-                    <p class="insight-card-excerpt">Frame-by-frame analysis of the ad that drove $2M+ in revenue—why it worked and how to replicate the formula.</p>
-                    <div class="insight-card-footer">
-                        <span class="insight-card-read">Read More →</span>
-                        <span class="insight-card-time">14 min</span>
-                    </div>
-                </a>
-                <a href="#" class="insight-card">
-                    <div class="insight-card-meta">
-                        <span class="insight-card-type">Template</span>
-                        <span class="insight-card-date">Dec 15, 2025</span>
-                    </div>
-                    <h3 class="insight-card-title">The Creative Brief Template We Use for Every Asset</h3>
-                    <p class="insight-card-excerpt">The 7 elements every brief needs—with examples and our actual template you can steal.</p>
-                    <div class="insight-card-footer">
-                        <span class="insight-card-read">Read More →</span>
-                        <span class="insight-card-time">6 min</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="load-more-container">
-                <button class="load-more-btn">Load More Creative Insights</button>
-            </div>
         </div>
     </section>
 
@@ -1731,10 +1750,14 @@
                         <span class="insight-card-time">13 min</span>
                     </div>
                 </a>
-                <a href="#" class="insight-card">
+                <a href="#" class="insight-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">We're crafting this one carefully</p>
+                    </div>
                     <div class="insight-card-meta">
                         <span class="insight-card-type">Playbook</span>
-                        <span class="insight-card-date">Dec 30, 2025</span>
+                        <span class="insight-card-date">Coming Soon</span>
                     </div>
                     <h3 class="insight-card-title">SMS That Doesn't Feel Spammy</h3>
                     <p class="insight-card-excerpt">Frequency, timing, and content strategies for SMS that drives revenue without burning your list.</p>
@@ -1745,63 +1768,109 @@
                 </a>
             </div>
 
-            <div class="load-more-container">
-                <button class="load-more-btn">Load More Lifecycle Insights</button>
-            </div>
         </div>
     </section>
 
-    <!-- Measurement & Attribution Section -->
-    <section class="pillar-section" id="measurement">
+    <!-- Creative Playbooks Section -->
+    <section class="pillar-section" id="creative">
         <div class="pillar-container">
             <div class="pillar-header">
-                <span class="pillar-tag measurement">📊 Measurement & Attribution</span>
-                <h2 class="pillar-title">Know What's Actually Working</h2>
-                <p class="pillar-desc">Attribution models, tracking setups, and the metrics that actually matter for decision-making.</p>
+                <span class="pillar-tag creative">🎬 Creative Iteration Playbooks</span>
+                <h2 class="pillar-title">Creative Is the Biggest Lever</h2>
+                <p class="pillar-desc">Frameworks for rapid testing, UGC production, and building creative systems that win consistently.</p>
             </div>
 
             <div class="insights-grid">
                 <a href="#" class="insight-card">
                     <div class="insight-card-meta">
-                        <span class="insight-card-type">Deep Dive</span>
-                        <span class="insight-card-date">Jan 11, 2026</span>
-                    </div>
-                    <h3 class="insight-card-title">Platform ROAS Is a Lie (Here's What to Track Instead)</h3>
-                    <p class="insight-card-excerpt">Why platform metrics overstate performance and the blended approach we use for real decision-making.</p>
-                    <div class="insight-card-footer">
-                        <span class="insight-card-read">Read More →</span>
-                        <span class="insight-card-time">11 min</span>
-                    </div>
-                </a>
-                <a href="#" class="insight-card">
-                    <div class="insight-card-meta">
-                        <span class="insight-card-type">Technical</span>
-                        <span class="insight-card-date">Jan 4, 2026</span>
-                    </div>
-                    <h3 class="insight-card-title">The Post-iOS14 Tracking Stack We Use</h3>
-                    <p class="insight-card-excerpt">Server-side tracking, CAPI setup, and the third-party tools that give us signal in a cookieless world.</p>
-                    <div class="insight-card-footer">
-                        <span class="insight-card-read">Read More →</span>
-                        <span class="insight-card-time">15 min</span>
-                    </div>
-                </a>
-                <a href="#" class="insight-card">
-                    <div class="insight-card-meta">
                         <span class="insight-card-type">Framework</span>
-                        <span class="insight-card-date">Dec 22, 2025</span>
+                        <span class="insight-card-date">Jan 14, 2026</span>
                     </div>
-                    <h3 class="insight-card-title">Building a Single Source of Truth Dashboard</h3>
-                    <p class="insight-card-excerpt">The metrics we track, how we structure our dashboards, and what gets reviewed weekly vs. monthly.</p>
+                    <h3 class="insight-card-title">The 3-Layer Hook Framework That Stops the Scroll</h3>
+                    <p class="insight-card-excerpt">Visual hook, copy hook, pattern interrupt—how to stack all three for maximum thumb-stopping power.</p>
+                    <div class="insight-card-footer">
+                        <span class="insight-card-read">Read More →</span>
+                        <span class="insight-card-time">7 min</span>
+                    </div>
+                </a>
+                <a href="#" class="insight-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">We're crafting this one carefully</p>
+                    </div>
+                    <div class="insight-card-meta">
+                        <span class="insight-card-type">System</span>
+                        <span class="insight-card-date">Coming Soon</span>
+                    </div>
+                    <h3 class="insight-card-title">How We Produce 120+ Creatives Per Month</h3>
+                    <p class="insight-card-excerpt">The brief template, creator network, and production workflow behind high-velocity creative operations.</p>
+                    <div class="insight-card-footer">
+                        <span class="insight-card-read">Read More →</span>
+                        <span class="insight-card-time">12 min</span>
+                    </div>
+                </a>
+                <a href="#" class="insight-card">
+                    <div class="insight-card-meta">
+                        <span class="insight-card-type">Playbook</span>
+                        <span class="insight-card-date">Jan 5, 2026</span>
+                    </div>
+                    <h3 class="insight-card-title">UGC vs. Polished: When to Use What</h3>
+                    <p class="insight-card-excerpt">The data on which creative formats win at different funnel stages—and why authenticity beats production value 80% of the time.</p>
                     <div class="insight-card-footer">
                         <span class="insight-card-read">Read More →</span>
                         <span class="insight-card-time">9 min</span>
                     </div>
                 </a>
+                <a href="#" class="insight-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">We're crafting this one carefully</p>
+                    </div>
+                    <div class="insight-card-meta">
+                        <span class="insight-card-type">Testing</span>
+                        <span class="insight-card-date">Coming Soon</span>
+                    </div>
+                    <h3 class="insight-card-title">The Creative Testing Framework We Run Every Week</h3>
+                    <p class="insight-card-excerpt">How we structure tests, set kill thresholds, and iterate winners into new variations systematically.</p>
+                    <div class="insight-card-footer">
+                        <span class="insight-card-read">Read More →</span>
+                        <span class="insight-card-time">11 min</span>
+                    </div>
+                </a>
+                <a href="#" class="insight-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">We're crafting this one carefully</p>
+                    </div>
+                    <div class="insight-card-meta">
+                        <span class="insight-card-type">Deep Dive</span>
+                        <span class="insight-card-date">Coming Soon</span>
+                    </div>
+                    <h3 class="insight-card-title">Anatomy of a $2M Ad: Breaking Down Our Best Performer</h3>
+                    <p class="insight-card-excerpt">Frame-by-frame analysis of the ad that drove $2M+ in revenue—why it worked and how to replicate the formula.</p>
+                    <div class="insight-card-footer">
+                        <span class="insight-card-read">Read More →</span>
+                        <span class="insight-card-time">14 min</span>
+                    </div>
+                </a>
+                <a href="#" class="insight-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">We're crafting this one carefully</p>
+                    </div>
+                    <div class="insight-card-meta">
+                        <span class="insight-card-type">Template</span>
+                        <span class="insight-card-date">Coming Soon</span>
+                    </div>
+                    <h3 class="insight-card-title">The Creative Brief Template We Use for Every Asset</h3>
+                    <p class="insight-card-excerpt">The 7 elements every brief needs—with examples and our actual template you can steal.</p>
+                    <div class="insight-card-footer">
+                        <span class="insight-card-read">Read More →</span>
+                        <span class="insight-card-time">6 min</span>
+                    </div>
+                </a>
             </div>
 
-            <div class="load-more-container">
-                <button class="load-more-btn">Load More Measurement Insights</button>
-            </div>
         </div>
     </section>
 
@@ -1827,10 +1896,14 @@
                         <span class="insight-card-time">7 min</span>
                     </div>
                 </a>
-                <a href="#" class="insight-card">
+                <a href="#" class="insight-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">We're crafting this one carefully</p>
+                    </div>
                     <div class="insight-card-meta">
                         <span class="insight-card-type">Strategy</span>
-                        <span class="insight-card-date">Jan 2, 2026</span>
+                        <span class="insight-card-date">Coming Soon</span>
                     </div>
                     <h3 class="insight-card-title">When to Hire In-House vs. Work With an Agency</h3>
                     <p class="insight-card-excerpt">The decision framework we give to founders—based on stage, spend level, and internal capabilities.</p>
@@ -1839,10 +1912,14 @@
                         <span class="insight-card-time">10 min</span>
                     </div>
                 </a>
-                <a href="#" class="insight-card">
+                <a href="#" class="insight-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">We're crafting this one carefully</p>
+                    </div>
                     <div class="insight-card-meta">
                         <span class="insight-card-type">Mental Model</span>
-                        <span class="insight-card-date">Dec 18, 2025</span>
+                        <span class="insight-card-date">Coming Soon</span>
                     </div>
                     <h3 class="insight-card-title">Systems Thinking for Growth Marketers</h3>
                     <p class="insight-card-excerpt">Why isolated channel optimization fails and how to think about growth as interconnected systems.</p>
@@ -1853,9 +1930,69 @@
                 </a>
             </div>
 
-            <div class="load-more-container">
-                <button class="load-more-btn">Load More Operator Lessons</button>
+        </div>
+    </section>
+
+    <!-- Measurement & Attribution Section -->
+    <section class="pillar-section" id="measurement">
+        <div class="pillar-container">
+            <div class="pillar-header">
+                <span class="pillar-tag measurement">📊 Measurement & Attribution</span>
+                <h2 class="pillar-title">Know What's Actually Working</h2>
+                <p class="pillar-desc">Attribution models, tracking setups, and the metrics that actually matter for decision-making.</p>
             </div>
+
+            <div class="insights-grid">
+                <a href="#" class="insight-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">We're crafting this one carefully</p>
+                    </div>
+                    <div class="insight-card-meta">
+                        <span class="insight-card-type">Deep Dive</span>
+                        <span class="insight-card-date">Coming Soon</span>
+                    </div>
+                    <h3 class="insight-card-title">Platform ROAS Is a Lie (Here's What to Track Instead)</h3>
+                    <p class="insight-card-excerpt">Why platform metrics overstate performance and the blended approach we use for real decision-making.</p>
+                    <div class="insight-card-footer">
+                        <span class="insight-card-read">Read More →</span>
+                        <span class="insight-card-time">11 min</span>
+                    </div>
+                </a>
+                <a href="#" class="insight-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">We're crafting this one carefully</p>
+                    </div>
+                    <div class="insight-card-meta">
+                        <span class="insight-card-type">Technical</span>
+                        <span class="insight-card-date">Coming Soon</span>
+                    </div>
+                    <h3 class="insight-card-title">The Post-iOS14 Tracking Stack We Use</h3>
+                    <p class="insight-card-excerpt">Server-side tracking, CAPI setup, and the third-party tools that give us signal in a cookieless world.</p>
+                    <div class="insight-card-footer">
+                        <span class="insight-card-read">Read More →</span>
+                        <span class="insight-card-time">15 min</span>
+                    </div>
+                </a>
+                <a href="#" class="insight-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">We're crafting this one carefully</p>
+                    </div>
+                    <div class="insight-card-meta">
+                        <span class="insight-card-type">Framework</span>
+                        <span class="insight-card-date">Coming Soon</span>
+                    </div>
+                    <h3 class="insight-card-title">Building a Single Source of Truth Dashboard</h3>
+                    <p class="insight-card-excerpt">The metrics we track, how we structure our dashboards, and what gets reviewed weekly vs. monthly.</p>
+                    <div class="insight-card-footer">
+                        <span class="insight-card-read">Read More →</span>
+                        <span class="insight-card-time">9 min</span>
+                    </div>
+                </a>
+            </div>
+
         </div>
     </section>
 
@@ -1870,7 +2007,11 @@
 
             <div class="case-studies-grid">
                 <!-- Case Study 1 -->
-                <a href="#" class="case-study-card">
+                <a href="#" class="case-study-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">Full case study in progress</p>
+                    </div>
                     <div class="case-study-header">
                         <span class="case-study-industry">🏋️ Fitness Apparel</span>
                         <h3 class="case-study-title">From $150K to $420K/mo in 6 Months</h3>
@@ -1904,7 +2045,11 @@
                 </a>
 
                 <!-- Case Study 2 -->
-                <a href="#" class="case-study-card">
+                <a href="#" class="case-study-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">Full case study in progress</p>
+                    </div>
                     <div class="case-study-header">
                         <span class="case-study-industry">💄 Beauty & Skincare</span>
                         <h3 class="case-study-title">Cutting CAC by 42% While Scaling 3x</h3>
@@ -1938,7 +2083,11 @@
                 </a>
 
                 <!-- Case Study 3 -->
-                <a href="#" class="case-study-card">
+                <a href="#" class="case-study-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">Full case study in progress</p>
+                    </div>
                     <div class="case-study-header">
                         <span class="case-study-industry">🏠 Home Builder</span>
                         <h3 class="case-study-title">$67 CPL From $200+ Aggregator Leads</h3>
@@ -1972,7 +2121,11 @@
                 </a>
 
                 <!-- Case Study 4 -->
-                <a href="#" class="case-study-card">
+                <a href="#" class="case-study-card coming-soon">
+                    <div class="coming-soon-overlay">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <p class="coming-soon-text">Full case study in progress</p>
+                    </div>
                     <div class="case-study-header">
                         <span class="case-study-industry">⚖️ Law Firm</span>
                         <h3 class="case-study-title">52% More Signed Cases, Same Budget</h3>
@@ -2092,8 +2245,8 @@
                 <div class="newsletter-icon">📬</div>
                 <h3 class="newsletter-title">Get the Playbooks in Your Inbox</h3>
                 <p class="newsletter-desc">Weekly insights on performance systems, creative iteration, and operator lessons. No fluff—just the frameworks and results that actually move the needle.</p>
-                <form class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Enter your email">
+                <form class="newsletter-form" action="https://formspree.io/f/xdallvwr" method="POST">
+                    <input type="email" name="email" class="newsletter-input" placeholder="Enter your email" required>
                     <button type="submit" class="newsletter-btn">Subscribe</button>
                 </form>
                 <p class="newsletter-note">Join 2,400+ growth operators. Unsubscribe anytime.</p>
@@ -2182,17 +2335,44 @@
             });
         });
 
-        // Newsletter form (placeholder)
-        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+        // Newsletter form with Formspree
+        document.querySelector('.newsletter-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            alert('Thanks for subscribing! (This is a demo)');
-        });
-
-        // Load more buttons (placeholder)
-        document.querySelectorAll('.load-more-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                alert('More content would load here in the full implementation.');
-            });
+            const form = e.target;
+            const btn = form.querySelector('.newsletter-btn');
+            const originalText = btn.textContent;
+            
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    btn.textContent = 'Subscribed!';
+                    btn.style.background = '#22c55e';
+                    form.querySelector('.newsletter-input').value = '';
+                    setTimeout(() => {
+                        btn.textContent = originalText;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                    }, 3000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                btn.textContent = 'Error - Try Again';
+                btn.style.background = '#ff4444';
+                btn.disabled = false;
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                }, 3000);
+            }
         });
     </script>
     <!-- Footer -->
