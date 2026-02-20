@@ -3,8 +3,8 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/insights/:category/:slug",
-      "destination": "/insights/:category/:slug/index.html"
+      "source": "insights/:category/:slug",
+      "destination": "insights/:category/:slug/index.html"
     }
   ]
 }
