@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 70/20/10 Budget Split That Actually Works | Wavy Studios</title>
+    <meta name="description" content="How we allocate spend between proven campaigns, scaling tests, and experimental angles. The capital allocation framework for paid media that actually compounds.">
+    <meta name="keywords" content="paid media budget, ad spend allocation, campaign budget framework, media buying strategy, paid social budget, ROAS optimization, ad spend management, portfolio allocation">
+    <meta name="author" content="Wavy Studios">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="The 70/20/10 Budget Split That Actually Works | Wavy Studios">
+    <meta property="og:description" content="How we allocate spend between proven campaigns, scaling tests, and experimental angles. The capital allocation framework for paid media.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wavystudios.com/insights/70-20-10-budget-split">
+    <meta property="og:image" content="https://wavystudios.com/assets/images/insights/70-20-10-budget-og.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The 70/20/10 Budget Split That Actually Works">
+    <meta name="twitter:description" content="How we allocate spend between proven campaigns, scaling tests, and experimental angles.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://wavystudios.com/insights/70-20-10-budget-split">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The 70/20/10 Budget Split That Actually Works",
+        "description": "How we allocate spend between proven campaigns, scaling tests, and experimental angles. The capital allocation framework for paid media that actually compounds.",
+        "author": {"@type": "Organization", "name": "Wavy Studios"},
+        "publisher": {"@type": "Organization", "name": "Wavy Studios", "logo": {"@type": "ImageObject", "url": "https://wavystudios.com/assets/wavystudios-logo.png"}},
+        "datePublished": "2026-02-03",
+        "dateModified": "2026-02-03"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-card: #111111;
+            --bg-subtle: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #c8ff00;
+            --accent-dim: rgba(200, 255, 0, 0.15);
+            --border: #222222;
+            --blue: #3b82f6;
+            --purple: #8b5cf6;
+            --red: #ff4444;
+            --green: #22c55e;
+            --accent-coral: #ff6b4a;
+            --accent-blue: #4a9eff;
+            --accent-purple: #a855f7;
+            --accent-teal: #14b8a6;
+            --border-medium: #2a2a2a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            font-size: 16px;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            background: var(--bg-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Noise Texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px 24px 120px;
+        }
+
+        /* Article Header */
+        .article-header {
+            margin-bottom: 64px;
+            text-align: center;
+        }
+
+        .brand {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        h1 .highlight {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 32px;
+            line-height: 1.8;
+        }
+
+        .meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        /* Typography */
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 80px;
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        p { margin-bottom: 24px; }
+        strong { color: var(--text-primary); font-weight: 700; }
+
+        /* Lead paragraph */
+        .lead-text {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Pull quote */
+        .pull-quote {
+            background: linear-gradient(135deg, rgba(200, 255, 0, 0.05) 0%, rgba(74, 158, 255, 0.03) 100%);
+            border-left: 3px solid var(--accent);
+            padding: 2rem 2.5rem;
+            margin: 2.5rem 0;
+        }
+        .pull-quote p {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        /* Mistake Cards */
+        .mistake-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            border-radius: 0;
+        }
+        .mistake-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 3px; height: 100%;
+            background: var(--accent-coral);
+        }
+        .mistake-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-coral);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+        .mistake-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        .mistake-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.75;
+        }
+        .mistake-consequence {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding-left: 1rem;
+            border-left: 2px solid var(--border-medium);
+            font-style: italic;
+        }
+
+        /* Image Placeholder */
+        .image-placeholder {
+            background: var(--bg-subtle);
+            border: 1px dashed var(--border-medium);
+            padding: 3rem 2rem;
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+        .image-placeholder-icon { font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.5; }
+        .image-placeholder-label {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.75rem;
+        }
+        .image-placeholder-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Framework Section */
+        .framework-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 3rem;
+            margin: 3rem 0;
+            border-radius: 12px;
+        }
+        .framework-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .framework-bucket {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .framework-bucket::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+        }
+        .framework-bucket.proven::before { background: var(--accent); }
+        .framework-bucket.scaling::before { background: var(--accent-blue); }
+        .framework-bucket.experimental::before { background: var(--accent-purple); }
+        .bucket-percentage {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        .framework-bucket.proven .bucket-percentage { color: var(--accent); }
+        .framework-bucket.scaling .bucket-percentage { color: var(--accent-blue); }
+        .framework-bucket.experimental .bucket-percentage { color: var(--accent-purple); }
+        .bucket-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        .bucket-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+        }
+        .data-table th {
+            background: var(--bg-subtle);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border-medium);
+        }
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+        .data-table tr:hover td { background: rgba(200, 255, 0, 0.02); }
+        .data-table .attribute { font-weight: 700; color: var(--text-primary); width: 35%; }
+
+        /* Scenario Cards */
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .scenario-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: 0;
+        }
+        .scenario-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+        .scenario-split {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+        .scenario-rationale { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem; line-height: 1.6; }
+        .scenario-risk { font-size: 0.8rem; color: var(--text-muted); padding-top: 0.75rem; border-top: 1px solid var(--border); }
+        .scenario-risk strong { color: var(--accent-coral); }
+
+        /* Checklist */
+        .checklist {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+        }
+        .checklist-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .checklist-title::before { content: '\2713'; color: var(--accent); font-size: 1.5rem; }
+        .checklist-items { list-style: none; }
+        .checklist-items li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+        .checklist-items li:last-child { border-bottom: none; }
+        .checklist-items li::before { content: '\2192'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+        /* Section Divider */
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-teal));
+            margin: 3rem auto;
+        }
+
+        /* Lists */
+        ul, ol { margin: 24px 0; padding-left: 24px; }
+        li { margin-bottom: 10px; color: var(--text-secondary); }
+
+        /* Related links */
+        .related-links {
+            margin-top: 64px;
+            padding: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+        .related-links h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+        .related-links ul { list-style: none; padding: 0; margin: 0; }
+        .related-links li { margin-bottom: 12px; }
+        .related-links a { color: var(--accent); text-decoration: none; font-weight: 700; transition: opacity 0.2s; }
+        .related-links a:hover { opacity: 0.8; }
+
+        /* Article CTA */
+        .article-cta {
+            margin-top: 64px;
+            padding: 48px;
+            background: linear-gradient(135deg, rgba(200, 255, 0, 0.08) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border: 1px solid rgba(200, 255, 0, 0.2);
+            border-radius: 12px;
+            text-align: center;
+        }
+        .article-cta h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+        }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 24px; }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 16px 32px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { background: var(--text-primary); transform: translateY(-2px); }
+
+        /* Responsive article */
+        @media (max-width: 768px) {
+            .container { padding: 48px 20px 80px; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.375rem; }
+            .pull-quote { padding: 1.5rem; }
+            .pull-quote p { font-size: 1.1rem; }
+            .meta { flex-wrap: wrap; gap: 16px; }
+            .framework-section { padding: 2rem 1.5rem; }
+            .framework-bucket { padding: 1.25rem; }
+            .bucket-percentage { font-size: 2rem; }
+            .checklist { padding: 1.5rem; }
+            .article-cta { padding: 2rem 1.5rem; }
+            .mistake-card { padding: 1.25rem; }
+        }
+
+        @media (max-width: 1024px) {
+            .framework-grid { grid-template-columns: 1fr; }
+            .scenario-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .data-table { font-size: 0.8rem; }
+            .data-table th, .data-table td { padding: 0.75rem 0.5rem; }
+            .scenario-card { padding: 1.25rem; }
+        }
+
+        /* ========== NAVIGATION STYLES ========== */
+        .site-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98), rgba(10,10,10,0.8));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+        .nav-logo-img { height: 32px; width: auto; }
+        .nav-links { display: flex; align-items: center; gap: 0.5rem; list-style: none; }
+        .nav-item { position: relative; }
+        .nav-link {
+            display: flex; align-items: center; gap: 0.3rem;
+            padding: 0.75rem 1rem; font-size: 0.75rem;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: #c8ff00; }
+        .nav-arrow { width: 8px; height: 8px; fill: currentColor; transition: transform 0.3s ease; }
+        .nav-item:hover .nav-arrow { transform: rotate(180deg); }
+        .nav-dropdown {
+            position: absolute; top: 100%; left: 0; min-width: 200px;
+            background: #111111; border: 1px solid #2a2a2a; padding: 0.5rem 0;
+            opacity: 0; visibility: hidden; transform: translateY(10px);
+            transition: all 0.3s ease; list-style: none;
+        }
+        .nav-item:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-link {
+            display: block; padding: 0.6rem 1.25rem; font-size: 0.8rem;
+            color: #a0a0a0; text-decoration: none; transition: all 0.3s ease;
+        }
+        .dropdown-link:hover { background: #1a1a1a; color: #c8ff00; }
+        .nav-cta {
+            background: #c8ff00; color: #0a0a0a;
+            padding: 0.6rem 1.25rem; font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+            margin-left: 1rem; transition: all 0.3s ease; font-family: 'Space Mono', monospace;
+        }
+        .nav-cta:hover { background: #ffffff; }
+
+        /* Mobile Toggle */
+        .mobile-toggle {
+            display: none; flex-direction: column; justify-content: center;
+            gap: 5px; width: 32px; height: 32px; padding: 4px;
+            background: none; border: none; cursor: pointer;
+        }
+        .mobile-toggle span { width: 24px; height: 2px; background: #fff; transition: all 0.3s ease; }
+        .mobile-toggle.is-active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-toggle.is-active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.is-active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none; position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #0a0a0a; z-index: 99;
+            padding: 100px 2rem 2rem; overflow-y: auto;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        }
+        .mobile-menu.is-open { opacity: 1; visibility: visible; }
+        .mobile-menu-list { list-style: none; }
+        .mobile-menu-list > li { border-bottom: 1px solid #1a1a1a; }
+        .mobile-menu-link {
+            display: flex; justify-content: space-between; align-items: center;
+            width: 100%; padding: 1.25rem 0; font-size: 1rem; color: #fff;
+            text-decoration: none; background: none; border: none; cursor: pointer;
+            text-align: left; font-family: 'Space Mono', monospace;
+        }
+        .mobile-menu-link:hover { color: #c8ff00; }
+        .mobile-submenu { display: none; list-style: none; padding: 0 0 1rem 1.5rem; }
+        .mobile-submenu.is-open { display: block; }
+        .mobile-submenu a { display: block; padding: 0.6rem 0; font-size: 0.95rem; color: #a0a0a0; text-decoration: none; }
+        .mobile-submenu a:hover { color: #c8ff00; }
+        .mobile-menu-cta {
+            display: block; width: 100%; margin-top: 2rem; padding: 1rem;
+            background: #c8ff00; color: #0a0a0a; text-align: center;
+            font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em;
+            text-transform: uppercase; text-decoration: none;
+        }
+
+        /* ========== TABLE OF CONTENTS ========== */
+        .toc {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 28px; margin-bottom: 48px;
+        }
+        .toc-title {
+            font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent);
+            margin-top: 0; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .toc-title::before { content: '\00A7'; }
+        .toc-list { list-style: none; counter-reset: toc-counter; padding: 0; margin: 0; }
+        .toc-list li { counter-increment: toc-counter; margin-bottom: 12px; }
+        .toc-list li:last-child { margin-bottom: 0; }
+        .toc-list a {
+            display: flex; align-items: baseline; gap: 12px;
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9375rem; transition: color 0.2s ease;
+        }
+        .toc-list a::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            font-size: 0.75rem; color: var(--text-muted); font-weight: 700;
+        }
+        .toc-list a:hover { color: var(--accent); }
+
+        /* Section scroll offset */
+        section[id] { scroll-margin-top: calc(var(--nav-height, 90px) + 20px); }
+
+        /* ========== FOOTER ========== */
+        .site-footer {
+            background: #111111; border-top: 1px solid #1a1a1a;
+            padding: 4rem 3rem 2rem; margin-top: 0;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem; margin-bottom: 3rem;
+        }
+        .footer-logo { display: inline-block; text-decoration: none; }
+        .footer-logo-img { height: 32px; width: auto; }
+        .footer-brand p { color: #666; font-size: 0.9rem; margin-top: 1rem; line-height: 1.6; }
+        .footer-col h4 {
+            font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            margin-bottom: 1.25rem; color: #fff;
+        }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col li { margin-bottom: 0.75rem; }
+        .footer-col a { color: #666; text-decoration: none; font-size: 0.85rem; transition: color 0.3s ease; }
+        .footer-col a:hover { color: #c8ff00; }
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-top: 2rem; border-top: 1px solid #1a1a1a;
+            font-size: 0.8rem; color: #666;
+        }
+        .footer-social { display: flex; gap: 1.5rem; }
+        .footer-social a { color: #666; text-decoration: none; transition: color 0.3s ease; }
+        .footer-social a:hover { color: #c8ff00; }
+
+        /* ========== NAV SPACER ========== */
+        .nav-spacer { height: var(--nav-height, 90px); }
+
+        /* ========== BREADCRUMB ========== */
+        .breadcrumb {
+            position: relative; z-index: 1;
+            background: var(--bg-subtle);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+        .breadcrumb-container {
+            max-width: 800px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+        }
+        .breadcrumb-link {
+            color: var(--text-muted); text-decoration: none;
+            font-size: 0.8rem; letter-spacing: 0.05em; transition: color 0.2s ease;
+        }
+        .breadcrumb-link:hover { color: var(--accent); }
+        .breadcrumb-sep { color: var(--text-muted); font-size: 0.75rem; }
+        .breadcrumb-current { color: var(--text-secondary); font-size: 0.8rem; letter-spacing: 0.05em; }
+
+        /* Responsive nav */
+        @media (max-width: 900px) {
+            .site-nav { padding: 1rem 1.5rem; }
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .toc { padding: 20px; }
+        }
+        @media (max-width: 480px) {
+            .breadcrumb-container { gap: 0.5rem; }
+            .breadcrumb-current { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="nav-logo">
+            <img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="nav-logo-img">
+        </a>
+        <ul class="nav-links">
+            <li class="nav-item"><a href="/growth-os" class="nav-link">Growth OS</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Services <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="/lifecycle" class="dropdown-link">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social" class="dropdown-link">Paid Social</a></li>
+                    <li><a href="/paid-search" class="dropdown-link">Paid Search</a></li>
+                    <li><a href="/creative" class="dropdown-link">Creative System</a></li>
+                    <li><a href="/cro" class="dropdown-link">CRO &amp; Funnels</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/insights" class="nav-link">Case Studies</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="/ecommerce" class="dropdown-link">Ecommerce &amp; DTC</a></li>
+                    <li><a href="/lead-gen" class="dropdown-link">Lead Generation</a></li>
+                    <li><a href="/enterprise" class="dropdown-link">Enterprise</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/labs" class="nav-link">Labs</a></li>
+        </ul>
+        <a href="/partner" class="nav-cta">Partner With Us</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <ul class="mobile-menu-list">
+            <li><a href="/" class="mobile-menu-link">Home</a></li>
+            <li><a href="/growth-os" class="mobile-menu-link">Growth OS</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Services <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/lifecycle">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social">Paid Social</a></li>
+                    <li><a href="/paid-search">Paid Search</a></li>
+                    <li><a href="/creative">Creative System</a></li>
+                    <li><a href="/cro">CRO &amp; Funnels</a></li>
+                </ul>
+            </li>
+            <li><a href="/insights" class="mobile-menu-link">Case Studies</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/ecommerce">Ecommerce &amp; DTC</a></li>
+                    <li><a href="/lead-gen">Lead Generation</a></li>
+                    <li><a href="/enterprise">Enterprise</a></li>
+                </ul>
+            </li>
+            <li><a href="/labs" class="mobile-menu-link">Labs</a></li>
+            <li style="border:none;padding-top:1.5rem;"><a href="/partner" class="mobile-menu-cta">Partner With Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Spacer for fixed nav -->
+    <div class="nav-spacer"></div>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-sep">&rarr;</span>
+            <a href="/insights" class="breadcrumb-link">Insights</a>
+            <span class="breadcrumb-sep">&rarr;</span>
+            <span class="breadcrumb-current">70/20/10 Budget Split</span>
+        </div>
+    </nav>
+
+    <main>
+        <article class="container">
+            <header class="article-header">
+                <div class="brand">Wavy Studios</div>
+                <h1>The <span class="highlight">70/20/10</span> Budget Split That Actually Works</h1>
+                <p class="subtitle">How we allocate spend between proven campaigns, scaling tests, and experimental angles and when to shift the ratios.</p>
+                <div class="meta">
+                    <span>8 Minute Read</span>
+                    <span>Framework</span>
+                    <span>Paid Media</span>
+                </div>
+            </header>
+
+            <!-- Table of Contents -->
+            <nav class="toc" aria-label="Table of contents">
+                <h2 class="toc-title">In This Article</h2>
+                <ol class="toc-list">
+                    <li><a href="#budget-splits-fail">Why Most Budget Splits Fail</a></li>
+                    <li><a href="#framework-explained">The 70/20/10 Framework Explained</a></li>
+                    <li><a href="#dynamic-reallocation">The Hidden Layer: Dynamic Reallocation</a></li>
+                    <li><a href="#implementation">Implementation System</a></li>
+                    <li><a href="#what-changes">What This Changes</a></li>
+                    <li><a href="#actionable-summary">Actionable Summary</a></li>
+                    <li><a href="#real-skill">The Real Skill</a></li>
+                </ol>
+            </nav>
+
+            <section>
+                <p class="lead-text">Most brands don't have a budget problem. They have an allocation problem. They're spending money, often a lot of it, but spreading it across campaigns with no clear hierarchy, no graduation criteria, and no systematic way to identify what deserves more capital versus what's burning it.</p>
+
+                <p>The result is predictable: chaotic performance, inconsistent returns, and a media buyer making emotional decisions based on whatever happened yesterday.</p>
+
+                <div class="pull-quote">
+                    <p>Budget allocation is the single highest-leverage decision in paid media. Not creative. Not targeting. Not platform selection.</p>
+                </div>
+
+                <p>How you distribute capital across your portfolio determines whether you compound gains or subsidize losses. This is the framework we use to manage millions in annual spend. It's not complicated. But it requires discipline most teams don't have.</p>
+            </section>
+
+            <section id="budget-splits-fail">
+                <div class="section-divider"></div>
+
+                <h2>Why Most Budget Splits Fail</h2>
+
+                <p>Before we get to the framework, let's diagnose why most allocation strategies collapse under pressure.</p>
+
+                <div class="mistake-card">
+                    <div class="mistake-number">Mistake 01</div>
+                    <div class="mistake-title">Over-indexing on what worked last month</div>
+                    <p class="mistake-desc">A campaign crushes it in January, so you pour budget into it in February. By March, frequency is through the roof, creative is fatigued, and you're wondering why performance fell off a cliff.</p>
+                    <p class="mistake-consequence">Second-order consequence: You trained your team to chase recency instead of sustainability. Every month becomes a scramble to find the new hot campaign.</p>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-number">Mistake 02</div>
+                    <div class="mistake-title">Confusing experimentation with randomness</div>
+                    <p class="mistake-desc">"We're always testing" sounds disciplined until you realize there's no hypothesis, no control, and no criteria for what constitutes a win. Random tests produce random results.</p>
+                    <p class="mistake-consequence">Second-order consequence: Your testing budget becomes a black hole. No learnings compound because nothing is structured to compound.</p>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-number">Mistake 03</div>
+                    <div class="mistake-title">Cutting testing during volatility</div>
+                    <p class="mistake-desc">The moment performance dips, the first budget to get slashed is experimental spend. This feels rational in the moment. It's actually how you guarantee long-term decline.</p>
+                    <p class="mistake-consequence">Second-order consequence: You have nothing in the pipeline when your proven campaigns inevitably fatigue. You're forced to scale cold creative into a hostile auction with no validated angles.</p>
+                </div>
+
+                <div class="mistake-card">
+                    <div class="mistake-number">Mistake 04</div>
+                    <div class="mistake-title">Scaling before stability</div>
+                    <p class="mistake-desc">A test shows early signal, maybe a 2.5x ROAS over three days, and the immediate instinct is to double the budget. But early signal is not proven performance.</p>
+                    <p class="mistake-consequence">Second-order consequence: Your team loses trust in testing because "tests never scale." The real problem was scaling prematurely.</p>
+                </div>
+
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">📉</div>
+                    <div class="image-placeholder-label">Image Suggestion</div>
+                    <p class="image-placeholder-desc">Line graph showing ROAS volatility over 6 months with annotation markers highlighting "Testing Cut Here" followed by steep performance decline 8 weeks later. Dark theme with lime accent for the annotation callout.</p>
+                </div>
+            </section>
+
+            <section id="framework-explained">
+                <div class="section-divider"></div>
+
+                <h2>The 70/20/10 Framework Explained</h2>
+
+                <p>Here's how we actually allocate capital across the portfolio:</p>
+
+                <div class="framework-section">
+                    <h3 class="framework-title">The Allocation Model</h3>
+                    <div class="framework-grid">
+                        <div class="framework-bucket proven">
+                            <div class="bucket-percentage">70%</div>
+                            <div class="bucket-name">Proven Performers</div>
+                            <p class="bucket-desc">Campaigns profitable for 30+ days at target spend. Your workhorses. Extraction, not exploration.</p>
+                        </div>
+                        <div class="framework-bucket scaling">
+                            <div class="bucket-percentage">20%</div>
+                            <div class="bucket-name">Scaling Tests</div>
+                            <p class="bucket-desc">7-14 days of positive signal. Earned more capital but haven't proven they perform at scale.</p>
+                        </div>
+                        <div class="framework-bucket experimental">
+                            <div class="bucket-percentage">10%</div>
+                            <div class="bucket-name">Experimental</div>
+                            <p class="bucket-desc">Asymmetric upside. New angles, formats, audiences. High failure rate, but tomorrow's 70%.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">📊</div>
+                    <div class="image-placeholder-label">Image Suggestion</div>
+                    <p class="image-placeholder-desc">Animated or static pie chart showing the 70/20/10 split. Dark background with lime (70%), blue (20%), and purple (10%) segments. Clean, minimal design with percentage labels.</p>
+                </div>
+
+                <h3>70% - Proven Performers</h3>
+
+                <table class="data-table">
+                    <tr><td class="attribute">Definition</td><td>Campaigns profitable for 30+ days at target spend</td></tr>
+                    <tr><td class="attribute">Objective</td><td>Maximize efficient volume</td></tr>
+                    <tr><td class="attribute">Risk Profile</td><td>Low. These have been validated</td></tr>
+                    <tr><td class="attribute">KPI Expectations</td><td>Within 15% of established benchmarks</td></tr>
+                    <tr><td class="attribute">Entry Criteria</td><td>30-day track record, stable CAC/ROAS, scaled 2x without degradation</td></tr>
+                    <tr><td class="attribute">Exit Criteria</td><td>Performance declines 20%+ for 14+ days despite optimization</td></tr>
+                </table>
+
+                <h3>20% - Scaling Tests</h3>
+
+                <table class="data-table">
+                    <tr><td class="attribute">Definition</td><td>Campaigns with 7-14 days of positive signal</td></tr>
+                    <tr><td class="attribute">Objective</td><td>Validate scalability</td></tr>
+                    <tr><td class="attribute">Risk Profile</td><td>Medium. Promising but unproven at scale</td></tr>
+                    <tr><td class="attribute">KPI Expectations</td><td>Within 25% of target metrics</td></tr>
+                    <tr><td class="attribute">Graduation Criteria</td><td>30 days stable at 2x original budget</td></tr>
+                    <tr><td class="attribute">Kill Criteria</td><td>Performance degrades 30%+ when scaled</td></tr>
+                </table>
+
+                <h3>10% - Experimental</h3>
+
+                <table class="data-table">
+                    <tr><td class="attribute">Definition</td><td>Unproven concepts with strategic hypothesis</td></tr>
+                    <tr><td class="attribute">Objective</td><td>Discover new winners</td></tr>
+                    <tr><td class="attribute">Risk Profile</td><td>High. Expect 70%+ failure rate</td></tr>
+                    <tr><td class="attribute">KPI Expectations</td><td>Any positive signal is a win</td></tr>
+                    <tr><td class="attribute">Graduation Criteria</td><td>7+ days of promising signal</td></tr>
+                    <tr><td class="attribute">Kill Criteria</td><td>No signal after platform-minimum spend reached</td></tr>
+                </table>
+
+                <p><strong>This bucket is not optional.</strong> Skip it and you're optimizing for the present while starving the future.</p>
+            </section>
+
+            <section id="dynamic-reallocation">
+                <div class="section-divider"></div>
+
+                <h2>The Hidden Layer: Dynamic Reallocation</h2>
+
+                <p>The 70/20/10 split is a baseline, not a mandate. Smart operators adjust ratios based on business context.</p>
+
+                <div class="scenario-grid">
+                    <div class="scenario-card">
+                        <div class="scenario-name">Early-Stage Brand</div>
+                        <div class="scenario-split">50 / 30 / 20</div>
+                        <p class="scenario-rationale">You don't have proven campaigns yet. You need more experimental surface area to find what works.</p>
+                        <p class="scenario-risk"><strong>Risk:</strong> Higher volatility, but necessary for discovery.</p>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="scenario-name">Aggressive Growth Phase</div>
+                        <div class="scenario-split">60 / 30 / 10</div>
+                        <p class="scenario-rationale">You've found winners. Now you need to scale them faster while maintaining testing velocity.</p>
+                        <p class="scenario-risk"><strong>Risk:</strong> Betting on current winners continuing to perform.</p>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="scenario-name">Cash-Constrained Period</div>
+                        <div class="scenario-split">85 / 10 / 5</div>
+                        <p class="scenario-rationale">Survival mode. Concentrate on what's definitely working. Reduce experimental exposure.</p>
+                        <p class="scenario-risk"><strong>Risk:</strong> Mortgaging future pipeline for present stability.</p>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="scenario-name">Creative Fatigue Detected</div>
+                        <div class="scenario-split">60 / 25 / 15</div>
+                        <p class="scenario-rationale">Your proven campaigns are degrading. You need more in the pipeline, faster.</p>
+                        <p class="scenario-risk"><strong>Risk:</strong> Temporary efficiency loss for long-term health.</p>
+                    </div>
+                </div>
+
+                <div class="image-placeholder">
+                    <div class="image-placeholder-icon">📋</div>
+                    <div class="image-placeholder-label">Image Suggestion</div>
+                    <p class="image-placeholder-desc">Comparison table showing five scenarios (Early Stage, Growth Phase, Cash Constrained, Creative Fatigue, New Channel) with columns for Allocation Split, Primary Goal, and Key Risk. Dark theme with subtle color coding per scenario.</p>
+                </div>
+
+                <p>The point is not to memorize ratios. It's to understand that allocation should respond to business context, but within a disciplined framework, not ad-hoc reactions.</p>
+            </section>
+
+            <section id="implementation">
+                <div class="section-divider"></div>
+
+                <h2>Implementation System</h2>
+
+                <p>Theory is worthless without process. Here's how to operationalize this:</p>
+
+                <h3>Weekly Budget Review Structure</h3>
+
+                <p>Every Monday, review the entire portfolio through this lens:</p>
+
+                <ol>
+                    <li>Categorize every active campaign (Proven / Scaling / Experimental)</li>
+                    <li>Calculate actual allocation percentages</li>
+                    <li>Identify campaigns ready for promotion or demotion</li>
+                    <li>Flag underperformers for kill decisions</li>
+                    <li>Confirm experimental pipeline is funded</li>
+                </ol>
+
+                <p>This takes 30 minutes with proper dashboards. If it takes longer, your tracking infrastructure needs work.</p>
+
+                <h3>Performance Thresholds</h3>
+
+                <p>Define clear lines before you need them:</p>
+
+                <table class="data-table">
+                    <tr><td class="attribute">Proven to Scaling demotion</td><td>20% performance decline for 14+ days</td></tr>
+                    <tr><td class="attribute">Scaling to Proven graduation</td><td>30 days stable at 2x budget</td></tr>
+                    <tr><td class="attribute">Scaling kill</td><td>30% decline when scaled, or 21 days without improvement</td></tr>
+                    <tr><td class="attribute">Experimental graduation</td><td>7+ days positive signal</td></tr>
+                    <tr><td class="attribute">Experimental kill</td><td>Platform-minimum spend with no signal</td></tr>
+                </table>
+
+                <h3>Testing Velocity Targets</h3>
+
+                <p>Your 10% experimental budget should produce:</p>
+
+                <ul>
+                    <li>Minimum 4 new concepts tested per month</li>
+                    <li>At least 1 concept graduating to Scaling tier monthly</li>
+                    <li>Kill decisions within 7-14 days, not 30</li>
+                </ul>
+
+                <p>If you're not hitting these numbers, either your experimental budget is too low or your testing process is too slow.</p>
+            </section>
+
+            <section id="what-changes">
+                <div class="section-divider"></div>
+
+                <h2>What This Changes</h2>
+
+                <p>When you implement this framework properly, several things shift:</p>
+
+                <p><strong>Emotional decisions decrease.</strong> You're not reacting to yesterday's performance. You're executing a system with predefined rules.</p>
+
+                <p><strong>Downside is protected.</strong> 70% of budget is always in validated campaigns. You can't blow up the account with bad tests.</p>
+
+                <p><strong>Innovation is preserved.</strong> The 10% is protected allocation. It doesn't get raided when things get tight (unless you're in true survival mode).</p>
+
+                <p><strong>Compounding efficiency improves.</strong> Winners graduate into bigger buckets. Losers get killed fast. Capital flows toward performance, not history.</p>
+
+                <p><strong>Capital discipline becomes cultural.</strong> Your team stops thinking in campaigns and starts thinking in portfolio management.</p>
+
+                <div class="pull-quote">
+                    <p>This is the difference between running ads and managing a growth system.</p>
+                </div>
+            </section>
+
+            <section id="actionable-summary">
+                <div class="section-divider"></div>
+
+                <h2>Actionable Summary</h2>
+
+                <p>If you implement one thing from this article, make it this audit:</p>
+
+                <div class="checklist">
+                    <h4 class="checklist-title">Operator Checklist</h4>
+                    <ul class="checklist-items">
+                        <li>Categorize every active campaign into Proven, Scaling, or Experimental</li>
+                        <li>Calculate your current allocation across those three buckets</li>
+                        <li>Identify dead weight: campaigns that don't fit any category or have been in Scaling limbo for 30+ days</li>
+                        <li>Define graduation criteria for Scaling to Proven</li>
+                        <li>Set reallocation triggers based on your business context</li>
+                        <li>Protect the 10%: if you don't have experimental budget, create it</li>
+                    </ul>
+                </div>
+
+                <p>Most brands will discover they're running 90% Proven, 10% random tests, 0% structured experimentation. That's not a portfolio. That's a slow decline waiting to happen.</p>
+            </section>
+
+            <section id="real-skill">
+                <div class="section-divider"></div>
+
+                <h2>The Real Skill</h2>
+
+                <p>Most agencies will tell you the job is finding winning ads.</p>
+
+                <p>It's not.</p>
+
+                <p>The job is capital allocation. It's knowing where to deploy resources, when to scale, when to kill, and how to maintain a portfolio that compounds instead of churns.</p>
+
+                <div class="pull-quote">
+                    <p>Winning ads are the output. Capital discipline is the input.</p>
+                </div>
+
+                <p>Any team can stumble into a winner. Very few can systematically turn winners into sustainable growth engines while continuously developing the next generation of performers.</p>
+
+                <p><strong>That's the difference between running paid media and building a growth system.</strong></p>
+
+                <p>The 70/20/10 framework is how it starts.</p>
+            </section>
+
+            <div class="related-links">
+                <h4>Related Reading</h4>
+                <ul>
+                    <li><a href="/insights/first-second-order-playbook">The First-to-Second Order Playbook &rarr;</a></li>
+                    <li><a href="/insights/welcome-series-playbook">Why Your Welcome Series Is Leaving Money on the Table &rarr;</a></li>
+                    <li><a href="/insights/scaling-1m-month-mistake">The Biggest Mistake I Made Scaling to $1M/mo &rarr;</a></li>
+                </ul>
+            </div>
+
+            <div class="article-cta">
+                <h3>Ready to audit your budget allocation?</h3>
+                <p>Book a strategy call and we'll walk through your portfolio together.</p>
+                <a href="/partner" class="btn-primary">Book Your Strategy Call &rarr;</a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo"><img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="footer-logo-img"></a>
+                    <p>Growth systems, not channel hacks. We build repeatable operating systems that scale your revenue profitably.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/growth-os">Growth OS</a></li>
+                        <li><a href="/paid-social">Paid Social</a></li>
+                        <li><a href="/paid-search">Paid Search</a></li>
+                        <li><a href="/lifecycle">Lifecycle</a></li>
+                        <li><a href="/creative">Creative</a></li>
+                        <li><a href="/cro">CRO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Who We Help</h4>
+                    <ul>
+                        <li><a href="/ecommerce">Ecommerce</a></li>
+                        <li><a href="/lead-gen">Lead Gen</a></li>
+                        <li><a href="/enterprise">Enterprise</a></li>
+                        <li><a href="/insights">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/labs">Labs</a></li>
+                        <li><a href="/insights">Insights</a></li>
+                        <li><a href="/partner">Partner</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wavy Studios. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">Li</a>
+                    <a href="#" aria-label="X (Twitter)">X</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('is-open');
+                mobileToggle.classList.toggle('is-active');
+                mobileMenu.classList.toggle('is-open');
+                mobileToggle.setAttribute('aria-expanded', !isOpen);
+                document.body.style.overflow = isOpen ? '' : 'hidden';
+            });
+        }
+        // Mobile Submenu Toggles
+        document.querySelectorAll('.mobile-menu-toggle-sub').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const submenu = btn.nextElementSibling;
+                if (submenu) { submenu.classList.toggle('is-open'); btn.classList.toggle('is-open'); }
+            });
+        });
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileToggle && mobileMenu) {
+                    mobileToggle.classList.remove('is-active');
+                    mobileMenu.classList.remove('is-open');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        // Smooth scroll for TOC
+        document.querySelectorAll('.toc-list a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Dynamically sync nav-spacer to actual nav height
+        function setNavHeight() {
+            const nav = document.querySelector('.site-nav');
+            if (nav) {
+                document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
+            }
+        }
+        setNavHeight();
+        window.addEventListener('resize', setNavHeight);
+    </script>
+</body>
+</html>

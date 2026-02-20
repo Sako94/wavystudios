@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Creative Testing Framework We Run Every Week | Wavy Studios</title>
+    <meta name="description" content="How we structure tests, set kill thresholds, and iterate winners into new variations systematically.">
+    <meta name="keywords" content="creative testing framework, ad testing, kill threshold, scale threshold, creative iteration, A/B testing ads, creative optimization, testing cadence">
+    <meta name="author" content="Wavy Studios">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="The Creative Testing Framework We Run Every Week | Wavy Studios">
+    <meta property="og:description" content="How we structure tests, set kill thresholds, and iterate winners into new variations systematically.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wavystudios.com/insights/creative-testing-framework">
+    <meta property="og:image" content="https://wavystudios.com/assets/images/insights/creative-testing-framework-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Creative Testing Framework We Run Every Week">
+    <meta name="twitter:description" content="Clear rules for when to kill, scale, and iterate creative -- no gut feelings, just data.">
+    <link rel="canonical" href="https://wavystudios.com/insights/creative-testing-framework">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Creative Testing Framework We Run Every Week",
+        "description": "How we structure tests, set kill thresholds, and iterate winners into new variations systematically.",
+        "author": {"@type": "Organization", "name": "Wavy Studios"},
+        "publisher": {"@type": "Organization", "name": "Wavy Studios", "logo": {"@type": "ImageObject", "url": "https://wavystudios.com/assets/wavystudios-logo.png"}},
+        "datePublished": "2025-12-28",
+        "dateModified": "2025-12-28"
+    }
+    </script>
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-card: #111111;
+            --bg-subtle: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #c8ff00;
+            --accent-dim: rgba(200, 255, 0, 0.15);
+            --border: #222222;
+            --border-medium: #2a2a2a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03; pointer-events: none; z-index: 1000;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 48px 24px 120px; }
+        .article-header { margin-bottom: 56px; text-align: center; }
+        .brand {
+            font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 24px;
+        }
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800; line-height: 1.15;
+            color: var(--text-primary);
+            margin-bottom: 20px; letter-spacing: -0.02em;
+        }
+        .subtitle {
+            font-size: 1.1rem; color: var(--text-secondary);
+            max-width: 650px; margin: 0 auto 32px; line-height: 1.8;
+        }
+        .meta {
+            font-size: 0.75rem; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 0.1em;
+            display: flex; justify-content: center; gap: 32px;
+        }
+        h2 {
+            font-family: 'Syne', sans-serif; font-size: 1.75rem; font-weight: 700;
+            color: var(--text-primary); margin-top: 80px; margin-bottom: 24px;
+        }
+        h3 {
+            font-family: 'Syne', sans-serif; font-size: 1.25rem; font-weight: 600;
+            color: var(--accent); margin-top: 40px; margin-bottom: 16px;
+        }
+        h4 {
+            font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 600;
+            color: var(--accent); margin-top: 24px; margin-bottom: 12px;
+        }
+        h5 {
+            font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 600;
+            color: var(--text-primary); margin-bottom: 8px;
+        }
+        p { margin-bottom: 24px; font-size: 0.95rem; }
+        strong { color: var(--text-primary); font-weight: 700; }
+        ul, ol { margin: 1.5rem 0; padding-left: 1.5rem; }
+        li { margin-bottom: 0.75rem; font-size: 0.95rem; }
+        .stat-highlight {
+            display: inline-block;
+            background: rgba(200, 255, 0, 0.1); color: var(--accent);
+            padding: 0.1rem 0.5rem; font-weight: 700;
+        }
+        .callout-box {
+            background: var(--bg-subtle);
+            border-left: 3px solid var(--accent);
+            padding: 1.5rem; margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .callout-box p { margin: 0; color: var(--text-primary); }
+        .framework-card {
+            background: var(--bg-card); border: 1px solid var(--border-medium);
+            border-radius: 8px; padding: 2rem; margin: 2rem 0;
+        }
+        .framework-card h4 { margin-top: 0; margin-bottom: 1rem; }
+        .related-links {
+            margin-top: 64px; padding: 32px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+        .related-links h4 {
+            font-family: 'Syne', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--text-muted); margin-bottom: 20px; margin-top: 0;
+        }
+        .related-links ul { list-style: none; padding: 0; margin: 0; }
+        .related-links li { margin-bottom: 12px; }
+        .related-links a { color: var(--accent); text-decoration: none; font-weight: 700; transition: opacity 0.2s; }
+        .related-links a:hover { opacity: 0.8; }
+        .article-cta {
+            margin-top: 64px; padding: 48px;
+            background: linear-gradient(135deg, rgba(200, 255, 0, 0.08) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border: 1px solid rgba(200, 255, 0, 0.2);
+            border-radius: 12px; text-align: center;
+        }
+        .article-cta h3 {
+            font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 700;
+            color: var(--text-primary); margin: 0 0 12px 0;
+        }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 24px; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--accent); color: var(--bg-primary);
+            padding: 16px 32px; font-family: 'Space Mono', monospace;
+            font-size: 0.875rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            text-decoration: none; border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { background: var(--text-primary); transform: translateY(-2px); }
+        @media (max-width: 768px) {
+            .container { padding: 48px 20px 80px; }
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.375rem; }
+            .meta { flex-wrap: wrap; gap: 16px; }
+            .article-cta { padding: 2rem 1.5rem; }
+            .framework-card { padding: 1.5rem; }
+        }
+        /* NAV */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1.5rem 3rem; display: flex;
+            justify-content: space-between; align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98), rgba(10,10,10,0.8));
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+        .nav-logo-img { height: 32px; width: auto; }
+        .nav-links { display: flex; align-items: center; gap: 0.5rem; list-style: none; }
+        .nav-item { position: relative; }
+        .nav-link {
+            display: flex; align-items: center; gap: 0.3rem;
+            padding: 0.75rem 1rem; font-size: 0.75rem;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: #c8ff00; }
+        .nav-arrow { width: 8px; height: 8px; fill: currentColor; transition: transform 0.3s ease; }
+        .nav-item:hover .nav-arrow { transform: rotate(180deg); }
+        .nav-dropdown {
+            position: absolute; top: 100%; left: 0; min-width: 200px;
+            background: #111111; border: 1px solid #2a2a2a; padding: 0.5rem 0;
+            opacity: 0; visibility: hidden; transform: translateY(10px);
+            transition: all 0.3s ease; list-style: none;
+        }
+        .nav-item:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-link {
+            display: block; padding: 0.6rem 1.25rem; font-size: 0.8rem;
+            color: #a0a0a0; text-decoration: none; transition: all 0.3s ease;
+        }
+        .dropdown-link:hover { background: #1a1a1a; color: #c8ff00; }
+        .nav-cta {
+            background: #c8ff00; color: #0a0a0a;
+            padding: 0.6rem 1.25rem; font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+            margin-left: 1rem; transition: all 0.3s ease; font-family: 'Space Mono', monospace;
+        }
+        .nav-cta:hover { background: #ffffff; }
+        .mobile-toggle {
+            display: none; flex-direction: column; justify-content: center;
+            gap: 5px; width: 32px; height: 32px; padding: 4px;
+            background: none; border: none; cursor: pointer;
+        }
+        .mobile-toggle span { width: 24px; height: 2px; background: #fff; transition: all 0.3s ease; }
+        .mobile-toggle.is-active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-toggle.is-active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.is-active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+        .mobile-menu {
+            display: none; position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #0a0a0a; z-index: 99;
+            padding: 100px 2rem 2rem; overflow-y: auto;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        }
+        .mobile-menu.is-open { opacity: 1; visibility: visible; }
+        .mobile-menu-list { list-style: none; }
+        .mobile-menu-list > li { border-bottom: 1px solid #1a1a1a; }
+        .mobile-menu-link {
+            display: flex; justify-content: space-between; align-items: center;
+            width: 100%; padding: 1.25rem 0; font-size: 1rem; color: #fff;
+            text-decoration: none; background: none; border: none; cursor: pointer;
+            text-align: left; font-family: 'Space Mono', monospace;
+        }
+        .mobile-menu-link:hover { color: #c8ff00; }
+        .mobile-submenu { display: none; list-style: none; padding: 0 0 1rem 1.5rem; }
+        .mobile-submenu.is-open { display: block; }
+        .mobile-submenu a { display: block; padding: 0.6rem 0; font-size: 0.95rem; color: #a0a0a0; text-decoration: none; }
+        .mobile-submenu a:hover { color: #c8ff00; }
+        .mobile-menu-cta {
+            display: block; width: 100%; margin-top: 2rem; padding: 1rem;
+            background: #c8ff00; color: #0a0a0a; text-align: center;
+            font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em;
+            text-transform: uppercase; text-decoration: none;
+        }
+        /* TOC */
+        .toc {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 28px; margin-bottom: 48px;
+        }
+        .toc-title {
+            font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent);
+            margin-top: 0; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .toc-title::before { content: '\00A7'; }
+        .toc-list { list-style: none; counter-reset: toc-counter; padding: 0; margin: 0; }
+        .toc-list li { counter-increment: toc-counter; margin-bottom: 12px; }
+        .toc-list li:last-child { margin-bottom: 0; }
+        .toc-list a {
+            display: flex; align-items: baseline; gap: 12px;
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9375rem; transition: color 0.2s ease;
+        }
+        .toc-list a::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            font-size: 0.75rem; color: var(--text-muted); font-weight: 700;
+        }
+        .toc-list a:hover { color: var(--accent); }
+        section[id] { scroll-margin-top: calc(var(--nav-height, 90px) + 20px); }
+        /* FOOTER */
+        .site-footer {
+            background: #111111; border-top: 1px solid #1a1a1a;
+            padding: 4rem 3rem 2rem; margin-top: 0;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem; margin-bottom: 3rem;
+        }
+        .footer-logo { display: inline-block; text-decoration: none; }
+        .footer-logo-img { height: 32px; width: auto; }
+        .footer-brand p { color: #666; font-size: 0.9rem; margin-top: 1rem; line-height: 1.6; }
+        .footer-col h4 {
+            font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            margin-bottom: 1.25rem; color: #fff;
+        }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col li { margin-bottom: 0.75rem; }
+        .footer-col a { color: #666; text-decoration: none; font-size: 0.85rem; transition: color 0.3s ease; }
+        .footer-col a:hover { color: #c8ff00; }
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-top: 2rem; border-top: 1px solid #1a1a1a;
+            font-size: 0.8rem; color: #666;
+        }
+        .footer-social { display: flex; gap: 1.5rem; }
+        .footer-social a { color: #666; text-decoration: none; transition: color 0.3s ease; }
+        .footer-social a:hover { color: #c8ff00; }
+        .nav-spacer { height: var(--nav-height, 90px); }
+        .breadcrumb {
+            position: relative; z-index: 1;
+            background: var(--bg-subtle);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+        .breadcrumb-container {
+            max-width: 800px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+        }
+        .breadcrumb-link {
+            color: var(--text-muted); text-decoration: none;
+            font-size: 0.8rem; letter-spacing: 0.05em; transition: color 0.2s ease;
+        }
+        .breadcrumb-link:hover { color: var(--accent); }
+        .breadcrumb-sep { color: var(--text-muted); font-size: 0.75rem; }
+        .breadcrumb-current { color: var(--text-secondary); font-size: 0.8rem; letter-spacing: 0.05em; }
+        @media (max-width: 900px) {
+            .site-nav { padding: 1rem 1.5rem; }
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .toc { padding: 20px; }
+        }
+        @media (max-width: 480px) {
+            .breadcrumb-container { gap: 0.5rem; }
+            .breadcrumb-current { display: none; }
+        }
+
+        /* Test Grid */
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem; margin: 2rem 0;
+        }
+        .test-card {
+            background: var(--bg-card); border: 1px solid var(--border-medium);
+            border-radius: 8px; padding: 1.25rem;
+        }
+        .test-card h5 { margin-top: 0; }
+        .test-card p { font-size: 0.75rem; color: var(--text-muted); margin: 0; }
+        .status-tag {
+            display: inline-block; padding: 0.2rem 0.5rem;
+            font-size: 0.6rem; text-transform: uppercase;
+            letter-spacing: 0.05em; border-radius: 3px; margin-bottom: 0.5rem;
+        }
+        .status-winner { background: var(--accent); color: var(--bg-primary); }
+        .status-loser { background: #ff6b4a; color: white; }
+        .status-testing { background: #4a9eff; color: var(--bg-primary); }
+    </style>
+</head>
+<body>
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="nav-logo"><img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="nav-logo-img"></a>
+        <ul class="nav-links">
+            <li class="nav-item"><a href="/growth-os" class="nav-link">Growth OS</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Services <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="/lifecycle" class="dropdown-link">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social" class="dropdown-link">Paid Social</a></li>
+                    <li><a href="/paid-search" class="dropdown-link">Paid Search</a></li>
+                    <li><a href="/creative" class="dropdown-link">Creative System</a></li>
+                    <li><a href="/cro" class="dropdown-link">CRO &amp; Funnels</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/insights" class="nav-link">Case Studies</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="/ecommerce" class="dropdown-link">Ecommerce &amp; DTC</a></li>
+                    <li><a href="/lead-gen" class="dropdown-link">Lead Generation</a></li>
+                    <li><a href="/enterprise" class="dropdown-link">Enterprise</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/labs" class="nav-link">Labs</a></li>
+        </ul>
+        <a href="/partner" class="nav-cta">Partner With Us</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <ul class="mobile-menu-list">
+            <li><a href="/" class="mobile-menu-link">Home</a></li>
+            <li><a href="/growth-os" class="mobile-menu-link">Growth OS</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Services <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/lifecycle">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social">Paid Social</a></li>
+                    <li><a href="/paid-search">Paid Search</a></li>
+                    <li><a href="/creative">Creative System</a></li>
+                    <li><a href="/cro">CRO &amp; Funnels</a></li>
+                </ul>
+            </li>
+            <li><a href="/insights" class="mobile-menu-link">Case Studies</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/ecommerce">Ecommerce &amp; DTC</a></li>
+                    <li><a href="/lead-gen">Lead Generation</a></li>
+                    <li><a href="/enterprise">Enterprise</a></li>
+                </ul>
+            </li>
+            <li><a href="/labs" class="mobile-menu-link">Labs</a></li>
+            <li style="border:none;padding-top:1.5rem;"><a href="/partner" class="mobile-menu-cta">Partner With Us</a></li>
+        </ul>
+    </div>
+    <div class="nav-spacer"></div>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-sep">&rarr;</span>
+            <a href="/insights" class="breadcrumb-link">Insights</a>
+            <span class="breadcrumb-sep">&rarr;</span>
+            <span class="breadcrumb-current">Creative Testing Framework</span>
+        </div>
+    </nav>
+
+    <main>
+        <article class="container">
+            <header class="article-header">
+                <div class="brand">Wavy Studios</div>
+                <h1>The Creative Testing Framework We Run Every Week</h1>
+                <p class="subtitle">How we structure tests, set kill thresholds, and iterate winners into new variations systematically. No gut feelings -- just data-driven creative decisions.</p>
+                <div class="meta">
+                    <span>11 Minute Read</span>
+                    <span>Framework</span>
+                    <span>Creative Testing</span>
+                </div>
+            </header>
+
+            <nav class="toc" aria-label="Table of contents">
+                <h2 class="toc-title">In This Article</h2>
+                <ol class="toc-list">
+                    <li><a href="#mindset-shift">The Testing Mindset Shift</a></li>
+                    <li><a href="#weekly-cadence">The Weekly Testing Cadence</a></li>
+                    <li><a href="#test-structure">The Test Structure</a></li>
+                    <li><a href="#kill-scale">Kill and Scale Thresholds</a></li>
+                    <li><a href="#test-types">Test Types We Run</a></li>
+                    <li><a href="#learning-log">The Learning Log</a></li>
+                    <li><a href="#iteration-protocol">Iteration Protocol</a></li>
+                    <li><a href="#common-mistakes">Common Testing Mistakes</a></li>
+                    <li><a href="#real-test-week">Example: A Real Test Week</a></li>
+                    <li><a href="#checklist">Your Testing Framework Checklist</a></li>
+                </ol>
+            </nav>
+
+            <section id="intro">
+                <p>Most creative testing is chaos disguised as process. Teams throw ads at the wall, wait for "enough data," argue about what the results mean, and eventually pick winners based on whoever has the loudest opinion.</p>
+                <p>We've run thousands of creative tests. Along the way, we built a framework that removes the guesswork -- clear rules for when to kill, when to scale, and when to iterate. Here's exactly how it works.</p>
+            </section>
+
+            <section id="mindset-shift">
+                <h2>The Testing Mindset Shift</h2>
+                <p>Before diving into the framework, you need to internalize one concept: <strong>testing is about learning velocity, not finding winners.</strong></p>
+                <p>Most teams optimize for "finding the winning ad." This leads to running fewer, bigger tests and waiting too long to make decisions. The result? Slow learning, stale creative, and missed opportunities.</p>
+                <p>We optimize for learning velocity. The faster we can run tests, gather data, and extract insights, the faster we improve. Winners emerge as a byproduct of rapid iteration -- not from trying to find them directly.</p>
+                <div class="callout-box">
+                    <p><strong>The Math:</strong> If your win rate is 15% (typical for good creative teams), running 20 tests finds ~3 winners. Running 50 tests finds ~7-8. Volume beats precision every time.</p>
+                </div>
+            </section>
+
+            <section id="weekly-cadence">
+                <h2>The Weekly Testing Cadence</h2>
+                <p>Everything runs on a weekly cycle. This creates urgency, forces decisions, and prevents tests from lingering indefinitely.</p>
+                <h3>Monday: Review and Plan</h3>
+                <ul>
+                    <li>Review all active tests from last week</li>
+                    <li>Categorize results: Winner, Loser, Inconclusive</li>
+                    <li>Extract learnings from each test</li>
+                    <li>Plan this week's test slate</li>
+                </ul>
+                <h3>Tuesday-Wednesday: Brief and Produce</h3>
+                <ul>
+                    <li>Write briefs for new tests</li>
+                    <li>Production team executes</li>
+                    <li>QA and finalize assets</li>
+                </ul>
+                <h3>Thursday: Launch</h3>
+                <ul>
+                    <li>New creative goes live</li>
+                    <li>Proper UTMs and naming conventions</li>
+                    <li>Budget allocation per test structure</li>
+                </ul>
+                <h3>Friday-Sunday: Gather Data</h3>
+                <ul>
+                    <li>Tests run and accumulate data</li>
+                    <li>No premature decisions</li>
+                    <li>Weekend traffic patterns included</li>
+                </ul>
+            </section>
+
+            <section id="test-structure">
+                <h2>The Test Structure</h2>
+                <p>We use a specific structure for every test that ensures clean data and clear learnings:</p>
+                <div class="framework-card">
+                    <h4>Anatomy of a Creative Test</h4>
+                    <ul>
+                        <li><strong>Hypothesis:</strong> What we're testing and why we think it might work</li>
+                        <li><strong>Variable:</strong> The ONE thing that's different (hook, format, angle, CTA, etc.)</li>
+                        <li><strong>Control:</strong> What we're testing against (existing winner or baseline)</li>
+                        <li><strong>Success Metric:</strong> Primary KPI we're optimizing for</li>
+                        <li><strong>Kill Threshold:</strong> At what point we declare it a loser</li>
+                        <li><strong>Scale Threshold:</strong> At what point we declare it a winner</li>
+                        <li><strong>Minimum Spend:</strong> Budget required before making any decision</li>
+                    </ul>
+                </div>
+                <p><strong>The golden rule: Test ONE variable at a time.</strong> If you change the hook AND the CTA AND the format, you won't know what caused the result. Discipline in isolation leads to compounding learnings.</p>
+            </section>
+
+            <section id="kill-scale">
+                <h2>Kill and Scale Thresholds</h2>
+                <p>This is where most teams fail. They either kill too early (missing potential winners) or wait too long (wasting budget on losers). We use specific thresholds based on statistical confidence.</p>
+                <h3>The Kill Threshold</h3>
+                <p>A creative is killed when:</p>
+                <ol>
+                    <li>It has spent the minimum test budget (typically $100-200)</li>
+                    <li>AND it's performing <span class="stat-highlight">30%+ worse</span> than control on the primary metric</li>
+                    <li>AND we have at least 1,000 impressions</li>
+                </ol>
+                <p>If a creative is clearly underperforming at minimum spend, there's no reason to keep feeding it budget. Cut it and redirect spend to tests with potential.</p>
+                <h3>The Scale Threshold</h3>
+                <p>A creative is scaled when:</p>
+                <ol>
+                    <li>It has spent 2x the minimum test budget</li>
+                    <li>AND it's performing <span class="stat-highlight">15%+ better</span> than control on the primary metric</li>
+                    <li>AND we have at least 2,500 impressions</li>
+                    <li>AND the result is statistically significant (p &lt; 0.1)</li>
+                </ol>
+                <p>Statistical significance matters. A 20% improvement with 500 impressions means nothing -- it's likely noise. We use simple significance calculators to validate before scaling.</p>
+                <h3>The Inconclusive Zone</h3>
+                <p>What about tests that don't clearly win or lose? If a creative is within +/-15% of control after 2x minimum spend:</p>
+                <ul>
+                    <li><strong>If it's a new angle:</strong> Keep running with 50% more budget. New angles deserve more patience.</li>
+                    <li><strong>If it's an iteration:</strong> Kill it. If an iteration can't beat control clearly, it's not worth the complexity.</li>
+                </ul>
+            </section>
+
+            <section id="test-types">
+                <h2>Test Types We Run</h2>
+                <p>Not all tests are created equal. We categorize tests by what we're trying to learn:</p>
+                <div class="test-grid">
+                    <div class="test-card">
+                        <span class="status-tag status-testing">High Risk</span>
+                        <h5>Angle Tests</h5>
+                        <p>Testing entirely new messaging angles or positioning. Higher variance, bigger potential upside.</p>
+                    </div>
+                    <div class="test-card">
+                        <span class="status-tag status-testing">Medium Risk</span>
+                        <h5>Hook Tests</h5>
+                        <p>Same angle, different hooks. Testing the first 3 seconds / first line that stops the scroll.</p>
+                    </div>
+                    <div class="test-card">
+                        <span class="status-tag status-testing">Low Risk</span>
+                        <h5>Format Tests</h5>
+                        <p>Same concept, different format. Static vs video, square vs vertical, long vs short.</p>
+                    </div>
+                    <div class="test-card">
+                        <span class="status-tag status-testing">Low Risk</span>
+                        <h5>Element Tests</h5>
+                        <p>Same creative, one element changed. CTA, social proof placement, color, text overlay.</p>
+                    </div>
+                </div>
+                <p>We maintain a ratio: <strong>30% angle tests, 40% hook tests, 30% format/element tests.</strong> This balances finding net-new winners with optimizing existing ones.</p>
+            </section>
+
+            <section id="learning-log">
+                <h2>The Learning Log</h2>
+                <p>Tests are worthless if you don't capture learnings. Every test, win or lose, gets documented:</p>
+                <div class="framework-card">
+                    <h4>Learning Log Template</h4>
+                    <ul>
+                        <li><strong>Test Name:</strong> [Descriptive name]</li>
+                        <li><strong>Hypothesis:</strong> [What we thought would happen]</li>
+                        <li><strong>Result:</strong> Winner / Loser / Inconclusive</li>
+                        <li><strong>Data:</strong> [Key metrics vs control]</li>
+                        <li><strong>Learning:</strong> [What this teaches us]</li>
+                        <li><strong>Next Action:</strong> [What we'll do with this insight]</li>
+                    </ul>
+                </div>
+                <p>Losers are often more valuable than winners. A losing test that tells you "this audience doesn't respond to discount messaging" saves you from repeating that mistake across 10 future tests.</p>
+            </section>
+
+            <section id="iteration-protocol">
+                <h2>Iteration Protocol</h2>
+                <p>When a test wins, we don't just scale it -- we iterate on it. The goal is to find the ceiling of the concept.</p>
+                <h3>Iteration Sequence</h3>
+                <ol>
+                    <li><strong>Hook Variations:</strong> Test 3-5 new hooks on the winning concept</li>
+                    <li><strong>Format Expansion:</strong> Adapt to formats you haven't tested (video to static, static to carousel)</li>
+                    <li><strong>CTA Tests:</strong> Try different calls-to-action</li>
+                    <li><strong>Length Tests:</strong> Shorter and longer versions</li>
+                    <li><strong>Talent/Creator Swap:</strong> Same script, different person</li>
+                </ol>
+                <p>A single winning angle typically spawns 10-15 iterations before it's fully exploited. Most teams stop at 2-3.</p>
+            </section>
+
+            <section id="common-mistakes">
+                <h2>Common Testing Mistakes</h2>
+                <h3>Mistake #1: Testing Too Many Variables</h3>
+                <p>If you change 3 things and the ad wins, you don't know which change caused it. Isolate variables ruthlessly.</p>
+                <h3>Mistake #2: Killing Too Early</h3>
+                <p>$50 of spend tells you almost nothing. Respect minimum spend thresholds before making decisions.</p>
+                <h3>Mistake #3: Ignoring Statistical Significance</h3>
+                <p>"It's up 25%!" means nothing with 200 impressions. Use a significance calculator -- it takes 10 seconds.</p>
+                <h3>Mistake #4: Not Documenting Learnings</h3>
+                <p>Running 50 tests and forgetting what you learned is worse than running 10 tests and capturing every insight.</p>
+                <h3>Mistake #5: Testing What Doesn't Matter</h3>
+                <p>Button color doesn't move the needle. Hook and angle do. Focus your testing energy on high-impact variables.</p>
+            </section>
+
+            <section id="real-test-week">
+                <h2>Example: A Real Test Week</h2>
+                <p>Here's what an actual test week looks like for one of our fitness apparel accounts:</p>
+                <div class="test-grid">
+                    <div class="test-card">
+                        <span class="status-tag status-winner">Winner</span>
+                        <h5>Test A: Pain Point Hook</h5>
+                        <p>"Tired of leggings that slide down?" vs control. +34% CTR, +18% conversion. Scale.</p>
+                    </div>
+                    <div class="test-card">
+                        <span class="status-tag status-loser">Loser</span>
+                        <h5>Test B: Athlete Testimonial</h5>
+                        <p>Pro athlete endorsement vs UGC. -22% CTR despite higher production. Kill.</p>
+                    </div>
+                    <div class="test-card">
+                        <span class="status-tag status-testing">Inconclusive</span>
+                        <h5>Test C: Carousel Format</h5>
+                        <p>Same creative as carousel vs single image. +8% CTR but within noise. Extend test.</p>
+                    </div>
+                    <div class="test-card">
+                        <span class="status-tag status-winner">Winner</span>
+                        <h5>Test D: Urgency CTA</h5>
+                        <p>"Shop now" vs "Get yours before they sell out." +12% conversion. Scale.</p>
+                    </div>
+                </div>
+                <p>Two winners, one loser, one needs more data. The loser taught us that "polished" doesn't outperform "authentic" for this audience. That learning shaped 6 future tests.</p>
+            </section>
+
+            <section id="checklist">
+                <h2>Your Testing Framework Checklist</h2>
+                <ol>
+                    <li>Weekly testing cadence established</li>
+                    <li>Minimum spend thresholds defined</li>
+                    <li>Kill thresholds documented (30% worse than control)</li>
+                    <li>Scale thresholds documented (15% better with significance)</li>
+                    <li>Test structure template in use</li>
+                    <li>Learning log maintained</li>
+                    <li>Iteration protocol for winners</li>
+                    <li>Test mix ratio defined (angles/hooks/elements)</li>
+                </ol>
+                <p>The framework isn't complicated. Discipline in execution is what separates teams that compound learnings from teams that spin their wheels.</p>
+            </section>
+
+            <div class="related-links">
+                <h4>Related Reading</h4>
+                <ul>
+                    <li><a href="/insights/creative-brief-template">The Creative Brief Template We Use for Every Asset &rarr;</a></li>
+                    <li><a href="/insights/120-creatives-per-month">How We Produce 120+ Creatives Per Month &rarr;</a></li>
+                    <li><a href="/insights/ugc-vs-polished">UGC vs. Polished: When to Use What &rarr;</a></li>
+                </ul>
+            </div>
+
+            <div class="article-cta">
+                <h3>Want a Testing Framework Built for Your Brand?</h3>
+                <p>We build creative testing systems that generate compounding learnings week over week. Let's talk about your creative strategy.</p>
+                <a href="/partner" class="btn-primary">Book a Creative Audit &rarr;</a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo"><img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="footer-logo-img"></a>
+                    <p>Growth systems, not channel hacks. We build repeatable operating systems that scale your revenue profitably.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/growth-os">Growth OS</a></li>
+                        <li><a href="/paid-social">Paid Social</a></li>
+                        <li><a href="/paid-search">Paid Search</a></li>
+                        <li><a href="/lifecycle">Lifecycle</a></li>
+                        <li><a href="/creative">Creative</a></li>
+                        <li><a href="/cro">CRO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Who We Help</h4>
+                    <ul>
+                        <li><a href="/ecommerce">Ecommerce</a></li>
+                        <li><a href="/lead-gen">Lead Gen</a></li>
+                        <li><a href="/enterprise">Enterprise</a></li>
+                        <li><a href="/insights">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/labs">Labs</a></li>
+                        <li><a href="/insights">Insights</a></li>
+                        <li><a href="/partner">Partner</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wavy Studios. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">Li</a>
+                    <a href="#" aria-label="X (Twitter)">X</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const mobileToggle=document.getElementById('mobileToggle');
+        const mobileMenu=document.getElementById('mobileMenu');
+        if(mobileToggle&&mobileMenu){mobileToggle.addEventListener('click',()=>{const o=mobileMenu.classList.contains('is-open');mobileToggle.classList.toggle('is-active');mobileMenu.classList.toggle('is-open');mobileToggle.setAttribute('aria-expanded',!o);document.body.style.overflow=o?'':'hidden';});}
+        document.querySelectorAll('.mobile-menu-toggle-sub').forEach(b=>{b.addEventListener('click',()=>{const s=b.nextElementSibling;if(s){s.classList.toggle('is-open');b.classList.toggle('is-open');}});});
+        document.querySelectorAll('.mobile-menu a').forEach(l=>{l.addEventListener('click',()=>{if(mobileToggle&&mobileMenu){mobileToggle.classList.remove('is-active');mobileMenu.classList.remove('is-open');document.body.style.overflow='';}});});
+        document.querySelectorAll('.toc-list a').forEach(l=>{l.addEventListener('click',(e)=>{e.preventDefault();const t=document.querySelector(l.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});});
+        function setNavHeight(){const n=document.querySelector('.site-nav');if(n)document.documentElement.style.setProperty('--nav-height',n.offsetHeight+'px');}
+        setNavHeight();window.addEventListener('resize',setNavHeight);
+    </script>
+</body>
+</html>

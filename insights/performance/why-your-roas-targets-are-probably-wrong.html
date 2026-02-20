@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Your ROAS Targets Are Probably Wrong | Wavy Studios</title>
+    <meta name="description" content="Learn why most ecommerce ROAS targets are financially flawed. The math behind LTV, contribution margin, and blended vs platform metrics that actually drives profit.">
+    <meta name="keywords" content="ROAS targets, return on ad spend, contribution margin, LTV, blended ROAS, platform ROAS, break-even ROAS, ecommerce profitability, paid media metrics">
+    <meta name="author" content="Wavy Studios">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Why Your ROAS Targets Are Probably Wrong | Wavy Studios">
+    <meta property="og:description" content="The math behind setting ROAS targets that account for LTV, contribution margin, and blended vs platform metrics. Most brands optimize for the wrong number.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wavystudios.com/insights/roas-targets-wrong">
+    <meta property="og:image" content="https://wavystudios.com/assets/images/insights/roas-targets-og.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why Your ROAS Targets Are Probably Wrong">
+    <meta name="twitter:description" content="The math behind LTV, contribution margin, and blended vs platform metrics that actually drives profit.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://wavystudios.com/insights/roas-targets-wrong">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Why Your ROAS Targets Are Probably Wrong",
+        "description": "Learn why most ecommerce ROAS targets are financially flawed. The math behind LTV, contribution margin, and blended vs platform metrics.",
+        "author": {"@type": "Organization", "name": "Wavy Studios"},
+        "publisher": {"@type": "Organization", "name": "Wavy Studios", "logo": {"@type": "ImageObject", "url": "https://wavystudios.com/assets/wavystudios-logo.png"}},
+        "datePublished": "2026-02-19",
+        "dateModified": "2026-02-19"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-card: #111111;
+            --bg-subtle: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #c8ff00;
+            --accent-dim: rgba(200, 255, 0, 0.15);
+            --border: #222222;
+            --border-medium: #2a2a2a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px 24px 120px;
+        }
+
+        /* Article Header */
+        .article-header { margin-bottom: 56px; text-align: center; }
+        .brand {
+            font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700;
+            letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--accent); margin-bottom: 24px;
+        }
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800; line-height: 1.15;
+            color: var(--text-primary);
+            margin-bottom: 20px; letter-spacing: -0.02em;
+        }
+        h1 .highlight { color: var(--accent); }
+        .subtitle {
+            font-size: 1.1rem; color: var(--text-secondary);
+            max-width: 650px; margin: 0 auto 32px; line-height: 1.8;
+        }
+        .meta {
+            font-size: 0.75rem; color: var(--text-muted);
+            text-transform: uppercase; letter-spacing: 0.1em;
+            display: flex; justify-content: center; gap: 32px;
+        }
+
+        /* Typography */
+        h2 {
+            font-family: 'Syne', sans-serif; font-size: 1.75rem; font-weight: 700;
+            color: var(--text-primary); margin-top: 80px; margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+        h3 {
+            font-family: 'Syne', sans-serif; font-size: 1.25rem; font-weight: 600;
+            color: var(--accent); margin-top: 40px; margin-bottom: 16px;
+        }
+        h4 {
+            font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 600;
+            color: var(--text-primary); margin-top: 24px; margin-bottom: 12px;
+        }
+        p { margin-bottom: 24px; }
+        strong { color: var(--text-primary); font-weight: 700; }
+
+        .pull-quote {
+            font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 600;
+            color: var(--text-primary); border-left: 4px solid var(--accent);
+            padding-left: 1.5rem; margin: 2.5rem 0; line-height: 1.4;
+        }
+
+        .formula-block {
+            background: var(--bg-card); border: 1px solid var(--border-medium);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem; margin: 2rem 0;
+            font-size: 1rem; color: var(--accent);
+        }
+
+        .callout-box {
+            background: rgba(200, 255, 0, 0.05);
+            border-left: 3px solid var(--accent);
+            padding: 1.5rem; margin: 2rem 0;
+        }
+        .callout-box p { margin: 0; }
+
+        .data-table {
+            width: 100%; border-collapse: collapse; margin: 2rem 0;
+        }
+        .data-table th, .data-table td {
+            padding: 1rem; text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-table th {
+            background: var(--bg-card); color: var(--text-muted);
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
+        }
+        .data-table td { color: var(--text-secondary); font-size: 0.9rem; }
+
+        ul, ol { margin: 1.5rem 0; padding-left: 1.5rem; }
+        li { margin-bottom: 0.75rem; }
+
+        .article-image {
+            margin: 2.5rem 0; border-radius: 8px;
+            overflow: hidden; border: 1px solid var(--border-medium);
+        }
+        .article-image img { width: 100%; height: auto; display: block; }
+
+        /* Related links */
+        .related-links {
+            margin-top: 64px; padding: 32px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+        .related-links h4 {
+            font-family: 'Syne', sans-serif; font-size: 0.875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--text-muted); margin-bottom: 20px; margin-top: 0;
+        }
+        .related-links ul { list-style: none; padding: 0; margin: 0; }
+        .related-links li { margin-bottom: 12px; }
+        .related-links a { color: var(--accent); text-decoration: none; font-weight: 700; transition: opacity 0.2s; }
+        .related-links a:hover { opacity: 0.8; }
+
+        /* Article CTA */
+        .article-cta {
+            margin-top: 64px; padding: 48px;
+            background: linear-gradient(135deg, rgba(200, 255, 0, 0.08) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border: 1px solid rgba(200, 255, 0, 0.2);
+            border-radius: 12px; text-align: center;
+        }
+        .article-cta h3 {
+            font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 700;
+            color: var(--text-primary); margin: 0 0 12px 0;
+        }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 24px; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--accent); color: var(--bg-primary);
+            padding: 16px 32px; font-family: 'Space Mono', monospace;
+            font-size: 0.875rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            text-decoration: none; border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { background: var(--text-primary); transform: translateY(-2px); }
+
+        @media (max-width: 768px) {
+            .container { padding: 48px 20px 80px; }
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.375rem; }
+            .pull-quote { font-size: 1.15rem; }
+            .meta { flex-wrap: wrap; gap: 16px; }
+            .article-cta { padding: 2rem 1.5rem; }
+        }
+
+        /* ========== NAVIGATION ========== */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            padding: 1.5rem 3rem; display: flex;
+            justify-content: space-between; align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98), rgba(10,10,10,0.8));
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+        .nav-logo-img { height: 32px; width: auto; }
+        .nav-links { display: flex; align-items: center; gap: 0.5rem; list-style: none; }
+        .nav-item { position: relative; }
+        .nav-link {
+            display: flex; align-items: center; gap: 0.3rem;
+            padding: 0.75rem 1rem; font-size: 0.75rem;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: #c8ff00; }
+        .nav-arrow { width: 8px; height: 8px; fill: currentColor; transition: transform 0.3s ease; }
+        .nav-item:hover .nav-arrow { transform: rotate(180deg); }
+        .nav-dropdown {
+            position: absolute; top: 100%; left: 0; min-width: 200px;
+            background: #111111; border: 1px solid #2a2a2a; padding: 0.5rem 0;
+            opacity: 0; visibility: hidden; transform: translateY(10px);
+            transition: all 0.3s ease; list-style: none;
+        }
+        .nav-item:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-link {
+            display: block; padding: 0.6rem 1.25rem; font-size: 0.8rem;
+            color: #a0a0a0; text-decoration: none; transition: all 0.3s ease;
+        }
+        .dropdown-link:hover { background: #1a1a1a; color: #c8ff00; }
+        .nav-cta {
+            background: #c8ff00; color: #0a0a0a;
+            padding: 0.6rem 1.25rem; font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+            margin-left: 1rem; transition: all 0.3s ease; font-family: 'Space Mono', monospace;
+        }
+        .nav-cta:hover { background: #ffffff; }
+
+        .mobile-toggle {
+            display: none; flex-direction: column; justify-content: center;
+            gap: 5px; width: 32px; height: 32px; padding: 4px;
+            background: none; border: none; cursor: pointer;
+        }
+        .mobile-toggle span { width: 24px; height: 2px; background: #fff; transition: all 0.3s ease; }
+        .mobile-toggle.is-active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-toggle.is-active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.is-active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .mobile-menu {
+            display: none; position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #0a0a0a; z-index: 99;
+            padding: 100px 2rem 2rem; overflow-y: auto;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        }
+        .mobile-menu.is-open { opacity: 1; visibility: visible; }
+        .mobile-menu-list { list-style: none; }
+        .mobile-menu-list > li { border-bottom: 1px solid #1a1a1a; }
+        .mobile-menu-link {
+            display: flex; justify-content: space-between; align-items: center;
+            width: 100%; padding: 1.25rem 0; font-size: 1rem; color: #fff;
+            text-decoration: none; background: none; border: none; cursor: pointer;
+            text-align: left; font-family: 'Space Mono', monospace;
+        }
+        .mobile-menu-link:hover { color: #c8ff00; }
+        .mobile-submenu { display: none; list-style: none; padding: 0 0 1rem 1.5rem; }
+        .mobile-submenu.is-open { display: block; }
+        .mobile-submenu a { display: block; padding: 0.6rem 0; font-size: 0.95rem; color: #a0a0a0; text-decoration: none; }
+        .mobile-submenu a:hover { color: #c8ff00; }
+        .mobile-menu-cta {
+            display: block; width: 100%; margin-top: 2rem; padding: 1rem;
+            background: #c8ff00; color: #0a0a0a; text-align: center;
+            font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em;
+            text-transform: uppercase; text-decoration: none;
+        }
+
+        /* ========== TOC ========== */
+        .toc {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 28px; margin-bottom: 48px;
+        }
+        .toc-title {
+            font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent);
+            margin-top: 0; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .toc-title::before { content: '\00A7'; }
+        .toc-list { list-style: none; counter-reset: toc-counter; padding: 0; margin: 0; }
+        .toc-list li { counter-increment: toc-counter; margin-bottom: 12px; }
+        .toc-list li:last-child { margin-bottom: 0; }
+        .toc-list a {
+            display: flex; align-items: baseline; gap: 12px;
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9375rem; transition: color 0.2s ease;
+        }
+        .toc-list a::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            font-size: 0.75rem; color: var(--text-muted); font-weight: 700;
+        }
+        .toc-list a:hover { color: var(--accent); }
+
+        section[id] { scroll-margin-top: calc(var(--nav-height, 90px) + 20px); }
+
+        /* ========== FOOTER ========== */
+        .site-footer {
+            background: #111111; border-top: 1px solid #1a1a1a;
+            padding: 4rem 3rem 2rem; margin-top: 0;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem; margin-bottom: 3rem;
+        }
+        .footer-logo { display: inline-block; text-decoration: none; }
+        .footer-logo-img { height: 32px; width: auto; }
+        .footer-brand p { color: #666; font-size: 0.9rem; margin-top: 1rem; line-height: 1.6; }
+        .footer-col h4 {
+            font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            margin-bottom: 1.25rem; color: #fff;
+        }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col li { margin-bottom: 0.75rem; }
+        .footer-col a { color: #666; text-decoration: none; font-size: 0.85rem; transition: color 0.3s ease; }
+        .footer-col a:hover { color: #c8ff00; }
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-top: 2rem; border-top: 1px solid #1a1a1a;
+            font-size: 0.8rem; color: #666;
+        }
+        .footer-social { display: flex; gap: 1.5rem; }
+        .footer-social a { color: #666; text-decoration: none; transition: color 0.3s ease; }
+        .footer-social a:hover { color: #c8ff00; }
+
+        .nav-spacer { height: var(--nav-height, 90px); }
+
+        .breadcrumb {
+            position: relative; z-index: 1;
+            background: var(--bg-subtle);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+        .breadcrumb-container {
+            max-width: 800px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+        }
+        .breadcrumb-link {
+            color: var(--text-muted); text-decoration: none;
+            font-size: 0.8rem; letter-spacing: 0.05em; transition: color 0.2s ease;
+        }
+        .breadcrumb-link:hover { color: var(--accent); }
+        .breadcrumb-sep { color: var(--text-muted); font-size: 0.75rem; }
+        .breadcrumb-current { color: var(--text-secondary); font-size: 0.8rem; letter-spacing: 0.05em; }
+
+        @media (max-width: 900px) {
+            .site-nav { padding: 1rem 1.5rem; }
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .toc { padding: 20px; }
+        }
+        @media (max-width: 480px) {
+            .breadcrumb-container { gap: 0.5rem; }
+            .breadcrumb-current { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="nav-logo">
+            <img src="/assets/wavystudios-logo.png" alt="Wavy Studios" class="nav-logo-img">
+        </a>
+        <ul class="nav-links">
+            <li class="nav-item"><a href="/growth-os" class="nav-link">Growth OS</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Services <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="/lifecycle" class="dropdown-link">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social" class="dropdown-link">Paid Social</a></li>
+                    <li><a href="/paid-search" class="dropdown-link">Paid Search</a></li>
+                    <li><a href="/creative" class="dropdown-link">Creative System</a></li>
+                    <li><a href="/cro" class="dropdown-link">CRO &amp; Funnels</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/insights" class="nav-link">Case Studies</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="/ecommerce" class="dropdown-link">Ecommerce &amp; DTC</a></li>
+                    <li><a href="/lead-gen" class="dropdown-link">Lead Generation</a></li>
+                    <li><a href="/enterprise" class="dropdown-link">Enterprise</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/labs" class="nav-link">Labs</a></li>
+        </ul>
+        <a href="/partner" class="nav-cta">Partner With Us</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <ul class="mobile-menu-list">
+            <li><a href="/" class="mobile-menu-link">Home</a></li>
+            <li><a href="/growth-os" class="mobile-menu-link">Growth OS</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Services <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/lifecycle">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social">Paid Social</a></li>
+                    <li><a href="/paid-search">Paid Search</a></li>
+                    <li><a href="/creative">Creative System</a></li>
+                    <li><a href="/cro">CRO &amp; Funnels</a></li>
+                </ul>
+            </li>
+            <li><a href="/insights" class="mobile-menu-link">Case Studies</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/ecommerce">Ecommerce &amp; DTC</a></li>
+                    <li><a href="/lead-gen">Lead Generation</a></li>
+                    <li><a href="/enterprise">Enterprise</a></li>
+                </ul>
+            </li>
+            <li><a href="/labs" class="mobile-menu-link">Labs</a></li>
+            <li style="border:none;padding-top:1.5rem;"><a href="/partner" class="mobile-menu-cta">Partner With Us</a></li>
+        </ul>
+    </div>
+
+    <div class="nav-spacer"></div>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-sep">&rarr;</span>
+            <a href="/insights" class="breadcrumb-link">Insights</a>
+            <span class="breadcrumb-sep">&rarr;</span>
+            <span class="breadcrumb-current">ROAS Targets</span>
+        </div>
+    </nav>
+
+    <main>
+        <article class="container">
+            <header class="article-header">
+                <div class="brand">Wavy Studios</div>
+                <h1>Why Your <span class="highlight">ROAS Targets</span> Are Probably Wrong</h1>
+                <p class="subtitle">The math behind setting targets that account for LTV, contribution margin, and blended vs platform metrics. Most brands are optimizing for the wrong number.</p>
+                <div class="meta">
+                    <span>10 Minute Read</span>
+                    <span>Deep Dive</span>
+                    <span>Performance Marketing</span>
+                </div>
+            </header>
+
+            <nav class="toc" aria-label="Table of contents">
+                <h2 class="toc-title">In This Article</h2>
+                <ol class="toc-list">
+                    <li><a href="#bankrupt-profitable">A 3x ROAS Can Bankrupt You. A 1.8x Can Be Wildly Profitable.</a></li>
+                    <li><a href="#arbitrary-targets">Why Most ROAS Targets Are Arbitrary</a></li>
+                    <li><a href="#real-math">The Math Behind a Real ROAS Target</a></li>
+                    <li><a href="#blended-vs-platform">Blended ROAS vs Platform ROAS: The Attribution Trap</a></li>
+                    <li><a href="#ltv-changes">How LTV Changes Your ROAS Target</a></li>
+                    <li><a href="#lower-smarter">When Lower ROAS Is Actually Smarter</a></li>
+                    <li><a href="#practical-framework">Practical Framework: How to Set Your Real ROAS Target</a></li>
+                    <li><a href="#bottom-line">The Bottom Line</a></li>
+                </ol>
+            </nav>
+
+            <section id="bankrupt-profitable">
+                <h2>A 3x ROAS Can Bankrupt You. A 1.8x ROAS Can Be Wildly Profitable.</h2>
+
+                <p>Most performance marketers have their ROAS targets backwards.</p>
+
+                <p>They optimize for a number that looks good in a dashboard while bleeding money in the actual P&amp;L. Or worse, they throttle spend on campaigns that are quietly building a profitable customer base because the platform metric doesn't clear some arbitrary threshold.</p>
+
+                <p class="pull-quote">The problem isn't your media buying. It's your target-setting.</p>
+
+                <p>ROAS targets feel mathematical. They feel precise. But in most ecommerce organizations, they're set based on vibes: what the CEO heard at a conference, what a competitor mentioned on a podcast, or what "feels safe" after a bad quarter.</p>
+
+                <p>This article breaks down the actual financial mechanics behind setting ROAS targets that drive profit, not vanity metrics. We'll cover contribution margin, LTV, blended versus platform ROAS, and the payback period logic that separates financially literate growth teams from ad managers chasing dashboard numbers.</p>
+
+                <p><strong>If you're managing paid media for an ecommerce brand and you haven't modeled your break-even ROAS from first principles, you're flying blind.</strong></p>
+            </section>
+
+            <section id="arbitrary-targets">
+                <h2>Why Most ROAS Targets Are Arbitrary</h2>
+
+                <p>Here's how most brands set their ROAS target:</p>
+
+                <ol>
+                    <li><strong>The "feels safe" method:</strong> Pick a round number that sounds profitable. 3x? 4x? Sure.</li>
+                    <li><strong>The competitor benchmark:</strong> Copy what a similar brand claims to hit.</li>
+                    <li><strong>The platform default:</strong> Accept whatever Meta or Google's "good performance" threshold suggests.</li>
+                    <li><strong>The historical anchor:</strong> Use last year's number because changing it feels risky.</li>
+                </ol>
+
+                <p>None of these methods account for the financial reality of your specific business.</p>
+
+                <h3>Here's what gets ignored:</h3>
+
+                <ul>
+                    <li><strong>Contribution margin varies wildly.</strong> A 3x ROAS for a brand with 70% gross margin is very different from a 3x ROAS for a brand with 35% gross margin. Same ROAS, completely different profitability.</li>
+                    <li><strong>Platform ROAS does not equal actual ROAS.</strong> Attribution models inflate results. The number you see in Ads Manager is not the number hitting your bank account.</li>
+                    <li><strong>Retention economics change everything.</strong> If your customers come back, a "low" first-purchase ROAS can still be wildly profitable over 12 months.</li>
+                    <li><strong>Cash flow timing matters.</strong> A profitable ROAS on paper can still create cash crunches if payback periods extend beyond your runway.</li>
+                </ul>
+
+                <p><strong>The second-order consequence:</strong> Brands set targets too high and strangle growth. Or they set targets too low and bleed cash while celebrating "scale."</p>
+
+                <p>Both failures stem from the same root cause: treating ROAS as a standalone metric rather than a financial constraint within a broader model.</p>
+
+                <div class="article-image">
+                    <img src="/assets/images/roas-targets-image-1.png" alt="Platform Dashboard vs Actual P and L Impact" loading="lazy">
+                </div>
+            </section>
+
+            <section id="real-math">
+                <h2>The Math Behind a Real ROAS Target</h2>
+
+                <p>Let's build a ROAS target from financial first principles.</p>
+
+                <div class="formula-block">
+                    Break-even ROAS = 1 / Contribution Margin %
+                </div>
+
+                <p>Contribution margin is what's left after you subtract all variable costs from revenue. Not gross margin, contribution margin.</p>
+
+                <h3>The full waterfall:</h3>
+
+                <table class="data-table">
+                    <tr>
+                        <th>Line Item</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr><td>Revenue per order</td><td>$100</td></tr>
+                    <tr><td>COGS</td><td>$40</td></tr>
+                    <tr><td>= Gross profit</td><td>$60</td></tr>
+                    <tr><td>Shipping</td><td>$8</td></tr>
+                    <tr><td>Payment processing (3%)</td><td>$3</td></tr>
+                    <tr><td>Returns allowance (5%)</td><td>$5</td></tr>
+                    <tr><td>Variable fulfillment</td><td>$4</td></tr>
+                    <tr><td><strong>= Contribution profit</strong></td><td><strong>$40</strong></td></tr>
+                    <tr><td><strong>Contribution margin</strong></td><td><strong>40%</strong></td></tr>
+                </table>
+
+                <p>Now apply the formula:</p>
+
+                <div class="formula-block">
+                    Break-even ROAS = 1 / 0.40 = 2.5x
+                </div>
+
+                <p>At 2.5x ROAS, this business breaks even on contribution, before fixed costs. Every dollar of ROAS above 2.5x generates actual profit. Every dollar below burns cash.</p>
+
+                <div class="callout-box">
+                    <p><strong>This is why generic ROAS benchmarks are useless.</strong> Your contribution margin structure is unique. Your fixed cost base is unique. Your target should be too.</p>
+                </div>
+
+                <div class="article-image">
+                    <img src="/assets/images/roas-targets-image-2.png" alt="Revenue to Contribution Profit Waterfall" loading="lazy">
+                </div>
+            </section>
+
+            <section id="blended-vs-platform">
+                <h2>Blended ROAS vs Platform ROAS: The Attribution Trap</h2>
+
+                <p>Here's a truth most media buyers avoid:</p>
+
+                <p class="pull-quote">Platform ROAS is a lie.</p>
+
+                <p>Not intentionally, but structurally. Every ad platform has incentive to claim credit for conversions. Attribution windows, view-through conversions, and cross-device modeling all inflate reported results.</p>
+
+                <p><strong>What platform ROAS measures:</strong> Conversions the platform's model attributes to ads, divided by spend.</p>
+
+                <p><strong>What blended ROAS measures:</strong> Total revenue divided by total ad spend. No attribution modeling. Just math.</p>
+
+                <div class="formula-block">
+                    Blended ROAS = Total Revenue / Total Ad Spend
+                </div>
+
+                <p>The gap between these numbers reveals your incrementality problem.</p>
+
+                <div class="article-image">
+                    <img src="/assets/images/roas-targets-image-3.png" alt="Platform ROAS vs Blended ROAS Comparison" loading="lazy">
+                </div>
+
+                <p><strong>The operating principle:</strong> Set targets based on blended ROAS. Use platform ROAS for directional optimization within campaigns. Never confuse one for the other.</p>
+            </section>
+
+            <section id="ltv-changes">
+                <h2>How LTV Changes Your ROAS Target</h2>
+
+                <p>Everything above assumes a single transaction. But most ecommerce brands have repeat customers.</p>
+
+                <p><strong>If customers come back, your acceptable first-purchase ROAS drops.</strong></p>
+
+                <p>Here's the logic:</p>
+
+                <p>A brand with 30% 12-month repeat rate isn't acquiring a $100 customer, they're acquiring a $130 customer (on average). If contribution margin is 40%, that's $52 in lifetime contribution versus $40 from a single order.</p>
+
+                <div class="formula-block">
+                    LTV-adjusted break-even ROAS = 1 / (Contribution Margin x LTV Multiplier)
+                </div>
+
+                <p>If your LTV multiplier is 1.3x and contribution margin is 40%:</p>
+
+                <div class="formula-block">
+                    LTV-adjusted break-even = 1 / (0.40 x 1.3) = 1 / 0.52 = 1.92x
+                </div>
+
+                <p>Suddenly, a 2.0x first-purchase ROAS is profitable, not a failure.</p>
+
+                <h3>But there's a catch: payback period.</h3>
+
+                <p>LTV is realized over time. If your average customer takes 8 months to generate their full value, you need the cash flow to survive those 8 months. A business with tight cash can't afford to wait.</p>
+
+                <div class="article-image">
+                    <img src="/assets/images/roas-targets-image-4.png" alt="LTV Cohort Retention Curve" loading="lazy">
+                </div>
+
+                <p>This is why subscription brands and consumables brands can run at seemingly "unprofitable" ROAS while building valuable businesses. They're playing a different financial game.</p>
+            </section>
+
+            <section id="lower-smarter">
+                <h2>When Lower ROAS Is Actually Smarter</h2>
+
+                <p>Not all growth phases have the same ROAS target.</p>
+
+                <ul>
+                    <li><strong>Scaling phase:</strong> When you've found product-market fit and have cash runway, accepting lower ROAS to capture market share often makes sense. You're trading short-term margin for long-term customer base.</li>
+                    <li><strong>Survival phase:</strong> When cash is tight, ROAS discipline tightens. You can't afford to fund customer acquisition on credit.</li>
+                    <li><strong>New customer acquisition:</strong> Acquiring new customers is almost always more expensive than retargeting existing ones. If your blended ROAS mixes both, your "new customer ROAS" is probably lower than the headline number. That's fine, if you're accounting for it.</li>
+                    <li><strong>Creative expansion:</strong> Testing new angles, audiences, and formats requires accepting lower efficiency during the learning period. A strict ROAS target kills innovation.</li>
+                </ul>
+
+                <div class="callout-box">
+                    <p><strong>The capital allocation lens:</strong> ROAS targets should flex based on your strategic phase, cash position, and growth objectives. A single static target is a sign of unsophisticated financial planning.</p>
+                </div>
+            </section>
+
+            <section id="practical-framework">
+                <h2>Practical Framework: How to Set Your Real ROAS Target</h2>
+
+                <p>Here's the operator checklist:</p>
+
+                <div class="article-image">
+                    <img src="/assets/images/roas-targets-image-5.png" alt="7-Step ROAS Target Implementation Checklist" loading="lazy">
+                </div>
+
+                <ol>
+                    <li><strong>Calculate your true contribution margin</strong> -- Include all variable costs: COGS, shipping, payment fees, returns, variable fulfillment. Don't use gross margin as a proxy.</li>
+                    <li><strong>Define your acceptable payback window</strong> -- How long can you wait for a customer to become profitable? 30 days? 90 days? 12 months? This depends on cash position and growth goals.</li>
+                    <li><strong>Model your LTV multiplier</strong> -- What's your 12-month revenue per customer versus first-order revenue? Use actual cohort data, not assumptions.</li>
+                    <li><strong>Calculate blended break-even ROAS</strong> -- Use the formula. Adjust for fixed costs if you want full break-even.</li>
+                    <li><strong>Adjust for growth phase</strong> -- Aggressive growth: accept 10-20% below break-even. Stable growth: target break-even. Cash preservation: target 20%+ above.</li>
+                    <li><strong>Set a testing tolerance band</strong> -- New campaigns need room to learn. Set a "testing ROAS floor" that's lower than your scaled target, typically 70-80% of target.</li>
+                    <li><strong>Separate new customer vs blended targets</strong> -- If possible, set different ROAS targets for prospecting versus retargeting.</li>
+                </ol>
+            </section>
+
+            <section id="bottom-line">
+                <h2>The Bottom Line</h2>
+
+                <p class="pull-quote">ROAS is not a goal. It is a financial constraint inside a broader growth model.</p>
+
+                <p>The brands that win don't chase arbitrary ROAS benchmarks. They understand their contribution margin, model their LTV, measure blended performance, and set targets that align with their strategic phase.</p>
+
+                <p><strong>A 3x ROAS can bleed cash. A 1.8x ROAS can compound wealth.</strong></p>
+
+                <p>The number doesn't tell you anything until you understand the math underneath it.</p>
+
+                <p>Set targets from first principles. Measure what matters. Build a business, not a dashboard.</p>
+            </section>
+
+            <div class="related-links">
+                <h4>Related Reading</h4>
+                <ul>
+                    <li><a href="/insights/70-20-10-budget-split">The 70/20/10 Budget Split That Actually Works &rarr;</a></li>
+                    <li><a href="/insights/scaling-google-shopping">Scaling Google Shopping Without Tanking Efficiency &rarr;</a></li>
+                    <li><a href="/insights/account-structure-50k-500k">The Account Structure That Scaled Us From $50K to $500K/mo &rarr;</a></li>
+                </ul>
+            </div>
+
+            <div class="article-cta">
+                <h3>Need Help Building Your Financial Framework?</h3>
+                <p>Book a growth audit. We'll model your contribution margin, calculate your true break-even ROAS, and build a target-setting framework for your business.</p>
+                <a href="/partner" class="btn-primary">Book Your Growth Audit &rarr;</a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo"><img src="/assets/wavystudios-logo.png" alt="Wavy Studios" class="footer-logo-img"></a>
+                    <p>Growth systems, not channel hacks. We build repeatable operating systems that scale your revenue profitably.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/growth-os">Growth OS</a></li>
+                        <li><a href="/paid-social">Paid Social</a></li>
+                        <li><a href="/paid-search">Paid Search</a></li>
+                        <li><a href="/lifecycle">Lifecycle</a></li>
+                        <li><a href="/creative">Creative</a></li>
+                        <li><a href="/cro">CRO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Who We Help</h4>
+                    <ul>
+                        <li><a href="/ecommerce">Ecommerce</a></li>
+                        <li><a href="/lead-gen">Lead Gen</a></li>
+                        <li><a href="/enterprise">Enterprise</a></li>
+                        <li><a href="/insights">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/labs">Labs</a></li>
+                        <li><a href="/insights">Insights</a></li>
+                        <li><a href="/partner">Partner</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wavy Studios. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">Li</a>
+                    <a href="#" aria-label="X (Twitter)">X</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('is-open');
+                mobileToggle.classList.toggle('is-active');
+                mobileMenu.classList.toggle('is-open');
+                mobileToggle.setAttribute('aria-expanded', !isOpen);
+                document.body.style.overflow = isOpen ? '' : 'hidden';
+            });
+        }
+        document.querySelectorAll('.mobile-menu-toggle-sub').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const submenu = btn.nextElementSibling;
+                if (submenu) { submenu.classList.toggle('is-open'); btn.classList.toggle('is-open'); }
+            });
+        });
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileToggle && mobileMenu) {
+                    mobileToggle.classList.remove('is-active');
+                    mobileMenu.classList.remove('is-open');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        document.querySelectorAll('.toc-list a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        function setNavHeight() {
+            const nav = document.querySelector('.site-nav');
+            if (nav) document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
+        }
+        setNavHeight();
+        window.addEventListener('resize', setNavHeight);
+    </script>
+</body>
+</html>
