@@ -247,28 +247,17 @@
             font-style: italic;
         }
 
-        /* Image Placeholder */
-        .image-placeholder {
-            background: var(--bg-subtle);
-            border: 1px dashed var(--border-medium);
-            padding: 3rem 2rem;
+        /* Article Images */
+        .article-image {
             margin: 2.5rem 0;
-            text-align: center;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-medium);
         }
-        .image-placeholder-icon { font-size: 2.5rem; margin-bottom: 1rem; opacity: 0.5; }
-        .image-placeholder-label {
-            font-size: 0.75rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 0.75rem;
-        }
-        .image-placeholder-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            max-width: 500px;
-            margin: 0 auto;
-            line-height: 1.6;
+        .article-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Framework Section */
@@ -848,12 +837,9 @@
                     <p class="mistake-consequence">Second-order consequence: Your team loses trust in testing because "tests never scale." The real problem was scaling prematurely.</p>
                 </div>
 
-                <div class="image-placeholder">
-                    <img src="/assets/images/image-1-roas-graph.png" alt="Chaotic Ad Account Structure">
-                    <div class="image-caption">The typical chaotic ad account: 4 campaigns competing for the same audience, 32% budget waste, $65 CAC when it should be $42.</div>
+                <div class="article-image">
+                    <img src="/assets/images/image-1-roas-graph.png" alt="ROAS volatility over 6 months showing testing cuts and performance decline" loading="lazy">
                 </div>
-
-
             </section>
 
             <section id="framework-explained">
@@ -884,10 +870,8 @@
                     </div>
                 </div>
 
-                <div class="image-placeholder">
-                    <div class="image-placeholder-icon">📊</div>
-                    <div class="image-placeholder-label">Image Suggestion</div>
-                    <p class="image-placeholder-desc">Animated or static pie chart showing the 70/20/10 split. Dark background with lime (70%), blue (20%), and purple (10%) segments. Clean, minimal design with percentage labels.</p>
+                <div class="article-image">
+                    <img src="/assets/images/image-2-pie-chart.png" alt="70/20/10 budget allocation pie chart" loading="lazy">
                 </div>
 
                 <h3>70% - Proven Performers</h3>
@@ -960,10 +944,8 @@
                     </div>
                 </div>
 
-                <div class="image-placeholder">
-                    <div class="image-placeholder-icon">📋</div>
-                    <div class="image-placeholder-label">Image Suggestion</div>
-                    <p class="image-placeholder-desc">Comparison table showing five scenarios (Early Stage, Growth Phase, Cash Constrained, Creative Fatigue, New Channel) with columns for Allocation Split, Primary Goal, and Key Risk. Dark theme with subtle color coding per scenario.</p>
+                <div class="article-image">
+                    <img src="/assets/images/image-3-scenarios-table.png" alt="Budget allocation scenarios comparison table" loading="lazy">
                 </div>
 
                 <p>The point is not to memorize ratios. It's to understand that allocation should respond to business context, but within a disciplined framework, not ad-hoc reactions.</p>
