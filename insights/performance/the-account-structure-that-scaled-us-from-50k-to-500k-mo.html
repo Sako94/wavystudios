@@ -38,7 +38,7 @@
         "author": {"@type": "Organization", "name": "Wavy Studios"},
         "publisher": {"@type": "Organization", "name": "Wavy Studios", "logo": {"@type": "ImageObject", "url": "https://wavystudios.com/assets/wavystudios-logo.png"}},
         "datePublished": "2026-01-15",
-        "dateModified": "2026-01-15"
+        "dateModified": "2026-02-21"
     }
     </script>
 
@@ -261,6 +261,63 @@
             margin-bottom: 12px;
         }
         .framework-item p { font-size: 13px; margin: 0; }
+
+        /* Roadmap */
+        .roadmap {
+            margin: 32px 0;
+        }
+        .roadmap-phase {
+            position: relative;
+            padding-left: 2rem;
+            padding-bottom: 2rem;
+            border-left: 2px solid var(--border-medium);
+        }
+        .roadmap-phase:last-child {
+            border-left-color: transparent;
+            padding-bottom: 0;
+        }
+        .roadmap-phase::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .phase-label {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .phase-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .phase-body {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+        .phase-body ul {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+        }
+        .phase-body li {
+            margin-bottom: 0.4rem;
+        }
 
         /* Divider */
         hr { border: none; border-top: 1px solid var(--border); margin: 60px 0; }
@@ -523,7 +580,7 @@
     <!-- Navigation -->
     <nav class="site-nav" role="navigation" aria-label="Main navigation">
         <a href="/" class="nav-logo">
-            <img src="/assets/wavystudios-logo.png" alt="Wavy Studios" class="nav-logo-img">
+            <img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="nav-logo-img">
         </a>
         <ul class="nav-links">
             <li class="nav-item"><a href="/growth-os" class="nav-link">Growth OS</a></li>
@@ -602,7 +659,7 @@
                 <h1>The Account Structure That Scaled Us From $50K to $500K/mo</h1>
                 <p class="subtitle">Most ad accounts are a mess of overlapping audiences and competing campaigns. Here's the exact structure we use to eliminate cannibalization and unlock profitable scale.</p>
                 <div class="meta">
-                    <span>12 Minute Read</span>
+                    <span>15 Minute Read</span>
                     <span>Performance Systems</span>
                     <span>Framework</span>
                 </div>
@@ -615,6 +672,7 @@
                     <li><a href="#why-break">Why Most Ad Accounts Break at Scale</a></li>
                     <li><a href="#principles">The Structural Principles Behind Our Framework</a></li>
                     <li><a href="#meta-structure">The Meta Ads Account Structure</a></li>
+                    <li><a href="#scaling-roadmap">The Scaling Roadmap</a></li>
                     <li><a href="#google-structure">The Google Ads Account Structure</a></li>
                     <li><a href="#budget-allocation">Budget Allocation System</a></li>
                     <li><a href="#cannibalization">Eliminating Cannibalization</a></li>
@@ -675,7 +733,7 @@
                 <p>The result is performance decay. What worked at $30K/month stops working at $60K. What worked at $60K collapses at $100K.</p>
 
                 <div class="image-container">
-                    <img src="/assets/images/image-1-chaotic-account.png" alt="Chaotic Ad Account Structure">
+                    <img src="assets/account-structure/png/image-1-chaotic-account.png" alt="Chaotic Ad Account Structure">
                     <div class="image-caption">The typical chaotic ad account: 4 campaigns competing for the same audience, 32% budget waste, $65 CAC when it should be $42.</div>
                 </div>
 
@@ -715,7 +773,7 @@
                 </div>
 
                 <div class="image-container">
-                    <img src="/assets/images/image-2-clean-architecture.png" alt="Clean Account Architecture">
+                    <img src="assets/account-structure/png/image-2-clean-architecture.png" alt="Clean Account Architecture">
                     <div class="image-caption">Clean architecture: Three separated lanes for Testing (15-20%), Scaling (60-70%), and Retention (15-20%) with clear signal flow.</div>
                 </div>
 
@@ -732,17 +790,19 @@
                 <p><strong>Purpose:</strong> Validate creative concepts before committing scale budget.</p>
 
                 <div class="info-box">
-                    <h4>Testing Campaign Structure</h4>
+                    <h4>Testing Campaign Principles</h4>
                     <ul>
-                        <li>Campaign Budget Optimization (CBO) or Ad Set Budget Optimization (ABO) depending on test volume</li>
-                        <li>Broad targeting (Advantage+ Audience or minimal constraints)</li>
-                        <li>3-5 ad sets maximum</li>
-                        <li>Each ad set tests a specific creative concept or angle</li>
-                        <li>Daily budget capped at $50-150 per ad set</li>
+                        <li><strong>CBO vs ABO:</strong> Campaign Budget Optimization works when you have high test volume and want Meta to allocate toward winners. Ad Set Budget Optimization gives more control when testing fewer concepts or when you need equal exposure across all tests.</li>
+                        <li><strong>Broad targeting:</strong> Use Advantage+ Audience or minimal constraints. You're testing creative, not audiences. Let the algorithm find who responds.</li>
+                        <li><strong>Limited ad sets:</strong> Cap at 3-5 ad sets per testing campaign. More than that fragments your data and delays statistical significance.</li>
+                        <li><strong>Concept isolation:</strong> Each ad set should test a specific creative concept, angle, or hook. Don't muddy the signal by mixing multiple hypotheses.</li>
+                        <li><strong>Controlled spend:</strong> Budget per ad set should be enough to generate meaningful data within your decision window, but not so much that failures hurt. The percentage matters more than the dollar amount—scale it to your account.</li>
                     </ul>
                 </div>
 
-                <p><strong>Graduation criteria:</strong> Creative that achieves target CPA at $500+ spend graduates to scaling campaigns.</p>
+                <p><strong>Graduation criteria:</strong> Creative "graduates" from testing to scaling when it achieves your target CPA (or target efficiency metric) at sufficient spend. What counts as "sufficient" depends on your average order value and conversion volume—you need enough data to trust the result isn't a fluke.</p>
+
+                <p><strong>Key question:</strong> Would you bet real money that this creative will maintain efficiency at 5-10x the spend? If yes, graduate it. If unsure, let it run longer or test a variation.</p>
 
                 <p><strong>Key rule:</strong> Testing campaigns never receive scale budget. They exist only to identify winners.</p>
 
@@ -751,22 +811,17 @@
                 <p><strong>Purpose:</strong> Maximize delivery of proven creative to qualified audiences.</p>
 
                 <div class="info-box">
-                    <h4>Scaling Campaign Structure</h4>
+                    <h4>Scaling Campaign Principles</h4>
                     <ul>
                         <li>Advantage+ Shopping Campaigns (ASC) for ecommerce, or consolidated CBO campaigns</li>
                         <li>Broad targeting with outcome-based optimization</li>
-                        <li>Only graduated creative from testing</li>
-                        <li>Budget scales based on performance thresholds</li>
-                        <li>Typically 1-3 campaigns maximum</li>
+                        <li>Only graduated creative from testing—no experimentation here</li>
+                        <li>Budget scales based on performance thresholds specific to your account</li>
+                        <li>Typically 1-3 campaigns maximum to maintain data density</li>
                     </ul>
                 </div>
 
-                <p><strong>Budget rules:</strong></p>
-                <ul>
-                    <li>Increase 20-30% every 3-4 days if CPA holds</li>
-                    <li>Decrease 20% if CPA exceeds threshold for 2+ days</li>
-                    <li>Never more than one budget change per 72 hours</li>
-                </ul>
+                <p><strong>Budget approach:</strong> Scaling budget is elastic within performance thresholds. When efficiency holds, increase. When it degrades, pull back. The specific percentages and timing depend on your account's scale, velocity, and how much variance you can tolerate. What matters is having clear thresholds defined in advance—not reacting emotionally to daily fluctuations.</p>
 
                 <p><strong>Key rule:</strong> Scaling campaigns contain only proven winners. No experimentation.</p>
 
@@ -801,7 +856,7 @@
                 <p>This creates clean signal separation. The algorithm knows exactly who each campaign is optimizing for.</p>
 
                 <div class="image-container">
-                    <img src="/assets/images/image-3-meta-hierarchy.png" alt="Meta Ads Campaign Hierarchy">
+                    <img src="assets/account-structure/png/image-3-meta-hierarchy.png" alt="Meta Ads Campaign Hierarchy">
                     <div class="image-caption">Meta Ads hierarchy: Testing to Scaling graduation path, exclusion logic, and naming conventions.</div>
                 </div>
 
@@ -828,6 +883,87 @@ META-RET-PURCHASERS-30D-US-2024Q4</code></pre>
                 </ul>
 
                 <p>This naming system means anyone can audit the account and understand every campaign's purpose in seconds.</p>
+            </section>
+
+            <section id="scaling-roadmap">
+                <h2>The Scaling Roadmap</h2>
+
+                <p>Account structure is the foundation. But structure alone doesn't create scale—execution does. Here's how we approach scaling from foundation to full velocity.</p>
+
+                <p>The specific spend targets depend on your account and market. What matters is the progression: each phase builds on the previous one, and you don't move forward until the current phase is working.</p>
+
+                <div class="roadmap">
+                    <div class="roadmap-phase">
+                        <div class="phase-header">
+                            <span class="phase-label">Month 1</span>
+                            <span class="phase-title">Foundation</span>
+                        </div>
+                        <div class="phase-body">
+                            <ul>
+                                <li>Audit current account, implement CAPI tracking, set up testing vs. scaling structure</li>
+                                <li>Brainstorm 30+ buying reasons, produce 20-25 new concept ads</li>
+                                <li>Launch testing at controlled budget—no changes until you have meaningful data (typically 5-7 days minimum)</li>
+                                <li>Identify 3-5 winners, graduate to scaling campaign</li>
+                                <li>Launch second round of 20-25 new tests</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <div class="phase-header">
+                            <span class="phase-label">Month 2</span>
+                            <span class="phase-title">Expansion</span>
+                        </div>
+                        <div class="phase-body">
+                            <ul>
+                                <li>Analyze winning patterns—which formats, angles, and archetypes are hitting?</li>
+                                <li>Double down on winning formats with 40-50 new ads based on proven concepts</li>
+                                <li>Launch multiple testing campaigns in parallel if volume supports it</li>
+                                <li>Optimize funnel based on data: load speed, checkout flow, mobile UX</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <div class="phase-header">
+                            <span class="phase-label">Month 3</span>
+                            <span class="phase-title">Optimization</span>
+                        </div>
+                        <div class="phase-body">
+                            <ul>
+                                <li>Creator partnerships for UGC at scale</li>
+                                <li>Implement 14-day creative refresh cycle to combat fatigue</li>
+                                <li>Split test funnels and landing pages</li>
+                                <li>Add upsells/downsells, test price points</li>
+                                <li>Optimize backend (email, SMS, retention) to increase LTV</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <div class="phase-header">
+                            <span class="phase-label">Months 4-6</span>
+                            <span class="phase-title">Scale</span>
+                        </div>
+                        <div class="phase-body">
+                            <ul>
+                                <li>Team of 3-5 managing creative production</li>
+                                <li>Dedicated media buyer focused on optimization</li>
+                                <li>100+ new ads produced per week</li>
+                                <li>10+ campaigns running simultaneously</li>
+                                <li>Multiple funnels being tested concurrently</li>
+                                <li>At 5-10% win rate, that's 5-10 new scaling opportunities per week</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <p><strong>After 12 weeks:</strong> You should have 60-120 proven winners in rotation, a systematic testing machine feeding your scaling campaigns, and clear visibility into what's working and why.</p>
+
+                <div class="info-box accent">
+                    <h4>The Compounding Effect</h4>
+                    <p>Every winner you find and scale creates budget headroom to test more aggressively. The brands that scale fastest aren't necessarily the ones with the best single ad—they're the ones with the best system for finding winners repeatedly.</p>
+                </div>
             </section>
 
             <section id="google-structure">
@@ -864,23 +1000,38 @@ META-RET-PURCHASERS-30D-US-2024Q4</code></pre>
                 <h4>Campaign Types</h4>
                 <ul>
                     <li><strong>Branded:</strong> Exact and phrase match brand terms, defensive positioning</li>
-                    <li><strong>Non-branded intent tiers:</strong> Segmented by purchase intent level</li>
+                    <li><strong>Non-branded:</strong> Segmented by intent based on your keyword research</li>
                     <li><strong>Competitor:</strong> Competitor brand terms (separate budget, separate ROAS targets)</li>
                 </ul>
 
                 <h4>Non-Branded Segmentation</h4>
-                <ul>
-                    <li><strong>High intent:</strong> "buy [product]," "[product] discount," "[product] free shipping"</li>
-                    <li><strong>Medium intent:</strong> "[product] reviews," "best [product]," "[product] vs [competitor]"</li>
-                    <li><strong>Low intent:</strong> Broad informational queries (usually excluded or minimal budget)</li>
-                </ul>
 
-                <h4>Match Type Logic</h4>
-                <ul>
-                    <li><strong>Exact match:</strong> Proven converters</li>
-                    <li><strong>Phrase match:</strong> Controlled expansion</li>
-                    <li><strong>Broad match:</strong> Testing only with tight negatives</li>
-                </ul>
+                <p>Intent isn't a fixed category you assign from a playbook. It emerges from your keyword research—what has volume, what's competitive, what converts. When you analyze demand and competition, patterns appear: some keywords signal high purchase intent, others are informational, others are comparison shopping.</p>
+
+                <p><strong>Segment based on what the data tells you, not predetermined buckets.</strong> The goal is to separate keyword groups that behave differently so you can bid and budget appropriately.</p>
+
+                <div class="info-box">
+                    <h4>Research First</h4>
+                    <p>Before building non-brand campaigns, map out your keyword universe. Group by actual search behavior and competitive landscape. The structure should reflect reality, not theory.</p>
+                </div>
+
+                <h4>Match Type Logic: Measurement First</h4>
+
+                <p>The conventional wisdom is that match types are about controlling which queries you show for. That's true, but it misses the more important point: <strong>match types should be determined by your measurement infrastructure.</strong></p>
+
+                <p>Here's the hierarchy that actually matters:</p>
+
+                <ol>
+                    <li><strong>Measurement infrastructure first</strong> — Proper conversion tracking, CAPI implementation, and most importantly: the ability to distinguish new customers from returning customers.</li>
+                    <li><strong>New customer focus as strategy</strong> — When you can measure NC vs. returning customer acquisition separately, you can optimize for what actually grows the business—new customer volume and efficiency.</li>
+                    <li><strong>This enables broader match types</strong> — With solid NC tracking, you can let Google's smart bidding go broader because you're measuring what matters. Broad match with NC-focused tROAS bidding often outperforms tightly controlled exact match without NC visibility.</li>
+                    <li><strong>Negatives are tactical, not strategic</strong> — Negative keywords matter, but they're refinements, not the core approach. If your measurement is solid and your NC strategy is clear, you'll make more money going broader with good tracking than going narrow with great negatives.</li>
+                </ol>
+
+                <div class="info-box accent">
+                    <h4>The NC Measurement Gap</h4>
+                    <p>Most accounts can't tell you what percentage of their Google conversions are new customers vs. returning. Until you fix that, you're flying blind. It's the single most important measurement gap to close.</p>
+                </div>
 
                 <h3>Performance Max Logic</h3>
 
@@ -890,7 +1041,7 @@ META-RET-PURCHASERS-30D-US-2024Q4</code></pre>
                     <li><strong>Asset group segmentation:</strong> Separate asset groups by product category or margin tier</li>
                     <li><strong>Feed filtering:</strong> Custom labels to control which products enter PMax</li>
                     <li><strong>Audience signals:</strong> Layered but not restrictive</li>
-                    <li><strong>Negative keyword layering:</strong> Search theme exclusions to prevent query cannibalization with Search campaigns</li>
+                    <li><strong>Brand keyword exclusions:</strong> Add brand terms as negatives to prevent PMax from cannibalizing cheaper branded search traffic</li>
                 </ul>
 
                 <div class="info-box accent">
@@ -899,7 +1050,7 @@ META-RET-PURCHASERS-30D-US-2024Q4</code></pre>
                 </div>
 
                 <div class="image-container">
-                    <img src="/assets/images/image-4-google-structure.png" alt="Google Ads Account Structure">
+                    <img src="assets/account-structure/png/image-4-google-structure.png" alt="Google Ads Account Structure">
                     <div class="image-caption">Google Ads structure: Shopping tiers, Search intent segmentation, and PMax constraint layers.</div>
                 </div>
 
@@ -923,16 +1074,16 @@ GOOGLE-PMAX-HERO-US</code></pre>
                 <p>Structure simplifies budget decisions. Here's the allocation framework:</p>
 
                 <div class="image-container">
-                    <img src="/assets/images/image-5-budget-allocation.png" alt="Budget Allocation Framework">
+                    <img src="assets/account-structure/png/image-5-budget-allocation.png" alt="Budget Allocation Framework">
                     <div class="image-caption">Budget allocation: Testing (15-20%), Scaling (60-70%), Retention (15-20%) with clear rules for each.</div>
                 </div>
 
                 <div class="info-box">
-                    <h4>Allocation Rules</h4>
+                    <h4>Allocation Principles</h4>
                     <ul>
-                        <li><strong>Testing: 15-20% of total spend</strong> -- Capped, not elastic. Funds creative exploration. Never increases without scaling budget increasing first.</li>
-                        <li><strong>Scaling: 60-70% of total spend</strong> -- Elastic within performance thresholds. Where profitable growth happens. Increases only when CPA/ROAS holds.</li>
-                        <li><strong>Retention: 15-20% of total spend</strong> -- Stable allocation. Efficiency layer, not growth lever. Adjusts seasonally, not weekly.</li>
+                        <li><strong>Testing: 15-20% of total spend</strong> — Capped, not elastic. Funds creative exploration. Never increases without scaling budget increasing first.</li>
+                        <li><strong>Scaling: 60-70% of total spend</strong> — Elastic within performance thresholds. Where profitable growth happens. Increases only when efficiency holds.</li>
+                        <li><strong>Retention: 15-20% of total spend</strong> — Stable allocation. Efficiency layer, not growth lever. Adjusts seasonally, not weekly.</li>
                     </ul>
                 </div>
 
@@ -940,11 +1091,11 @@ GOOGLE-PMAX-HERO-US</code></pre>
 
                 <ul>
                     <li>If testing produces winners faster than scaling can absorb, increase scaling allocation</li>
-                    <li>If scaling CPA exceeds threshold for 7+ days, reduce scaling and increase testing</li>
-                    <li>If retention ROAS exceeds 5x target, test slight budget increase</li>
+                    <li>If scaling efficiency degrades for an extended period, reduce scaling and increase testing</li>
+                    <li>If retention efficiency significantly exceeds targets, test slight budget increase</li>
                 </ul>
 
-                <p class="emphasis">Stability window: 7 days minimum between reallocation decisions.</p>
+                <p class="emphasis">Stability window: Allow sufficient time between reallocation decisions—avoid reacting to daily noise.</p>
             </section>
 
             <section id="cannibalization">
@@ -972,7 +1123,7 @@ GOOGLE-PMAX-HERO-US</code></pre>
                 </ul>
 
                 <div class="image-container">
-                    <img src="/assets/images/image-6-cannibalization-table.png" alt="Cannibalization Impact Comparison">
+                    <img src="assets/account-structure/png/image-6-cannibalization-table.png" alt="Cannibalization Impact Comparison">
                     <div class="image-caption">Before vs After: Same spend, different architecture. CAC dropped from $65 to $42. ROAS improved from 2.1x to 3.4x.</div>
                 </div>
             </section>
@@ -1023,7 +1174,7 @@ GOOGLE-SHOP-NB-TIER1-US_HERO-SKUS</code></pre>
                 <p>The compounding effect is real. Clean structure creates clean data. Clean data enables better decisions. Better decisions compound into sustainable scale.</p>
 
                 <div class="image-container">
-                    <img src="/assets/images/image-7-growth-timeline.png" alt="Revenue Growth Timeline">
+                    <img src="assets/account-structure/png/image-7-growth-timeline.png" alt="Revenue Growth Timeline">
                     <div class="image-caption">Growth trajectory: Flat at $50-80K for months, then consistent 25-30% month-over-month growth after structural rebuild.</div>
                 </div>
             </section>
@@ -1042,7 +1193,7 @@ GOOGLE-SHOP-NB-TIER1-US_HERO-SKUS</code></pre>
                         <li><strong>Separate testing and scaling.</strong> Create distinct campaign lanes. Move unproven creative to testing. Keep only winners in scaling.</li>
                         <li><strong>Apply naming system.</strong> Rename everything. Yes, everything. Consistency enables governance.</li>
                         <li><strong>Build exclusion stacks.</strong> Implement audience exclusions across all prospecting campaigns.</li>
-                        <li><strong>Define scaling thresholds.</strong> Document the exact CPA/ROAS threshold that triggers budget increases. Remove ambiguity.</li>
+                        <li><strong>Define scaling thresholds.</strong> Document the exact CPA/ROAS threshold that triggers budget changes. Remove ambiguity.</li>
                         <li><strong>Establish weekly governance.</strong> Block 60 minutes every Friday for structural review. Non-negotiable.</li>
                     </ol>
                 </div>
@@ -1086,7 +1237,7 @@ GOOGLE-SHOP-NB-TIER1-US_HERO-SKUS</code></pre>
         <div class="footer-inner">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="/" class="footer-logo"><img src="/assets/wavystudios-logo.png" alt="Wavy Studios" class="footer-logo-img"></a>
+                    <a href="/" class="footer-logo"><img src="assets/wavystudios-logo.png" alt="Wavy Studios" class="footer-logo-img"></a>
                     <p>Growth systems, not channel hacks. We build repeatable operating systems that scale your revenue profitably.</p>
                 </div>
                 <div class="footer-col">
