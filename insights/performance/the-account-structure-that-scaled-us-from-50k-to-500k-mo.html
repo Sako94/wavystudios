@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Account Structure That Scaled Us From $50K to $500K/mo | Wavy Studios</title>
+    <meta name="description" content="Learn the exact Meta Ads and Google Ads account structure that scaled spend from $50K to $500K/mo profitably. Full framework, naming conventions, and budget systems inside.">
+    <meta name="keywords" content="ad account structure, Meta ads structure, Google ads structure, paid media scaling, campaign architecture, audience cannibalization, naming conventions, budget allocation framework">
+    <meta name="author" content="Wavy Studios">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="The Account Structure That Scaled Us From $50K to $500K/mo | Wavy Studios">
+    <meta property="og:description" content="The exact Meta Ads and Google Ads account structure that scaled spend from $50K to $500K/mo profitably. Full framework, naming conventions, and budget systems.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wavystudios.com/insights/account-structure-50k-500k">
+    <meta property="og:image" content="https://wavystudios.com/assets/images/insights/account-structure-og.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Account Structure That Scaled Us From $50K to $500K/mo">
+    <meta name="twitter:description" content="The exact Meta and Google Ads account structure for profitable scale. Full framework inside.">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://wavystudios.com/insights/account-structure-50k-500k">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Account Structure That Scaled Us From $50K to $500K/mo",
+        "description": "Learn the exact Meta Ads and Google Ads account structure that scaled spend from $50K to $500K/mo profitably.",
+        "author": {"@type": "Organization", "name": "Wavy Studios"},
+        "publisher": {"@type": "Organization", "name": "Wavy Studios", "logo": {"@type": "ImageObject", "url": "https://wavystudios.com/assets/wavystudios-logo.png"}},
+        "datePublished": "2026-01-15",
+        "dateModified": "2026-02-21"
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-card: #111111;
+            --bg-subtle: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --accent: #c8ff00;
+            --accent-dim: rgba(200, 255, 0, 0.1);
+            --border: #222222;
+            --border-medium: #2a2a2a;
+            --blue: #3b82f6;
+            --purple: #8b5cf6;
+            --red: #ff4444;
+            --green: #34a853;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 48px 24px 120px;
+        }
+
+        /* Article Header */
+        .article-header {
+            margin-bottom: 56px;
+            text-align: center;
+        }
+
+        .brand {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.0625rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        .meta {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        /* Typography */
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 80px;
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+
+        p { margin-bottom: 20px; }
+        strong { color: var(--text-primary); font-weight: 700; }
+
+        .emphasis {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.0625rem;
+            margin: 32px 0;
+        }
+
+        /* Pull quote */
+        .pull-quote {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 48px 0;
+            padding-left: 24px;
+            border-left: 3px solid var(--accent);
+            line-height: 1.4;
+        }
+
+        /* Lists */
+        ul, ol { margin: 20px 0 20px 24px; }
+        li { margin-bottom: 12px; }
+
+        /* Code */
+        code {
+            font-family: 'Space Mono', monospace;
+            background: var(--bg-card);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--accent);
+        }
+        pre {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+        pre code { background: none; padding: 0; font-size: 13px; line-height: 1.8; }
+
+        /* Images */
+        .image-container {
+            margin: 48px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .image-container img { width: 100%; height: auto; display: block; }
+        .image-caption {
+            padding: 16px 20px;
+            background: var(--bg-card);
+            font-size: 13px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Info boxes */
+        .info-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            margin: 32px 0;
+        }
+        .info-box.accent {
+            border-color: var(--accent);
+            background: var(--accent-dim);
+        }
+        .info-box h4 { margin-top: 0; margin-bottom: 16px; }
+        .info-box ul { margin-bottom: 0; }
+        .info-box li:last-child { margin-bottom: 0; }
+
+        /* Checklist */
+        .checklist {
+            background: var(--bg-card);
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 40px 0;
+        }
+        .checklist h4 { color: var(--accent); margin-top: 0; margin-bottom: 20px; font-size: 1.125rem; }
+        .checklist ol { margin: 0; padding-left: 20px; }
+        .checklist li { padding: 8px 0; border-bottom: 1px solid var(--border); }
+        .checklist li:last-child { border-bottom: none; }
+
+        /* Framework grid */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 32px 0;
+        }
+        .framework-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .framework-item h5 {
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        .framework-item p { font-size: 13px; margin: 0; }
+
+        /* Roadmap */
+        .roadmap {
+            margin: 32px 0;
+        }
+        .roadmap-phase {
+            position: relative;
+            padding-left: 2rem;
+            padding-bottom: 2rem;
+            border-left: 2px solid var(--border-medium);
+        }
+        .roadmap-phase:last-child {
+            border-left-color: transparent;
+            padding-bottom: 0;
+        }
+        .roadmap-phase::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+        .phase-label {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .phase-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .phase-body {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.7;
+        }
+        .phase-body ul {
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+        }
+        .phase-body li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* Divider */
+        hr { border: none; border-top: 1px solid var(--border); margin: 60px 0; }
+
+        /* Related links */
+        .related-links {
+            margin-top: 64px;
+            padding: 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+        .related-links h4 {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+        .related-links ul { list-style: none; padding: 0; margin: 0; }
+        .related-links li { margin-bottom: 12px; }
+        .related-links a { color: var(--accent); text-decoration: none; font-weight: 700; transition: opacity 0.2s; }
+        .related-links a:hover { opacity: 0.8; }
+
+        /* Article CTA */
+        .article-cta {
+            margin-top: 64px;
+            padding: 48px;
+            background: linear-gradient(135deg, rgba(200, 255, 0, 0.08) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border: 1px solid rgba(200, 255, 0, 0.2);
+            border-radius: 12px;
+            text-align: center;
+        }
+        .article-cta h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0 0 12px 0;
+        }
+        .article-cta p { color: var(--text-secondary); margin-bottom: 24px; }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 16px 32px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { background: var(--text-primary); transform: translateY(-2px); }
+
+        /* Responsive article */
+        @media (max-width: 768px) {
+            .container { padding: 48px 20px 80px; }
+            h1 { font-size: 1.75rem; }
+            h2 { font-size: 1.375rem; }
+            .pull-quote { font-size: 1.25rem; }
+            .meta { flex-wrap: wrap; gap: 16px; }
+            .article-cta { padding: 2rem 1.5rem; }
+            .checklist { padding: 1.5rem; }
+        }
+        @media (max-width: 600px) {
+            .framework-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ========== NAVIGATION ========== */
+        .site-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.98), rgba(10,10,10,0.8));
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid #1a1a1a;
+        }
+        .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+        .nav-logo-img { height: 32px; width: auto; }
+        .nav-links { display: flex; align-items: center; gap: 0.5rem; list-style: none; }
+        .nav-item { position: relative; }
+        .nav-link {
+            display: flex; align-items: center; gap: 0.3rem;
+            padding: 0.75rem 1rem; font-size: 0.75rem;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: #a0a0a0; text-decoration: none; transition: color 0.3s ease;
+        }
+        .nav-link:hover { color: #c8ff00; }
+        .nav-arrow { width: 8px; height: 8px; fill: currentColor; transition: transform 0.3s ease; }
+        .nav-item:hover .nav-arrow { transform: rotate(180deg); }
+        .nav-dropdown {
+            position: absolute; top: 100%; left: 0; min-width: 200px;
+            background: #111111; border: 1px solid #2a2a2a; padding: 0.5rem 0;
+            opacity: 0; visibility: hidden; transform: translateY(10px);
+            transition: all 0.3s ease; list-style: none;
+        }
+        .nav-item:hover .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown-link {
+            display: block; padding: 0.6rem 1.25rem; font-size: 0.8rem;
+            color: #a0a0a0; text-decoration: none; transition: all 0.3s ease;
+        }
+        .dropdown-link:hover { background: #1a1a1a; color: #c8ff00; }
+        .nav-cta {
+            background: #c8ff00; color: #0a0a0a;
+            padding: 0.6rem 1.25rem; font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+            margin-left: 1rem; transition: all 0.3s ease; font-family: 'Space Mono', monospace;
+        }
+        .nav-cta:hover { background: #ffffff; }
+
+        .mobile-toggle {
+            display: none; flex-direction: column; justify-content: center;
+            gap: 5px; width: 32px; height: 32px; padding: 4px;
+            background: none; border: none; cursor: pointer;
+        }
+        .mobile-toggle span { width: 24px; height: 2px; background: #fff; transition: all 0.3s ease; }
+        .mobile-toggle.is-active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .mobile-toggle.is-active span:nth-child(2) { opacity: 0; }
+        .mobile-toggle.is-active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .mobile-menu {
+            display: none; position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #0a0a0a; z-index: 99;
+            padding: 100px 2rem 2rem; overflow-y: auto;
+            opacity: 0; visibility: hidden; transition: all 0.3s ease;
+        }
+        .mobile-menu.is-open { opacity: 1; visibility: visible; }
+        .mobile-menu-list { list-style: none; }
+        .mobile-menu-list > li { border-bottom: 1px solid #1a1a1a; }
+        .mobile-menu-link {
+            display: flex; justify-content: space-between; align-items: center;
+            width: 100%; padding: 1.25rem 0; font-size: 1rem; color: #fff;
+            text-decoration: none; background: none; border: none; cursor: pointer;
+            text-align: left; font-family: 'Space Mono', monospace;
+        }
+        .mobile-menu-link:hover { color: #c8ff00; }
+        .mobile-submenu { display: none; list-style: none; padding: 0 0 1rem 1.5rem; }
+        .mobile-submenu.is-open { display: block; }
+        .mobile-submenu a { display: block; padding: 0.6rem 0; font-size: 0.95rem; color: #a0a0a0; text-decoration: none; }
+        .mobile-submenu a:hover { color: #c8ff00; }
+        .mobile-menu-cta {
+            display: block; width: 100%; margin-top: 2rem; padding: 1rem;
+            background: #c8ff00; color: #0a0a0a; text-align: center;
+            font-weight: 700; font-size: 0.9rem; letter-spacing: 0.1em;
+            text-transform: uppercase; text-decoration: none;
+        }
+
+        /* ========== TOC ========== */
+        .toc {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 28px; margin-bottom: 48px;
+        }
+        .toc-title {
+            font-family: 'Syne', sans-serif; font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent);
+            margin-top: 0; margin-bottom: 20px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .toc-title::before { content: '\00A7'; }
+        .toc-list { list-style: none; counter-reset: toc-counter; padding: 0; margin: 0; }
+        .toc-list li { counter-increment: toc-counter; margin-bottom: 12px; }
+        .toc-list li:last-child { margin-bottom: 0; }
+        .toc-list a {
+            display: flex; align-items: baseline; gap: 12px;
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.9375rem; transition: color 0.2s ease;
+        }
+        .toc-list a::before {
+            content: counter(toc-counter, decimal-leading-zero);
+            font-size: 0.75rem; color: var(--text-muted); font-weight: 700;
+        }
+        .toc-list a:hover { color: var(--accent); }
+
+        section[id] { scroll-margin-top: calc(var(--nav-height, 90px) + 20px); }
+
+        /* ========== FOOTER ========== */
+        .site-footer {
+            background: #111111; border-top: 1px solid #1a1a1a;
+            padding: 4rem 3rem 2rem; margin-top: 0;
+        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; }
+        .footer-grid {
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem; margin-bottom: 3rem;
+        }
+        .footer-logo { display: inline-block; text-decoration: none; }
+        .footer-logo-img { height: 32px; width: auto; }
+        .footer-brand p { color: #666; font-size: 0.9rem; margin-top: 1rem; line-height: 1.6; }
+        .footer-col h4 {
+            font-family: 'Syne', sans-serif; font-size: 0.8rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            margin-bottom: 1.25rem; color: #fff;
+        }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col li { margin-bottom: 0.75rem; }
+        .footer-col a { color: #666; text-decoration: none; font-size: 0.85rem; transition: color 0.3s ease; }
+        .footer-col a:hover { color: #c8ff00; }
+        .footer-bottom {
+            display: flex; justify-content: space-between; align-items: center;
+            padding-top: 2rem; border-top: 1px solid #1a1a1a;
+            font-size: 0.8rem; color: #666;
+        }
+        .footer-social { display: flex; gap: 1.5rem; }
+        .footer-social a { color: #666; text-decoration: none; transition: color 0.3s ease; }
+        .footer-social a:hover { color: #c8ff00; }
+
+        .nav-spacer { height: var(--nav-height, 90px); }
+
+        /* ========== BREADCRUMB ========== */
+        .breadcrumb {
+            position: relative; z-index: 1;
+            background: var(--bg-subtle);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+        .breadcrumb-container {
+            max-width: 800px; margin: 0 auto; padding: 0 24px;
+            display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+        }
+        .breadcrumb-link {
+            color: var(--text-muted); text-decoration: none;
+            font-size: 0.8rem; letter-spacing: 0.05em; transition: color 0.2s ease;
+        }
+        .breadcrumb-link:hover { color: var(--accent); }
+        .breadcrumb-sep { color: var(--text-muted); font-size: 0.75rem; }
+        .breadcrumb-current { color: var(--text-secondary); font-size: 0.8rem; letter-spacing: 0.05em; }
+
+        @media (max-width: 900px) {
+            .site-nav { padding: 1rem 1.5rem; }
+            .nav-links, .nav-cta { display: none; }
+            .mobile-toggle { display: flex; }
+            .mobile-menu { display: block; }
+        }
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+            .toc { padding: 20px; }
+        }
+        @media (max-width: 480px) {
+            .breadcrumb-container { gap: 0.5rem; }
+            .breadcrumb-current { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+        <a href="/" class="nav-logo">
+            <img src="/assets/wavystudios-logo.png" alt="Wavy Studios" class="nav-logo-img">
+
+        </a>
+        <ul class="nav-links">
+            <li class="nav-item"><a href="/growth-os" class="nav-link">Growth OS</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Services <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="/lifecycle" class="dropdown-link">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social" class="dropdown-link">Paid Social</a></li>
+                    <li><a href="/paid-search" class="dropdown-link">Paid Search</a></li>
+                    <li><a href="/creative" class="dropdown-link">Creative System</a></li>
+                    <li><a href="/cro" class="dropdown-link">CRO &amp; Funnels</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/insights" class="nav-link">Case Studies</a></li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10"><path d="M5 7L1 3h8z"/></svg></a>
+                <ul class="nav-dropdown">
+                    <li><a href="/ecommerce" class="dropdown-link">Ecommerce &amp; DTC</a></li>
+                    <li><a href="/lead-gen" class="dropdown-link">Lead Generation</a></li>
+                    <li><a href="/enterprise" class="dropdown-link">Enterprise</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a href="/labs" class="nav-link">Labs</a></li>
+        </ul>
+        <a href="/partner" class="nav-cta">Partner With Us</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
+        <ul class="mobile-menu-list">
+            <li><a href="/" class="mobile-menu-link">Home</a></li>
+            <li><a href="/growth-os" class="mobile-menu-link">Growth OS</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Services <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/lifecycle">Lifecycle Marketing</a></li>
+                    <li><a href="/paid-social">Paid Social</a></li>
+                    <li><a href="/paid-search">Paid Search</a></li>
+                    <li><a href="/creative">Creative System</a></li>
+                    <li><a href="/cro">CRO &amp; Funnels</a></li>
+                </ul>
+            </li>
+            <li><a href="/insights" class="mobile-menu-link">Case Studies</a></li>
+            <li class="mobile-menu-group">
+                <button class="mobile-menu-link mobile-menu-toggle-sub" type="button">Who We Help <svg class="nav-arrow" viewBox="0 0 10 10" width="12" height="12"><path d="M5 7L1 3h8z"/></svg></button>
+                <ul class="mobile-submenu">
+                    <li><a href="/ecommerce">Ecommerce &amp; DTC</a></li>
+                    <li><a href="/lead-gen">Lead Generation</a></li>
+                    <li><a href="/enterprise">Enterprise</a></li>
+                </ul>
+            </li>
+            <li><a href="/labs" class="mobile-menu-link">Labs</a></li>
+            <li style="border:none;padding-top:1.5rem;"><a href="/partner" class="mobile-menu-cta">Partner With Us</a></li>
+        </ul>
+    </div>
+
+    <div class="nav-spacer"></div>
+
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="/" class="breadcrumb-link">Home</a>
+            <span class="breadcrumb-sep">&rarr;</span>
+            <a href="/insights" class="breadcrumb-link">Insights</a>
+            <span class="breadcrumb-sep">&rarr;</span>
+            <span class="breadcrumb-current">Account Structure Framework</span>
+        </div>
+    </nav>
+
+    <main>
+        <article class="container">
+            <header class="article-header">
+                <div class="brand">Wavy Studios</div>
+                <h1>The Account Structure That Scaled Us From $50K to $500K/mo</h1>
+                <p class="subtitle">Most ad accounts are a mess of overlapping audiences and competing campaigns. Here's the exact structure we use to eliminate cannibalization and unlock profitable scale.</p>
+                <div class="meta">
+                    <span>15 Minute Read</span>
+                    <span>Performance Systems</span>
+                    <span>Framework</span>
+                </div>
+            </header>
+
+            <nav class="toc" aria-label="Table of contents">
+                <h2 class="toc-title">In This Article</h2>
+                <ol class="toc-list">
+                    <li><a href="#ceiling">The Real Reason Ad Accounts Hit a Ceiling</a></li>
+                    <li><a href="#why-break">Why Most Ad Accounts Break at Scale</a></li>
+                    <li><a href="#principles">The Structural Principles Behind Our Framework</a></li>
+                    <li><a href="#meta-structure">The Meta Ads Account Structure</a></li>
+                    <li><a href="#scaling-roadmap">The Scaling Roadmap</a></li>
+                    <li><a href="#google-structure">The Google Ads Account Structure</a></li>
+                    <li><a href="#budget-allocation">Budget Allocation System</a></li>
+                    <li><a href="#cannibalization">Eliminating Cannibalization</a></li>
+                    <li><a href="#naming-governance">Naming Conventions and Governance</a></li>
+                    <li><a href="#what-changed">Scaling From $50K to $500K: What Actually Changed</a></li>
+                    <li><a href="#implementation">Operator Implementation Checklist</a></li>
+                    <li><a href="#structure-strategy">Structure Is the Strategy</a></li>
+                </ol>
+            </nav>
+
+            <section id="ceiling">
+                <h2>The Real Reason Ad Accounts Hit a Ceiling</h2>
+
+                <p class="emphasis">Most ad accounts don't fail because of bad creatives.</p>
+
+                <p class="emphasis">They fail because of bad structure.</p>
+
+                <p>You can have the best creative team in the world, but if your account architecture creates internal competition, you're paying to cannibalize yourself. Every dollar you add creates diminishing returns. Every "scaling" attempt just inflates CAC.</p>
+
+                <p>We see this constantly. Brands hit $50K to $100K per month in spend and suddenly nothing works. Creative that performed stops performing. CPMs spike. ROAS compresses. The instinct is to blame the algorithm, the creative, the market.</p>
+
+                <p><strong>The real problem is structural.</strong></p>
+
+                <p>Your ad account is a signal management system. When that system has unclear boundaries, overlapping audiences, and fragmented budgets, you're feeding the algorithm conflicting data. It optimizes against itself. You're not scaling, you're creating chaos.</p>
+
+                <p>This article documents the exact account architecture we use to eliminate that chaos. The same structure that took accounts from $50K to $500K per month in spend while maintaining, and often improving, profitability.</p>
+
+                <p>This isn't theory. It's operational infrastructure.</p>
+            </section>
+
+            <section id="why-break">
+                <h2>Why Most Ad Accounts Break at Scale</h2>
+
+                <p>Before building the solution, you need to understand why accounts break.</p>
+
+                <h3>The Common Structural Issues</h3>
+
+                <ul>
+                    <li><strong>Overlapping audiences.</strong> Multiple campaigns targeting the same people with different budgets and different creatives. The algorithm can't determine priority. You bid against yourself in the same auction.</li>
+                    <li><strong>Competing campaigns targeting identical segments.</strong> A prospecting campaign and a "scaling" campaign both running broad targeting to the same geo. They're the same campaign with different names, and different budgets fighting for the same impressions.</li>
+                    <li><strong>Budget fragmentation.</strong> Spend distributed across fifteen campaigns with no clear hierarchy. No single campaign has enough budget to exit learning phase. None have enough data density for optimization.</li>
+                    <li><strong>Mixing testing and scaling in the same campaigns.</strong> Unproven creative competing against proven winners. Budget flowing to tests that drag down overall performance.</li>
+                    <li><strong>Poor naming conventions.</strong> Campaigns named "Test 1" and "Scale March" and "New Creative." No one knows what's running or why. Governance becomes impossible.</li>
+                    <li><strong>Lack of profit segmentation.</strong> High-margin and low-margin products mixed together. ROAS targets that don't reflect actual contribution margin.</li>
+                </ul>
+
+                <h3>The Second-Order Consequences</h3>
+
+                <p>These issues create compounding problems:</p>
+
+                <ul>
+                    <li><strong>Cannibalization:</strong> Campaigns steal conversions from each other</li>
+                    <li><strong>Inflated CAC:</strong> You pay premium prices to reach people you're already reaching</li>
+                    <li><strong>Signal dilution:</strong> The algorithm receives mixed signals and can't optimize cleanly</li>
+                    <li><strong>Budget inefficiency:</strong> Spend flows to the wrong places with no governance</li>
+                </ul>
+
+                <p>The result is performance decay. What worked at $30K/month stops working at $60K. What worked at $60K collapses at $100K.</p>
+
+                <div class="image-container">
+                    <img src="/assets/account-structure/png/image-1-chaotic-account.png" alt="Chaotic Ad Account Structure">
+                    <div class="image-caption">The typical chaotic ad account: 4 campaigns competing for the same audience, 32% budget waste, $65 CAC when it should be $42.</div>
+                </div>
+
+                <p>This is what most accounts look like at scale. A mess of overlapping intent with no clear hierarchy.</p>
+            </section>
+
+            <section id="principles">
+                <h2>The Structural Principles Behind Our Framework</h2>
+
+                <p>Before revealing the actual structure, understand the principles that drive it.</p>
+
+                <div class="framework-grid">
+                    <div class="framework-item">
+                        <h5>Separation of Intent</h5>
+                        <p>Prospecting, consideration, and retention require different audiences, messaging, and success metrics.</p>
+                    </div>
+                    <div class="framework-item">
+                        <h5>Testing vs Scaling</h5>
+                        <p>Testing is exploration. Scaling is exploitation. They require different budget logic.</p>
+                    </div>
+                    <div class="framework-item">
+                        <h5>Budget Clarity</h5>
+                        <p>Every dollar should have a clear purpose. Testing capped. Scaling elastic. Retention stable.</p>
+                    </div>
+                    <div class="framework-item">
+                        <h5>Profit Segmentation</h5>
+                        <p>Structure should reflect margin realities, not just ROAS targets.</p>
+                    </div>
+                    <div class="framework-item">
+                        <h5>Signal Isolation</h5>
+                        <p>Each campaign sends clean signals. The algorithm optimizes faster and more accurately.</p>
+                    </div>
+                    <div class="framework-item">
+                        <h5>Controlled Overlap</h5>
+                        <p>Some overlap is inevitable. The goal is managed overlap with clear exclusion logic.</p>
+                    </div>
+                </div>
+
+                <div class="image-container">
+                    <img src="/assets/account-structure/png/image-2-clean-architecture.png" alt="Clean Account Architecture">
+                    <div class="image-caption">Clean architecture: Three separated lanes for Testing (15-20%), Scaling (60-70%), and Retention (15-20%) with clear signal flow.</div>
+                </div>
+
+                <p>This is what clarity looks like. Each lane has a purpose. Each dollar has a destination.</p>
+            </section>
+
+            <section id="meta-structure">
+                <h2>The Meta Ads Account Structure</h2>
+
+                <p>Here's the exact Meta Ads architecture we deploy.</p>
+
+                <h3>Layer 1: Testing Campaigns</h3>
+
+                <p><strong>Purpose:</strong> Validate creative concepts before committing scale budget.</p>
+
+                <div class="info-box">
+                    <h4>Testing Campaign Principles</h4>
+                    <ul>
+                        <li><strong>CBO vs ABO:</strong> Campaign Budget Optimization works when you have high test volume and want Meta to allocate toward winners. Ad Set Budget Optimization gives more control when testing fewer concepts or when you need equal exposure across all tests.</li>
+                        <li><strong>Broad targeting:</strong> Use Advantage+ Audience or minimal constraints. You're testing creative, not audiences. Let the algorithm find who responds.</li>
+                        <li><strong>Concept isolation:</strong> Each ad set should test a specific creative concept, angle, or hook. Don't muddy the signal by mixing multiple hypotheses.</li>
+                        <li><strong>Controlled spend:</strong> Budget per ad set should be enough to generate meaningful data within your decision window, but not so much that failures hurt. The percentage matters more than the dollar amount—scale it to your account.</li>
+                    </ul>
+                </div>
+
+                <p><strong>Graduation criteria:</strong> Creative "graduates" from testing to scaling when it achieves your target CPA (or target efficiency metric) at sufficient spend. What counts as "sufficient" depends on your average order value and conversion volume—you need enough data to trust the result isn't a fluke.</p>
+
+                <p><strong>Key question:</strong> Would you bet real money that this creative will maintain efficiency at 5-10x the spend? If yes, graduate it. If unsure, let it run longer or test a variation.</p>
+
+                <p><strong>Key rule:</strong> Testing campaigns never receive scale budget. They exist only to identify winners.</p>
+
+                <h3>Layer 2: Scaling Campaigns</h3>
+
+                <p><strong>Purpose:</strong> Maximize delivery of proven creative to qualified audiences.</p>
+
+                <div class="info-box">
+                    <h4>Scaling Campaign Principles</h4>
+                    <ul>
+                        <li>Advantage+ Shopping Campaigns (ASC) for ecommerce, or consolidated CBO campaigns</li>
+                        <li>Broad targeting with outcome-based optimization</li>
+                        <li>Only graduated creative from testing—no experimentation here</li>
+                        <li>Budget scales based on performance thresholds specific to your account</li>
+                        <li>Typically 1-3 campaigns maximum to maintain data density</li>
+                    </ul>
+                </div>
+
+                <p><strong>Budget approach:</strong> Scaling budget is elastic within performance thresholds. When efficiency holds, increase. When it degrades, pull back. The specific percentages and timing depend on your account's scale, velocity, and how much variance you can tolerate. What matters is having clear thresholds defined in advance—not reacting emotionally to daily fluctuations.</p>
+
+                <p><strong>Key rule:</strong> Scaling campaigns contain only proven winners. No experimentation.</p>
+
+                <h3>Layer 3: Retention Campaigns</h3>
+
+                <p><strong>Purpose:</strong> Re-engage existing customers and high-intent audiences.</p>
+
+                <div class="info-box">
+                    <h4>Retention Campaign Structure</h4>
+                    <ul>
+                        <li>Separate campaigns for each retention segment</li>
+                        <li>Past purchasers (segmented by recency: 0-30, 31-90, 91-180 days)</li>
+                        <li>Engaged non-purchasers (video viewers, page engagers, add-to-carts)</li>
+                        <li>Email list custom audiences (non-purchasers)</li>
+                    </ul>
+                </div>
+
+                <p><strong>Exclusion logic:</strong> All retention audiences excluded from prospecting and scaling campaigns. No audience overlap.</p>
+
+                <p><strong>Key rule:</strong> Retention budgets stay stable. They're not scale levers, they're efficiency plays.</p>
+
+                <h3>Audience Logic and Exclusion Stacking</h3>
+
+                <p>The exclusion hierarchy is critical:</p>
+
+                <ol>
+                    <li><strong>Scaling campaigns exclude:</strong> All purchasers (180 days), all retention audiences</li>
+                    <li><strong>Testing campaigns exclude:</strong> Same as scaling</li>
+                    <li><strong>Retention campaigns exclude:</strong> Recent purchasers from repurchase campaigns (based on product cycle)</li>
+                </ol>
+
+                <p>This creates clean signal separation. The algorithm knows exactly who each campaign is optimizing for.</p>
+
+                <div class="image-container">
+                    <img src="/assets/account-structure/png/image-3-meta-hierarchy.png" alt="Meta Ads Campaign Hierarchy">
+                    <div class="image-caption">Meta Ads hierarchy: Testing to Scaling graduation path, exclusion logic, and naming conventions.</div>
+                </div>
+
+                <h3>Naming Convention: Meta Ads</h3>
+
+                <p>Every campaign follows this syntax:</p>
+
+                <pre><code>[PLATFORM]-[FUNNEL]-[TYPE]-[TARGETING]-[GEO]-[DATE]</code></pre>
+
+                <p><strong>Examples:</strong></p>
+
+                <pre><code>META-ACQ-TEST-BROAD-US-2024Q4
+META-ACQ-SCALE-BROAD-US-2024Q4
+META-RET-PURCHASERS-30D-US-2024Q4</code></pre>
+
+                <p><strong>Component definitions:</strong></p>
+                <ul>
+                    <li><strong>Platform:</strong> META</li>
+                    <li><strong>Funnel:</strong> ACQ (acquisition), RET (retention)</li>
+                    <li><strong>Type:</strong> TEST, SCALE, EVERGREEN</li>
+                    <li><strong>Targeting:</strong> BROAD, LAL (lookalike), INT (interest), PURCHASERS, ENGAGERS</li>
+                    <li><strong>Geo:</strong> US, UK, CA, EU, etc.</li>
+                    <li><strong>Date:</strong> Year and quarter</li>
+                </ul>
+
+                <p>This naming system means anyone can audit the account and understand every campaign's purpose in seconds.</p>
+            </section>
+
+            <section id="scaling-roadmap">
+                <h2>The Scaling Roadmap</h2>
+
+                <p>Account structure is the foundation. But structure alone doesn't create scale—execution does. Here's how we approach scaling from foundation to full velocity.</p>
+
+                <p>The specific spend targets depend on your account and market. What matters is the progression: each phase builds on the previous one, and you don't move forward until the current phase is working.</p>
+
+                <div class="roadmap">
+                    <div class="roadmap-phase">
+                        <div class="phase-header">
+                            <span class="phase-label">Month 1</span>
+                            <span class="phase-title">Foundation</span>
+                        </div>
+                        <div class="phase-body">
+                            <ul>
+                                <li>Audit current account, implement CAPI tracking, set up testing vs. scaling structure</li>
+                                <li>Brainstorm 30+ buying reasons, produce 20-25 new concept ads</li>
+                                <li>Launch testing at controlled budget—no changes until you have meaningful data (typically 5-7 days minimum)</li>
+                                <li>Identify 3-5 winners, graduate to scaling campaign</li>
+                                <li>Launch second round of 20-25 new tests</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <div class="phase-header">
+                            <span class="phase-label">Month 2</span>
+                            <span class="phase-title">Expansion</span>
+                        </div>
+                        <div class="phase-body">
+                            <ul>
+                                <li>Analyze winning patterns—which formats, angles, and archetypes are hitting?</li>
+                                <li>Double down on winning formats with 40-50 new ads based on proven concepts</li>
+                                <li>Launch multiple testing campaigns in parallel if volume supports it</li>
+                                <li>Optimize funnel based on data: load speed, checkout flow, mobile UX</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <div class="phase-header">
+                            <span class="phase-label">Month 3</span>
+                            <span class="phase-title">Optimization</span>
+                        </div>
+                        <div class="phase-body">
+                            <ul>
+                                <li>Creator partnerships for UGC at scale</li>
+                                <li>Implement 14-day creative refresh cycle to combat fatigue</li>
+                                <li>Split test funnels and landing pages</li>
+                                <li>Add upsells/downsells, test price points</li>
+                                <li>Optimize backend (email, SMS, retention) to increase LTV</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="roadmap-phase">
+                        <div class="phase-header">
+                            <span class="phase-label">Months 4-6</span>
+                            <span class="phase-title">Scale</span>
+                        </div>
+                        <div class="phase-body">
+                            <ul>
+                                <li>Team of 3-5 managing creative production</li>
+                                <li>Dedicated media buyer focused on optimization</li>
+                                <li>100+ new ads produced per week</li>
+                                <li>10+ campaigns running simultaneously</li>
+                                <li>Multiple funnels being tested concurrently</li>
+                                <li>At 5-10% win rate, that's 5-10 new scaling opportunities per week</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <p><strong>After 12 weeks:</strong> You should have 60-120 proven winners in rotation, a systematic testing machine feeding your scaling campaigns, and clear visibility into what's working and why.</p>
+
+                <div class="info-box accent">
+                    <h4>The Compounding Effect</h4>
+                    <p>Every winner you find and scale creates budget headroom to test more aggressively. The brands that scale fastest aren't necessarily the ones with the best single ad—they're the ones with the best system for finding winners repeatedly.</p>
+                </div>
+            </section>
+
+            <section id="google-structure">
+                <h2>The Google Ads Account Structure</h2>
+
+                <p>Google requires different architecture because of query-level intent signals.</p>
+
+                <h3>Google Shopping Structure</h3>
+
+                <h4>Tiered Product Segmentation</h4>
+                <ul>
+                    <li><strong>Tier 1:</strong> Hero SKUs (top 20% by volume and margin)</li>
+                    <li><strong>Tier 2:</strong> Core catalog (solid performers)</li>
+                    <li><strong>Tier 3:</strong> Long tail (low volume, tested opportunistically)</li>
+                </ul>
+
+                <h4>Campaign Structure</h4>
+                <ul>
+                    <li>Separate campaigns per tier</li>
+                    <li>Tier 1 gets priority budget and aggressive targets</li>
+                    <li>Tier 2 runs standard targets</li>
+                    <li>Tier 3 runs conservative targets or PMax only</li>
+                </ul>
+
+                <h4>Brand vs Non-Brand Separation</h4>
+                <ul>
+                    <li>Branded Shopping campaign (captures brand searches)</li>
+                    <li>Non-branded Shopping campaign (pure prospecting)</li>
+                    <li>Negative keyword lists enforce separation</li>
+                </ul>
+
+                <h3>Search Structure</h3>
+
+                <h4>Campaign Types</h4>
+                <ul>
+                    <li><strong>Branded:</strong> Exact and phrase match brand terms, defensive positioning</li>
+                    <li><strong>Non-branded:</strong> Segmented by intent based on your keyword research</li>
+                    <li><strong>Competitor:</strong> Competitor brand terms (separate budget, separate ROAS targets)</li>
+                </ul>
+
+                <h4>Non-Branded Segmentation</h4>
+
+                <p>Intent isn't a fixed category you assign from a playbook. It emerges from your keyword research—what has volume, what's competitive, what converts. When you analyze demand and competition, patterns appear: some keywords signal high purchase intent, others are informational, others are comparison shopping.</p>
+
+                <p><strong>Segment based on what the data tells you, not predetermined buckets.</strong> The goal is to separate keyword groups that behave differently so you can bid and budget appropriately.</p>
+
+                <div class="info-box">
+                    <h4>Research First</h4>
+                    <p>Before building non-brand campaigns, map out your keyword universe. Group by actual search behavior and competitive landscape. The structure should reflect reality, not theory.</p>
+                </div>
+
+                <h4>Match Type Logic: Measurement First</h4>
+
+                <p>The conventional wisdom is that match types are about controlling which queries you show for. That's true, but it misses the more important point: <strong>match types should be determined by your measurement infrastructure.</strong></p>
+
+                <p>Here's the hierarchy that actually matters:</p>
+
+                <ol>
+                    <li><strong>Measurement infrastructure first</strong> — Proper conversion tracking, CAPI implementation, and most importantly: the ability to distinguish new customers from returning customers.</li>
+                    <li><strong>New customer focus as strategy</strong> — When you can measure NC vs. returning customer acquisition separately, you can optimize for what actually grows the business—new customer volume and efficiency.</li>
+                    <li><strong>This enables broader match types</strong> — With solid NC tracking, you can let Google's smart bidding go broader because you're measuring what matters. Broad match with NC-focused tROAS bidding often outperforms tightly controlled exact match without NC visibility.</li>
+                    <li><strong>Negatives are tactical, not strategic</strong> — Negative keywords matter, but they're refinements, not the core approach. If your measurement is solid and your NC strategy is clear, you'll make more money going broader with good tracking than going narrow with great negatives.</li>
+                </ol>
+
+                <div class="info-box accent">
+                    <h4>The NC Measurement Gap</h4>
+                    <p>Most accounts can't tell you what percentage of their Google conversions are new customers vs. returning. Until you fix that, you're flying blind. It's the single most important measurement gap to close.</p>
+                </div>
+
+                <h3>Performance Max Logic</h3>
+
+                <p>PMax requires careful constraint:</p>
+
+                <ul>
+                    <li><strong>Asset group segmentation:</strong> Separate asset groups by product category or margin tier</li>
+                    <li><strong>Feed filtering:</strong> Custom labels to control which products enter PMax</li>
+                    <li><strong>Audience signals:</strong> Layered but not restrictive</li>
+                    <li><strong>Brand keyword exclusions:</strong> Add brand terms as negatives to prevent PMax from cannibalizing cheaper branded search traffic</li>
+                </ul>
+
+                <div class="info-box accent">
+                    <h4>Key Principle</h4>
+                    <p>PMax is not a catch-all. It's a specific tool for specific inventory with specific signals.</p>
+                </div>
+
+                <div class="image-container">
+                    <img src="/assets/account-structure/png/image-4-google-structure.png" alt="Google Ads Account Structure">
+                    <div class="image-caption">Google Ads structure: Shopping tiers, Search intent segmentation, and PMax constraint layers.</div>
+                </div>
+
+                <h3>Naming Convention: Google Ads</h3>
+
+                <pre><code>[PLATFORM]-[CHANNEL]-[INTENT]-[TARGETING]-[GEO]</code></pre>
+
+                <p><strong>Examples:</strong></p>
+
+                <pre><code>GOOGLE-SHOP-NB-TIER1-US
+GOOGLE-SEARCH-BRANDED-EXACT-US
+GOOGLE-SEARCH-NB-HIGHINTENT-US
+GOOGLE-PMAX-HERO-US</code></pre>
+
+                <p>Consistency across platforms reduces cognitive overhead and enables cross-channel reporting.</p>
+            </section>
+
+            <section id="budget-allocation">
+                <h2>Budget Allocation System</h2>
+
+                <p>Structure simplifies budget decisions. Here's the allocation framework:</p>
+
+                <div class="image-container">
+                    <img src="/assets/account-structure/png/image-5-budget-allocation.png" alt="Budget Allocation Framework">
+                    <div class="image-caption">Budget allocation: Testing (15-20%), Scaling (60-70%), Retention (15-20%) with clear rules for each.</div>
+                </div>
+
+                <div class="info-box">
+                    <h4>Allocation Principles</h4>
+                    <ul>
+                        <li><strong>Testing: 15-20% of total spend</strong> — Capped, not elastic. Funds creative exploration. Never increases without scaling budget increasing first.</li>
+                        <li><strong>Scaling: 60-70% of total spend</strong> — Elastic within performance thresholds. Where profitable growth happens. Increases only when efficiency holds.</li>
+                        <li><strong>Retention: 15-20% of total spend</strong> — Stable allocation. Efficiency layer, not growth lever. Adjusts seasonally, not weekly.</li>
+                    </ul>
+                </div>
+
+                <h3>Reallocation Triggers</h3>
+
+                <ul>
+                    <li>If testing produces winners faster than scaling can absorb, increase scaling allocation</li>
+                    <li>If scaling efficiency degrades for an extended period, reduce scaling and increase testing</li>
+                    <li>If retention efficiency significantly exceeds targets, test slight budget increase</li>
+                </ul>
+
+                <p class="emphasis">Stability window: Allow sufficient time between reallocation decisions—avoid reacting to daily noise.</p>
+            </section>
+
+            <section id="cannibalization">
+                <h2>Eliminating Cannibalization</h2>
+
+                <p>Cannibalization is the silent killer of ad accounts. Here's how to eliminate it.</p>
+
+                <h3>Tactical Solutions</h3>
+
+                <ul>
+                    <li><strong>Audience exclusions:</strong> Every prospecting campaign excludes purchasers and retention audiences. No exceptions. No "let the algorithm figure it out."</li>
+                    <li><strong>Time-based segmentation:</strong> Purchaser audiences segmented by recency. A 7-day purchaser and a 90-day purchaser have different intent and value.</li>
+                    <li><strong>Creative intent separation:</strong> Prospecting creative focuses on problem/solution. Retention creative focuses on loyalty and expansion. Never mix.</li>
+                    <li><strong>Search term mining:</strong> Weekly search term reviews to identify query overlap between campaigns. Negative keywords added immediately.</li>
+                    <li><strong>Cross-channel coordination:</strong> Meta retargeting audiences exclude users acquired via Google in the last 7 days (where possible). Prevents paying twice for the same conversion.</li>
+                </ul>
+
+                <h3>Diagnostic Signs of Cannibalization</h3>
+
+                <ul>
+                    <li>Frequency climbing in prospecting campaigns</li>
+                    <li>Audience overlap reports showing 30%+ overlap</li>
+                    <li>CPA spiking when scaling budget increases</li>
+                    <li>Attribution showing same users in multiple campaign touchpoints within short windows</li>
+                </ul>
+
+                <div class="image-container">
+                    <img src="/assets/account-structure/png/image-6-cannibalization-table.png" alt="Cannibalization Impact Comparison">
+                    <div class="image-caption">Before vs After: Same spend, different architecture. CAC dropped from $65 to $42. ROAS improved from 2.1x to 3.4x.</div>
+                </div>
+            </section>
+
+            <section id="naming-governance">
+                <h2>Naming Conventions and Governance</h2>
+
+                <p>Naming conventions aren't administrative overhead. They're operational infrastructure.</p>
+
+                <h3>Complete Naming Examples</h3>
+
+                <p><strong>Campaign level:</strong></p>
+                <pre><code>META-ACQ-SCALE-BROAD-US-2024Q4
+GOOGLE-SHOP-NB-TIER1-US</code></pre>
+
+                <p><strong>Ad set level:</strong></p>
+                <pre><code>META-ACQ-SCALE-BROAD-US-2024Q4_WINNER-HOOK-V2
+GOOGLE-SHOP-NB-TIER1-US_HERO-SKUS</code></pre>
+
+                <p><strong>Ad/creative level:</strong></p>
+                <pre><code>META-ACQ-SCALE-BROAD-US-2024Q4_WINNER-HOOK-V2_UGC-TESTIMONIAL-15S</code></pre>
+
+                <h3>Governance Rules</h3>
+
+                <ol>
+                    <li><strong>No duplicate campaigns.</strong> If a campaign exists for that funnel/intent/geo, use it. Don't create a new one.</li>
+                    <li><strong>Clear graduation rules.</strong> Creative must hit defined thresholds before moving from testing to scaling.</li>
+                    <li><strong>Documentation requirements.</strong> Every campaign has a brief in the shared doc explaining its purpose and target metrics.</li>
+                    <li><strong>Weekly review cadence.</strong> Every Friday: review performance, identify graduates, flag cannibalization, adjust budgets.</li>
+                </ol>
+
+                <p>This isn't bureaucracy. It's how you scale without chaos.</p>
+            </section>
+
+            <section id="what-changed">
+                <h2>Scaling From $50K to $500K: What Actually Changed</h2>
+
+                <p>When we rebuilt accounts using this structure, the unlock wasn't one thing. It was compounding clarity.</p>
+
+                <ul>
+                    <li><strong>Creative velocity increased.</strong> Clear testing lanes meant we could run more experiments without polluting scaling performance.</li>
+                    <li><strong>Budget decisions became simple.</strong> Structure dictated allocation. No debates about which campaign should get more spend.</li>
+                    <li><strong>Testing cycles shortened.</strong> Isolated testing campaigns produced cleaner data faster.</li>
+                    <li><strong>Scaling became predictable.</strong> Graduating winners to scaling campaigns produced consistent results because the environments were controlled.</li>
+                    <li><strong>Margin visibility improved.</strong> Profit tier segmentation meant we knew which products and campaigns actually drove contribution margin, not just ROAS.</li>
+                </ul>
+
+                <p>The compounding effect is real. Clean structure creates clean data. Clean data enables better decisions. Better decisions compound into sustainable scale.</p>
+
+                <div class="image-container">
+                    <img src="/assets/account-structure/png/image-7-growth-timeline.png" alt="Revenue Growth Timeline">
+                    <div class="image-caption">Growth trajectory: Flat at $50-80K for months, then consistent 25-30% month-over-month growth after structural rebuild.</div>
+                </div>
+            </section>
+
+            <section id="implementation">
+                <h2>Operator Implementation Checklist</h2>
+
+                <p>If you're ready to implement this, here's the sequence:</p>
+
+                <div class="checklist">
+                    <h4>Implementation Steps</h4>
+                    <ol>
+                        <li><strong>Audit current structure.</strong> Map every campaign by funnel stage and intent level. Identify what's actually running.</li>
+                        <li><strong>Map campaigns by intent.</strong> Label each campaign: Testing, Scaling, or Retention. Identify orphans that don't fit.</li>
+                        <li><strong>Identify overlaps.</strong> Run audience overlap reports. Flag any overlap above 20%.</li>
+                        <li><strong>Separate testing and scaling.</strong> Create distinct campaign lanes. Move unproven creative to testing. Keep only winners in scaling.</li>
+                        <li><strong>Apply naming system.</strong> Rename everything. Yes, everything. Consistency enables governance.</li>
+                        <li><strong>Build exclusion stacks.</strong> Implement audience exclusions across all prospecting campaigns.</li>
+                        <li><strong>Define scaling thresholds.</strong> Document the exact CPA/ROAS threshold that triggers budget changes. Remove ambiguity.</li>
+                        <li><strong>Establish weekly governance.</strong> Block 60 minutes every Friday for structural review. Non-negotiable.</li>
+                    </ol>
+                </div>
+
+                <p>This isn't a one-day project. It's a two to four week rebuild. But it's the rebuild that unlocks the next 10x.</p>
+            </section>
+
+            <section id="structure-strategy">
+                <h2>Structure Is the Strategy</h2>
+
+                <p class="pull-quote">Ad accounts don't scale because of hacks. They scale because of architecture.</p>
+
+                <p>The brands that break through scaling ceilings aren't finding magic audiences or secret creatives. They're building systems that compound. They're eliminating internal competition. They're giving the algorithm clean signals.</p>
+
+                <p class="emphasis">Structure is the strategy.</p>
+
+                <p>Build it right, and scaling becomes a logistics problem instead of a performance problem. Build it wrong, and every dollar you add makes the chaos worse.</p>
+
+                <p>The framework is here. The implementation sequence is here. The only question is whether you'll rebuild, or keep fighting the same ceiling.</p>
+            </section>
+
+            <div class="related-links">
+                <h4>Related Reading</h4>
+                <ul>
+                    <li><a href="/insights/70-20-10-budget-split">The 70/20/10 Budget Split That Actually Works &rarr;</a></li>
+                    <li><a href="/insights/first-second-order-playbook">The First-to-Second Order Playbook &rarr;</a></li>
+                    <li><a href="/insights/scaling-1m-month-mistake">The Biggest Mistake I Made Scaling to $1M/mo &rarr;</a></li>
+                </ul>
+            </div>
+
+            <div class="article-cta">
+                <h3>Ready to rebuild your account structure?</h3>
+                <p>Book a strategy call and we'll audit your current architecture together.</p>
+                <a href="/partner" class="btn-primary">Book Your Strategy Call &rarr;</a>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo"><img src="/assets/wavystudios-logo.png" alt="Wavy Studios" class="footer-logo-img"></a>
+                    <p>Growth systems, not channel hacks. We build repeatable operating systems that scale your revenue profitably.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="/growth-os">Growth OS</a></li>
+                        <li><a href="/paid-social">Paid Social</a></li>
+                        <li><a href="/paid-search">Paid Search</a></li>
+                        <li><a href="/lifecycle">Lifecycle</a></li>
+                        <li><a href="/creative">Creative</a></li>
+                        <li><a href="/cro">CRO</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Who We Help</h4>
+                    <ul>
+                        <li><a href="/ecommerce">Ecommerce</a></li>
+                        <li><a href="/lead-gen">Lead Gen</a></li>
+                        <li><a href="/enterprise">Enterprise</a></li>
+                        <li><a href="/insights">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="/labs">Labs</a></li>
+                        <li><a href="/insights">Insights</a></li>
+                        <li><a href="/partner">Partner</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wavy Studios. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">Li</a>
+                    <a href="#" aria-label="X (Twitter)">X</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileToggle && mobileMenu) {
+            mobileToggle.addEventListener('click', () => {
+                const isOpen = mobileMenu.classList.contains('is-open');
+                mobileToggle.classList.toggle('is-active');
+                mobileMenu.classList.toggle('is-open');
+                mobileToggle.setAttribute('aria-expanded', !isOpen);
+                document.body.style.overflow = isOpen ? '' : 'hidden';
+            });
+        }
+        document.querySelectorAll('.mobile-menu-toggle-sub').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const submenu = btn.nextElementSibling;
+                if (submenu) { submenu.classList.toggle('is-open'); btn.classList.toggle('is-open'); }
+            });
+        });
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileToggle && mobileMenu) {
+                    mobileToggle.classList.remove('is-active');
+                    mobileMenu.classList.remove('is-open');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        document.querySelectorAll('.toc-list a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+        function setNavHeight() {
+            const nav = document.querySelector('.site-nav');
+            if (nav) document.documentElement.style.setProperty('--nav-height', nav.offsetHeight + 'px');
+        }
+        setNavHeight();
+        window.addEventListener('resize', setNavHeight);
+    </script>
+</body>
+</html>
